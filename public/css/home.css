@@ -1,0 +1,152 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: aliceblue;
+  font-family: "Montserrat", serif;
+  width: 100vw;
+}
+
+:root {
+  --primary-bg: #b62e42;
+}
+
+nav {
+  width: inherit;
+  height: 10vh;
+  background-color: var(--primary-bg);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  font-size: 18px;
+}
+
+#logo {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-size: 25px;
+}
+
+#links {
+  width: 20%;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+}
+
+nav a {
+  text-decoration: none;
+  color: white;
+}
+
+#main {
+  width: inherit;
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#left,
+#right {
+  height: 100%;
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#get-started {
+  width: 405px;
+  transform: translate(-50px, -95px);
+}
+
+#pi {
+  font-size: 45px;
+}
+
+#pii {
+  font-size: 18px;
+}
+
+#get-started-btn {
+  background-color: var(--primary-bg);
+  font-size: 20px;
+  padding: 10px 15px;
+}
+
+button > a {
+  text-decoration: none;
+  color: white;
+}
+
+form {
+  width: 350px;
+  padding: 15px 0;
+  border: 1px solid rgb(160, 159, 159);
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+  box-shadow: 5px 5px 15px rgb(49, 47, 47);
+}
+
+#login-form {
+  height: 280px;
+  transform: translateY(-50px);
+}
+
+#register-form {
+  height: 400px;
+}
+
+input,
+#main-btn {
+  width: 80%;
+  height: 30px;
+  font-size: 15px;
+}
+
+input {
+  padding: 10px;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid black;
+  transition: 350ms;
+}
+
+input:focus {
+  border-bottom: 1px solid var(--primary-bg);
+}
+
+button {
+  cursor: pointer;
+  background-color: var(--primary-bg);
+  color: white;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+}
+
+#alternative {
+  font-size: 15px;
+  color: #808080;
+}
+
+#notification {
+  width: 100vw;
+  text-align: center;
+  position: absolute;
+  transform: translateY(15px);
+}

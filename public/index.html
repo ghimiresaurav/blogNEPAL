@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <link rel="stylesheet" href="./css/home.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Poppins:wght@600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      #main-btn {
+        transform: translateY(10px);
+      }
+
+      #password-input {
+        transform: translateY(10px);
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <div id="logo"><a href="./">BlogNEPAL</a></div>
+      <div id="links">
+        <ul>
+          <li><a href="./about.html">ABOUT US</a></li>
+          <li><a href="./contact.html">CONTACT US</a></li>
+        </ul>
+      </div>
+    </nav>
+    <div id="main">
+      <div id="left">
+        <div id="get-started">
+          <p id="pi">GET STARTED WITH <strong>BlogNEPAL</strong></p>
+          <br />
+          <p id="pii">Post and read Nepali Blogs free of cost</p>
+          <br />
+          <button id="get-started-btn">
+            <a href="./register">GET STARTED</a>
+          </button>
+        </div>
+      </div>
+      <div id="right">
+        <form action="./login" method="post" id="login-form">
+          <input
+            type="text"
+            name="username"
+            id="username-input"
+            placeholder="Enter Username"
+            autocomplete="off"
+            required
+          />
+          <input
+            type="password"
+            name="password"
+            id="password-input"
+            placeholder="Enter Password"
+            required
+          />
+          <button type="submit" id="main-btn">Log In</button>
+          <span id="alternative">
+            Don't have an account? <a href="./register">Register Here</a>
+          </span>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

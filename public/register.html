@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Up!</title>
+    <link rel="stylesheet" href="./css/home.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Poppins:wght@600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <nav>
+      <div id="logo"><a href="./">BlogNEPAL</a></div>
+      <div id="links">
+        <ul>
+          <li><a href="./about.html">ABOUT US</a></li>
+          <li><a href="./contact.html">CONTACT US</a></li>
+        </ul>
+      </div>
+    </nav>
+    <div id="notification"></div>
+    <div id="main">
+      <form id="register-form">
+        <div>
+          <p style="text-align: center">Create an Account</p>
+          <p id="alternative">
+            Already have an account? <a href="./">Sign In</a>
+          </p>
+        </div>
+
+        <input type="text" name="name" id="name" placeholder="Name" required />
+        <input
+          type="text"
+          name="email"
+          id="email"
+          placeholder="Enter Email"
+          required
+        />
+        <input
+          type="password"
+          name="password"
+          id="password"
+          placeholder="Enter Password"
+          required
+        />
+        <input
+          type="password"
+          name="re-password"
+          id="re-password"
+          placeholder="Re-type Password"
+          required
+        />
+        <button type="submit" id="main-btn">Register</button>
+      </form>
+    </div>
+    <script src="./js/validateRegisterForm.js"></script>
+  </body>
+</html>
