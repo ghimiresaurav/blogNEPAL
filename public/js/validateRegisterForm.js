@@ -1,3 +1,4 @@
+const socket = io();
 const form = document.querySelector("form");
 const notification = document.getElementById("notification");
 
@@ -56,13 +57,7 @@ form.addEventListener("submit", (e) => {
     return;
   }
 
-  const formData = new FormData(form);
-  const options = {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ name, email, password }),
-  };
-  fetch("/register/new-user", options);
+  socket.emit("new-user", JSON.stringify({ name, email, password }));
+
+  socket.on("response", (response) => console.log(response));
 });
