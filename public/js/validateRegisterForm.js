@@ -76,11 +76,11 @@ form.addEventListener("submit", (e) => {
   socket.emit("new-user", JSON.stringify({ name, email, password }));
 
   //listen for response from the server
-  socket.on("response", (response) => {
-    const success = JSON.parse(response).registered;
-    if (success) {
-      //notify user
-      notification.innerHTML = `<strong>User Registered Successfully!</strong>`;
+  socket.on("register-response", (response) => {
+    const res = JSON.parse(response);
+    //notify user
+    notification.innerHTML = `<strong>${res.message}</strong>`;
+    if (res.success) {
       //clear the input fields
       fields.forEach((field) => {
         field.value = "";
@@ -89,9 +89,6 @@ form.addEventListener("submit", (e) => {
       setToInitialState(fields);
       //clear notification 3seconds later
       setTimeout(() => (notification.innerHTML = ``), 3000);
-    } else {
-      //notify user
-      notification.innerHTML = `<strong>Email already registered. Try a different email or reset password.</strong>`;
     }
   });
 });

@@ -1,9 +1,11 @@
+const socket = io();
 const form = document.getElementById("login-form");
 const notification = document.getElementById("notification");
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
-  const emailRegex = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+  const emailRegex =
+    /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
 
   //grab input fields
   const fields = [];
@@ -34,7 +36,6 @@ form.addEventListener("submit", (e) => {
     return;
   }
 
-  //send the inputs to server
   const fetchOptions = {
     method: "POST",
     headers: {
@@ -43,5 +44,22 @@ form.addEventListener("submit", (e) => {
     body: JSON.stringify({ email, password }),
   };
 
-  fetch("/login", fetchOptions);
+  fetch("/login", fetchOptions)
+    .then((response) => response.json())
+    .then((data) => {
+      const { success, message, token } = data;
+      // console.log(data);
+      if (success) {
+        notification.innerHTML = `<strong>login successful</strong>`;
+        token && localStorage.setItem("token", token);
+        console.log(`token: ${token}`);
+        window.location.assign("/dashboard");
+      } else notification.innerHTML = `<strong>${message}</strong>`;
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+    });
 });
+
+// if(token)
+// localStorage.setItem('token', token);

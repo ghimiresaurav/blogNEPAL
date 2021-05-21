@@ -5,7 +5,7 @@ const socketio = require("socket.io");
 const http = require("http");
 const bcrypt = require("bcrypt");
 const MongoClient = require("mongodb").MongoClient;
-const { send } = require("process");
+const jwt = require("jsonwebtoken");
 
 //constant database-related variables
 const dbUrl = "mongodb://localhost/27017";
@@ -31,9 +31,13 @@ app.get("/register", (req, res) => {
   res.sendFile(staticDir + "/register.html");
 });
 
+app.get("/dashboard", (req, res) => {
+  res.sendFile(staticDir + "/dashboard.html");
+});
+
 io.on("connection", (socket) => {
-  socket.on("new-user", (string) => {
-    const { name, email, password } = JSON.parse(string);
+  socket.on("new-user", (stringifiedData) => {
+    const { name, email, password } = JSON.parse(stringifiedData);
 
     MongoClient.connect(dbUrl, dbOptions, async (err, client) => {
       if (err) throw err;
@@ -55,57 +59,83 @@ io.on("connection", (socket) => {
           { name, email, password: await bcrypt.hash(password, 10) },
           (err, result) => {
             if (err) throw err;
-            socket.emit("response", JSON.stringify({ registered: true }));
+            socket.emit(
+              "register-response",
+              JSON.stringify({
+                success: true,
+                message: "User Registered Successfully!",
+              })
+            );
           }
         );
       } else {
         //email is already registered
-        socket.emit("response", JSON.stringify({ registered: false }));
+        socket.emit(
+          "register-response",
+          JSON.stringify({
+            success: false,
+            message:
+              "Email already registered. Try a different email or reset password.",
+          })
+        );
       }
       setTimeout(() => client.close(), 10);
     });
   });
 });
 
-const sendResponse = (to, response) => {
-  app.get(to, (req, res) => {
-    res.json(response);
-  });
-};
+// const getUser = (query) => {
+//   MongoClient.connect(dbUrl, dbOptions, async (err, client) => {
+//     if (err) throw err;
+//     const db = client.db(dbName);
+//     const users = await db.collection("users").findOne(query);
+//     console.log(users);
+//     return users;
+//   });
+//   console.log("helrejr");
+// };
 
-app.post("/login", (req, res) => {
+app.post("/login", async (req, res) => {
   const { email, password } = req.body;
 
   MongoClient.connect(dbUrl, dbOptions, async (err, client) => {
     if (err) throw err;
     const db = client.db(dbName);
     const query = { email };
+    const user = await db.collection("users").findOne(query);
 
-    const regUser = await db.collection("users").findOne(query);
-    if (!regUser) {
-      sendResponse("/login/response", {
+    if (!user) {
+      return res.status(401).json({
         success: false,
-        cause: "user does not exist",
+        message: "User not found",
       });
-      // res.send({ success: false, cause: "user does not exist" });
     } else {
-      const correctCredentials = await bcrypt.compare(
-        password,
-        regUser.password
-      );
-      if (correctCredentials) {
-        console.log("correct credentials");
-        sendResponse("/login/response", { success: true });
-        // res.json({ success: true });
+      const correctPassword = await bcrypt.compare(password, user.password);
+      client.close();
+      if (!correctPassword) {
+        {
+          return res.status(401).json({
+            success: false,
+            message: "Incorrect Password",
+          });
+        }
       } else {
-        sendResponse("/login/response", {
-          success: false,
-          cause: "wrong password",
+        // return res.redirect("dashboard");
+        // res.sendFile(staticDir + "/dashboard.html");
+        // console.log("ehre");
+        // res.sendFile("dashboard.html", {
+        //   root: path.join(__dirname, "/public"),
+        // });
+        const token = jwt.sign({ userId: user._id }, "RANDOM_TOKEN_SECRET", {
+          expiresIn: "24h",
         });
-        // res.json({ success: false, cause: "wrong password" });
+        // return res.sendFile(path.join(__dirname, "public", "dashboard.html"));
+        return res.json({
+          success: true,
+          token,
+        });
       }
     }
-    // console.log(regUser);
     client.close();
   });
 });
