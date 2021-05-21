@@ -145,8 +145,7 @@ button {
 }
 
 #notification {
-  width: 100vw;
   text-align: center;
   position: absolute;
-  transform: translateY(15px);
+  top: 13vh;
 }

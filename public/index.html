@@ -19,6 +19,10 @@
       #password-input {
         transform: translateY(10px);
       }
+
+      #notification {
+        width: 50vw;
+      }
     </style>
   </head>
   <body>
@@ -44,19 +48,20 @@
         </div>
       </div>
       <div id="right">
-        <form action="./login" method="post" id="login-form">
+        <div id="notification"></div>
+        <form id="login-form">
           <input
             type="text"
-            name="username"
-            id="username-input"
-            placeholder="Enter Username"
+            name="email"
+            id="email"
+            placeholder="Enter Email"
             autocomplete="off"
             required
           />
           <input
             type="password"
             name="password"
-            id="password-input"
+            id="password"
             placeholder="Enter Password"
             required
           />
@@ -67,6 +72,6 @@
         </form>
       </div>
     </div>
-    <script src="./js/home.js"></script>
+    <script src="./js/login.js"></script>
   </body>
 </html>
