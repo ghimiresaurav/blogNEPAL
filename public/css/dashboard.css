@@ -1,0 +1,140 @@
+*{
+    margin: 0%;
+    padding: 0%;
+    list-style: none;
+    box-sizing: border-box;
+
+}
+
+body 
+{
+   font-family: 'Poppins', sans-serif;
+}
+
+
+.nav-bar {
+  width: 100vw;
+  height: 10vh;
+  background-color:#b62e42;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 20px;
+  font-size: 18px;
+}
+
+#logo
+{  
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-size: 25px;
+}
+
+.search-bar {
+    display: flex; 
+    position: relative;
+    width: 10vw; 
+    margin-right: 350px;
+}
+
+.main-search {
+    height: 40px;
+    border-radius: 50px;
+    border: 0;
+    outline: none;
+    font-family: inherit;
+    background-color: rgb(245, 245, 245);
+    padding-left: 36px;   
+}
+
+
+
+.searchicon {
+    position: absolute;
+    left: 10px;
+    top: 7px;
+    bottom: 8px;
+    align-items: center;
+}
+
+
+
+nav ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 50vw;
+  
+}
+
+nav a {
+  text-decoration: none;
+}
+
+.icons {
+    justify-content: space-evenly;
+}
+
+i {
+    font-size: 30px;
+    color:whitesmoke; 
+    cursor: pointer;
+}
+
+.home {
+    position: relative;
+}
+
+.home::after {
+    position: absolute;
+    content: "";
+    height: 4px;
+    width: 95px;
+    background-color: whitesmoke;
+    bottom: -19px;
+    left: -33px;
+    text-align: center;
+    vertical-align: center;
+    
+}
+
+.onHover{
+    position: absolute;
+    background-color: rgba(0, 217, 255, 0.309);
+    width: 100px;
+    height: 50px;
+    right: 0;
+    left: -33px;
+    top: -17px;
+    border-radius: 8px;
+    opacity: 0;
+
+}
+
+ li:hover .onHover {
+    opacity: 1; 
+}
+
+#container-wrapper{
+  height: 100vh;
+  padding-top: 30px;
+  background-color: lightgrey;
+}
+
+.container {
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 2fr 400px;
+  max-width: 100%;
+  gap: 10px;
+}
+
+.main-content {
+  grid-column: 1/2;
+  grid-row: 1/2;
+  padding-left: 180px;
+  padding-right: 50px;
+  padding-top: 30px;
+  border: 2px solid blue;
+} 
