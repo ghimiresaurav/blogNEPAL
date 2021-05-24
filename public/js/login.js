@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-const socket = io();
 const form = document.getElementById("login-form");
 const notification = document.getElementById("notification");
 
@@ -61,9 +59,3 @@ form.addEventListener("submit", (e) => {
       console.error("Error:", error);
     });
 });
-
-// if(token)
-// localStorage.setItem('token', token);
-=======
-
->>>>>>> 9985e8a3cb1b5f3f0625c33f742b0d0f14bb84ab
