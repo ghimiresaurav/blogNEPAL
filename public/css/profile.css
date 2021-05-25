@@ -1,0 +1,103 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: aliceblue;
+    font-family: "Montserrat", serif;
+    width: 100%;
+}
+
+ :root {
+    --primary-bg: #b62e42;
+}
+
+#header{
+    background-color: var(--primary-bg);  
+}
+
+nav {
+    width: 95%;
+    margin: auto;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    font-size: 18px;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+}
+
+#logo {
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-size: 25px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+}
+
+#profileimg img{
+    border-radius: 50%;
+    height: 150px;
+}
+
+#profile{ 
+    width: 80%;
+    margin: auto;
+    padding: 50px 20px 50px 20px;
+    background: #fff;
+}
+
+#profilecss{
+    display: flex;
+    width: 40%;
+}
+
+#profileright{
+    margin-left: 40px;
+}
+
+#namesetting{
+    display: flex;
+}
+
+#setting{
+    height: 30px;
+    margin-left: 10px;
+}
+
+#bloglist{
+    width: 80%;
+    margin: auto;
+}
+
+.likesharecmt{
+    display: flex;
+    margin-top: 10px;
+}
+
+.likesharecmt p{
+    margin: 0 10px 0 10px;
+}
+
+.blogs{
+    background: #fff;
+    padding: 50px 20px 50px 20px;
+    margin-top: 50px;
+}
+
+.likesharecmt img{
+    height: 25px;
+}
