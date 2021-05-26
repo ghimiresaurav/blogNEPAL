@@ -38,9 +38,10 @@ module.exports = async (req, res) => {
             { userId: user._id },
             process.env.TOKEN_SECRET,
             {
-              expiresIn: "24h",
+              expiresIn: "3s",
             }
           );
+          req.headers.authorization = token;
           return res.json({
             success: true,
             token,
