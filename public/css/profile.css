@@ -48,25 +48,28 @@ nav ul {
     width: 100%;
 }
 
+#body{
+    display: flex;
+}
+
+#blogcss{
+    width: 80%;
+    margin: auto;
+}
+
 #profileimg img{
     border-radius: 50%;
     height: 150px;
 }
 
 #profile{ 
-    width: 80%;
-    margin: auto;
-    padding: 50px 20px 50px 20px;
+    width: 25%;
+    padding: 50px;
     background: #fff;
 }
 
-#profilecss{
-    display: flex;
-    width: 40%;
-}
-
 #profileright{
-    margin-left: 40px;
+    margin-top: 50px;
 }
 
 #namesetting{
@@ -79,8 +82,13 @@ nav ul {
 }
 
 #bloglist{
+    width: 75%;
+}
+
+#blogcss{
     width: 80%;
     margin: auto;
+    margin-bottom: 50px;
 }
 
 .likesharecmt{
@@ -100,4 +108,18 @@ nav ul {
 
 .likesharecmt img{
     height: 25px;
+}
+
+.reltopic{
+    margin: 15px 0 15px 0;
+}
+
+.reltopic button{
+    padding: 5px;
+    background: #b62e42;
+    border-color: #b62e42;
+    color: white;
+    font-size: 16px;
+    margin-right: 10px;
+    border-radius: 10px;
 }
