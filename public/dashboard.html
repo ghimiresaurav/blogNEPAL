@@ -1,83 +1,70 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+    <title>Dashboard</title>
 
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width">
-	<link rel="preconnect" href="https://fonts.gstatic.com">
-	<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
-	<title> Dashboard </title>
+    <link href="./css/dashboard.css" rel="stylesheet" type="text/css" />
+    <script
+      src="https://kit.fontawesome.com/3fdf0f105a.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
 
-	<link href="./css/dashboard.css" rel="stylesheet" type="text/css" />
-	<script src="https://kit.fontawesome.com/3fdf0f105a.js" crossorigin="anonymous">
-	</script>
-</head>
+  <body>
+    <nav class="nav-bar">
+      <div id="logo"><a href="./" style="color: white">BlogNEPAL</a></div>
 
+      <div class="search-bar">
+        <input type="text" placeholder="Search Blogs" class="main-search" />
 
-<body>
-	<nav class="nav-bar">
-        <div id="logo"><a href="./" style="color:white;">BlogNEPAL</a></div>
-
-        <div class="search-bar">
-            <input type="text" placeholder="Search Blogs" class="main-search">
-
-            <div class="searchicon">
-                <i class="fas fa-search " style="font-size: 18px;"></i> 
-            </div>         
+        <div class="searchicon">
+          <i class="fas fa-search" style="font-size: 18px"></i>
         </div>
-        
-       
-         <ul class="icons">               
-                      <li class="home"> 
-                           <a href="#">  <i class="fas fa-home"  ></i></a>
-                      </li> 
-              
-                    <li class="explore"> 
-                         <a href="#" style="position: relative"><i class="fas fa-compass "></i> 
-                          <div class="onHover"></div>
-                         </a> 
-                        
-                    </li>   
-              
-                   <li class="notifications">
-                       <a href="#"  style="position: relative">  <i class="fas fa-bell"></i>  
-                       <div class="onhover"></div>
-                       </a>
-                    </li>   
-                  
-                   
-                   <li class="profile">
-                        <a href="#"  style="position: relative">  <i class="fas fa-user"></i> 
-                         <div class="onhover"></div>
-                         </a> 
-                     </li>                     
-         </ul>   
-	</nav>
+      </div>
 
+      <ul class="icons">
+        <li class="home">
+          <a href="#"> <i class="fas fa-home"></i></a>
+        </li>
+
+        <li class="explore">
+          <a href="#" style="position: relative"
+            ><i class="fas fa-compass"></i>
+            <div class="onHover"></div>
+          </a>
+        </li>
+
+        <li class="notifications">
+          <a href="#" style="position: relative">
+            <i class="fas fa-bell"></i>
+            <div class="onhover"></div>
+          </a>
+        </li>
+
+        <li class="profile">
+          <a href="#" style="position: relative">
+            <i class="fas fa-user"></i>
+            <div class="onhover"></div>
+          </a>
+        </li>
+      </ul>
+    </nav>
 
     <div id="container-wrapper">
+      <div class="container">
+        <main class="main-content">main</main>
 
-        <div class="container">
-
-            
-       <main class="main-content">main</main>
-
-       
-       <div class="side-content">side</div>
-
-
-
-
-
-        </div>
-
-
-
+        <div class="side-content">side</div>
+      </div>
     </div>
 
-
-	<script src="script.js">
-	</script>
-</body>
-
+    <script src="./js/dashboard.js"></script>
+  </body>
 </html>
