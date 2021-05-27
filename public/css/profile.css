@@ -48,10 +48,6 @@ nav ul {
     width: 100%;
 }
 
-#body{
-    display: flex;
-}
-
 #blogcss{
     width: 80%;
     margin: auto;
@@ -66,6 +62,29 @@ nav ul {
     width: 25%;
     padding: 50px;
     background: #fff;
+    position: fixed;
+    height: 100vh;
+    z-index: -1;
+    top: 0;
+}
+
+#changeprofile{
+    display: none;
+    margin-top: 10px;
+    position: fixed;
+    border: 1px solid black;
+    padding:5px;
+    border-radius: 5px;
+    background-color: #cce5fb;
+}
+
+#profiletop{
+    margin-top: 10vh;
+}
+
+
+#profiletop.sticky{
+    margin-top: 0vh;
 }
 
 #profileright{
@@ -83,6 +102,7 @@ nav ul {
 
 #bloglist{
     width: 75%;
+    float: right;
 }
 
 #blogcss{
