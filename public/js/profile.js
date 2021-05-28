@@ -12,27 +12,31 @@ function myFunction() {
   }
 }
 
+// Get the modal
+var modal = document.getElementById("passwordchangemsgbox");
 
+// Get the button that opens the modal
+var btn = document.getElementById("changeprofile");
 
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
 
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+  modal.style.display = "block";
+}
 
-//hide and unhide update profile picture button
-var a;
-function updateprofile() {
-  if (a == 1) {
-    document.getElementById("profilepicupdate").style.display = "inline";
-    document.getElementById("body").style.opacity = "0.1";
-    document.getElementById("header").style.opacity = "0.1";
-    return a = 0;
-  }
-  else {
-    document.getElementById("profilepicupdate").style.display = "none";
-    document.getElementById("body").style.opacity = "1";
-    document.getElementById("header").style.opacity = "1";
-    return a = 1;
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
   }
 }
-a = 1;
 
 
 

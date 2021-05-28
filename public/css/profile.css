@@ -60,16 +60,40 @@ nav ul {
 }
 
 #profilepicupdate{
-    display: none;
     position: fixed;
     top: 40%;
     right: 40%;
     z-index: 1;
 }
 
+#passwordchangemsgbox{
+    display: none;
+    height: 100vh;
+    width: 100%;
+    position:fixed;
+    background-color: rgba(0,0,0,0.6);
+}
+
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    margin-top: -10px;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
 #updprofile{
     border-bottom: 1px solid #dadada;
     padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
 }
 
 #insertimage{
@@ -79,8 +103,6 @@ nav ul {
 #insertimage input{
     padding: 10px 20px;
     border-radius: 10px;
-    background-color: #b62e42;
-    border-color: #b62e42;
 }
 
 #insertimage button{
@@ -88,7 +110,7 @@ nav ul {
     padding: 10px 20px;
     border-radius: 10px;
     background-color: #b62e42;
-    border-color: #b62e42;
+    border:0;
 }
 
 #upload{
@@ -108,8 +130,8 @@ nav ul {
 #changeprofile{
     margin-top: 10px;
     position: fixed;
-    border: 1px solid black;
-    padding:5px;
+    padding:5px 10px;
+    border: 1px solid #607f9a;
     border-radius: 5px;
     background-color: #cce5fb;
 }
@@ -171,9 +193,9 @@ nav ul {
 }
 
 .reltopic button{
-    padding: 5px;
+    padding: 5px 10px;
     background: #b62e42;
-    border-color: #b62e42;
+    border: 0;
     color: white;
     font-size: 16px;
     margin-right: 10px;
