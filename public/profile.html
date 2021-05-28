@@ -13,6 +13,24 @@
 </head>
 
 <body>
+    <div id="passwordchangemsgbox">
+        <div id="profilepicupdate">
+            <div id="upload">
+                <div id="updprofile">
+                    <h3>Update Profile Picture</h3>
+                    <span class="close">&times;</span>
+                </div>
+                <div id="insertimage">
+                    <!-- enter path of backend in action -->
+                    <form action="" method="POST">
+                        <input type="file" id="img" name="Photo" accept="image/*"><br>
+                        <button>Upload</button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
     <div id="header">
         <nav>
             <div id="logo"><a href="./">BlogNEPAL</a></div>
@@ -24,29 +42,12 @@
             </div>
         </nav>
     </div>
-    <div id="profilepicupdate">
-        <div id="upload">
-            <div id="updprofile">
-                <h3>Update Profile Picture</h3>
-            </div>
-            <div id="insertimage">
-                <!-- enter path of backend in action -->
-                <form action="" method="POST">
-                    <a onclick="addImage()"> Add your photo </a>
-                    <input type="file" id="img" name="Photo" accept="image/*"><br>
-                    <button>Upload</button>
-                </form>
-            </div>
-
-        </div>
-
-    </div>
     <div id="body">
         <div id="profile">
             <div id="profiletop">
                 <div id="profilecss">
                     <div id="profileimg"><img src="/public/assets/profile.jpg" alt="profile picture" /></div>
-                    <div id="changeprofile" onclick="updateprofile()">
+                    <div id="changeprofile" >
                         <span>Update Profile Picture</span>
                     </div>
                     <div id="profileright">
