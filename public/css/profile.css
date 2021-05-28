@@ -48,9 +48,6 @@ nav ul {
     width: 100%;
 }
 
-#body{
-    display: flex;
-}
 
 #blogcss{
     width: 80%;
@@ -58,15 +55,12 @@ nav ul {
 }
 
 #profileimg img{
-    border-radius: 50%;
-    height: 150px;
-}
-
+  
 #profile{ 
     width: 25%;
     padding: 50px;
     background: #fff;
-}
+
 
 #profileright{
     margin-top: 50px;
@@ -83,7 +77,6 @@ nav ul {
 
 #bloglist{
     width: 75%;
-}
 
 #blogcss{
     width: 80%;
