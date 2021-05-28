@@ -105,25 +105,53 @@ li:hover .onHover {
   opacity: 1;
 }
 
-#container-wrapper {
-  height: 100vh;
-  padding-top: 30px;
-  background-color: aliceblue;
+/* blog section css*/
+
+#blogcss {
+  width: 80%;
+  margin: auto;
 }
 
-.container {
-  height: 100vh;
-  display: grid;
-  grid-template-columns: 2fr 400px;
-  max-width: 100%;
-  gap: 10px;
+#bloglist {
+  width: 75%;
+  float: right;
 }
 
-.main-content {
-  grid-column: 1/2;
-  grid-row: 1/2;
-  padding-left: 180px;
-  padding-right: 50px;
-  padding-top: 30px;
-  border: 2px solid blue;
+#blogcss {
+  width: 80%;
+  margin: auto;
+  margin-bottom: 50px;
+}
+
+.likesharecmt {
+  display: flex;
+  margin-top: 10px;
+}
+
+.likesharecmt p {
+  margin: 0 10px 0 10px;
+}
+
+.blogs {
+  background: #fff;
+  padding: 50px 20px 50px 20px;
+  margin-top: 50px;
+}
+
+.likesharecmt img {
+  height: 25px;
+}
+
+.reltopic {
+  margin: 15px 0 15px 0;
+}
+
+.reltopic button {
+  padding: 5px 10px;
+  background: #b62e42;
+  border: 0;
+  color: white;
+  font-size: 16px;
+  margin-right: 10px;
+  border-radius: 10px;
 }
