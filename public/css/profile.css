@@ -48,19 +48,80 @@ nav ul {
     width: 100%;
 }
 
-
 #blogcss{
     width: 80%;
     margin: auto;
 }
 
 #profileimg img{
-  
+    width: 90%;
+    height: auto;
+    border-radius: 50%;
+}
+
+#profilepicupdate{
+    display: none;
+    position: fixed;
+    top: 40%;
+    right: 40%;
+    z-index: 1;
+}
+
+#updprofile{
+    border-bottom: 1px solid #dadada;
+    padding: 20px 40px;
+}
+
+#insertimage{
+    padding: 20px 40px;
+}
+
+#insertimage input{
+    padding: 10px 20px;
+    border-radius: 10px;
+    background-color: #b62e42;
+    border-color: #b62e42;
+}
+
+#insertimage button{
+    margin-top: 20px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    background-color: #b62e42;
+    border-color: #b62e42;
+}
+
+#upload{
+    background-color: #fff;
+}
+
 #profile{ 
     width: 25%;
     padding: 50px;
     background: #fff;
+    position: fixed;
+    height: 100vh;
+    z-index: -1;
+    top: 0;
+}
 
+#changeprofile{
+    margin-top: 10px;
+    position: fixed;
+    border: 1px solid black;
+    padding:5px;
+    border-radius: 5px;
+    background-color: #cce5fb;
+}
+
+#profiletop{
+    margin-top: 10vh;
+}
+
+
+#profiletop.sticky{
+    margin-top: 0vh;
+}
 
 #profileright{
     margin-top: 50px;
@@ -77,6 +138,8 @@ nav ul {
 
 #bloglist{
     width: 75%;
+    float: right;
+}
 
 #blogcss{
     width: 80%;
