@@ -41,11 +41,18 @@ module.exports = async (req, res) => {
               expiresIn: "3s",
             }
           );
-          req.headers.authorization = token;
-          return res.json({
+
+          // res.setHeader("Authorization", `Bearer ${token}`);
+          // req.header("Authorization", `Bearer ${token}`);
+          return res.cookie("token", token, { path: "/" }).json({
             success: true,
-            token,
+            userId: user._id,
           });
+          // return res.json({
+          //   success: true,
+          //   userId: user._id,
+          //   token,
+          // });
         }
       }
     }

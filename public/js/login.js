@@ -51,7 +51,12 @@ form.addEventListener("submit", (e) => {
       if (success) {
         notification.innerHTML = `<strong>login successful</strong>`;
         token && localStorage.setItem("token", token);
-        console.log(`token: ${token}`);
+        console.log(`token: ${token} \nuserid:\n${data.userId}`);
+
+        // request.setHeader("Authorization", `Bearer ${token}`);
+        // const header = new Headers();
+        // header.set("Content-Type", "application/json");
+        // header.set("Authorization", `Bearer ${localStorage.getItem("token")}`);
         window.location.assign("/dashboard");
       } else notification.innerHTML = `<strong>${message}</strong>`;
     })

@@ -6,6 +6,7 @@ require("dotenv").config();
 const loginController = require("./controllers/login");
 const registerController = require("./controllers/register");
 const verifyToken = require("./auth/verify");
+const updateAvatar = require("./controllers/updateAvatar");
 
 const app = express();
 //set up a static folder
@@ -26,6 +27,7 @@ app.get("/dashboard", verifyToken, (req, res) => {
 
 app.post("/register", registerController);
 app.post("/login", loginController);
+app.post("/avatar-update", updateAvatar);
 
 const PORT = process.env.PORT;
 app.listen(PORT, () =>

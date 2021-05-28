@@ -1,10 +1,16 @@
+const jwt = require("jsonwebtoken");
+
 module.exports = (req, res, next) => {
-  console.log(`req.headers.authorization:`, req.headers.authorization);
-  if (req.headers.authorization) {
-    console.log(req.headers.authorization);
-    req.token = req.headers.authorization.token;
+  if (req.headers.cookie) {
+    const token = req.headers.cookie.split("=")[1];
+
+    console.log(token);
+    console.log(typeof token);
+    // req.token = req.headers["authorization"].split(" ")[1];
     next();
   } else {
-    res.sendStatus(403);
+    return res
+      .status(403)
+      .json({ message: "You need to login to complete the action" });
   }
 };
