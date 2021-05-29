@@ -24,7 +24,12 @@ module.exports = (req, res) => {
       if (emailIsUnique) {
         //add the user to database
         db.collection("users").insertOne(
-          { name, email, password: await bcrypt.hash(password, 10) },
+          {
+            name,
+            email,
+            password: await bcrypt.hash(password, 10),
+            avatarLink: "./assets/avatars/default-avatar.jpg",
+          },
           (err, result) => {
             if (err) throw err;
             res.json({

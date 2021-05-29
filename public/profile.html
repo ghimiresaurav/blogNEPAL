@@ -22,10 +22,9 @@
                     <span class="close">&times;</span>
                 </div>
                 <div id="insertimage">
-                    <!-- enter path of backend in action -->
-                    <form action="" method="POST">
-                        <input type="file" id="img" name="Photo" accept="image/*"><br>
-                        <button>Upload</button>
+                    <form id="update-avatar-form" onsubmit="submitAvatar(event)"> 
+                        <input type="file" id="avatar-input" name="avatar" accept="image/*"><br>
+                        <button type="submit">Upload</button>
                     </form>
                 </div>
 
@@ -46,14 +45,14 @@
         <div id="profile">
             <div id="profiletop">
                 <div id="profilecss">
-                    <div id="profileimg"><img src="/public/assets/profile.jpg" alt="profile picture" /></div>
+                    <div id="profileimg"><img id="profile-picture" src="./assets/avatars/default-avatar.jpg" alt="profile picture" /></div>
                     <div id="changeprofile" >
                         <span>Update Profile Picture</span>
                     </div>
                     <div id="profileright">
                         <div id="namesetting">
-                            <h2>Rishikesh khakurel</h2>
-                            <img id="setting" src="/public/assets/settings.png" alt="setting">
+                            <strong>Rishikesh khakurel</strong>
+                            <img id="setting" src="./assets/settings.png" alt="setting">
                         </div>
                         <br />
                         <p>I am Bsc student in KU. Who loves computer. </p><br />
@@ -87,11 +86,11 @@
               <button>Cybersecurity</button>
             </div>
             <div class="likesharecmt">
-              <img src="/public/assets/love_react.png" />
+              <img src="./assets/love_react.png" />
               <p>100</p>
-              <img src="/public/assets/comments.png" />
+              <img src="./assets/comments.png" />
               <p>100</p>
-              <img src="/public/assets/share_icon.png" />
+              <img src="./assets/share_icon.png" />
             </div>
           </div>
           <div class="blogs">
@@ -114,11 +113,11 @@
               <button>Cybersecurity</button>
             </div>
             <div class="likesharecmt">
-              <img src="/public/assets/love_react.png" />
+              <img src="./assets/love_react.png" />
               <p>100</p>
-              <img src="/public/assets/comments.png" />
+              <img src="./assets/comments.png" />
               <p>100</p>
-              <img src="/public/assets/share_icon.png" />
+              <img src="./assets/share_icon.png" />
             </div>
           </div>
           <div class="blogs">
@@ -141,17 +140,17 @@
               <button>Cybersecurity</button>
             </div>
             <div class="likesharecmt">
-              <img src="/public/assets/love_react.png" />
+              <img src="./assets/love_react.png" />
               <p>100</p>
-              <img src="/public/assets/comments.png" />
+              <img src="./assets/comments.png" />
               <p>100</p>
-              <img src="/public/assets/share_icon.png" />
+              <img src="./assets/share_icon.png" />
             </div>
           </div>
         </div>
       </div>
     </div>
-    <script src="/public/js/profile.js"></script>
+    <script src="./js/profile.js"></script>
 </body>
 
 </html>

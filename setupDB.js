@@ -2,7 +2,7 @@ const MongoClient = require("mongodb").MongoClient;
 require("dotenv").config();
 
 //define collections required to run the website
-const collections = ["users", "images"];
+const collections = ["users", "posts"];
 
 const options = {
   useNewUrlParser: true,

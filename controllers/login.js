@@ -38,21 +38,15 @@ module.exports = async (req, res) => {
             { userId: user._id },
             process.env.TOKEN_SECRET,
             {
-              expiresIn: "3s",
+              expiresIn: "1h",
             }
           );
-
-          // res.setHeader("Authorization", `Bearer ${token}`);
-          // req.header("Authorization", `Bearer ${token}`);
-          return res.cookie("token", token, { path: "/" }).json({
+          res.cookie("token", token, { path: "/" });
+          res.cookie("id", user._id, { path: "/" });
+          return res.json({
             success: true,
             userId: user._id,
           });
-          // return res.json({
-          //   success: true,
-          //   userId: user._id,
-          //   token,
-          // });
         }
       }
     }

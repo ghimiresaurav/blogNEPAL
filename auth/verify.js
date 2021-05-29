@@ -2,15 +2,22 @@ const jwt = require("jsonwebtoken");
 
 module.exports = (req, res, next) => {
   if (req.headers.cookie) {
-    const token = req.headers.cookie.split("=")[1];
+    const cookieInfo = req.headers.cookie.split("; ");
+    const user = {
+      [cookieInfo[0].split("=")[0]]: cookieInfo[0].split("=")[1],
+      [cookieInfo[1].split("=")[0]]: cookieInfo[1].split("=")[1],
+    };
 
-    console.log(token);
-    console.log(typeof token);
-    // req.token = req.headers["authorization"].split(" ")[1];
-    next();
-  } else {
-    return res
-      .status(403)
-      .json({ message: "You need to login to complete the action" });
+    if (user.token) {
+      const decodedToken = jwt.verify(user.token, process.env.TOKEN_SECRET);
+      const trueId = user.id.split("%22")[1];
+      if (decodedToken.userId === trueId) {
+        res.locals.id = trueId;
+        return next();
+      }
+    }
   }
+  return res
+    .status(403)
+    .json({ message: "You need to login to complete the action" });
 };
