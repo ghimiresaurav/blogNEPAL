@@ -5,7 +5,7 @@
 }
 
 body {
-  background-color: aliceblue;
+  /* background-color: aliceblue; */
   font-family: "Poppins", sans-serif, serif;
   width: 100%;
 }
@@ -119,34 +119,33 @@ nav ul {
 }
 
 #profile {
+  transition: 600ms;
   width: 25%;
-  padding: 50px;
+  padding: 0 30px;
   background: #fff;
   position: fixed;
   height: 100vh;
   z-index: -1;
-  top: 0;
+  top: 3vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 #changeprofile {
   margin-top: 10px;
-  position: fixed;
+  cursor: pointer;
   padding: 5px 10px;
-  border: 1px solid #607f9a;
   border-radius: 5px;
-  background-color: #cce5fb;
+  background-color: var(--primary-bg);
 }
 
 #profiletop {
   margin-top: 10vh;
 }
 
-#profiletop.sticky {
-  margin-top: 0vh;
-}
-
-#profiletop.sticky {
-  margin-top: 0vh;
+.sticky {
+  margin-top: -7vh;
 }
 
 #profileright {
@@ -156,6 +155,7 @@ nav ul {
 #namesetting {
   display: flex;
   justify-content: space-around;
+  font-size: 25px;
 }
 
 #setting {
@@ -186,6 +186,7 @@ nav ul {
 #bloglist {
   width: 75%;
   float: right;
+  background-color: aliceblue;
 }
 
 #blogcss {
@@ -197,6 +198,7 @@ nav ul {
 .likesharecmt {
   display: flex;
   margin-top: 10px;
+  opacity: 1;
 }
 
 .likesharecmt p {
@@ -209,15 +211,11 @@ nav ul {
   margin-top: 50px;
 }
 
-.likesharecmt img {
-  height: 25px;
-}
-
 .reltopic {
   margin: 15px 0 15px 0;
 }
 
-.reltopic button {
+button {
   padding: 5px 10px;
   background: #b62e42;
   border: 0;

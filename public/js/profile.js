@@ -7,17 +7,17 @@ fetch("/user-details")
     document.getElementById("profile-picture").src = response.avatarLink;
   });
 
+const profile = document.getElementById("profile");
+const sticky = profile.offsetTop;
+
 //sidebar scrool position fix code
 window.onscroll = function () {
   if (window.pageYOffset >= sticky) {
-    navbar.classList.add("sticky");
+    profile.classList.add("sticky");
   } else {
-    navbar.classList.remove("sticky");
+    profile.classList.remove("sticky");
   }
 };
-
-const navbar = document.getElementById("profiletop");
-const sticky = navbar.offsetTop;
 
 // Get the modal
 const modal = document.getElementById("passwordchangemsgbox");
