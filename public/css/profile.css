@@ -6,7 +6,7 @@
 
 body {
     background-color: aliceblue;
-    font-family: "Poppins", sans-serif;", serif;
+    font-family: "Poppins", sans-serif, serif;
     width: 100%;
 }
 
@@ -49,24 +49,101 @@ nav ul {
     width: 100%;
 }
 
-#body{
-    display: flex;
-}
-
 #blogcss{
     width: 80%;
     margin: auto;
 }
 
 #profileimg img{
+    width: 90%;
+    height: auto;
     border-radius: 50%;
-    height: 150px;
+}
+
+#profilepicupdate{
+    position: fixed;
+    top: 40%;
+    right: 40%;
+    z-index: 1;
+}
+
+#passwordchangemsgbox{
+    display: none;
+    height: 100vh;
+    width: 100%;
+    position:fixed;
+    background-color: rgba(0,0,0,0.6);
+}
+
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    margin-top: -10px;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+#updprofile{
+    border-bottom: 1px solid #dadada;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+}
+
+#insertimage{
+    padding: 20px 40px;
+}
+
+#insertimage input{
+    padding: 10px 20px;
+    border-radius: 10px;
+}
+
+#insertimage button{
+    margin-top: 20px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    background-color: #b62e42;
+    border:0;
+}
+
+#upload{
+    background-color: #fff;
 }
 
 #profile{ 
     width: 25%;
     padding: 50px;
     background: #fff;
+    position: fixed;
+    height: 100vh;
+    z-index: -1;
+    top: 0;
+}
+
+#changeprofile{
+    margin-top: 10px;
+    position: fixed;
+    padding:5px 10px;
+    border: 1px solid #607f9a;
+    border-radius: 5px;
+    background-color: #cce5fb;
+}
+
+#profiletop{
+    margin-top: 10vh;
+}
+
+
+#profiletop.sticky{
+    margin-top: 0vh;
 }
 
 #profileright{
@@ -108,6 +185,7 @@ nav ul {
 
 #bloglist{
     width: 75%;
+    float: right;
 }
 
 #blogcss{
@@ -140,9 +218,9 @@ nav ul {
 }
 
 .reltopic button{
-    padding: 5px;
+    padding: 5px 10px;
     background: #b62e42;
-    border-color: #b62e42;
+    border: 0;
     color: white;
     font-size: 16px;
     margin-right: 10px;

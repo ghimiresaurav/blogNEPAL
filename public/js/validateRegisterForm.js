@@ -1,5 +1,3 @@
-//grab socket for communicating with server
-const socket = io();
 const form = document.getElementById("register-form");
 const notification = document.getElementById("notification");
 
@@ -13,8 +11,10 @@ const setToInitialState = (fields) => {
 form.addEventListener("submit", (e) => {
   e.preventDefault();
   //regular expressions for email validation and password strength check
-  const emailRegex = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
-  const passwordRegex = /(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{8,})/;
+  const emailRegex =
+    /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+  const passwordRegex =
+    /(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{8,})/;
 
   //grab input fields
   const fields = [];
@@ -72,23 +72,27 @@ form.addEventListener("submit", (e) => {
     return;
   }
 
-  //send the inputs to server with socket
-  socket.emit("new-user", JSON.stringify({ name, email, password }));
-
-  //listen for response from the server
-  socket.on("register-response", (response) => {
-    const res = JSON.parse(response);
-    //notify user
-    notification.innerHTML = `<strong>${res.message}</strong>`;
-    if (res.success) {
-      //clear the input fields
-      fields.forEach((field) => {
-        field.value = "";
-      });
-      //set every input field back to the initial state
-      setToInitialState(fields);
-      //clear notification 3seconds later
-      setTimeout(() => (notification.innerHTML = ``), 3000);
-    }
-  });
+  //send the inputs to server
+  const fetchOptions = {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ email, name, password }),
+  };
+  fetch("/register", fetchOptions)
+    .then((response) => response.json())
+    .then((data) => {
+      notification.innerHTML = `<strong>${data.message}</strong>`;
+      if (data.success) {
+        //clear the input fields
+        fields.forEach((field) => {
+          field.value = "";
+        });
+        //set every input field back to the initial state
+        setToInitialState(fields);
+        //clear notification 3seconds later
+        setTimeout(() => (notification.innerHTML = ``), 3000);
+      }
+    });
 });
