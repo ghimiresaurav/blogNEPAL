@@ -6,7 +6,7 @@
 
 body {
     background-color: aliceblue;
-    font-family: "Montserrat", serif;
+    font-family: "Poppins", sans-serif;", serif;
     width: 100%;
 }
 
@@ -27,6 +27,7 @@ nav {
     justify-content: space-between;
     padding: 20px;
     font-size: 18px;
+    text-decoration: none;
 }
 
 nav a {
@@ -74,12 +75,36 @@ nav ul {
 
 #namesetting{
     display: flex;
+    justify-content: space-around;
 }
 
 #setting{
     height: 30px;
-    margin-left: 10px;
+    margin-left: 20px;
 }
+
+#profileEdit
+{
+      margin-top: 30px;
+      display: flex;
+      justify-content:center;
+      align-items: center; 
+}
+
+
+#profileEdit button{
+    font-family: "Poppins", sans-serif;
+    font-size: 10px;
+    padding: 3px;
+    background: #b62e42;
+    border-color: #b62e42;
+    color: white;
+    font-size: 16px;
+    margin-right: 10px;
+    border-radius: 25px;
+    width: 80%; 
+}
+
 
 #bloglist{
     width: 75%;
@@ -122,4 +147,5 @@ nav ul {
     font-size: 16px;
     margin-right: 10px;
     border-radius: 10px;
+    font-family: "Poppins", sans-serif;
 }
