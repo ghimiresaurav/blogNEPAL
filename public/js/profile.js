@@ -55,4 +55,5 @@ const submitAvatar = (e) => {
   };
 
   fetch("/update-avatar", fetchOptions);
+  hideModal();
 };
