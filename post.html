@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Modal</title>
+  <link href="post.css" rel="stylesheet">
+  <script defer src="post.js"></script>
+</head>
+<body>
+  <div class="WritePost">
+  <input type="text" placeholder="Write a post" id="WriteText"><br><br>
+    <input
+          type="file"
+          name="images"
+          id="file-input"
+          accept="image/*"
+          multiple
+    />
+        
+  <button data-modal-target="#modal">Post</button>
+  <div class="modal" id="modal">
+    <div class="modal-header">
+      Are you sure you want to post?
+      <div class="Final" id="Final">
+        <button data-close-button class="close-button" id="No" class="No">No</button>
+        <button id="Yes" class="Yes">Yes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div id="overlay"></div>
+</body>
+</html>
