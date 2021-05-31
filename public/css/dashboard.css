@@ -7,6 +7,7 @@
 
 body {
   font-family: "Poppins", sans-serif;
+  background-color: aliceblue;
 }
 
 .nav-bar {
@@ -67,7 +68,7 @@ nav a {
   justify-content: space-evenly;
 }
 
-i {
+nav i {
   font-size: 30px;
   color: whitesmoke;
   cursor: pointer;
