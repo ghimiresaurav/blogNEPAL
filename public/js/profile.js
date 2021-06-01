@@ -1,4 +1,4 @@
-fetch("/user-details")
+fetch("/protected/user-details")
   .then((resp) => resp.json())
   .then((response) => {
     document.getElementById(
@@ -54,6 +54,15 @@ const submitAvatar = (e) => {
     body: formData,
   };
 
-  fetch("/update-avatar", fetchOptions);
+  fetch("/protected/update-avatar", fetchOptions);
   hideModal();
+};
+
+const logout = () => {
+  fetch("/protected/logout", {
+    method: "DELETE",
+  })
+    .then((resp) => resp.json())
+    .then((response) => response.success && window.location.assign("/"))
+    .catch((error) => console.error(`ERROR: ${error}`));
 };

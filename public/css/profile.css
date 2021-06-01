@@ -225,3 +225,8 @@ button {
   border-radius: 10px;
   font-family: "Poppins", sans-serif;
 }
+
+#log-out-btn {
+  border: 1px solid aliceblue;
+  cursor: pointer;
+}

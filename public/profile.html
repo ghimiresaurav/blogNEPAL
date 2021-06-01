@@ -42,10 +42,12 @@
     </div>
     <div id="header">
       <nav>
-        <div id="logo"><a href="./">BlogNEPAL</a></div>
+        <div id="logo"><a href="/protected/dashboard">BlogNEPAL</a></div>
         <div id="links">
           <ul>
-            <li><a href="/">Log Out</a></li>
+            <li>
+              <button id="log-out-btn" onclick="logout()">Log Out</button>
+            </li>
           </ul>
         </div>
       </nav>
@@ -53,11 +55,7 @@
     <div id="body">
       <div id="profile">
         <div id="profileimg">
-          <img
-            id="profile-picture"
-            src="./assets/avatars/default-avatar.png"
-            alt="profile picture"
-          />
+          <img id="profile-picture" src="" alt="profile picture" />
         </div>
         <button id="changeprofile">Change Profile Picture</button>
 
