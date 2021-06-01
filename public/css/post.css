@@ -1,41 +1,58 @@
-
-.modal {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  padding: 10px 10px;
-  transform: translate(-50%, -50%) scale(0);
-  transition: 200ms ease-in-out;
-  border: 1px solid black;
-  border-radius: 10px;
-  z-index: 10;
-  background-color: white;
-  width: 400px;
-  max-width: 80%;
-}
-
-.modal.active {
-  transform: translate(-50%, -50%) scale(1);
-}
+.bg-modal {
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    position: absolute;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: none;
+  }
+  
+  .modal-content {
+    height: 150px;
+    width: 500px;
+    background-color: white;
+    border-radius: 2px;
+    position: relative;
+  }
+  
+  .modal-text {
+    position: absolute;
+    top: 65px;
+    left:20px;
+  }
+  
+  .choose-btns {
+    position: absolute;
+    top: 110px;
+    right: 25px;
+  }
 
 .WritePost {
-  background-color: #b62e42;
-  width: 80%;
+  border:1px solid black;
+  position: relative;
+  padding:10px;
+  height: 80px;
 }
 
-#overlay {
-  position: fixed;
-  opacity: 0;
-  transition: 200ms ease-in-out;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, .5);
-  pointer-events: none;
+.WriteText {
+  position: absolute;
+  padding:10px 10px 10px 10px;
+  top: 10px;
+  left: 10px;
+  width: 500px;
+}
+.Post {
+  position: absolute;
+  width: 50px;
+  height: 30px;
+  right: 10px;
+  bottom: 10px;
 }
 
-#overlay.active {
-  opacity: 1;
-  pointer-events: all;
+#file-input {
+  position: absolute;
+  bottom: 10px;
 }

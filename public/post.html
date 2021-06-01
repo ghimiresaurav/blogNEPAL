@@ -2,35 +2,49 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Modal</title>
-  <link href="css/post.css" rel="stylesheet">
-  <script defer src="js/post.js"></script>
+  <link rel="stylesheet" href="css/post.css">
+  
+  <title>Post</title>
 </head>
 <body>
+  
   <div class="WritePost">
-  <input type="text" placeholder="Write a post" id="WriteText"><br><br>
-    <input
+    <form class="form" action="">
+      <input type="text" placeholder="Write a post" class="WriteText"><br><br>
+        <input
           type="file"
           name="images"
           id="file-input"
           accept="image/*"
           multiple
-    />
-        
-  <button data-modal-target="#modal">Post</button>
-  <div class="modal" id="modal">
-    <div class="modal-header">
-      Are you sure you want to post?
-      <div class="Final" id="Final">
-        <button data-close-button class="close-button" id="No" class="No">No</button>
-        <button id="Yes" class="Yes">Yes</button>
+        />
+    </form>
+    <button class="Post" id="Post">Post</button>
+  </div> 
+    <div class="bg-modal">
+      <div class="modal-content">
+        <div class="modal-text">
+          Are you sure you want to post this blog?
+       </div>
+       <div class="choose-btns">
+         <button class="Yes">Yes</button>
+         <button class="No" id="No">No</button>
       </div>
-    </div>
   </div>
-</div>
+  </div>
 
-  <div id="overlay"></div>
+<script>
+    document.getElementById('Post').addEventListener('click', function(){
+    document.querySelector('.bg-modal').style.display='flex';
+  });
+  
+  document.getElementById('No').addEventListener('click', function(){
+    document.querySelector('.bg-modal').style.display='none';
+  });
+  
+</script>
+
 </body>
 </html>
