@@ -54,9 +54,29 @@ const submitAvatar = (e) => {
     body: formData,
   };
 
+
+//fetching data from backend of blogs
+let request = new XMLHttpRequest();
+request.open('GET', "http://localhost:3000/getblog");
+request.responseType = 'text';
+
+request.onload = function() {
+  const blog = JSON.parse(request.response);
+  const renderblog=blog.data.map(blogs => {
+    
+  })
+  console.log(blog.data)
+  
+};
+
+request.send();
+
+
+
   fetch("/protected/update-avatar", fetchOptions);
   hideModal();
 };
+
 
 const logout = () => {
   fetch("/protected/logout", {

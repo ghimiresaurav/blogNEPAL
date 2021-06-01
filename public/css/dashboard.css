@@ -6,7 +6,17 @@
 }
 
 body {
-  font-family: "Poppins", sans-serif;
+  background-color: aliceblue;
+  font-family: "Montserrat", serif;
+  width: 100%;
+}
+
+:root {
+  --primary-bg: #b62e42;
+}
+
+#header{
+  background-color: var(--primary-bg);  
 }
 
 .nav-bar {
