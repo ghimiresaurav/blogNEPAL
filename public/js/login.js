@@ -46,13 +46,11 @@ form.addEventListener("submit", (e) => {
   fetch("/login", fetchOptions)
     .then((response) => response.json())
     .then((data) => {
-      const { success, message, token } = data;
+      const { success, message, userId } = data;
       // console.log(data);
       if (success) {
         notification.innerHTML = `<strong>login successful</strong>`;
-        token && localStorage.setItem("token", token);
-        console.log(`token: ${token}`);
-        window.location.assign("/dashboard");
+        window.location.assign("/protected/dashboard");
       } else notification.innerHTML = `<strong>${message}</strong>`;
     })
     .catch((error) => {

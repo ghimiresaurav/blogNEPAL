@@ -117,47 +117,46 @@ li:hover .onHover {
 
 /* blog section css*/
 
-
-#blogcss{
+#blogcss {
   width: 80%;
   margin: auto;
 }
 
-#bloglist{
+#bloglist {
   width: 75%;
   float: right;
 }
 
-#blogcss{
+#blogcss {
   width: 80%;
   margin: auto;
   margin-bottom: 50px;
 }
 
-.likesharecmt{
+.likesharecmt {
   display: flex;
   margin-top: 10px;
 }
 
-.likesharecmt p{
+.likesharecmt p {
   margin: 0 10px 0 10px;
 }
 
-.blogs{
+.blogs {
   background: #fff;
   padding: 50px 20px 50px 20px;
   margin-top: 50px;
 }
 
-.likesharecmt img{
+.likesharecmt img {
   height: 25px;
 }
 
-.reltopic{
+.reltopic {
   margin: 15px 0 15px 0;
 }
 
-.reltopic button{
+.reltopic button {
   padding: 5px 10px;
   background: #b62e42;
   border: 0;

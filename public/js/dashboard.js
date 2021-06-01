@@ -2,7 +2,7 @@
 //   method: "GET",
 //   headers: {
 //     "Content-type": "application/json",
-//     authorization: localStorage.getItem("token"),
+//     Authorization: `Bearer ${localStorage.getItem("token")}`,
 //   },
 // })
 //   .then((response) => response.json())
