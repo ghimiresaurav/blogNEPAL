@@ -50,7 +50,7 @@ form.addEventListener("submit", (e) => {
       // console.log(data);
       if (success) {
         notification.innerHTML = `<strong>login successful</strong>`;
-        window.location.assign("/dashboard");
+        window.location.assign("/protected/dashboard");
       } else notification.innerHTML = `<strong>${message}</strong>`;
     })
     .catch((error) => {

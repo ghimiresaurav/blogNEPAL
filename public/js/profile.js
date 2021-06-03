@@ -1,4 +1,4 @@
-fetch("/user-details")
+fetch("/protected/user-details")
   .then((resp) => resp.json())
   .then((response) => {
     document.getElementById(
@@ -54,7 +54,7 @@ const submitAvatar = (e) => {
     body: formData,
   };
 
-  fetch("/update-avatar", fetchOptions);
+  fetch("/protected/update-avatar", fetchOptions);
   hideModal();
 };
 
@@ -66,3 +66,24 @@ document.getElementById('profileEdit').addEventListener('click',function() {
 document.querySelector('.closeWrapper').addEventListener('click',function(){
   document.querySelector('.wrapperContainer').style.display='none';
 })
+//fetching data from backend of blogs
+let request = new XMLHttpRequest();
+request.open('GET', "http://localhost:3000/getblog");
+request.responseType = 'text';
+
+request.onload = function() {
+  const blog = JSON.parse(request.response);
+  console.log(blog)
+  
+};
+
+request.send();
+
+const logout = () => {
+  fetch("/protected/logout", {
+    method: "DELETE",
+  })
+    .then((resp) => resp.json())
+    .then((response) => response.success && window.location.assign("/"))
+    .catch((error) => console.error(`ERROR: ${error}`));
+};

@@ -28,7 +28,7 @@ module.exports = (req, res) => {
             name,
             email,
             password: await bcrypt.hash(password, 10),
-            avatarLink: "./assets/avatars/default-avatar.jpg",
+            avatarLink: "./assets/avatars/default-avatar.png",
           },
           (err, result) => {
             if (err) throw err;
