@@ -59,8 +59,7 @@
             alt="profile picture"
           />
         </div>
-        <button id="changeprofile">Change Profile Picture</button>
-
+       <button id="changeprofile">Update Profile Picture</button>      
         <div id="profileright">
           <div id="namesetting">
             <br />
@@ -71,12 +70,48 @@
           <p><b>Hobbies:-</b> Programming, Music</p>
         </div>
 
-        <a href="./setting.html" style="text-decoration: none">
           <div id="profileEdit">
-            <button>Edit Profile</button>
+            <button id="edit">Edit Profile</button>
           </div>
-        </a>
       </div>
+
+      <div class="wrapperContainer">
+          <div id="wrapper">
+
+            <div class="closeWrapper">&times;</div>
+
+
+            <div id="addBio">
+              <textarea name="userBio" id="userBio" placeholder="Add a Bio" aria-label="Add a Bio" maxlength="120" wrap="hard"></textarea><br />
+          </div>
+
+          <div id="addHobbies">
+              <input type="text" placeholder="Add Hobbies" /><br />  
+          </div>
+
+          <form action="post">
+                <div id="name">Change Username</div> <br />
+
+                    <input type="text" placeholder="Enter your New name" /><br /> 
+                    <input type="password" placeholder="Enter your password" /><br />
+              
+                <div id="password">Change Password</div><br />
+              
+                    <input type="text" placeholder="New Name" /><br />
+                    <input type="password" placeholder="New Password" /><br />
+                    <input type="password" placeholder="Confirm Password" /><br/>
+                    
+                    <button class="submit">Submit</button>
+          </form>
+
+               <div id="deleteAccount">
+                <button class="submit">Delete Account</button>
+              </div>
+       </div>
+     </div>
+       
+
+    </div>
 
       <div id="bloglist">
         <div id="blogcss">
