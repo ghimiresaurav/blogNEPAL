@@ -17,211 +17,374 @@ body {
 #header {
   background-color: var(--primary-bg);
 }
+  
+ body {
+    background-color: aliceblue; 
+    font-family: "Poppins", sans-serif, serif;
+    position:relative;
+    width: 100%;
+  }
 
-nav {
-  width: 95%;
-  margin: auto;
-  height: 10vh;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 20px;
-  font-size: 18px;
-  text-decoration: none;
-}
+  
+  :root {
+    --primary-bg: #b62e42;
+  }
+  
+  #header {
+    background-color: var(--primary-bg);
+    position: fixed;
+    width:100%;
+    top: 0;
+    left: 0;
+  }
 
-nav a {
-  text-decoration: none;
-  color: white;
-}
 
-#logo {
-  font-family: "Poppins", sans-serif;
-  font-weight: 600;
-  font-size: 25px;
-}
+  
+  nav {
+    width: 100%;
+    margin: auto;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    font-size: 18px;
+    text-decoration: none;
+  }
 
-nav ul {
-  list-style: none;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  width: 100%;
-}
 
-#blogcss {
-  width: 80%;
-  margin: auto;
-}
+  nav a {
+    text-decoration: none;
+    color: white;
+  }
+  
+  #logo {
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-size: 25px;
+  }
+  
+  nav ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+  }
+  
+  #blogcss {
+    width: 80%;
+    margin: auto;
+  }
+  #profileimg {
+    margin-top: 5px;
+  }
+  
+  #profileimg img {
+    width: 80%;
+    height: auto;
+    border-radius: 50%;
+    display: flex;
+    margin-top: 20px;
+    margin-left: 14px;
+  }
+  
+  #namesetting {
+    display: flex;
+    margin-top:20px;
+  }
 
-#profileimg img {
-  width: 90%;
-  height: auto;
-  border-radius: 50%;
-}
+  #profilepicupdate {
+    position: fixed;
+    top: 40%;
+    right: 40%;
+    z-index: 1;
+  }
+  
+  #passwordchangemsgbox {
+    display: none;
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.6);
+  }
+  
+  .close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    margin-top: -10px;
+  }
+  
+  .close:hover,
+  .close:focus,
+  .closeWrapper:hover, 
+  .closeWrapper:focus  {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  #updprofile {
+    border-bottom: 1px solid #dadada;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  #insertimage {
+    padding: 20px 40px;
+  }
+  
+  #insertimage input {
+    padding: 10px 20px;
+    border-radius: 10px;
+  }
+  
+  #insertimage button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    background-color: #b62e42;
+    border: 0;
+  }
+  
+  #upload {
+    background-color: #fff;
+  }
+  
+  #profile {
+    transition: 600ms;
+    width: 25%;
+    padding: 0 30px;
+    background: #fff;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    z-index:-1;
+    float:left;
+  }
+  
+  #changeprofile {
+    margin-top: 10px;
+    cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 5px;
+    background-color: var(--primary-bg);
+  }
+  
+  #profiletop {
+    margin-top: 10vh;
+  }
+  
+  .sticky {
+    margin-top: -7vh;
+  }
+  
+  #profileright {
+    margin-top: 0px;
+  }
+  
+  #namesetting {
+    display: flex;
+    justify-content: space-around;
+    font-size: 25px;
+  }
+  
+  #setting {
+    height: 30px;
+    margin-left: 20px;
+  }
+  
+  #profileEdit {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  #profileEdit button {
+    font-family: "Poppins", sans-serif;
+    font-size: 10px;
+    padding: 3px;
+    background: #b62e42;
+    border-color: #b62e42;
+    color: white;
+    font-size: 16px;
+    margin-right: 10px;
+    border-radius: 25px;
+    width: 80%;
+  }
+  
+  #edit {
+    cursor: pointer;
+  }
+  
+  #bloglist {
+    width: 75%; 
+    float: right;
+    background-color: aliceblue;
+    margin-top:65px;
+  }
+  
+  #blogcss {
+    width: 80%;
+    margin: auto;
+    margin-bottom: 50px;
+  }
+  
+  .likesharecmt {
+    display: flex;
+    margin-top: 10px;
+    opacity: 1;
+  }
+  
+  .likesharecmt p {
+    margin: 0 10px 0 10px;
+  }
+  
+  .blogs {
+    background: #fff;
+    padding: 50px 20px 50px 20px;
+    margin-top: 50px;
+  }
+  
+  .reltopic {
+    margin: 15px 0 15px 0;
+  }
+  
+  button {
+    padding: 5px 10px;
+    background: #b62e42;
+    border: 0;
+    color: white;
+    font-size: 16px;
+    margin-right: 10px;
+    border-radius: 10px;
+    font-family: "Poppins", sans-serif;
+  }
+  
+  
+  .wrapperContainer {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: none;
+  }
+  
+  #wrapper {
+    width: 700px;
+    height: 700px;
+    background-color: aliceblue;
+    border-radius: 15px;
+    margin-top: 840px;
+    margin-left:200px;
+    text-align: center;
+    padding: 20px;
+    position: fixed;
+    top:-770px;
+  }
+  
+  
+  input {
+    padding: 10px;
+    background-color: transparent;
+    outline: none;
+    border: none;
+    transition: 350ms;
+    width: 60%;
+    height: 35px;
+    border-bottom: 1px solid black;
+    overflow: hidden;
+    font-size: 15px;
+    font-family: inherit;
+  }
+  
+  input:focus {
+    border-bottom: 1px solid var(--primary-bg);
+  }
+  
+  textarea {
+    font-size: 15px;
+    letter-spacing: 0.5px;
+  }
+  textarea {
+    font-family: inherit;
+    font-size: 15px;
+    padding: 8px 8px;
+    line-height: 1.25;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-shadow: 1px 1px 1px #999;
+    width: 60%;
+    height: 80px;
+    background-color: transparent;
+    text-align: start;
+    outline: none;
+    resize: none;
+  }
 
-#profilepicupdate {
-  position: fixed;
-  top: 40%;
-  right: 40%;
-  z-index: 1;
-}
+  #addHobbies textarea {
+    height: auto;
+    margin-top: 10px;
+  }
+  
+  textarea:focus {
+    border: 1px solid rgb(197, 94, 115);
+    box-shadow: 0 5px 10px rgba(228, 42, 42, 0.5);
+  }
+  
+  #name, #password {
+    margin-top: 10px;
+    margin-left: -225px;
+    margin-bottom: -15px;
+    color: var(--primary-bg);
+  }
 
-#passwordchangemsgbox {
-  display: none;
-  height: 100vh;
-  width: 100%;
-  position: fixed;
-  background-color: rgba(0, 0, 0, 0.6);
-}
+  #password {
+    margin-top: 15px;
+  }
+  
+  .closeWrapper {
+    position: absolute;
+    top: 0;
+    right: 14px;
+    margin-top: -8px;
+    font-size: 28px;
+    font-weight:bold;
+    cursor: pointer;
+    color: #aaaaaa;
+  }
+  
+  button {
+    cursor: pointer;
+    background-color: var(--primary-bg);
+    color: white;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+  }
+  
+  .submit {
+    width: 60%;
+    height: 30px;
+    font-size: 15px;
+    margin-top: 15px;
+  }
+  
+  .submit:hover {
+    box-shadow: 0 5px 10px rgba(228, 42, 42, 0.8);
+  }
 
-.close {
-  color: #aaaaaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-  margin-top: -10px;
-}
-
-.close:hover,
-.close:focus {
-  color: #000;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-#updprofile {
-  border-bottom: 1px solid #dadada;
-  padding: 20px 40px;
-  display: flex;
-  justify-content: space-between;
-}
-
-#insertimage {
-  padding: 20px 40px;
-}
-
-#insertimage input {
-  padding: 10px 20px;
-  border-radius: 10px;
-}
-
-#insertimage button {
-  margin-top: 20px;
-  padding: 10px 20px;
-  border-radius: 10px;
-  background-color: #b62e42;
-  border: 0;
-}
-
-#upload {
-  background-color: #fff;
-}
-
-#profile {
-  transition: 600ms;
-  width: 25%;
-  padding: 0 30px;
-  background: #fff;
-  position: fixed;
-  height: 100vh;
-  z-index: -1;
-  top: 3vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-#changeprofile {
-  margin-top: 10px;
-  cursor: pointer;
-  padding: 5px 10px;
-  border-radius: 5px;
-  background-color: var(--primary-bg);
-}
-
-#profiletop {
-  margin-top: 10vh;
-}
-
-.sticky {
-  margin-top: -7vh;
-}
-
-#profileright {
-  margin-top: 50px;
-}
-
-#namesetting {
-  display: flex;
-  justify-content: space-around;
-  font-size: 25px;
-}
-
-#setting {
-  height: 30px;
-  margin-left: 20px;
-}
-
-#profileEdit {
-  margin-top: 30px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-#profileEdit button {
-  font-family: "Poppins", sans-serif;
-  font-size: 10px;
-  padding: 3px;
-  background: #b62e42;
-  border-color: #b62e42;
-  color: white;
-  font-size: 16px;
-  margin-right: 10px;
-  border-radius: 25px;
-  width: 80%;
-}
-
-#bloglist {
-  width: 75%;
-  float: right;
-  background-color: aliceblue;
-}
-
-#blogcss {
-  width: 80%;
-  margin: auto;
-  margin-bottom: 50px;
-}
-
-.likesharecmt {
-  display: flex;
-  margin-top: 10px;
-  opacity: 1;
-}
-
-.likesharecmt p {
-  margin: 0 10px 0 10px;
-}
-
-.blogs {
-  background: #fff;
-  padding: 50px 20px 50px 20px;
-  margin-top: 50px;
-}
-
-.reltopic {
-  margin: 15px 0 15px 0;
-}
-
-button {
-  padding: 5px 10px;
-  background: #b62e42;
-  border: 0;
-  color: white;
-  font-size: 16px;
-  margin-right: 10px;
-  border-radius: 10px;
-  font-family: "Poppins", sans-serif;
-}
+  #deleteAccount {
+    margin-top: 30px;
+  }
