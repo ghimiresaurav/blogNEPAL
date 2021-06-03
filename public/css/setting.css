@@ -6,7 +6,7 @@
 
 body {
     background-color: aliceblue;
-    font-family: "Montserrat", serif;
+    font-family: "Poppins", sans-serif, serif;
     width: 100%;
 }
 
@@ -19,7 +19,7 @@ body {
 }
 
 nav {
-    width: 95%;
+    width: 100vw;
     margin: auto;
     height: 10vh;
     display: flex;
@@ -44,7 +44,7 @@ nav ul {
     list-style: none;
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    margin-right: 15px;
     width: 100%;
 }
 
