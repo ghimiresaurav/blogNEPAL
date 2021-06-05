@@ -10,7 +10,7 @@ fetch("/protected/user-details")
 const profile = document.getElementById("profile");
 const sticky = profile.offsetTop;
 
-//sidebar scrool position fix code
+//sidebar scroll position fix code
 window.onscroll = function () {
   if (window.pageYOffset >= sticky) {
     profile.classList.add("sticky");
@@ -57,6 +57,15 @@ const submitAvatar = (e) => {
   fetch("/protected/update-avatar", fetchOptions);
   hideModal();
 };
+
+//to make the Edit Profile button popup in same page
+document.getElementById('profileEdit').addEventListener('click',function() {
+  document.querySelector('.wrapperContainer').style.display='flex';
+})
+
+document.querySelector('.closeWrapper').addEventListener('click',function(){
+  document.querySelector('.wrapperContainer').style.display='none';
+})
 //fetching data from backend of blogs
 let request = new XMLHttpRequest();
 request.open("GET", "http://localhost:3000/getblog");

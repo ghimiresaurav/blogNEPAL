@@ -6,9 +6,8 @@
 }
 
 body {
+  font-family: "Poppins", sans-serif;
   background-color: aliceblue;
-  font-family: "Montserrat", serif;
-  width: 100%;
 }
 
 :root {
@@ -41,6 +40,7 @@ body {
   position: relative;
   width: 10vw;
   margin-right: 350px;
+  margin-left: 20px;
 }
 
 .main-search {
@@ -53,12 +53,13 @@ body {
   padding-left: 36px;
 }
 
-.searchicon {
+.searchIcon {
   position: absolute;
   left: 10px;
-  top: 7px;
+  top: 11px;
   bottom: 8px;
   align-items: center;
+  color:black;
 }
 
 nav ul {
@@ -77,7 +78,7 @@ nav a {
   justify-content: space-evenly;
 }
 
-i {
+nav i {
   font-size: 30px;
   color: whitesmoke;
   cursor: pointer;
