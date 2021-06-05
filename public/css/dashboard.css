@@ -15,8 +15,8 @@ body {
   --primary-bg: #b62e42;
 }
 
-#header{
-  background-color: var(--primary-bg);  
+#header {
+  background-color: var(--primary-bg);
 }
 
 .nav-bar {
@@ -164,4 +164,20 @@ li:hover .onHover {
   font-size: 16px;
   margin-right: 10px;
   border-radius: 10px;
+}
+
+#post-blog {
+  /* position: absolute; */
+  /* top: 15vh; */
+  margin-bottom: 20px;
+  /* height: 100px;
+  width: 100px; */
+  /* background-color: aquamarine; */
+}
+
+#post-notification {
+  text-align: center;
+  position: absolute;
+  top: 13vh;
+  width: 100vw;
 }

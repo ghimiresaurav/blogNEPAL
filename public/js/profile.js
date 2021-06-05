@@ -59,13 +59,12 @@ const submitAvatar = (e) => {
 };
 //fetching data from backend of blogs
 let request = new XMLHttpRequest();
-request.open('GET', "http://localhost:3000/getblog");
-request.responseType = 'text';
+request.open("GET", "http://localhost:3000/getblog");
+request.responseType = "text";
 
-request.onload = function() {
+request.onload = function () {
   const blog = JSON.parse(request.response);
-  console.log(blog)
-  
+  console.log(blog);
 };
 
 request.send();

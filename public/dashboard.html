@@ -2,6 +2,7 @@
 <html>
 
 <head>
+
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
 	<link rel="preconnect" href="https://fonts.gstatic.com">
@@ -16,47 +17,62 @@
 
 <body>
 	<nav class="nav-bar">
-        <div id="logo"><a href="/protected/dashboard" style="color:white;">BlogNEPAL</a></div>
+    <div id="logo"><a href="/protected/dashboard" style="color:white;">BlogNEPAL</a></div>
 
-        <div class="search-bar">
-            <input type="text" placeholder="Search Blogs" class="main-search">
+    <div class="search-bar">
+        <input type="text" placeholder="Search Blogs" class="main-search">
 
-            <div class="searchIcon">
-                <i class="fas fa-search " style="font-size: 18px;"></i> 
-            </div>         
-        </div>
-        
+        <div class="searchIcon">
+            <i class="fas fa-search " style="font-size: 18px;"></i> 
+        </div>         
+    </div>       
        
-         <ul class="icons">               
-                      <li class="home"> 
-                           <a href="#">  <i class="fas fa-home"  ></i></a>
-                      </li> 
-              
-                    <li class="explore"> 
-                         <a href="#" style="position: relative"><i class="fas fa-compass "></i> 
-                          <div class="onHover"></div>
-                         </a> 
-                        
-                    </li>   
-              
-                   <li class="notifications">
-                       <a href="#"  style="position: relative">  <i class="fas fa-bell"></i>  
-                       <div class="onHover"></div>
-                       </a>
-                    </li>   
-                  
-                  
-                    <li class="profile">
-                      <a href="/protected/profile"  style="position: relative">  <i class="fas fa-user"></i> 
-                       <div class="onHover"></div>
-                       </a> 
-                   </li>                      
-                                     
-         </ul>   
+    <ul class="icons">               
+      <li class="home"> 
+        <a href="#">  <i class="fas fa-home"  ></i></a>
+      </li> 
+        
+      <li class="explore"> 
+        <a href="#" style="position: relative"><i class="fas fa-compass "></i> 
+        <div class="onHover"></div></a> 
+          
+      </li>   
+        
+      <li class="notifications">
+        <a href="#"  style="position: relative">  <i class="fas fa-bell"></i>  
+        <div class="onHover"></div></a>
+      </li>               
+            
+      <li class="profile">
+        <a href="/protected/profile"  style="position: relative">  <i class="fas fa-user"></i> 
+        <div class="onHover"></div></a> 
+      </li>                      
+                                
+    </ul>   
 	</nav>
+
+  <!-- notify user when the blog is posted or rejected because of empty content -->
+  <div id="post-notification">NOTIFICATION</div> 
 
   <div id="body">
     <div id="bloglist">
+
+      <!-- this is a rough structure of form, used to implement post blogs(for backend development) -->
+      <!-- this division's style needs proper editing -->
+      <div class="blogs">
+        <form id="blog-post-form" onsubmit="postBlog(event)">
+        <textarea name="content" id="blog-text" cols="100" rows="30" required></textarea>
+        <input
+          type="file"
+          name="images"
+          id="file-input"
+          accept="image/*"
+          multiple
+        />
+            <button type="submit">Submit</button>
+        </form>
+      </div>
+
       <div id="blogcss">
         <div class="blogs">
           <h4>Cyber Security Dark Side</h4><br />

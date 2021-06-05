@@ -46,10 +46,10 @@ form.addEventListener("submit", (e) => {
   fetch("/login", fetchOptions)
     .then((response) => response.json())
     .then((data) => {
-      const { success, message, userId } = data;
+      const { success, message } = data;
       // console.log(data);
       if (success) {
-        notification.innerHTML = `<strong>login successful</strong>`;
+        notification.innerHTML = `<strong>Login Successful</strong>`;
         window.location.assign("/protected/dashboard");
       } else notification.innerHTML = `<strong>${message}</strong>`;
     })
