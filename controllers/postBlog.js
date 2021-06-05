@@ -4,6 +4,7 @@ const path = require("path");
 const { MongoClient, ObjectID } = require("mongodb");
 const date = require("../utils/getTime");
 
+//insert a document into database with the time and the user_id of the user posting the blog
 const initiatePost = (req, res, next) => {
   MongoClient.connect(
     process.env.DB_URL,
@@ -23,10 +24,12 @@ const initiatePost = (req, res, next) => {
   );
 };
 
+//save images to disk and update the document (add text content and links to images)
 const postBlog = (req, res) => {
   const upload = multer({
     storage: multer.diskStorage({
       destination: (err, file, cb) => {
+        //create separate folders for each posts dynamically
         const dir = path.join(
           __dirname.replace("controllers", "public"),
           `assets/blog_images/post-${res.locals.blogID}`

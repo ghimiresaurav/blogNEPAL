@@ -8,6 +8,7 @@ module.exports = (req, res) => {
   const upload = multer({
     storage: multer.diskStorage({
       destination: (req, file, cb) => {
+        //save the image to file in separate folders for each user dynamically
         const dir = path.join(
           __dirname.replace("controllers", "public"),
           `/assets/avatars/uploads/user-${res.locals.id}`
@@ -28,6 +29,8 @@ module.exports = (req, res) => {
   upload(req, res, (err) => {
     if (err) console.error(err);
     const { file } = req;
+
+    //get a relative link for the image
     const avatarLink = `.${file.path.replace(/\\/g, "/").split("public")[1]}`;
 
     MongoClient.connect(
@@ -39,7 +42,12 @@ module.exports = (req, res) => {
         const query = { _id: new ObjectID(res.locals.id) };
         const update = { $set: { avatarLink } };
 
+        //update the old link with new one in database
         db.collection("users").updateOne(query, update);
+        return res.json({
+          success: true,
+          avatarLink,
+        });
       }
     );
   });

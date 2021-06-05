@@ -59,7 +59,7 @@ body {
   top: 11px;
   bottom: 8px;
   align-items: center;
-  color:black;
+  color: black;
 }
 
 nav ul {
@@ -75,7 +75,9 @@ nav a {
 }
 
 .icons {
+  display: flex;
   justify-content: space-evenly;
+  align-items: center;
 }
 
 nav i {
@@ -181,4 +183,10 @@ li:hover .onHover {
   position: absolute;
   top: 13vh;
   width: 100vw;
+}
+
+#user-avatar {
+  height: 8vh;
+  width: auto;
+  border-radius: 50%;
 }

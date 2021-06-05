@@ -8,8 +8,7 @@
 //   .then((response) => response.json())
 //   .then((data) => console.log(data));
 
-// console.log(localStorage.getItem("token"));
-// console.log("worelrjlwej");
+document.getElementById("user-avatar").src = localStorage.getItem("avatarLink");
 
 const postBlog = (e) => {
   e.preventDefault();
@@ -26,6 +25,6 @@ const postBlog = (e) => {
     method: "POST",
     body: formData,
   };
-  console.log(formData);
+  //send images and text content to backend
   fetch("/protected/post-blog", fetchOptions);
 };
