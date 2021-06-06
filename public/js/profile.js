@@ -1,11 +1,27 @@
-fetch("/protected/user-details")
-  .then((resp) => resp.json())
-  .then((response) => {
+//fetch user details from the backend and set them on the browser
+// fetch("/protected/user-details")
+//   .then((resp) => resp.json())
+//   .then((response) => {
+//     document.getElementById(
+//       "namesetting"
+//     ).innerHTML = `<strong>${response.name}</strong>`;
+//     document.getElementById("profile-picture").src = response.avatarLink;
+//   });
+
+const userDetails = JSON.parse(localStorage.getItem("userDetails"));
+(() => {
+  document.getElementById("profile-picture").src =
+    localStorage.getItem("avatarLink");
+  document.getElementById(
+    "namesetting"
+  ).innerHTML = `<strong>${userDetails.username}</strong>`;
+  if (userDetails.bio)
+    document.getElementById("bio").innerText = userDetails.bio;
+  if (userDetails.hobbies)
     document.getElementById(
-      "namesetting"
-    ).innerHTML = `<strong>${response.name}</strong>`;
-    document.getElementById("profile-picture").src = response.avatarLink;
-  });
+      "hobbies"
+    ).innerHTML = `<strong>Hobbies: </strong>${userDetails.hobbies}`;
+})();
 
 const profile = document.getElementById("profile");
 const sticky = profile.offsetTop;
@@ -53,19 +69,33 @@ const submitAvatar = (e) => {
     method: "POST",
     body: formData,
   };
-
-  fetch("/protected/update-avatar", fetchOptions);
-  hideModal();
+  //send the new avtar to backend
+  fetch("/protected/update-avatar", fetchOptions)
+    .then((resp) => resp.json())
+    .then((response) => {
+      response.success &&
+        localStorage.setItem("avatarLink", response.avatarLink);
+    })
+    .then(() => window.location.reload())
+    .catch((err) => console.error(err));
+  //reload the page so user can see the avatar has changed
+  // window.location.reload();
 };
 
 //to make the Edit Profile button popup in same page
-document.getElementById('profileEdit').addEventListener('click',function() {
-  document.querySelector('.wrapperContainer').style.display='flex';
-})
+document.getElementById("profileEdit").addEventListener("click", function () {
+  document.querySelector(".wrapperContainer").style.display = "flex";
+  document.getElementById("user-bio").innerText = userDetails.bio
+    ? userDetails.bio
+    : "";
+  document.getElementById("user-hobbies").innerText = userDetails.hobbies
+    ? userDetails.hobbies
+    : "";
+});
 
-document.querySelector('.closeWrapper').addEventListener('click',function(){
-  document.querySelector('.wrapperContainer').style.display='none';
-})
+document.querySelector(".closeWrapper").addEventListener("click", function () {
+  document.querySelector(".wrapperContainer").style.display = "none";
+});
 //fetching data from backend of blogs
 let request = new XMLHttpRequest();
 request.open("GET", "http://localhost:3000/getblog");
@@ -83,6 +113,38 @@ const logout = () => {
     method: "DELETE",
   })
     .then((resp) => resp.json())
-    .then((response) => response.success && window.location.assign("/"))
+    .then((response) => {
+      if (response.success) {
+        localStorage.removeItem("username");
+        localStorage.removeItem("avatarLink");
+        window.location.assign("/");
+      }
+    })
     .catch((error) => console.error(`ERROR: ${error}`));
+};
+
+const updateBioHobbies = (e) => {
+  e.preventDefault();
+  const bio = document.getElementById("user-bio").value;
+  const hobbies = document.getElementById("user-hobbies").value;
+  const username = document.getElementById("namesetting").innerText;
+
+  const fetchOptions = {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ bio, hobbies }),
+  };
+  fetch("/protected/update-bio-hobbies", fetchOptions)
+    .then((resp) => resp.json())
+    .then((response) => {
+      const { bio, hobbies } = response;
+      localStorage.setItem(
+        "userDetails",
+        JSON.stringify({ username, bio, hobbies })
+      );
+    })
+    .then(() => window.location.reload())
+    .catch((err) => console.error(err));
 };

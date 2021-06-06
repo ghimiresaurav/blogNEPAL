@@ -1,8 +1,5 @@
 const express = require("express");
 const router = express.Router();
-const multer = require("multer");
-const fs = require("fs");
-const path = require("path");
 
 //import controllers
 const updateAvatarController = require("../controllers/updateAvatar");
@@ -10,10 +7,10 @@ const logoutController = require("../controllers/logout");
 const profileController = require("../controllers/profile");
 const { initiatePost, postBlog } = require("../controllers/postBlog");
 const getBlogsController = require("../controllers/getBlogs");
+const updateBioHobbies = require("../controllers/updateUserInfo");
 
 //import authorization middleware
 const verifyToken = require("../auth/verify");
-const { MongoClient } = require("mongodb");
 
 //setup and use static directory
 const staticDir = __dirname.replace("routes", "public");
@@ -38,5 +35,7 @@ router.delete("/logout", logoutController);
 
 router.get("/get-blogs", getBlogsController);
 router.post("/post-blog", initiatePost, postBlog);
+
+router.put("/update-bio-hobbies", updateBioHobbies);
 
 module.exports = router;

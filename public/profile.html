@@ -63,9 +63,9 @@
             <br />
           </div>
           <br />
-          <p>I am Bsc student in KU. Who loves computer.</p>
+          <p id="bio"></p>
           <br />
-          <p><b>Hobbies:-</b> Programming, Music</p>
+          <p id="hobbies"></p>
         </div>
 
           <div id="profileEdit">
@@ -79,15 +79,18 @@
             <div class="closeWrapper">&times;</div>
 
 
+           <form id="bio-hobbies-form" onsubmit="updateBioHobbies(event)">
             <div id="addBio">
-              <textarea name="userBio" id="userBio" placeholder="Add a Bio" aria-label="Add a Bio" maxlength="120" wrap="hard"></textarea><br />
+              <textarea name="user-bio" id="user-bio" placeholder="Add a Bio" aria-label="Add a Bio" maxlength="120" wrap="hard"></textarea><br />
           </div>
 
           <div id="addHobbies">
-            <textarea name="userBio" id="userBio" placeholder="Add Hobbies" aria-label="Add a Bio" maxlength="80" wrap="hard"></textarea><br />
+            <textarea name="user-hobies" id="user-hobbies" placeholder="Add Hobbies" aria-label="Add a Bio" maxlength="80" wrap="hard"></textarea><br />
           </div>
+          <button type="submit">Submit</button>
+           </form>
 
-          <form action="post">
+          <form>
                 <div id="name">Change Username</div> <br />
 
                     <input type="text" placeholder="Enter your New name" /><br /> 
