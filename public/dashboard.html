@@ -11,7 +11,7 @@
 
 	<link href="./css/dashboard.css" rel="stylesheet" type="text/css" />
   <script src="https://kit.fontawesome.com/3fdf0f105a.js" crossorigin="anonymous"></script>
-	
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/autosize.js/4.0.2/autosize.min.js"></script>
 </head>
 
 
@@ -59,17 +59,19 @@
 
       <!-- this is a rough structure of form, used to implement post blogs(for backend development) -->
       <!-- this division's style needs proper editing -->
-      <div class="blogs">
+      <div class="blogsp">
         <form id="blog-post-form" onsubmit="postBlog(event)">
-        <textarea name="content" id="blog-text" cols="100" rows="30" required></textarea>
-        <input
-          type="file"
-          name="images"
-          id="file-input"
-          accept="image/*"
-          multiple
-        />
-            <button type="submit">Submit</button>
+          <textarea name="content" id="blog-text" placeholder="What do you have on your mind?"></textarea><br>
+          <input
+            type="file"
+            name="images"
+            id="file-input"
+            accept="image/*"
+            multiple
+            hidden
+          />
+          <label for="file-input">Add Images</label>
+          <button type="submit" id="post-btn">Post</button>
         </form>
       </div>
 
