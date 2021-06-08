@@ -28,3 +28,7 @@ const postBlog = (e) => {
   //send images and text content to backend
   fetch("/protected/post-blog", fetchOptions);
 };
+
+document.addEventListener('DOMContentLoaded', function() {
+  autosize(document.querySelectorAll('#blog-text'));
+}, false);
