@@ -245,7 +245,6 @@ nav ul {
 }
 
 .post-image{
-  margin-top:20px
   height: auto;
   width: 80%;
   margin: auto;
@@ -253,6 +252,7 @@ nav ul {
 
 .post-image img{
   width: 100%;
+  margin-top:20px;
 }
 
 button {
