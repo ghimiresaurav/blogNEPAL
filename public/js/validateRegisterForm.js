@@ -95,4 +95,5 @@ form.addEventListener("submit", (e) => {
         setTimeout(() => (notification.innerHTML = ``), 3000);
       }
     });
+    console.log(fetchOptions.body);
 });
