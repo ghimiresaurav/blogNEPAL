@@ -1,212 +1,222 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
-      rel="stylesheet"
-    />
-    <title>Profile</title>
-    <link rel="stylesheet" href="./css/profile.css" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
 
-    <script
-      src="https://kit.fontawesome.com/3fdf0f105a.js"
-      crossorigin="anonymous"
-    ></script>
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
+  <title>Profile</title>
+  <link rel="stylesheet" href="./css/profile.css" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
 
-  <body>
-    <div id="passwordchangemsgbox">
-      <div id="profilepicupdate">
-        <div id="upload">
-          <div id="updprofile">
-            <h3>Update Profile Picture</h3>
-            <span class="close">&times;</span>
-          </div>
-          <div id="insertimage">
-            <form id="update-avatar-form" onsubmit="submitAvatar(event)">
-              <input
-                type="file"
-                id="avatar-input"
-                name="avatar"
-                accept="image/*"
-              /><br />
-              <button type="submit">Upload</button>
-            </form>
-          </div>
+  <script src="https://kit.fontawesome.com/3fdf0f105a.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <div id="passwordchangemsgbox">
+    <div id="profilepicupdate">
+      <div id="upload">
+        <div id="updprofile">
+          <h3>Update Profile Picture</h3>
+          <span class="close">&times;</span>
+        </div>
+        <div id="insertimage">
+          <form id="update-avatar-form" onsubmit="submitAvatar(event)">
+            <input type="file" id="avatar-input" name="avatar" accept="image/*" /><br />
+            <button type="submit">Upload</button>
+          </form>
         </div>
       </div>
     </div>
-    <div id="header">
-      <nav>
-        <div id="logo"><a href="/protected/dashboard">BlogNEPAL</a></div>
-        <div id="links">
-          <ul>
-            <li>
-              <button id="log-out-btn" onclick="logout()">Log Out</button>
-            </li>
-          </ul>
-        </div>
-      </nav>
-    </div>
-    <div id="body">
-      <div id="profile">
-        <div id="profileimg">
-          <img id="profile-picture" src="" alt="profile picture" />
-        </div>
-       <button id="changeprofile">Update Profile Picture</button>      
-        <div id="profileright">
-          <div id="namesetting">
-            <br />
-          </div>
+  </div>
+  <div id="header">
+    <nav>
+      <div id="logo"><a href="/protected/dashboard">BlogNEPAL</a></div>
+      <div id="links">
+        <ul>
+          <li>
+            <button id="log-out-btn" onclick="logout()">Log Out</button>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+  <div id="body">
+    <div id="profile">
+      <div id="profileimg">
+        <img id="profile-picture" src="" alt="profile picture" />
+      </div>
+      <button id="changeprofile">Update Profile Picture</button>
+      <div id="profileright">
+        <div id="namesetting">
           <br />
-          <p id="bio"></p>
-          <br />
-          <p id="hobbies"></p>
         </div>
-
-          <div id="profileEdit">
-            <button id="edit">Edit Profile</button>
-          </div>
+        <br />
+        <p id="bio"></p>
+        <br />
+        <p id="hobbies"></p>
       </div>
 
-      <div class="wrapperContainer">
-          <div id="wrapper">
+      <div id="profileEdit">
+        <button id="edit">Edit Profile</button>
+      </div>
+    </div>
 
-            <div class="closeWrapper">&times;</div>
+    <div class="wrapperContainer">
+      <div id="wrapper">
+
+        <div class="closeWrapper">&times;</div>
 
 
-           <form id="bio-hobbies-form" onsubmit="updateBioHobbies(event)">
-            <div id="addBio">
-              <textarea name="user-bio" id="user-bio" placeholder="Add a Bio" aria-label="Add a Bio" maxlength="120" wrap="hard"></textarea><br />
+        <form id="bio-hobbies-form" onsubmit="updateBioHobbies(event)">
+          <div id="addBio">
+            <textarea name="user-bio" id="user-bio" placeholder="Add a Bio" aria-label="Add a Bio" maxlength="120"
+              wrap="hard"></textarea><br />
           </div>
 
           <div id="addHobbies">
-            <textarea name="user-hobies" id="user-hobbies" placeholder="Add Hobbies" aria-label="Add a Bio" maxlength="80" wrap="hard"></textarea><br />
+            <textarea name="user-hobies" id="user-hobbies" placeholder="Add Hobbies" aria-label="Add a Bio"
+              maxlength="80" wrap="hard"></textarea><br />
           </div>
           <button type="submit">Submit</button>
-           </form>
+        </form>
 
-          <form>
-                <div id="name">Change Username</div> <br />
+        <form>
+          <div id="name">Change Username</div> <br />
 
-                    <input type="text" placeholder="Enter your New name" /><br /> 
-                    <input type="password" placeholder="Enter your password" /><br />
-              
-                <div id="password">Change Password</div><br />
-              
-                    <input type="text" placeholder="New Name" /><br />
-                    <input type="password" placeholder="New Password" /><br />
-                    <input type="password" placeholder="Confirm Password" /><br/>
-                    
-                    <button class="submit">Submit</button>
-          </form>
+          <input type="text" placeholder="Enter your New name" /><br />
+          <input type="password" placeholder="Enter your password" /><br />
 
-               <div id="deleteAccount">
-                <button class="submit">Delete Account</button>
-              </div>
-       </div>
-     </div>
-       
+          <div id="password">Change Password</div><br />
 
+          <input type="text" placeholder="New Name" /><br />
+          <input type="password" placeholder="New Password" /><br />
+          <input type="password" placeholder="Confirm Password" /><br />
+
+          <button class="submit">Submit</button>
+        </form>
+
+        <div id="deleteAccount">
+          <button class="submit">Delete Account</button>
+        </div>
+      </div>
     </div>
 
-      <div id="bloglist">
-        <div id="blogcss">
-          <div class="blogs">
-            <h4>Cyber Security Dark Side</h4>
-            <br />
-            <p>
-              Computer security, cybersecurity or information technology
-              security is the protection of computer systems and networks from
-              information disclosure, theft of or damage to their hardware,
-              software, or electronic data, as well as from the disruption or
-              misdirection of the services they provide. Computer security,
-              cybersecurity or information technology security is the protection
-              of computer systems and networks from information disclosure,
-              theft of or damage to their hardware, software, or electronic
-              data, as well as from the disruption or misdirection of the
-              services they provide.
-            </p>
-            <div class="reltopic">
-              <button>Computer</button>
-              <button>Cybersecurity</button>
-            </div>
 
-            <div class="likesharecmt">
-              <i class="far fa-heart" style="font-size: 20px"></i>
-              <p>100</p>
+  </div>
 
-              <i class="far fa-comment" style="font-size: 20px"></i>
-              <p>100</p>
+  <div id="bloglist">
+    <div id="blogcss">
+      <div class="blogs">
+        <h4>Cyber Security Dark Side</h4>
+        <br />
+        <p>
+          Computer security, cybersecurity or information technology
+          security is the protection of computer systems and networks from
+          information disclosure, theft of or damage to their hardware,
+          software, or electronic data, as well as from the disruption or
+          misdirection of the services they provide. Computer security,
+          cybersecurity or information technology security is the protection
+          of computer systems and networks from information disclosure,
+          theft of or damage to their hardware, software, or electronic
+          data, as well as from the disruption or misdirection of the
+          services they provide.
+        </p>
+        <div class="reltopic">
+          <button>Computer</button>
+          <button>Cybersecurity</button>
+        </div>
 
-              <i class="fas fa-share" style="font-size: 20px"></i>
-            </div>
-          </div>
-          <div class="blogs">
-            <h4>Cyber Security Dark Side</h4>
-            <br />
-            <p>
-              Computer security, cybersecurity or information technology
-              security is the protection of computer systems and networks from
-              information disclosure, theft of or damage to their hardware,
-              software, or electronic data, as well as from the disruption or
-              misdirection of the services they provide. Computer security,
-              cybersecurity or information technology security is the protection
-              of computer systems and networks from information disclosure,
-              theft of or damage to their hardware, software, or electronic
-              data, as well as from the disruption or misdirection of the
-              services they provide.
-            </p>
-            <div class="reltopic">
-              <button>Computer</button>
-              <button>Cybersecurity</button>
-            </div>
-            <div class="likesharecmt">
-              <i class="far fa-heart" style="font-size: 20px"></i>
-              <p>100</p>
+        <div class="likesharecmt">
+          <i class="far fa-heart" style="font-size: 20px"></i>
+          <p>100</p>
 
-              <i class="far fa-comment" style="font-size: 20px"></i>
-              <p>100</p>
+          <i class="far fa-comment" style="font-size: 20px"></i>
+          <p>100</p>
 
-              <i class="fas fa-share" style="font-size: 20px"></i>
-            </div>
-          </div>
-          <div class="blogs">
-            <h4>Cyber Security Dark Side</h4>
-            <br />
-            <p>
-              Computer security, cybersecurity or information technology
-              security is the protection of computer systems and networks from
-              information disclosure, theft of or damage to their hardware,
-              software, or electronic data, as well as from the disruption or
-              misdirection of the services they provide. Computer security,
-              cybersecurity or information technology security is the protection
-              of computer systems and networks from information disclosure,
-              theft of or damage to their hardware, software, or electronic
-              data, as well as from the disruption or misdirection of the
-              services they provide.
-            </p>
-            <div class="reltopic">
-              <button>Computer</button>
-              <button>Cybersecurity</button>
-            </div>
-            <div class="likesharecmt">
-              <i class="far fa-heart" style="font-size: 20px"></i>
-              <p>100</p>
+          <i class="fas fa-share" style="font-size: 20px"></i>
+        </div>
+        <div class="comment">
+          <form>
+            <input type="text" placeholder="Write a comment...">
+          </form>
+          <div id="comment-list">
+            <div class="comments">
+              <div>
+                <img id="commentimage" src="" />
+              </div>
+              <div class="comment-text">
+                <p><b>Rishikesh Khakurel</b></p>
+                <p>Nice blog</p>
+              </div>
 
-              <i class="far fa-comment" style="font-size: 20px"></i>
-              <p>100</p>
-
-              <i class="fas fa-share" style="font-size: 20px"></i>
             </div>
           </div>
         </div>
       </div>
+      <div class="blogs">
+        <h4>Cyber Security Dark Side</h4>
+        <br />
+        <p>
+          Computer security, cybersecurity or information technology
+          security is the protection of computer systems and networks from
+          information disclosure, theft of or damage to their hardware,
+          software, or electronic data, as well as from the disruption or
+          misdirection of the services they provide. Computer security,
+          cybersecurity or information technology security is the protection
+          of computer systems and networks from information disclosure,
+          theft of or damage to their hardware, software, or electronic
+          data, as well as from the disruption or misdirection of the
+          services they provide.
+        </p>
+        <div class="reltopic">
+          <button>Computer</button>
+          <button>Cybersecurity</button>
+        </div>
+        <div class="likesharecmt">
+          <i class="far fa-heart" style="font-size: 20px"></i>
+          <p>100</p>
+
+          <i class="far fa-comment" style="font-size: 20px"></i>
+          <p>100</p>
+
+          <i class="fas fa-share" style="font-size: 20px"></i>
+        </div>
+      </div>
+      <div class="blogs">
+        <h4>Cyber Security Dark Side</h4>
+        <br />
+        <p>
+          Computer security, cybersecurity or information technology
+          security is the protection of computer systems and networks from
+          information disclosure, theft of or damage to their hardware,
+          software, or electronic data, as well as from the disruption or
+          misdirection of the services they provide. Computer security,
+          cybersecurity or information technology security is the protection
+          of computer systems and networks from information disclosure,
+          theft of or damage to their hardware, software, or electronic
+          data, as well as from the disruption or misdirection of the
+          services they provide.
+        </p>
+        <div class="reltopic">
+          <button>Computer</button>
+          <button>Cybersecurity</button>
+        </div>
+        <div class="likesharecmt">
+          <i class="far fa-heart" style="font-size: 20px"></i>
+          <p>100</p>
+
+          <i class="far fa-comment" style="font-size: 20px"></i>
+          <p>100</p>
+
+          <i class="fas fa-share" style="font-size: 20px"></i>
+        </div>
+      </div>
     </div>
-    <script src="./js/profile.js"></script>
-  </body>
+  </div>
+  </div>
+  <script src="./js/profile.js"></script>
+</body>
+
 </html>
