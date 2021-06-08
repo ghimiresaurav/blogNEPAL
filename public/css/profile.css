@@ -244,8 +244,14 @@ nav ul {
   margin-top: 50px;
 }
 
-.reltopic {
-  margin: 15px 0 15px 0;
+.post-image{
+  height: auto;
+  width: 80%;
+  margin: auto;
+}
+
+.post-image img{
+  width: 100%;
 }
 
 button {
@@ -388,10 +394,19 @@ button {
   margin-top: 20px;
 }
 
-.comment input{
+.comment form{
   background: #f0f2f5;
-  border: 0;
   border-radius: 20px;
+  display: flex;
+}
+
+.comment form button{
+  background: none;
+  color: #b62e42;
+}
+
+.comment input{
+  border: 0;
   width: 100%;
 }
 
