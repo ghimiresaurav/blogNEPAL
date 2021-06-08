@@ -12,6 +12,8 @@ const userDetails = JSON.parse(localStorage.getItem("userDetails"));
 (() => {
   document.getElementById("profile-picture").src =
     localStorage.getItem("avatarLink");
+    document.getElementById("commentimage").src=localStorage.getItem("avatarLink");
+    document.getElementById("image").src=localStorage.getItem("avatarLink");
   document.getElementById(
     "namesetting"
   ).innerHTML = `<strong>${userDetails.username}</strong>`;

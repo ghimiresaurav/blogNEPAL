@@ -68,17 +68,13 @@ nav ul {
   width: 100%;
 }
 
-#blogcss {
-  width: 80%;
-  margin: auto;
-}
 #profileimg {
-  margin-top: 5px;
+  margin-top: 12vh;
 }
 
 #profileimg img {
-  width: 80%;
-  height: auto;
+  width: 36vh;
+  height: 36vh;
   border-radius: 50%;
   display: flex;
   margin-top: 20px;
@@ -161,9 +157,7 @@ nav ul {
   height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   z-index: -1;
-  float: left;
 }
 
 #changeprofile {
@@ -225,11 +219,11 @@ nav ul {
   width: 75%;
   float: right;
   background-color: aliceblue;
-  margin-top: 65px;
+  margin-top: 99px;
 }
 
 #blogcss {
-  width: 80%;
+  width: 60%;
   margin: auto;
   margin-bottom: 50px;
 }
@@ -250,8 +244,14 @@ nav ul {
   margin-top: 50px;
 }
 
-.reltopic {
-  margin: 15px 0 15px 0;
+.post-image{
+  height: auto;
+  width: 80%;
+  margin: auto;
+}
+
+.post-image img{
+  width: 100%;
 }
 
 button {
@@ -386,4 +386,49 @@ button {
 
 #log-out-btn {
   border: 1px solid aliceblue;
+}
+
+/*comment css */
+
+.comment{
+  margin-top: 20px;
+}
+
+.comment form{
+  background: #f0f2f5;
+  border-radius: 20px;
+  display: flex;
+}
+
+.comment form button{
+  background: none;
+  color: #b62e42;
+}
+
+.comment input{
+  border: 0;
+  width: 100%;
+}
+
+#comment-list{
+  margin-top: 20px;
+}
+
+.comments{
+  display: flex;
+  width: 100%;
+}
+
+.comment-text{
+  margin-left: 15px;
+  background: #f0f2f5;
+  width: 100%;
+  border-radius: 20px;
+  padding: 5px 10px;
+}
+
+#comment-list img{
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
 }
