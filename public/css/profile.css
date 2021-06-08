@@ -73,8 +73,8 @@ nav ul {
 }
 
 #profileimg img {
-  width: 400px;
-  height: 400px;
+  width: 36vh;
+  height: 36vh;
   border-radius: 50%;
   display: flex;
   margin-top: 20px;
