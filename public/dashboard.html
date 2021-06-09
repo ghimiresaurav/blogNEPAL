@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
 	<link rel="preconnect" href="https://fonts.gstatic.com">
@@ -12,6 +10,7 @@
 	<link href="./css/dashboard.css" rel="stylesheet" type="text/css" />
   <script src="https://kit.fontawesome.com/3fdf0f105a.js" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/autosize.js/4.0.2/autosize.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 </head>
 
 
@@ -31,25 +30,59 @@
       </li> 
         
       <li class="explore"> 
-        <a href="#" style="position: relative"><i class="fas fa-compass "></i> 
-        <div class="onHover"></div></a> 
-          
+        <a href="#" style="position: relative"><i class="fas fa-compass "></i> </a>
       </li>   
         
       <li class="notifications">
-        <a href="#"  style="position: relative">  <i class="fas fa-bell"></i>  
-        <div class="onHover"></div></a>
-      </li>               
+        <a href="#"  style="position: relative">  <i class="fas fa-bell"></i> </a> 
+      </li>             
             
       <li class="profile">
         <a href="/protected/profile"  style="position: relative">  
-          <!-- <i class="fas fa-user"></i>  -->
           <img id="user-avatar">
-        <div class="onHover"></div></a> 
+      </a> 
       </li>                      
                                 
     </ul>   
 	</nav>
+        <div class="dropdown">
+        <div class="notify_item">
+            <div class="notify_img">
+                <img src="https://scontent.fktm1-2.fna.fbcdn.net/v/t1.6435-9/147756655_2116799858455767_4033392392389566501_n.jpg?_nc_cat=103&ccb=1-3&_nc_sid=09cbfe&_nc_ohc=WGZhQY6vbpIAX8z-ARq&tn=78zyiL-YgMzZv1gz&_nc_ht=scontent.fktm1-2.fna&oh=9a1d8ea57da3d6e70d95ed741676da14&oe=60DAF5D3" alt="profile_pic" style="width: 50px">
+            </div>
+            <div class="notify_info">
+                <p>Saurav commented on<span>Blog Post</span></p>
+                <span class="notify_time">10 minutes ago</span>
+            </div>
+        </div>
+        <div class="notify_item">
+            <div class="notify_img">
+                <img src="images/not_2.png" alt="profile_pic" style="width: 50px">
+            </div>
+            <div class="notify_info">
+                <p>Kabin commented on your<span>BLog Post</span></p>
+                <span class="notify_time">55 minutes ago</span>
+            </div>
+        </div>
+        <div class="notify_item">
+            <div class="notify_img">
+                <img src="images.png" alt="profile_pic" style="width: 50px">
+            </div>
+            <div class="notify_info">
+                <p>Rishi liked your<span>Cover Picture</span></p>
+                <span class="notify_time">2 hours ago</span>
+            </div>
+        </div>
+        <div class="notify_item">
+            <div class="notify_img">
+                <img src="https://scontent.fktm1-2.fna.fbcdn.net/v/t1.6435-9/74485934_515962395624241_6736301125944737792_n.jpg?_nc_cat=101&ccb=1-3&_nc_sid=09cbfe&_nc_ohc=aDOJas0UNNYAX8Deeix&_nc_ht=scontent.fktm1-2.fna&oh=e315d786f2c2420c6cceba1a6bda42fa&oe=60DD079D" alt="profile_pic" style="width: 50px">
+            </div>
+            <div class="notify_info">
+                <p>Sagar commented on your<span>Profile Picture</span></p>
+                <span class="notify_time">6 hours ago</span>
+            </div>
+        </div>
+    </div>  
 
   <!-- notify user when the blog is posted or rejected because of empty content -->
   <div id="post-notification">NOTIFICATION</div> 
