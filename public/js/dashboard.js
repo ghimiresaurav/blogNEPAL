@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 $(document).ready(function()
 		{
-      $(".notifications .fa-bell").click(function()
+      $(".fa-bell").click(function()
 			{
 				$(".dropdown").toggleClass("active");
 			})
