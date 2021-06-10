@@ -32,3 +32,12 @@ const postBlog = (e) => {
 document.addEventListener('DOMContentLoaded', function() {
   autosize(document.querySelectorAll('#blog-text'));
 }, false);
+
+$(document).ready(function()
+		{
+      $(".notifications .fa-bell").click(function()
+			{
+				$(".dropdown").toggleClass("active");
+			})
+		});
+
