@@ -11,6 +11,7 @@
   <script src="https://kit.fontawesome.com/3fdf0f105a.js" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/autosize.js/4.0.2/autosize.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 </head>
 
 
@@ -25,19 +26,19 @@
         
        
     <ul class="icons">               
-      <li class="home"> 
+      <li class="active"> 
         <a href="/protected/dashboard">  <i class="fas fa-home"  ></i></a>
       </li> 
         
-      <li class="explore"> 
+      <li> 
         <a href="#" style="position: relative"><i class="fas fa-compass "></i> </a>
       </li>   
         
-      <li class="notifications">
+      <li>
         <a href="#"  style="position: relative">  <i class="fas fa-bell"></i> </a> 
       </li>             
             
-      <li class="profile">
+      <li>
         <a href="/protected/profile"  style="position: relative">  
           <img id="user-avatar">
       </a> 
@@ -45,6 +46,20 @@
                                 
     </ul>   
 	</nav>
+
+  <script type="text/javascript">
+     const currentLocation = location.href;
+     const menuItem = document.querySelectorAll('a');
+     const menuLength = menuItem.length;
+     for (let i=0; i<menuLength; i++) 
+      {
+        if (menuItem[i].href===currentLocation)
+          {
+            menuItem[i].className = "active"
+          }
+     }
+
+  </script>
 
   <div id="body">
     <div id="bloglist">

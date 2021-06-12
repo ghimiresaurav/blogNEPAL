@@ -33,6 +33,7 @@ body {
   
 }
 
+
 #logo {
   font-family: "Poppins", sans-serif;
   font-weight: 600;
@@ -74,6 +75,10 @@ nav ul {
   width: 50vw;
 }
 
+ul li.active i{
+  color: black;
+}
+
 nav a {
   text-decoration: none;
 }
@@ -85,7 +90,7 @@ nav a {
 }
 
 nav i {
-  font-size: 30px;
+  font-size: 33px;
   color: whitesmoke;
   cursor: pointer;
 }
@@ -93,19 +98,11 @@ nav i {
 .home {
   position: relative;
 }
-/*
-.home::after {
-  position: absolute;
-  content: "";
-  height: 4px;
-  width: 95px;
-  background-color: whitesmoke;
-  bottom: -19px;
-  left: -33px;
-  text-align: center;
-  vertical-align: center;
+
+.active{
+  color: black;
+
 }
-*/
 
 .onHover {
   position: absolute;
@@ -262,7 +259,7 @@ body
     background: #ececec;
 }
 
-.notifications .fa-bell
+.fa-bell
 {
     cursor: pointer;
 }
