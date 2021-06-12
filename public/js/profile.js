@@ -12,8 +12,9 @@ const userDetails = JSON.parse(localStorage.getItem("userDetails"));
 (() => {
   document.getElementById("profile-picture").src =
     localStorage.getItem("avatarLink");
-    document.getElementById("commentimage").src=localStorage.getItem("avatarLink");
-    document.getElementById("image").src=localStorage.getItem("avatarLink");
+  document.getElementById("commentimage").src =
+    localStorage.getItem("avatarLink");
+  document.getElementById("image").src = localStorage.getItem("avatarLink");
   document.getElementById(
     "namesetting"
   ).innerHTML = `<strong>${userDetails.username}</strong>`;
@@ -117,7 +118,7 @@ const logout = () => {
     .then((resp) => resp.json())
     .then((response) => {
       if (response.success) {
-        localStorage.removeItem("username");
+        localStorage.removeItem("userDetails");
         localStorage.removeItem("avatarLink");
         window.location.assign("/");
       }

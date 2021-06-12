@@ -65,7 +65,7 @@ nav a {
   justify-content: center;
 }
 
-#icons  {
+#icons {
   float: left;
   width: 70%;
   overflow: hidden;
@@ -76,9 +76,8 @@ nav a {
 }
 
 #icons i {
-  font-size: 15px  ;
+  font-size: 15px;
 }
-
 
 #get-started {
   width: 405px;
@@ -99,7 +98,7 @@ nav a {
   padding: 10px 15px;
 }
 
-#get-started-btn:hover{
+#get-started-btn:hover {
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.412);
 }
 
@@ -134,9 +133,8 @@ input,
   width: 80%;
   height: 30px;
   font-size: 15px;
-  margin-bottom:11px;
+  margin-bottom: 11px;
 }
-
 
 #main-btn:hover {
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.412);
@@ -148,6 +146,7 @@ input {
   outline: none;
   border: none;
   transition: 350ms;
+  border-bottom: 1px solid #000;
 }
 
 input:focus {

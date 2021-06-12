@@ -130,7 +130,8 @@ li:hover .onHover {
   float: right;
 }
 
-#blogcss ,.blogsp{
+#blogcss,
+.blogsp {
   width: 80%;
   margin: auto;
   margin-bottom: 50px;
@@ -151,7 +152,7 @@ li:hover .onHover {
   padding: 50px 20px 50px 20px;
 }
 
-label{
+label {
   font-family: "Poppins", sans-serif;
   font-size: small;
   padding: 5px 2px 5px 2px;
@@ -162,7 +163,7 @@ label{
   border: none;
   border-radius: 4px;
   color: white;
-  background-color: #b62e42;  
+  background-color: #b62e42;
   transition-duration: 0.4s;
 }
 
@@ -182,7 +183,7 @@ label:hover {
   border: none;
   border-radius: 4px;
   color: white;
-  background-color: #b62e42;  
+  background-color: #b62e42;
   transition-duration: 0.4s;
 }
 
@@ -241,97 +242,90 @@ label:hover {
   width: 100vw;
 }
 
-#user-avatar 
-{
+#user-avatar {
   height: 8vh;
   width: auto;
   border-radius: 50%;
 }
-@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Montserrat&display=swap");
 
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Montserrat', sans-serif;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
 }
 
-body
-{
-    background: #ececec;
+body {
+  background: #ececec;
 }
 
-.notifications .fa-bell
-{
-    cursor: pointer;
+.notifications .fa-bell {
+  cursor: pointer;
 }
 
-.icons i
-{
+.icons i {
   border: 2px solid transparent;
   padding: 2px 20px;
 }
-.icons i:hover
-{
+.icons i:hover {
   border: 2px solid white;
   background-color: red;
   border-radius: 20px;
   transition-duration: 0.2s;
 }
-.dropdown{
-    width: 350px;
-    height: auto;
-    background: #fff;
-    border-radius: 5px;
-    box-shadow: 2px 2px 3px rgba(0,0,0,0.125);
-    margin: 15px auto 0;
-    padding: 15px;
-    position: absolute;
-    display: none;
+.dropdown {
+  width: 350px;
+  height: auto;
+  background: #fff;
+  border-radius: 5px;
+  box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.125);
+  margin: 15px auto 0;
+  padding: 15px;
+  position: absolute;
+  display: none;
+  margin: 1% 0% 0% 66%;
 }
 
-.dropdown .notify_item{
-    display: flex;
-    align-items: center;
-    padding: 10px ;
-    border-bottom: 1px solid #b62e42 ;
+.dropdown .notify_item {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #b62e42;
 }
 
-.dropdown .notify_item:last-child{
-    border-bottom: 0px;
+.dropdown .notify_item:last-child {
+  border-bottom: 0px;
 }
 
-.dropdown .notify_item .notify_img{
-    margin-right: 15px;
+.dropdown .notify_item .notify_img {
+  margin-right: 15px;
 }
 
-.dropdown .notify_item .notify_info p{
-    margin-bottom: 5px;
-  
+.dropdown .notify_item .notify_info p {
+  margin-bottom: 5px;
 }
 
-.dropdown .notify_item .notify_info p span{
-    color: #b62e42;
-    margin-left: 4px;
+.dropdown .notify_item .notify_info p span {
+  color: #b62e42;
+  margin-left: 4px;
 }
 
-.dropdown .notify_item .notify_info .notify_time{
-    color: #b62e42;
-    font-size: 12px;
+.dropdown .notify_item .notify_info .notify_time {
+  color: #b62e42;
+  font-size: 12px;
 }
 
-.dropdown:before{
-    content: "";
-    position: absolute ;
-    top: -30px;
-    left: 50%;
-    transform: translateX(-50%);
-    border: 15px #b62e42 ;
-    border-color: transparent transparent #fff transparent;
+.dropdown:before {
+  content: "";
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 15px #b62e42;
+  border-color: transparent transparent #fff transparent;
 }
 
-.dropdown.active
-{
-    display: block;
-    margin: 1% 0% 0% 66%;
+.dropdown.active {
+  display: block;
 }

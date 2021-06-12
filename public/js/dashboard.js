@@ -29,15 +29,38 @@ const postBlog = (e) => {
   fetch("/protected/post-blog", fetchOptions);
 };
 
-document.addEventListener('DOMContentLoaded', function() {
-  autosize(document.querySelectorAll('#blog-text'));
-}, false);
+document.addEventListener(
+  "DOMContentLoaded",
+  function () {
+    autosize(document.querySelectorAll("#blog-text"));
+  },
+  false
+);
 
-$(document).ready(function()
-		{
-      $(".notifications .fa-bell").click(function()
-			{
-				$(".dropdown").toggleClass("active");
-			})
-		});
+// $(document).ready(function () {
+//   $(".notifications .fa-bell").click(function () {
+//     $(".dropdown").toggleClass("active");
+//   });
+// });
 
+const dropdown = document.getElementsByClassName("dropdown")[0];
+document.getElementsByClassName("fa-bell")[0].addEventListener("click", () => {
+  if (dropdown.style.display == "block") dropdown.style.display = "none";
+  else dropdown.style.display = "block";
+});
+
+// document.addEventListener("click", (e) => {
+//   const dropdown = document.getElementsByClassName("dropdown")[0];
+//   if (dropdown.classList.contains("active")) {
+//     console.log("here");
+//     const x = e.offsetX;
+//     const y = e.offsetY;
+//     if (
+//       x < dropdown.offsetLeft ||
+//       y < dropdown.offsetTop ||
+//       x > dropdown.offsetLeft + dropdown.offsetWidth ||
+//       y > dropdown.offsetTop + dropdown.offsetHeight
+//     )
+//       dropdown.classList.remove("active");
+//   }
+// });
