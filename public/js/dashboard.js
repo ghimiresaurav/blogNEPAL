@@ -29,6 +29,7 @@ const postBlog = (e) => {
   fetch("/protected/post-blog", fetchOptions);
 };
 
+<<<<<<< HEAD
 document.addEventListener(
   "DOMContentLoaded",
   function () {
@@ -36,6 +37,19 @@ document.addEventListener(
   },
   false
 );
+=======
+document.addEventListener('DOMContentLoaded', function() {
+  autosize(document.querySelectorAll('#blog-text'));
+}, false);
+
+$(document).ready(function()
+		{
+      $(".fa-bell").click(function()
+			{
+				$(".dropdown").toggleClass("active");
+			})
+		});
+>>>>>>> 9e70bffd5c140e198286dce95dc208ba8a3ab382
 
 // $(document).ready(function () {
 //   $(".notifications .fa-bell").click(function () {

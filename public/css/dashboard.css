@@ -247,6 +247,7 @@ label:hover {
   width: auto;
   border-radius: 50%;
 }
+<<<<<<< HEAD
 @import url("https://fonts.googleapis.com/css?family=Montserrat&display=swap");
 
 * {
@@ -259,6 +260,8 @@ label:hover {
 body {
   background: #ececec;
 }
+=======
+>>>>>>> 9e70bffd5c140e198286dce95dc208ba8a3ab382
 
 .notifications .fa-bell {
   cursor: pointer;
