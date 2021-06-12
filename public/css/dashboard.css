@@ -19,7 +19,7 @@ body {
 }
 
 .nav-bar {
-  width: 100%;
+  width: 100vw;
   height: 10vh;
   background-color: #b62e42;
   display: flex;
@@ -27,6 +27,10 @@ body {
   align-items: center;
   padding: 20px;
   font-size: 18px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  
 }
 
 #logo {
@@ -89,7 +93,7 @@ nav i {
 .home {
   position: relative;
 }
-
+/*
 .home::after {
   position: absolute;
   content: "";
@@ -101,6 +105,7 @@ nav i {
   text-align: center;
   vertical-align: center;
 }
+*/
 
 .onHover {
   position: absolute;
@@ -123,11 +128,13 @@ li:hover .onHover {
 #blogcss {
   width: 80%;
   margin: auto;
+  top: 50px;
 }
 
 #bloglist {
   width: 75%;
   float: right;
+  margin-top: 5vh;
 }
 
 #blogcss ,.blogsp{
@@ -234,18 +241,12 @@ label:hover {
   /* background-color: aquamarine; */
 }
 
-#post-notification {
-  text-align: center;
-  position: absolute;
-  top: 13vh;
-  width: 100vw;
-}
-
 #user-avatar 
 {
-  height: 8vh;
+  height: 6vh;
   width: auto;
   border-radius: 50%;
+  display: flex;
 }
 @import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
 
