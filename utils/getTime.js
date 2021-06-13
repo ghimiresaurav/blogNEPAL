@@ -29,9 +29,10 @@ const getMonth = (m) => {
 
 const date = () => {
   const date = new Date();
-  return `${date.getFullYear()}/${getMonth(
+  const a = date.toLocaleTimeString().split(":");
+  return `${date.getDate()} ${getMonth(
     date.getMonth()
-  )}/${date.getDay()} - ${date.toLocaleTimeString()}`;
+  )} ${date.getFullYear()} - ${a[0]}:${a[1]} ${a[2].split(" ")[1]}`;
 };
 
 module.exports = date();

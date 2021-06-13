@@ -12,8 +12,14 @@ const initiatePost = (req, res, next) => {
     async (err, client) => {
       if (err) throw err;
       const db = client.db(process.env.DB_NAME);
+      const author = await db
+        .collection("users")
+        .findOne({ _id: new ObjectID(res.locals.id) });
       const blog = {
-        postedBy: res.locals.id,
+        author: {
+          id: res.locals.id,
+          name: author.name,
+        },
         postedOn: date,
       };
       const result = await db.collection("blogs").insertOne(blog);
