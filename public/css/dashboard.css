@@ -75,10 +75,10 @@ nav ul {
   width: 50vw;
 }
 
-ul li.active i{
+
+i.active {
   color: black;
 }
-
 
 nav a {
   text-decoration: none;
@@ -96,14 +96,6 @@ nav i {
   cursor: pointer;
 }
 
-.home {
-  position: relative;
-}
-
-.active{
-  color: black;
-
-}
 
 .onHover {
   position: absolute;
@@ -258,7 +250,7 @@ label:hover {
   padding: 2px 20px;
 }
 .icons i:hover {
-  border: 2px solid white;
+  border: 1px solid white;
   background-color: red;
   border-radius: 20px;
   transition-duration: 0.2s;
