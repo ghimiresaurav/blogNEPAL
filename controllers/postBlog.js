@@ -61,7 +61,7 @@ const postBlog = (req, res) => {
     if (files.length) {
       links = files.reduce(
         (paths, elem) =>
-          `${paths}, .${elem.path.replaceAll("\\", "/").split("public")[1]}`,
+          `${paths}, .${elem.path.replace(/\\/g, "/").split("public")[1]}`,
         ``
       );
     }
