@@ -244,15 +244,14 @@ nav ul {
   margin-top: 50px;
 }
 
-.post-image{
-  height: auto;
+.post-image {
   width: 80%;
   margin: auto;
 }
 
-.post-image img{
+.post-image img {
   width: 100%;
-  margin-top:20px;
+  margin-top: 20px;
 }
 
 button {
@@ -391,36 +390,36 @@ button {
 
 /*comment css */
 
-.comment{
+.comment {
   margin-top: 20px;
 }
 
-.comment form{
+.comment form {
   background: #f0f2f5;
   border-radius: 20px;
   display: flex;
 }
 
-.comment form button{
+.comment form button {
   background: none;
   color: #b62e42;
 }
 
-.comment input{
+.comment input {
   border: 0;
   width: 100%;
 }
 
-#comment-list{
+#comment-list {
   margin-top: 20px;
 }
 
-.comments{
+.comments {
   display: flex;
   width: 100%;
 }
 
-.comment-text{
+.comment-text {
   margin-left: 15px;
   background: #f0f2f5;
   width: 100%;
@@ -428,7 +427,7 @@ button {
   padding: 5px 10px;
 }
 
-#comment-list img{
+#comment-list img {
   height: 30px;
   width: 30px;
   border-radius: 50%;

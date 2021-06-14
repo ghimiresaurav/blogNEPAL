@@ -1,19 +1,10 @@
-//fetch user details from the backend and set them on the browser
-// fetch("/protected/user-details")
-//   .then((resp) => resp.json())
-//   .then((response) => {
-//     document.getElementById(
-//       "namesetting"
-//     ).innerHTML = `<strong>${response.name}</strong>`;
-//     document.getElementById("profile-picture").src = response.avatarLink;
-//   });
-
 const userDetails = JSON.parse(localStorage.getItem("userDetails"));
 (() => {
   document.getElementById("profile-picture").src =
     localStorage.getItem("avatarLink");
-    document.getElementById("commentimage").src=localStorage.getItem("avatarLink");
-    document.getElementById("image").src=localStorage.getItem("avatarLink");
+  document.getElementById("commentimage").src =
+    localStorage.getItem("avatarLink");
+  document.getElementById("image").src = localStorage.getItem("avatarLink");
   document.getElementById(
     "namesetting"
   ).innerHTML = `<strong>${userDetails.username}</strong>`;
@@ -29,13 +20,13 @@ const profile = document.getElementById("profile");
 const sticky = profile.offsetTop;
 
 //sidebar scroll position fix code
-window.onscroll = function () {
-  if (window.pageYOffset >= sticky) {
-    profile.classList.add("sticky");
-  } else {
-    profile.classList.remove("sticky");
-  }
-};
+// window.onscroll = function () {
+//   if (window.pageYOffset >= sticky) {
+//     profile.classList.add("sticky");
+//   } else {
+//     profile.classList.remove("sticky");
+//   }
+// };
 
 // Get the modal
 const modal = document.getElementById("passwordchangemsgbox");
@@ -57,7 +48,11 @@ span.onclick = hideModal;
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function (event) {
-  if (event.target == modal) hideModal();
+  if (event.target == modal) {
+    console.log(event.target);
+    console.log("herer");
+    hideModal();
+  }
 };
 
 const submitAvatar = (e) => {
@@ -117,7 +112,7 @@ const logout = () => {
     .then((resp) => resp.json())
     .then((response) => {
       if (response.success) {
-        localStorage.removeItem("username");
+        localStorage.removeItem("userDetails");
         localStorage.removeItem("avatarLink");
         window.location.assign("/");
       }
