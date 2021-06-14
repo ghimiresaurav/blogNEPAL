@@ -88,6 +88,19 @@ $(document).ready(function()
 			})
 		});
 
+// for navBar active effect
+icons = document.querySelector(".icons").querySelectorAll("i");
+      console.log(icons);
+
+icons.forEach(element => {
+        element.addEventListener("click", function(){
+          icons.forEach(icons=>icons.classList.remove("active"))
+
+        this.classList.add("active");
+      })
+      
+      });
+
 // document.addEventListener("click", (e) => {
 //   const dropdown = document.getElementsByClassName("dropdown")[0];
 //   if (dropdown.classList.contains("active")) {
