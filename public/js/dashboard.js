@@ -1,3 +1,14 @@
+(() => {
+  const currentLocation = location.href;
+  const menuItem = document.querySelectorAll("a");
+  const menuLength = menuItem.length;
+  for (let i = 0; i < menuLength; i++) {
+    if (menuItem[i].href === currentLocation) {
+      menuItem[i].classList.add("active");
+    }
+  }
+})();
+
 const blogsContainer = document.getElementById("blogcss");
 const wrapBlog = (blog) => {
   const lscTagDiv = `<div class="likesharecmt">
@@ -11,7 +22,6 @@ const wrapBlog = (blog) => {
   const imagesUrls = blog.links.split(", ");
   imagesUrls.shift();
 
-  console.log(imagesUrls);
   if (imagesUrls.length)
     imageDiv = `
   <div class="post-image">
@@ -31,12 +41,7 @@ const wrapBlog = (blog) => {
   blogsContainer.appendChild(blogDiv);
 };
 
-fetch("/protected/get-blogs", {
-  method: "GET",
-  headers: {
-    "Content-type": "application/json",
-  },
-})
+fetch("/protected/get-blogs")
   .then((response) => response.json())
   .then((data) => {
     data.forEach((datum) => wrapBlog(datum));
@@ -49,9 +54,6 @@ const postBlog = (e) => {
   e.preventDefault();
   const postNotification = document.getElementById("post-notification");
   postNotification.innerHTML = "";
-
-  const blogContent = document.getElementById("blog-text").value;
-  console.log(blogContent);
 
   const form = document.getElementById("blog-post-form");
   const formData = new FormData(form);
@@ -79,14 +81,6 @@ document.getElementsByClassName("fa-bell")[0].addEventListener("click", () => {
   if (dropdown.style.display == "block") dropdown.style.display = "none";
   else dropdown.style.display = "block";
 });
-
-$(document).ready(function()
-		{
-      $(".fa-bell").click(function()
-			{
-				$(".dropdown").toggleClass("active");
-			})
-		});
 
 // document.addEventListener("click", (e) => {
 //   const dropdown = document.getElementsByClassName("dropdown")[0];
