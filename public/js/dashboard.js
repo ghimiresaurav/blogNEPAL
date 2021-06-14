@@ -82,6 +82,27 @@ document.getElementsByClassName("fa-bell")[0].addEventListener("click", () => {
   else dropdown.style.display = "block";
 });
 
+$(document).ready(function()
+		{
+      $(".fa-bell").click(function()
+			{
+				$(".dropdown").toggleClass("active");
+			})
+		});
+
+// for navBar active effect
+icons = document.querySelector(".icons").querySelectorAll("i");
+      console.log(icons);
+
+icons.forEach(element => {
+        element.addEventListener("click", function(){
+          icons.forEach(icons=>icons.classList.remove("active"))
+
+        this.classList.add("active");
+      })
+      
+      });
+
 // document.addEventListener("click", (e) => {
 //   const dropdown = document.getElementsByClassName("dropdown")[0];
 //   if (dropdown.classList.contains("active")) {
