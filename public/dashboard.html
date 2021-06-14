@@ -23,44 +23,28 @@
             <input type="text" placeholder="Search Blogs" class="main-search">      
         </div>
         
-       
-    <ul class="icons">               
-      <li class = "active"> 
-        <a href="/protected/dashboard">  <i class="fas fa-home"></i></a>
-      </li> 
-        
-      <li> 
-        <a href="#" style="position: relative"><i class="fas fa-compass"></i> </a>
-      </li>   
-        
-      <li>
-        <a href="#"  style="position: relative">  <i class="fas fa-bell"></i> </a> 
-      </li>             
-            
-      <li>
-        <a href="/protected/profile"  style="position: relative">  
-          <img id="user-avatar">
-      </a> 
-      </li>                      
-                                
-    </ul>   
+            <ul class="icons">               
+              <li> 
+                <a href="/protected/dashboard" class="active"><i class="fas fa-home active"></i> </a>
+              </li>  
+                
+              <li> 
+                <a href="#" style="position: relative"><i class="fas fa-compass"></i> </a>
+              </li>   
+                
+              <li> 
+                <a href="#"  style="position: relative"> <i class="fas fa-bell"></i> </a> 
+              </li>             
+                    
+              <li>
+                <a href="/protected/profile"  style="position: relative">  
+                  <img id="user-avatar" alt="profile">
+                </a> 
+              </li>                      
+                                        
+            </ul>   
+    
 	</nav>
-
-  <script>
-      icons = document.querySelector(".icons").querySelectorAll("a");
-      console.log(icons);
-
-      icons.forEach(element => {
-        element.addEventListener("click", function(){
-          icons.forEach(nav=>nav.classList.remove("active"))
-
-        this.classList.add("active");
-      })
-      
-      });
-     
-
-  </script>
 
   <div id="body">
     <div id="bloglist">
@@ -192,7 +176,7 @@
   <div class="dropdown">
     <div class="notify_item">
         <div class="notify_img">
-            <img src="https://bit.ly/3cALaMK" alt="profile_pic" style="width: 50px">
+            <img src="https://bit.ly/3zpGHpP" alt="profile_pic" style="width: 50px">
         </div>
         <div class="notify_info">
             <p>Saurav commented on<span>Blog Post</span></p>
@@ -231,3 +215,4 @@
   <script src="./js/dashboard.js"></script>
 </body>
 </html>
+
