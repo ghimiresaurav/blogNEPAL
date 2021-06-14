@@ -9,14 +9,8 @@
 
 	<link href="./css/dashboard.css" rel="stylesheet" type="text/css" />
   <script src="https://kit.fontawesome.com/3fdf0f105a.js" crossorigin="anonymous"></script>
-<<<<<<< HEAD
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/autosize.js/4.0.2/autosize.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-=======
-	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/autosize.js/4.0.2/autosize.min.js"></script> -->
-  <!-- <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script> -->
->>>>>>> 642bae0cf6c1473ab57f454439b36c6756c13688
 </head>
 
 
@@ -31,12 +25,12 @@
         
        
     <ul class="icons">               
-      <li class="active"> 
-        <a href="/protected/dashboard">  <i class="fas fa-home"  ></i></a>
+      <li class = "active"> 
+        <a href="/protected/dashboard">  <i class="fas fa-home"></i></a>
       </li> 
         
       <li> 
-        <a href="#" style="position: relative"><i class="fas fa-compass "></i> </a>
+        <a href="#" style="position: relative"><i class="fas fa-compass"></i> </a>
       </li>   
         
       <li>
@@ -52,17 +46,19 @@
     </ul>   
 	</nav>
 
-  <script type="text/javascript">
-     const currentLocation = location.href;
-     const menuItem = document.querySelectorAll('a');
-     const menuLength = menuItem.length;
-     for (let i=0; i<menuLength; i++) 
-      {
-        if (menuItem[i].href===currentLocation)
-          {
-            menuItem[i].className = "active"
-          }
-     }
+  <script>
+      icons = document.querySelector(".icons").querySelectorAll("a");
+      console.log(icons);
+
+      icons.forEach(element => {
+        element.addEventListener("click", function(){
+          icons.forEach(nav=>nav.classList.remove("active"))
+
+        this.classList.add("active");
+      })
+      
+      });
+     
 
   </script>
 
@@ -205,7 +201,7 @@
     </div>
     <div class="notify_item">
         <div class="notify_img">
-            <img src="images/not_2.png" alt="profile_pic" style="width: 50px">
+            <img src="https://bit.ly/2SwSu54" alt="profile_pic" style="width: 50px">
         </div>
         <div class="notify_info">
             <p>Kabin commented on your<span>BLog Post</span></p>
@@ -214,7 +210,7 @@
     </div>
     <div class="notify_item">
         <div class="notify_img">
-            <img src="images.png" alt="profile_pic" style="width: 50px">
+            <img src="https://bit.ly/2SwSu54" alt="profile_pic" style="width: 50px">
         </div>
         <div class="notify_info">
             <p>Rishi liked your<span>Cover Picture</span></p>

@@ -79,6 +79,7 @@ ul li.active i{
   color: black;
 }
 
+
 nav a {
   text-decoration: none;
 }
@@ -273,6 +274,7 @@ label:hover {
   position: absolute;
   display: none;
   margin: 1% 0% 0% 66%;
+  top: 8vh;
 }
 
 .dropdown .notify_item {
