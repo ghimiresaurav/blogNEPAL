@@ -1,3 +1,5 @@
+// const e = require("express");
+
 (() => {
   const currentLocation = location.href;
   const menuItem = document.querySelectorAll("a");
@@ -11,6 +13,7 @@
 
 const blogsContainer = document.getElementById("blogcss");
 const wrapBlog = (blog) => {
+  console.log(blog);
   const lscTagDiv = `<div class="likesharecmt">
     <i class="far fa-heart" style="font-size: 20px"></i>
     <p>100</p>
@@ -29,15 +32,37 @@ const wrapBlog = (blog) => {
   </div>`;
 
   const blogDiv = document.createElement("div");
+  blogDiv.id = blog._id;
   blogDiv.classList.add("blogs");
 
   const dateTime = blog.postedOn.split("-");
+  const commentsDiv = "";
 
   blogDiv.innerHTML = `<p><strong>${blog.author.name}</strong> posted on <strong>${dateTime[0]}</strong>-${dateTime[1]}</p><br>
   <h4>Blog Topic Here</h4><br />
   <p>${blog.content}</p>
   ${imageDiv}
-  ${lscTagDiv}`;
+  ${lscTagDiv}
+  <div class="comment">
+          <form onsubmit="postComment(event, this.parentNode.parentNode.id, this.firstElementChild.value)">
+            <input type="text" placeholder="Post a comment...">
+            <button type="submit" class="send-btn">
+              <i class="fas fa-paper-plane"></i>
+            </button>
+          </form>
+          <div id="comment-list">
+            <div class="comments">
+              <div>
+                <img id="commentimage" src="" />
+              </div>
+              <div class="comment-text">
+                <p><strong>Rishikesh Khakurel</strong></p>
+                <p>Nice blog</p>
+              </div>
+
+            </div>
+          </div>
+        </div>`;
   blogsContainer.appendChild(blogDiv);
 };
 
@@ -82,26 +107,36 @@ document.getElementsByClassName("fa-bell")[0].addEventListener("click", () => {
   else dropdown.style.display = "block";
 });
 
-$(document).ready(function()
-		{
-      $(".fa-bell").click(function()
-			{
-				$(".dropdown").toggleClass("active");
-			})
-		});
+$(document).ready(function () {
+  $(".fa-bell").click(function () {
+    $(".dropdown").toggleClass("active");
+  });
+});
 
 // for navBar active effect
 icons = document.querySelector(".icons").querySelectorAll("i");
-      console.log(icons);
 
-icons.forEach(element => {
-        element.addEventListener("click", function(){
-          icons.forEach(icons=>icons.classList.remove("active"))
+icons.forEach((element) => {
+  element.addEventListener("click", function () {
+    icons.forEach((icons) => icons.classList.remove("active"));
 
-        this.classList.add("active");
-      })
-      
-      });
+    this.classList.add("active");
+  });
+});
+
+const postComment = (e, postId, comment) => {
+  e.preventDefault();
+
+  const fetchOptions = {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ postId, comment }),
+  };
+  fetch("/protected/post-comment", fetchOptions);
+  // .then()
+};
 
 // document.addEventListener("click", (e) => {
 //   const dropdown = document.getElementsByClassName("dropdown")[0];

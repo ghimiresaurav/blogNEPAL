@@ -8,6 +8,7 @@ const profileController = require("../controllers/profile");
 const { initiatePost, postBlog } = require("../controllers/postBlog");
 const getBlogsController = require("../controllers/getBlogs");
 const updateBioHobbies = require("../controllers/updateUserInfo");
+const postCommentController = require("../controllers/postComment");
 
 //import authorization middleware
 const verifyToken = require("../auth/verify");
@@ -35,6 +36,7 @@ router.delete("/logout", logoutController);
 
 router.get("/get-blogs", getBlogsController);
 router.post("/post-blog", initiatePost, postBlog);
+router.post("/post-comment", postCommentController);
 
 router.put("/update-bio-hobbies", updateBioHobbies);
 
