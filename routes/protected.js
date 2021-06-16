@@ -32,7 +32,7 @@ router.get("/dashboard", (req, res) => {
 
 //like section
 const Like = require("../controllers/likeBlog")
-app.post("/like",Like);
+router.post("/like",Like);
 
 router.get("/user-details", profileController);
 router.post("/update-avatar", updateAvatarController);
