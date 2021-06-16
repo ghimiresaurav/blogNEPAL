@@ -23,35 +23,36 @@ const wrapBlog = (blog) => {
   const imagesUrls = blog.links.split(", ");
   imagesUrls.shift();
 
-  const commentForm = `<form onsubmit="postComment(event, this.parentNode.parentNode.id, this.firstElementChild.value)">
-  <input type="text" placeholder="Post a comment...">
-  <button type="submit" class="send-btn">
-    <i class="fas fa-paper-plane"></i>
-  </button>
-</form>`;
+  const commentForm = `
+  <form onsubmit="postComment(event, this.parentNode.parentNode.id, this.firstElementChild.value)">
+    <input type="text" placeholder="Post a comment...">
+    <button type="submit" class="send-btn">
+      <i class="fas fa-paper-plane"></i>
+    </button>
+  </form>`;
 
   if (imagesUrls.length)
     imageDiv = `
   <div class="post-image">
-  <img id="image" src="${imagesUrls[0]}">
+    <img id="image" src="${imagesUrls[0]}">
   </div>`;
 
   if (blog.comments) {
     console.log(blog.comments[0]);
     const x = blog.comments.reduce(
       (c, comment) => `${c}
-    <div class="comments">
-      <div>
-        <img class="comment-images" src=${localStorage.getItem("avatarLink")} />
-      </div>
-      <div class="comment-text">
-        <p class="comment-name-time">
-          <strong>${comment.user.name}</strong>
-          <span class="comment-time">${comment.date}</span>
-        </p>
-        <p>${comment.comment}</p>
-      </div>
-    </div>`,
+      <div class="comments">
+        <div>
+          <img class="comment-images" src=${comment.user.avatar} />
+        </div>
+        <div class="comment-text">
+          <p class="comment-name-time">
+            <strong>${comment.user.name}</strong>
+            <span class="comment-time">${comment.date}</span>
+          </p>
+          <p>${comment.body}</p>
+        </div>
+      </div>`,
       `<div id="comments-list">`
     );
     commentsDiv = `${x}</div>`;
@@ -136,7 +137,6 @@ icons.forEach((element) => {
 
 const postComment = (e, postId, comment) => {
   e.preventDefault();
-
   const fetchOptions = {
     method: "POST",
     headers: {
@@ -145,7 +145,6 @@ const postComment = (e, postId, comment) => {
     body: JSON.stringify({ postId, comment }),
   };
   fetch("/protected/post-comment", fetchOptions);
-  // .then()
 };
 
 // document.addEventListener("click", (e) => {

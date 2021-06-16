@@ -14,10 +14,11 @@ module.exports = (req, res) => {
         .findOne({ _id: new ObjectID(res.locals.id) });
       const query = { _id: new ObjectID(postId) };
       const newComment = {
-        comment,
+        body: comment,
         user: {
           id: user._id,
           name: user.name,
+          avatar: user.avatarLink,
         },
         date,
       };
