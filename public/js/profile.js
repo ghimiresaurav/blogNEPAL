@@ -90,6 +90,17 @@ document.getElementById("profileEdit").addEventListener("click", function () {
     : "";
 });
 
+/*
+const editBlog = document.getElementById("wrapperContainer");
+
+window.onclick = function (event) {
+  if (event.target == editBlog) {
+    console.log(event.target);
+    hideModal();
+  }
+};
+*/
+
 document.querySelector(".closeWrapper").addEventListener("click", function () {
   document.querySelector(".wrapperContainer").style.display = "none";
 });
