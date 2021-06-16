@@ -30,6 +30,10 @@ router.get("/dashboard", (req, res) => {
   res.sendFile(staticDir + "/dashboard.html");
 });
 
+//like section
+const Like = require("../controllers/likeBlog")
+app.post("/like",Like);
+
 router.get("/user-details", profileController);
 router.post("/update-avatar", updateAvatarController);
 router.delete("/logout", logoutController);
