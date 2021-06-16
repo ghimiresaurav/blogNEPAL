@@ -1,5 +1,3 @@
-// const e = require("express");
-
 (() => {
   const currentLocation = location.href;
   const menuItem = document.querySelectorAll("a");
@@ -13,56 +11,68 @@
 
 const blogsContainer = document.getElementById("blogcss");
 const wrapBlog = (blog) => {
-  console.log(blog);
   const lscTagDiv = `<div class="likesharecmt">
-    <i class="far fa-heart" style="font-size: 20px"></i>
-    <p>100</p>
-    <i class="far fa-comment" style="font-size: 20px"></i>
-    <p>100</p>
-    <i class="fas fa-share" style="font-size: 20px"></i>
+  <i class="far fa-heart" style="font-size: 20px"></i>
+  <p>100</p>
+  <i class="far fa-comment" style="font-size: 20px"></i>
+  <p>100</p>
+  <i class="fas fa-share" style="font-size: 20px"></i>
   </div>`;
   let imageDiv = "";
+  let commentsDiv = "";
   const imagesUrls = blog.links.split(", ");
   imagesUrls.shift();
+
+  const commentForm = `<form onsubmit="postComment(event, this.parentNode.parentNode.id, this.firstElementChild.value)">
+  <input type="text" placeholder="Post a comment...">
+  <button type="submit" class="send-btn">
+    <i class="fas fa-paper-plane"></i>
+  </button>
+</form>`;
 
   if (imagesUrls.length)
     imageDiv = `
   <div class="post-image">
-    <img id="image" src="${imagesUrls[0]}">
+  <img id="image" src="${imagesUrls[0]}">
   </div>`;
+
+  if (blog.comments) {
+    console.log(blog.comments[0]);
+    const x = blog.comments.reduce(
+      (c, comment) => `${c}
+    <div class="comments">
+      <div>
+        <img class="comment-images" src=${localStorage.getItem("avatarLink")} />
+      </div>
+      <div class="comment-text">
+        <p class="comment-name-time">
+          <strong>${comment.user.name}</strong>
+          <span class="comment-time">${comment.date}</span>
+        </p>
+        <p>${comment.comment}</p>
+      </div>
+    </div>`,
+      `<div id="comments-list">`
+    );
+    commentsDiv = `${x}</div>`;
+  }
 
   const blogDiv = document.createElement("div");
   blogDiv.id = blog._id;
   blogDiv.classList.add("blogs");
 
   const dateTime = blog.postedOn.split("-");
-  const commentsDiv = "";
 
-  blogDiv.innerHTML = `<p><strong>${blog.author.name}</strong> posted on <strong>${dateTime[0]}</strong>-${dateTime[1]}</p><br>
+  blogDiv.innerHTML = `
+  <p><strong>${blog.author.name}</strong> posted on <strong>${dateTime[0]}</strong>-${dateTime[1]}</p><br>
   <h4>Blog Topic Here</h4><br />
   <p>${blog.content}</p>
   ${imageDiv}
   ${lscTagDiv}
   <div class="comment">
-          <form onsubmit="postComment(event, this.parentNode.parentNode.id, this.firstElementChild.value)">
-            <input type="text" placeholder="Post a comment...">
-            <button type="submit" class="send-btn">
-              <i class="fas fa-paper-plane"></i>
-            </button>
-          </form>
-          <div id="comment-list">
-            <div class="comments">
-              <div>
-                <img id="commentimage" src="" />
-              </div>
-              <div class="comment-text">
-                <p><strong>Rishikesh Khakurel</strong></p>
-                <p>Nice blog</p>
-              </div>
-
-            </div>
-          </div>
-        </div>`;
+  ${commentForm}
+  ${commentsDiv}
+  </div>`;
   blogsContainer.appendChild(blogDiv);
 };
 
