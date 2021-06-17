@@ -19,15 +19,6 @@ const userDetails = JSON.parse(localStorage.getItem("userDetails"));
 const profile = document.getElementById("profile");
 const sticky = profile.offsetTop;
 
-//sidebar scroll position fix code
-// window.onscroll = function () {
-//   if (window.pageYOffset >= sticky) {
-//     profile.classList.add("sticky");
-//   } else {
-//     profile.classList.remove("sticky");
-//   }
-// };
-
 // Get the modal
 const modal = document.getElementById("passwordchangemsgbox");
 
@@ -89,6 +80,17 @@ document.getElementById("profileEdit").addEventListener("click", function () {
     ? userDetails.hobbies
     : "";
 });
+
+/*
+const editBlog = document.getElementById("wrapperContainer");
+
+window.onclick = function (event) {
+  if (event.target == editBlog) {
+    console.log(event.target);
+    hideModal();
+  }
+};
+*/
 
 document.querySelector(".closeWrapper").addEventListener("click", function () {
   document.querySelector(".wrapperContainer").style.display = "none";

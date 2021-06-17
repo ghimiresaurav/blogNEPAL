@@ -2,12 +2,13 @@ const express = require("express");
 const router = express.Router();
 
 //import controllers
-const updateAvatarController = require("../controllers/updateAvatar");
-const logoutController = require("../controllers/logout");
-const profileController = require("../controllers/profile");
+const updateAvatar = require("../controllers/updateAvatar");
+const logout = require("../controllers/logout");
+const getUserDetails = require("../controllers/profile");
 const { initiatePost, postBlog } = require("../controllers/postBlog");
-const getBlogsController = require("../controllers/getBlogs");
+const getBlogs = require("../controllers/getBlogs");
 const updateBioHobbies = require("../controllers/updateUserInfo");
+const postComment = require("../controllers/postComment");
 
 //import authorization middleware
 const verifyToken = require("../auth/verify");
@@ -29,12 +30,17 @@ router.get("/dashboard", (req, res) => {
   res.sendFile(staticDir + "/dashboard.html");
 });
 
-router.get("/user-details", profileController);
-router.post("/update-avatar", updateAvatarController);
-router.delete("/logout", logoutController);
+//like section
+const like = require("../controllers/likeBlog");
+router.post("/like", like);
 
-router.get("/get-blogs", getBlogsController);
+router.get("/user-details", getUserDetails);
+router.post("/update-avatar", updateAvatar);
+router.delete("/logout", logout);
+
+router.get("/get-blogs", getBlogs);
 router.post("/post-blog", initiatePost, postBlog);
+router.post("/post-comment", postComment);
 
 router.put("/update-bio-hobbies", updateBioHobbies);
 

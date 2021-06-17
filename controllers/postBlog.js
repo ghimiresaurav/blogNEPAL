@@ -54,7 +54,7 @@ const postBlog = (req, res) => {
 
   upload(req, res, (err) => {
     if (err) console.error(err);
-    const { content } = req.body;
+    const content = req.body.content.replace(/\r\n/g, "<br />");
     const { files } = req;
     let links = ``;
 
