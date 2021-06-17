@@ -134,21 +134,21 @@ li:hover .onHover {
   margin-top: 100px;
   margin-left: 0px;
   left: 20px;
-  width: 1450px;
+  width: 1495px;
   height: 1500px;
-  padding: 20px 25px 20px 20px;
+  padding: 20px 20px 20px 20px;
   position: relative;
 }
 
 #post-btn {
   font-family: "Poppins", sans-serif;
   font-size: small;
-  width: 70px;
+  width: 300px;
   height: 30px;
   text-align: center;
   position: absolute;
   top: 20px;
-  right: 245px;
+  right: 15px;
   border: none;
   border-radius: 4px;
   color: white;
@@ -166,8 +166,10 @@ label {
   font-family: "Poppins", sans-serif;
   font-size: small;
   padding: 5px 2px 5px 2px;
-  width: 100px;
+  width: 300px;
   height: 30px;
+  top: 60px;
+  right: 15px;
   text-align: center;
   border: none;
   border-radius: 4px;
@@ -175,8 +177,7 @@ label {
   background-color: #b62e42;
   transition-duration: 0.4s;
   position: absolute;
-  top: 60px;
-  right: 215px;
+
 }
 
 label:hover {
@@ -191,8 +192,8 @@ label:hover {
   display: block;
   font-size: medium;
   position: absolute;
-  left: 110px;
-  border-radius: 3px;
+  left: 155px;
+  border-radius: 6px;
   width: 1000px;
   height: 1450px;
   outline-color: #b62e42;
@@ -202,17 +203,20 @@ label:hover {
 #insert-profile {
   width: 70px;
   height: 70px;
+  left: 30px;
   position: absolute;
   background-color: #b62e42;
   border-radius: 50%;
   text-align: center;
+  position: absolute;
+
 }
 
 #prev-img{
   background-color: #b62e42;
   position: absolute;
   top: 100px;
-  right: 20px;
+  right: 17.5px;
   width: 295px;
   height: auto;
   border-radius: 10px;
