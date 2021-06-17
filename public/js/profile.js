@@ -43,7 +43,7 @@ window.onclick = function (event) {
     console.log(event.target);
     console.log("herer");
     hideModal();
-  }
+  } 
 };
 
 const submitAvatar = (e) => {

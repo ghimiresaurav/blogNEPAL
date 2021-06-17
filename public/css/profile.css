@@ -89,11 +89,14 @@ nav ul {
 #profilepicupdate {
   position: fixed;
   top: 40%;
-  right: 40%;
+  left: 40%;
   z-index: 1;
 }
 
 #passwordchangemsgbox {
+    display: flex;
+  justify-content: center;
+  align-items: center;
   display: none;
   height: 100vh;
   width: 100%;
@@ -281,12 +284,13 @@ button {
   height: 700px;
   background-color: aliceblue;
   border-radius: 15px;
-  margin-top: 840px;
-  margin-left: 200px;
+  display: block;
+  margin: auto;
+  top: 65px;
   text-align: center;
   padding: 20px;
   position: fixed;
-  top: -770px;
+
 }
 
 input {
