@@ -1,0 +1,144 @@
+* {
+  margin: 0%;
+  padding: 0%;
+  list-style: none;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: aliceblue;
+}
+
+:root {
+  --primary-bg: #b62e42;
+}
+
+#header {
+  background-color: var(--primary-bg);
+}
+
+.nav-bar {
+  width: 100%;
+  height: 10vh;
+  background-color: #b62e42;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 40px;
+  font-size: 18px;
+}
+
+#logo {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-size: 25px;
+}
+#About_Us{
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-size: 50px;
+  text-align: center;
+  }
+.paddingContact-container 
+{
+  padding: 2%;
+}
+.container h1.white, p
+{
+  font-family: "proxima-nova", sans-serif;
+  font-weight: 100 !important;
+  text-align: center;
+  font-size: 45px;
+  margin-bottom: 5px;
+}
+.control-group {
+margin-bottom: 15px;
+}
+.form 
+{
+margin-top: 15px;
+margin-bottom: 25px;
+text-align: center;
+}
+.white 
+{
+  color: #b62e42;
+}
+.container p {
+  font-style: normal !important;
+  color: #b62e42;
+  font-size: 20px;
+  letter-spacing: 1px;
+}
+
+.contact-page-form h3 
+{
+  font-size: 26px;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+h3 
+{
+  font-size: 20px;
+  margin: 35px 0px 25px;
+  font-weight: 800;
+  color: #3d3d3d;
+  text-transform: uppercase;
+}
+.marginBottom40 {
+  margin-bottom: 40px;
+}
+textarea
+{
+width: 500px;
+height:  200px;
+border:  1px solid black;
+border-radius: 10px;
+resize: none;
+padding: 5px;
+}
+.control-group label
+{
+position: absolute;
+}
+input
+{
+width: 400px;
+margin-left: 150px;
+border: 1px solid black;
+border-radius: 10px;
+padding: 5px;
+}
+input[type=submit] 
+{
+  width: 200px;
+  padding: 10px 20px;
+  margin: 10px; 
+}
+#select-beast
+{
+width: 400px;
+margin-left: 150px;
+border: 1px solid black;
+border-radius: 10px;
+padding: 4px;
+}
+.btn-primary 
+{
+width: 100%;
+}
+
+.contact-right-info 
+{
+margin-bottom: 25px;
+}
+#contact
+{
+text-align: center;
+}
+#contact p
+{
+font-size: 20px;
+}
