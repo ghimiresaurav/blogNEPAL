@@ -376,8 +376,20 @@ label:hover {
   font-size: 13px;
 }
 
-.comment-images {
+.user-images,
+.author-images {
   height: 7vh;
   width: 7vh;
-  /* border-radius: 50%; */
+}
+
+.author-details {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.author-images {
+  border-radius: 50%;
+  margin-right: 10px;
 }
