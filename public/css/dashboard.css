@@ -135,6 +135,10 @@ li:hover .onHover {
   margin-top: 10px;
 }
 
+#fill-red{
+  color: #b62e42;
+}
+
 .likesharecmt p {
   margin: 0 10px 0 10px;
 }
@@ -333,13 +337,21 @@ label:hover {
 }
 
 .comment form button {
-  background: none;
+  background: transparent;
   color: #b62e42;
+  border: 0;
+  padding: 5px 10px;
+  margin-right: 10px;
+  font-size: 16px ;
 }
 
 .comment input {
   border: 0;
   width: 100%;
+  background: transparent;
+  padding: 10px;
+  outline: none;
+  font-size: 15px;
 }
 
 #comment-list {
@@ -376,8 +388,20 @@ label:hover {
   font-size: 13px;
 }
 
-.comment-images {
+.user-images,
+.author-images {
   height: 7vh;
   width: 7vh;
-  /* border-radius: 50%; */
+}
+
+.author-details {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.author-images {
+  border-radius: 50%;
+  margin-right: 10px;
 }

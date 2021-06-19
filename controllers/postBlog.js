@@ -19,8 +19,11 @@ const initiatePost = (req, res, next) => {
         author: {
           id: res.locals.id,
           name: author.name,
+          avatar: author.avatarLink,
         },
         postedOn: date,
+        like:[],
+        comments:[],
       };
       const result = await db.collection("blogs").insertOne(blog);
       res.locals.blogID = result.insertedId;

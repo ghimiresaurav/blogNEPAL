@@ -11,11 +11,26 @@
 
 const blogsContainer = document.getElementById("blogcss");
 const wrapBlog = (blog) => {
+  const LikeNo = blog.like.length;
+  const LikeStatus = Likestat(blog.like);
+  const CommentNo= blog.comments.length;
+  console.log(blog.comments)
+  let clas = ""
+  let id = ""
+  if (LikeStatus) {
+    clas = "fas fa-heart";
+    id = "fill-red"
+  }
+  else {
+    clas = "far fa-heart";
+    id = "fill-none"
+  }
+
   const lscTagDiv = `<div class="likesharecmt">
-  <i class="far fa-heart" style="font-size: 20px"></i>
-  <p>100</p>
+  <i onclick="Like(this.parentNode.parentNode.id,${LikeStatus})" class="${clas}" id=${id} style="font-size: 20px"></i>
+  <p id="LikeNo">${LikeNo}</p>
   <i class="far fa-comment" style="font-size: 20px"></i>
-  <p>100</p>
+  <p>${CommentNo}</p>
   <i class="fas fa-share" style="font-size: 20px"></i>
   </div>`;
   let imageDiv = "";
@@ -38,12 +53,12 @@ const wrapBlog = (blog) => {
   </div>`;
 
   if (blog.comments) {
-    console.log(blog.comments[0]);
+
     const x = blog.comments.reduce(
       (c, comment) => `${c}
       <div class="comments">
         <div>
-          <img class="comment-images" src=${comment.user.avatar} />
+          <img class="user-images" src=${comment.user.avatar} />
         </div>
         <div class="comment-text">
           <p class="comment-name-time">
@@ -65,7 +80,12 @@ const wrapBlog = (blog) => {
   const dateTime = blog.postedOn.split("-");
 
   blogDiv.innerHTML = `
+  <div class="author-details">
+    <div>
+      <img class="user-images author-images" src=${blog.author.avatar} />
+    </div>
   <p><strong>${blog.author.name}</strong> posted on <strong>${dateTime[0]}</strong>-${dateTime[1]}</p><br>
+  </div>
   <h4>Blog Topic Here</h4><br />
   <p>${blog.content}</p>
   ${imageDiv}
@@ -118,12 +138,6 @@ document.getElementsByClassName("fa-bell")[0].addEventListener("click", () => {
   else dropdown.style.display = "block";
 });
 
-$(document).ready(function () {
-  $(".fa-bell").click(function () {
-    $(".dropdown").toggleClass("active");
-  });
-});
-
 // for navBar active effect
 icons = document.querySelector(".icons").querySelectorAll("i");
 
@@ -146,6 +160,57 @@ const postComment = (e, postId, comment) => {
   };
   fetch("/protected/post-comment", fetchOptions);
 };
+
+const Like = (postId, LikeStatus) => {
+  const userId = localStorage.getItem("userId")
+
+  if (LikeStatus) {
+    const LikeIcon = findChild(postId, "fill-red")
+    LikeIcon.id = "fill-none"
+    LikeIcon.className = "far fa-heart"
+    LikeIcon.setAttribute('onclick','Like(this.parentNode.parentNode.id,false)')
+    const LikeNum = findChild(postId, "LikeNo")
+    const number = parseInt(LikeNum.innerHTML)-1
+    LikeNum.innerHTML=number
+  }
+  else{
+    const LikeIcon = findChild(postId, "fill-none")
+    LikeIcon.id = "fill-red"
+    LikeIcon.className = "fas fa-heart"
+    LikeIcon.setAttribute('onclick','Like(this.parentNode.parentNode.id,true)')
+    const LikeNum = findChild(postId, "LikeNo")
+    const number = parseInt(LikeNum.innerHTML)+1
+    LikeNum.innerHTML=number
+  }
+  const fetchOptions = {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ postId: postId, userId: userId })
+  }
+  const res = fetch("/protected/like", fetchOptions)
+}
+
+const Likestat = (like) => {
+  const userId = localStorage.getItem("userId")
+  // Search for post with title == "Guava"
+  var __FOUND = false;
+  for (var i = 0; i < like.length; i++) {
+    if (like[i].id == userId) {
+      // __FOUND is set to the index of the element
+      __FOUND = true;
+      break;
+    }
+  }
+  return __FOUND;
+
+}
+
+findChild = (idOfElement, idOfChild) => {
+  let element = document.getElementById(idOfElement);
+  return element.querySelector(`[id=${idOfChild}]`);
+}
 
 // document.addEventListener("click", (e) => {
 //   const dropdown = document.getElementsByClassName("dropdown")[0];
