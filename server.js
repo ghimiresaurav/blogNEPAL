@@ -26,6 +26,10 @@ app.get("/register", (req, res) => {
   res.sendFile(staticDir + "/register.html");
 });
 
+//like section
+const like = require("./controllers/likeBlog");
+app.post("/like", like);
+
 app.post("/register", registerController);
 app.post("/login", loginController);
 

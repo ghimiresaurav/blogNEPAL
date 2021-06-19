@@ -135,6 +135,10 @@ li:hover .onHover {
   margin-top: 10px;
 }
 
+#fill-red{
+  color: #b62e42;
+}
+
 .likesharecmt p {
   margin: 0 10px 0 10px;
 }

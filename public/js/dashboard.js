@@ -11,11 +11,26 @@
 
 const blogsContainer = document.getElementById("blogcss");
 const wrapBlog = (blog) => {
+  const LikeNo = blog.like.length;
+  const LikeStatus = Likestat(blog.like);
+  const CommentNo= blog.comments.length;
+  console.log(blog.comments)
+  let clas = ""
+  let id = ""
+  if (LikeStatus) {
+    clas = "fas fa-heart";
+    id = "fill-red"
+  }
+  else {
+    clas = "far fa-heart";
+    id = "fill-none"
+  }
+
   const lscTagDiv = `<div class="likesharecmt">
-  <i class="far fa-heart" style="font-size: 20px"></i>
-  <p>100</p>
+  <i onclick="Like(this.parentNode.parentNode.id,${LikeStatus})" class="${clas}" id=${id} style="font-size: 20px"></i>
+  <p id="LikeNo">${LikeNo}</p>
   <i class="far fa-comment" style="font-size: 20px"></i>
-  <p>100</p>
+  <p>${CommentNo}</p>
   <i class="fas fa-share" style="font-size: 20px"></i>
   </div>`;
   let imageDiv = "";
@@ -38,7 +53,7 @@ const wrapBlog = (blog) => {
   </div>`;
 
   if (blog.comments) {
-    console.log(blog.comments[0]);
+    //console.log(blog.comments[0]);
     const x = blog.comments.reduce(
       (c, comment) => `${c}
       <div class="comments">
@@ -146,6 +161,57 @@ const postComment = (e, postId, comment) => {
   };
   fetch("/protected/post-comment", fetchOptions);
 };
+
+const Like = (postId, LikeStatus) => {
+  const userId = localStorage.getItem("userId")
+
+  if (LikeStatus) {
+    const LikeIcon = findChild(postId, "fill-red")
+    LikeIcon.id = "fill-none"
+    LikeIcon.className = "far fa-heart"
+    LikeIcon.setAttribute('onclick','Like(this.parentNode.parentNode.id,false)')
+    const LikeNum = findChild(postId, "LikeNo")
+    const number = parseInt(LikeNum.innerHTML)-1
+    LikeNum.innerHTML=number
+  }
+  else{
+    const LikeIcon = findChild(postId, "fill-none")
+    LikeIcon.id = "fill-red"
+    LikeIcon.className = "fas fa-heart"
+    LikeIcon.setAttribute('onclick','Like(this.parentNode.parentNode.id,true)')
+    const LikeNum = findChild(postId, "LikeNo")
+    const number = parseInt(LikeNum.innerHTML)+1
+    LikeNum.innerHTML=number
+  }
+  const fetchOptions = {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ postId: postId, userId: userId })
+  }
+  const res = fetch("/like", fetchOptions)
+}
+
+const Likestat = (like) => {
+  const userId = localStorage.getItem("userId")
+  // Search for post with title == "Guava"
+  var __FOUND = false;
+  for (var i = 0; i < like.length; i++) {
+    if (like[i].id == userId) {
+      // __FOUND is set to the index of the element
+      __FOUND = true;
+      break;
+    }
+  }
+  return __FOUND;
+
+}
+
+findChild = (idOfElement, idOfChild) => {
+  let element = document.getElementById(idOfElement);
+  return element.querySelector(`[id=${idOfChild}]`);
+}
 
 // document.addEventListener("click", (e) => {
 //   const dropdown = document.getElementsByClassName("dropdown")[0];
