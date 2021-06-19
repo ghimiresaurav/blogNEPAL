@@ -189,7 +189,7 @@ const Like = (postId, LikeStatus) => {
     },
     body: JSON.stringify({ postId: postId, userId: userId })
   }
-  const res = fetch("/like", fetchOptions)
+  const res = fetch("/protected/like", fetchOptions)
 }
 
 const Likestat = (like) => {
