@@ -26,9 +26,13 @@ app.get("/register", (req, res) => {
   res.sendFile(staticDir + "/register.html");
 });
 
-//like section
-const like = require("./controllers/likeBlog");
-app.post("/like", like);
+app.get("/about", (req, res) => {
+  res.sendFile(staticDir + "/about.html");
+});
+
+app.get("/contact-us", (req, res) => {
+  res.sendFile(staticDir + "/contact_us.html");
+});
 
 app.post("/register", registerController);
 app.post("/login", loginController);

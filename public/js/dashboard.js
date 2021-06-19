@@ -53,12 +53,12 @@ const wrapBlog = (blog) => {
   </div>`;
 
   if (blog.comments) {
-    //console.log(blog.comments[0]);
+
     const x = blog.comments.reduce(
       (c, comment) => `${c}
       <div class="comments">
         <div>
-          <img class="comment-images" src=${comment.user.avatar} />
+          <img class="user-images" src=${comment.user.avatar} />
         </div>
         <div class="comment-text">
           <p class="comment-name-time">
@@ -80,7 +80,12 @@ const wrapBlog = (blog) => {
   const dateTime = blog.postedOn.split("-");
 
   blogDiv.innerHTML = `
+  <div class="author-details">
+    <div>
+      <img class="user-images author-images" src=${blog.author.avatar} />
+    </div>
   <p><strong>${blog.author.name}</strong> posted on <strong>${dateTime[0]}</strong>-${dateTime[1]}</p><br>
+  </div>
   <h4>Blog Topic Here</h4><br />
   <p>${blog.content}</p>
   ${imageDiv}
@@ -131,12 +136,6 @@ const dropdown = document.getElementsByClassName("dropdown")[0];
 document.getElementsByClassName("fa-bell")[0].addEventListener("click", () => {
   if (dropdown.style.display == "block") dropdown.style.display = "none";
   else dropdown.style.display = "block";
-});
-
-$(document).ready(function () {
-  $(".fa-bell").click(function () {
-    $(".dropdown").toggleClass("active");
-  });
 });
 
 // for navBar active effect
