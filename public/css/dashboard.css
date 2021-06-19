@@ -337,13 +337,21 @@ label:hover {
 }
 
 .comment form button {
-  background: none;
+  background: transparent;
   color: #b62e42;
+  border: 0;
+  padding: 5px 10px;
+  margin-right: 10px;
+  font-size: 16px ;
 }
 
 .comment input {
   border: 0;
   width: 100%;
+  background: transparent;
+  padding: 10px;
+  outline: none;
+  font-size: 15px;
 }
 
 #comment-list {
