@@ -1,54 +1,125 @@
 * {
-    margin: 0%;
-    padding: 0%;
-    list-style: none;
-    box-sizing: border-box;
+  margin: 0%;
+  padding: 0%;
+  list-style: none;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: aliceblue;
+}
+
+:root {
+  --primary-bg: #b62e42;
+}
+
+#header {
+  background-color: var(--primary-bg);
+}
+
+.nav-bar {
+  width: 100%;
+  height: 10vh;
+  background-color: #b62e42;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 40px;
+  font-size: 18px;
+}
+
+#logo {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-size: 25px;
+}
+#About_Us{
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-size: 50px;
+  text-align: center;
   }
-  
-  body {
-    font-family: "Poppins", sans-serif;
-    background-color: aliceblue;
-  }
-  
-  :root {
-    --primary-bg: #b62e42;
-  }
-  
-  #header {
-    background-color: var(--primary-bg);
-  }
-  
-  .nav-bar {
-    width: 100%;
-    height: 10vh;
-    background-color: #b62e42;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    padding: 40px;
-    font-size: 18px;
-  }
-  
-  #logo {
-    font-family: "Poppins", sans-serif;
-    font-weight: 600;
-    font-size: 25px;
-  }
-  #About_Us{
-    font-family: "Poppins", sans-serif;
-    font-weight: 600;
-    font-size: 50px;
-    text-align: center;
-    }
-  #mug {
-    font-family: "Poppins", sans-serif;
-    width: 80%;
-    margin: auto;
-    top: 50px;
-  }
-  
-  
-  
-  
-  
-  
+#mug {
+  font-family: "Poppins", sans-serif;
+  width: 80%;
+  margin: auto;
+  top: 50px;
+}
+body {
+font-family: Arial, Helvetica, sans-serif;
+margin: 0;
+}
+
+html {
+box-sizing: border-box;
+}
+
+*, *:before, *:after {
+box-sizing: inherit;
+}
+
+.column {
+float: left;
+width: 33.3%;
+margin-bottom: 16px;
+padding: 0 8px;
+}
+
+.card {
+box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+margin: 8px;
+}
+
+.about-section {
+padding: 50px;
+text-align: center;
+background-color: #474e5d;
+color: white;
+}
+
+.container {
+padding: 0 16px;
+}
+
+.container::after, .row::after {
+content: "";
+clear: both;
+display: table;
+}
+
+.title {
+color: grey;
+}
+
+.button {
+border: none;
+outline: 0;
+display: inline-block;
+padding: 8px;
+color: white;
+background-color: #000;
+text-align: center;
+cursor: pointer;
+width: 100%;
+}
+
+.button:hover {
+background-color: #555;
+}
+
+@media screen and (max-width: 650px) {
+.column {
+  width: 100%;
+  display: block;
+}
+}
+
+
+
+
+
+
+
+
+
