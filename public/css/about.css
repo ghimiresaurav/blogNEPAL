@@ -39,12 +39,15 @@ body {
   font-weight: 600;
   font-size: 50px;
   text-align: center;
+  margin: 30px 0px;
   }
-#mug {
+.mug {
   font-family: "Poppins", sans-serif;
   width: 80%;
   margin: auto;
   top: 50px;
+  letter-spacing: 0.5px;
+  line-height: 1.8;
 }
 body {
 font-family: Arial, Helvetica, sans-serif;
@@ -71,6 +74,9 @@ box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 margin: 8px;
 }
 
+.card a:hover{
+  cursor: pointer;  
+}
 .about-section {
 padding: 50px;
 text-align: center;
@@ -80,6 +86,15 @@ color: white;
 
 .container {
 padding: 0 16px;
+}
+
+.container h2, p{
+  margin: 10px 0px;
+}
+
+.row{
+  width:80%;
+  margin: auto;
 }
 
 .container::after, .row::after {
