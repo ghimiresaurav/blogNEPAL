@@ -9,7 +9,7 @@
 
     <title>Write Post</title>
     <link rel="stylesheet" href="css/post.css">
-    <script src="js/post.js"></script>
+    
 
 
 </head>
@@ -50,7 +50,20 @@
     <div class="blogsp">
       <form id="blog-post-form" onsubmit="postBlog(event)">
         <div id="insert-profile">Insert&#10;Profile</div>
-        <textarea name="content" id="blog-text" placeholder="Title&#10;&#10;Write a blog"></textarea><br>
+        <textarea name="" id="blog-title" placeholder="Title"></textarea><br>
+        <div id="edit-bar">
+          <div class="edit-btns edit-btn-one"></div>
+          <div class="edit-btns"></div>
+          <div class="edit-btns"></div>
+          <div class="edit-btns"></div>
+          <div class="edit-btns"></div>
+          <div class="edit-btns"></div>
+          <div class="edit-btns"></div>
+          <div class="edit-btns"></div>
+          <div class="edit-btns"></div>
+          <div class="edit-btns edit-btn-gap"></div>
+        </div>
+        <textarea name="content" id="blog-text" placeholder="Write a blog"></textarea><br>
         <input
           type="file"
           name="images"
@@ -63,8 +76,14 @@
         <label for="file-input">Add Images</label>
         <button type="submit" id="post-btn">Post</button>
         <img id="prev-img"/>
-
+        <div id="add-tag">
+          <span><font size="+1">Add Tags</font></span><br><br>
+          <textarea name="" id="write-tag" rows="1"></textarea>
+          <div id="tag-area"></div>
+          <div id="clearTags">Clear</div>
+        </div>
       </form>
     </div>
+    <script src="js/post.js"></script>
 </body>
 </html>
