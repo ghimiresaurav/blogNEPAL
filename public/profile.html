@@ -7,7 +7,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
   <title>Profile</title>
+  <link href="dashboard.html" />
   <link rel="stylesheet" href="./css/profile.css" />
+  <link rel="stylesheet" href="./css/dashboard.css" type="text/css" />
   <link rel="preconnect" href="https://fonts.gstatic.com" />
 
   <script src="https://kit.fontawesome.com/3fdf0f105a.js" crossorigin="anonymous"></script>
@@ -30,18 +32,40 @@
       </div>
     </div>
   </div>
-  <div id="header">
-    <nav>
-      <div id="logo"><a href="/protected/dashboard">BlogNEPAL</a></div>
-      <div id="links">
-        <ul>
-          <li>
-            <button id="log-out-btn" onclick="logout()">Log Out</button>
-          </li>
-        </ul>
-      </div> 
-    </nav>
-  </div>
+
+
+      <div id="header">
+        <nav class="nav-bar">
+          <div id="logo"><a href="/protected/dashboard" style="color:white;">BlogNEPAL</a></div>
+      
+              <div class="search-bar">
+                  <i class="fas fa-search searchIcon " style="font-size: 18px;"></i> 
+                  <input type="text" placeholder="Search Blogs" class="main-search">      
+              </div>
+              
+              <ul class="icons">               
+                    <li> 
+                      <a href="/protected/dashboard" class="active"><i class="fas fa-home active"></i> </a>
+                    </li>  
+                      
+                    <li> 
+                      <a href="#" style="position: relative"><i class="fas fa-compass"></i> </a>
+                    </li>   
+                      
+                    <li> 
+                      <a href="#"  style="position: relative"> <i class="fas fa-bell"></i> </a> 
+                    </li>             
+                   
+                    <li>
+                      <button id="log-out-btn" onclick="logout()">Log Out</button>
+                    </li>                
+              </ul>   
+          
+        </nav>
+      </div>
+    
+
+
   <div id="body">
     <div id="profile">
       <div id="profileimg">
@@ -103,8 +127,46 @@
       </div>
     </div>
 
-
   </div>
+
+  <div class="dropdown">
+    <div class="notify_item">
+        <div class="notify_img">
+            <img src="https://bit.ly/3zpGHpP" alt="profile_pic" style="width: 50px">
+        </div>
+        <div class="notify_info">
+            <p>Saurav commented on<span>Blog Post</span></p>
+            <span class="notify_time">10 minutes ago</span>
+        </div>
+    </div>
+    <div class="notify_item">
+        <div class="notify_img">
+            <img src="https://bit.ly/2SwSu54" alt="profile_pic" style="width: 50px">
+        </div>
+        <div class="notify_info">
+            <p>Kabin commented on your<span>BLog Post</span></p>
+            <span class="notify_time">55 minutes ago</span>
+        </div>
+    </div>
+    <div class="notify_item">
+        <div class="notify_img">
+            <img src="https://bit.ly/2SwSu54" alt="profile_pic" style="width: 50px">
+        </div>
+        <div class="notify_info">
+            <p>Rishi liked your<span>Cover Picture</span></p>
+            <span class="notify_time">2 hours ago</span>
+        </div>
+    </div>
+    <div class="notify_item">
+        <div class="notify_img">
+            <img src="https://bit.ly/35c3kA3" alt="profile_pic" style="width: 50px">
+        </div>
+        <div class="notify_info">
+            <p>Sagar commented on your<span>Profile Picture</span></p>
+            <span class="notify_time">6 hours ago</span>
+        </div>
+    </div>
+ </div>  
 
   <div id="bloglist">
     <div id="blogcss">
@@ -218,6 +280,8 @@
     </div>
   </div>
   </div>
+  
+  <script src="./js/navigation.js"></script>
   <script src="./js/profile.js"></script>
 </body>
 
