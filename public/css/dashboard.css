@@ -10,9 +10,18 @@ body {
   background-color: aliceblue;
 }
 
+
 :root {
   --primary-bg: #b62e42;
 }
+
+ .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+ }
 
 #header {
   background-color: var(--primary-bg);
@@ -32,6 +41,7 @@ body {
   left: 0;
 }
 
+
 #logo {
   font-family: "Poppins", sans-serif;
   font-weight: 600;
@@ -41,9 +51,8 @@ body {
 .search-bar {
   display: flex;
   position: relative;
-  width: 10vw;
-  margin-right: 350px;
-  margin-left: 20px;
+  width: 34vw;
+  margin-left: 10px;
 }
 
 .main-search {
@@ -109,6 +118,90 @@ li:hover .onHover {
   opacity: 1;
 }
 
+#mainSection {
+  position: relative;
+}
+
+#firstSection {
+  position: absolute;
+  top: 10vh;
+  float: left;
+  width: 25%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 0 30px;
+  background: aliceblue;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  border-right: 1px solid rgb(214, 211, 211);
+}
+
+#blogPost button{
+   font-family: "Poppins", sans-serif;
+   position: absolute;
+   top: 8.5vh;
+   left: 10vh;
+   font-size: 18px;
+   border-radius: 25px;
+   padding: 5px 25px;
+   background: none;
+   border: 2px solid aliceblue;
+   cursor: pointer;
+}
+
+
+#createBlog:hover {
+  background: #e7e7e7;
+}
+
+hr.new {
+  position: absolute;
+  top: 18vh;
+  border-top: 1px solid #e7e7e7;
+  width: 80%;
+}
+
+#secondSection {
+  display: flex;  
+  flex-wrap: wrap;
+  position: absolute;
+  font-size: 18px;
+  top: 25vh;
+  width: 95%;
+}
+
+#topSection{
+   display: flex;
+   margin-left: 4vh;
+   text-transform: uppercase;
+}
+
+#bottomSection{
+  position: absolute;
+  top: 8vh;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  overflow: hidden;
+  margin-left: -2px;
+}
+
+#bottomSection button{
+  font-family: "Poppins", sans-serif;   
+  font-size: 15px;
+  padding: 8px 20px;
+  border: 2px solid aliceblue;
+  cursor: pointer;
+  background: #e7e7e7;
+  border-radius: 25px;
+  margin-bottom: 15px;
+  margin-left: 4px;
+}
+
+
+
 /* blog section css*/
 
 #blogcss {
@@ -120,14 +213,17 @@ li:hover .onHover {
 #bloglist {
   width: 75%;
   float: right;
-  margin-top: 5vh;
 }
 
 #blogcss,
 .blogsp {
-  width: 80%;
+  width: 90%;
   margin: auto;
   margin-bottom: 50px;
+}
+
+.blogsp {
+  margin-top: 20vh;
 }
 
 .likesharecmt {
@@ -203,7 +299,7 @@ label:hover {
 .blogs {
   background: #fff;
   padding: 50px 20px 50px 20px;
-  margin-top: 50px;
+  margin-top: 20vh;
 }
 
 .likesharecmt img {
