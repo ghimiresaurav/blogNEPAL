@@ -95,19 +95,8 @@ window.onclick = function (event) {
 document.querySelector(".closeWrapper").addEventListener("click", function () {
   document.querySelector(".wrapperContainer").style.display = "none";
 });
-//fetching data from backend of blogs
-let request = new XMLHttpRequest();
-request.open("GET", "http://localhost:3000/getblog");
-request.responseType = "text";
 
-request.onload = function () {
-  const blog = JSON.parse(request.response);
-  console.log(blog);
-};
-
-request.send();
-
-const logout = () => {
+const logout = () => { 
   fetch("/protected/logout", {
     method: "DELETE",
   })
