@@ -25,10 +25,6 @@ body {
   width: 100%;
 }
 
-:root {
-  --primary-bg: #b62e42;
-}
-
 #profileimg {
   margin-top: 12vh;
 }
@@ -55,7 +51,7 @@ body {
 }
 
 #passwordchangemsgbox {
-    display: flex;
+  display: flex;
   justify-content: center;
   align-items: center;
   display: none;
@@ -223,7 +219,6 @@ button {
   text-align: center;
   padding: 20px;
   position: fixed;
-
 }
 
 input {
@@ -275,14 +270,14 @@ textarea:focus {
 }
 
 #name,
-#password {
+#password-change-div {
   margin-top: 10px;
   margin-left: -225px;
   margin-bottom: -15px;
   color: var(--primary-bg);
 }
 
-#password {
+#password-change-div {
   margin-top: 15px;
 }
 
@@ -326,7 +321,6 @@ button {
 }
 
 /*comment css */
-
 .comment {
   margin-top: 20px;
 }
@@ -368,4 +362,8 @@ button {
   height: 30px;
   width: 30px;
   border-radius: 50%;
+}
+
+#response {
+  margin-bottom: 20px;
 }

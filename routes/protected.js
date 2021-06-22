@@ -1,6 +1,9 @@
 const express = require("express");
 const router = express.Router();
 
+//import route
+const update = require("./update");
+
 //import controllers
 const updateAvatar = require("../controllers/updateAvatar");
 const logout = require("../controllers/logout");
@@ -21,6 +24,7 @@ router.use(express.urlencoded({ extended: true }));
 
 //use authorization middleware
 router.use(verifyToken);
+router.use("/update", update);
 
 router.get("/profile", (req, res) => {
   res.sendFile(staticDir + "/profile.html");

@@ -40,18 +40,14 @@ span.onclick = hideModal;
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function (event) {
   if (event.target == modal) {
-    console.log(event.target);
-    console.log("herer");
     hideModal();
-  } 
+  }
 };
 
 const submitAvatar = (e) => {
   e.preventDefault();
   const updateAvatarForm = document.getElementById("update-avatar-form");
-  console.log("form submitted");
   const formData = new FormData(updateAvatarForm);
-  console.log(formData);
 
   const fetchOptions = {
     method: "POST",
@@ -73,6 +69,7 @@ const submitAvatar = (e) => {
 //to make the Edit Profile button popup in same page
 document.getElementById("profileEdit").addEventListener("click", function () {
   document.querySelector(".wrapperContainer").style.display = "flex";
+  document.getElementById("username").value = userDetails.username;
   document.getElementById("user-bio").innerText = userDetails.bio
     ? userDetails.bio
     : "";
@@ -96,7 +93,7 @@ document.querySelector(".closeWrapper").addEventListener("click", function () {
   document.querySelector(".wrapperContainer").style.display = "none";
 });
 
-const logout = () => { 
+const logout = () => {
   fetch("/protected/logout", {
     method: "DELETE",
   })
@@ -109,6 +106,22 @@ const logout = () => {
       }
     })
     .catch((error) => console.error(`ERROR: ${error}`));
+};
+
+const showResponse = (response) => {
+  const responseDiv = document.getElementById("response");
+  responseDiv.style.color = "#fff";
+  responseDiv.style.backgroundColor = "red";
+  if (response.success) {
+    const { username, bio, hobbies } = response;
+    responseDiv.style.backgroundColor = "green";
+    localStorage.setItem(
+      "userDetails",
+      JSON.stringify({ username, bio, hobbies })
+    );
+  }
+  responseDiv.innerHTML = response.message;
+  setTimeout(() => (responseDiv.innerHTML = ""), 5000);
 };
 
 const updateBioHobbies = (e) => {
@@ -135,4 +148,25 @@ const updateBioHobbies = (e) => {
     })
     .then(() => window.location.reload())
     .catch((err) => console.error(err));
+};
+
+const updateUsername = (e) => {
+  e.preventDefault();
+  const newUsername = document.getElementById("username").value;
+  const password = document.getElementById("password").value;
+  const { bio, hobbies } = JSON.parse(localStorage.getItem("userDetails"));
+
+  const fetchOptions = {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ newUsername, password }),
+  };
+
+  fetch("/protected/update/username", fetchOptions)
+    .then((res) => res.json())
+    .then((response) => {
+      showResponse(response);
+    });
 };

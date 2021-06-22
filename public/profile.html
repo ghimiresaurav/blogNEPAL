@@ -89,7 +89,7 @@
 
     <div class="wrapperContainer">
       <div id="wrapper">
-
+        <p id="response"></p>
         <div class="closeWrapper">&times;</div>
 
 
@@ -106,19 +106,21 @@
           <button type="submit">Submit</button>
         </form>
 
-        <form>
+        <form onsubmit="updateUsername(event)">
           <div id="name">Change Username</div> <br />
 
-          <input type="text" placeholder="Enter your New name" /><br />
-          <input type="password" placeholder="Enter your password" /><br />
+          <input type="text" id="username" placeholder="New Username" required/><br />
+          <input type="password" id="password" placeholder="Enter your password" required/><br />
+          <button type="submit">Update Username</button>
+        </form>
+        <form>
+          <div id="password-change-div">Change Password</div><br />
 
-          <div id="password">Change Password</div><br />
+          <input type="password" id="current-password"placeholder="Current Password" /><br />
+          <input type="password" id="new-password"placeholder="New Password" /><br />
+          <input type="password" id="confirm-new-password"placeholder="Confirm Password" /><br />
 
-          <input type="text" placeholder="New Name" /><br />
-          <input type="password" placeholder="New Password" /><br />
-          <input type="password" placeholder="Confirm Password" /><br />
-
-          <button class="submit">Submit</button>
+          <button class="submit" type="submit">Change Password</button>
         </form>
 
         <div id="deleteAccount">
