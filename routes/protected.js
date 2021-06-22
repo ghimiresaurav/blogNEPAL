@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 
-//import route
+//import routes
 const update = require("./update");
 
 //import controllers
@@ -24,6 +24,7 @@ router.use(express.urlencoded({ extended: true }));
 router.use(verifyToken);
 router.use("/update", update);
 
+//handle requests
 router.get("/profile", (req, res) => {
   res.sendFile(staticDir + "/profile.html");
 });
@@ -37,7 +38,6 @@ const like = require("../controllers/likeBlog");
 router.post("/like", like);
 
 router.get("/user-details", getUserDetails);
-// router.post("/update-avatar", updateAvatar);
 router.delete("/logout", logout);
 
 router.get("/get-blogs", getBlogs);

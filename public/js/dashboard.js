@@ -13,17 +13,15 @@ const blogsContainer = document.getElementById("blogcss");
 const wrapBlog = (blog) => {
   const LikeNo = blog.like.length;
   const LikeStatus = Likestat(blog.like);
-  const CommentNo= blog.comments.length;
-  console.log(blog.comments)
-  let clas = ""
-  let id = ""
+  const CommentNo = blog.comments.length;
+  let clas = "";
+  let id = "";
   if (LikeStatus) {
     clas = "fas fa-heart";
-    id = "fill-red"
-  }
-  else {
+    id = "fill-red";
+  } else {
     clas = "far fa-heart";
-    id = "fill-none"
+    id = "fill-none";
   }
 
   const lscTagDiv = `<div class="likesharecmt">
@@ -53,7 +51,6 @@ const wrapBlog = (blog) => {
   </div>`;
 
   if (blog.comments) {
-
     const x = blog.comments.reduce(
       (c, comment) => `${c}
       <div class="comments">
@@ -157,38 +154,43 @@ const postComment = (e, postId, comment) => {
 };
 
 const Like = (postId, LikeStatus) => {
-  const userId = localStorage.getItem("userId")
+  const userId = localStorage.getItem("userId");
 
   if (LikeStatus) {
-    const LikeIcon = findChild(postId, "fill-red")
-    LikeIcon.id = "fill-none"
-    LikeIcon.className = "far fa-heart"
-    LikeIcon.setAttribute('onclick','Like(this.parentNode.parentNode.id,false)')
-    const LikeNum = findChild(postId, "LikeNo")
-    const number = parseInt(LikeNum.innerHTML)-1
-    LikeNum.innerHTML=number
-  }
-  else{
-    const LikeIcon = findChild(postId, "fill-none")
-    LikeIcon.id = "fill-red"
-    LikeIcon.className = "fas fa-heart"
-    LikeIcon.setAttribute('onclick','Like(this.parentNode.parentNode.id,true)')
-    const LikeNum = findChild(postId, "LikeNo")
-    const number = parseInt(LikeNum.innerHTML)+1
-    LikeNum.innerHTML=number
+    const LikeIcon = findChild(postId, "fill-red");
+    LikeIcon.id = "fill-none";
+    LikeIcon.className = "far fa-heart";
+    LikeIcon.setAttribute(
+      "onclick",
+      "Like(this.parentNode.parentNode.id,false)"
+    );
+    const LikeNum = findChild(postId, "LikeNo");
+    const number = parseInt(LikeNum.innerHTML) - 1;
+    LikeNum.innerHTML = number;
+  } else {
+    const LikeIcon = findChild(postId, "fill-none");
+    LikeIcon.id = "fill-red";
+    LikeIcon.className = "fas fa-heart";
+    LikeIcon.setAttribute(
+      "onclick",
+      "Like(this.parentNode.parentNode.id,true)"
+    );
+    const LikeNum = findChild(postId, "LikeNo");
+    const number = parseInt(LikeNum.innerHTML) + 1;
+    LikeNum.innerHTML = number;
   }
   const fetchOptions = {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ postId: postId, userId: userId })
-  }
-  const res = fetch("/protected/like", fetchOptions)
-}
+    body: JSON.stringify({ postId: postId, userId: userId }),
+  };
+  const res = fetch("/protected/like", fetchOptions);
+};
 
 const Likestat = (like) => {
-  const userId = localStorage.getItem("userId")
+  const userId = localStorage.getItem("userId");
   // Search for post with title == "Guava"
   var __FOUND = false;
   for (var i = 0; i < like.length; i++) {
@@ -199,13 +201,12 @@ const Likestat = (like) => {
     }
   }
   return __FOUND;
-
-}
+};
 
 findChild = (idOfElement, idOfChild) => {
   let element = document.getElementById(idOfElement);
   return element.querySelector(`[id=${idOfChild}]`);
-}
+};
 
 // document.addEventListener("click", (e) => {
 //   const dropdown = document.getElementsByClassName("dropdown")[0];
