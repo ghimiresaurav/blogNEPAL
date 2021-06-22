@@ -50,11 +50,11 @@ const submitAvatar = (e) => {
   const formData = new FormData(updateAvatarForm);
 
   const fetchOptions = {
-    method: "POST",
+    method: "PUT",
     body: formData,
   };
   //send the new avtar to backend
-  fetch("/protected/update-avatar", fetchOptions)
+  fetch("/protected/update/avatar", fetchOptions)
     .then((resp) => resp.json())
     .then((response) => {
       response.success &&
@@ -137,7 +137,7 @@ const updateBioHobbies = (e) => {
     },
     body: JSON.stringify({ bio, hobbies }),
   };
-  fetch("/protected/update-bio-hobbies", fetchOptions)
+  fetch("/protected/update/bio-and-hobbies", fetchOptions)
     .then((resp) => resp.json())
     .then((response) => {
       const { bio, hobbies } = response;

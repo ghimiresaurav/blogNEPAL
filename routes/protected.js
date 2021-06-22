@@ -5,12 +5,10 @@ const router = express.Router();
 const update = require("./update");
 
 //import controllers
-const updateAvatar = require("../controllers/updateAvatar");
 const logout = require("../controllers/logout");
 const getUserDetails = require("../controllers/profile");
 const { initiatePost, postBlog } = require("../controllers/postBlog");
 const getBlogs = require("../controllers/getBlogs");
-const updateBioHobbies = require("../controllers/updateUserInfo");
 const postComment = require("../controllers/postComment");
 
 //import authorization middleware
@@ -39,13 +37,11 @@ const like = require("../controllers/likeBlog");
 router.post("/like", like);
 
 router.get("/user-details", getUserDetails);
-router.post("/update-avatar", updateAvatar);
+// router.post("/update-avatar", updateAvatar);
 router.delete("/logout", logout);
 
 router.get("/get-blogs", getBlogs);
 router.post("/post-blog", initiatePost, postBlog);
 router.post("/post-comment", postComment);
-
-router.put("/update-bio-hobbies", updateBioHobbies);
 
 module.exports = router;
