@@ -54,6 +54,7 @@ nav a {
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
 }
 
 #left,
@@ -82,6 +83,7 @@ nav a {
 #get-started {
   width: 405px;
   transform: translate(-50px, -95px);
+  opacity: 1;
 }
 
 #pi {
@@ -90,6 +92,13 @@ nav a {
 
 #pii {
   font-size: 18px;
+  animation: myMove 5s infinite;
+}
+
+@keyframes myMove {
+  50% {
+    font-weight: bold;
+  }
 }
 
 #get-started-btn {
@@ -122,6 +131,8 @@ form {
 #login-form {
   height: 280px;
   transform: translateY(-50px);
+  background-color: aliceblue;
+  opacity: 1;
 }
 
 #register-form {

@@ -1,5 +1,6 @@
 const userDetails = JSON.parse(localStorage.getItem("userDetails"));
 (() => {
+  //display all the important information
   document.getElementById("profile-picture").src =
     localStorage.getItem("avatarLink");
   document.getElementById("commentimage").src =
@@ -40,8 +41,6 @@ span.onclick = hideModal;
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function (event) {
   if (event.target == modal) {
-    console.log(event.target);
-    console.log("herer");
     hideModal();
   }
 };
@@ -49,30 +48,28 @@ window.onclick = function (event) {
 const submitAvatar = (e) => {
   e.preventDefault();
   const updateAvatarForm = document.getElementById("update-avatar-form");
-  console.log("form submitted");
   const formData = new FormData(updateAvatarForm);
-  console.log(formData);
 
   const fetchOptions = {
-    method: "POST",
+    method: "PUT",
     body: formData,
   };
   //send the new avtar to backend
-  fetch("/protected/update-avatar", fetchOptions)
+  fetch("/protected/update/avatar", fetchOptions)
     .then((resp) => resp.json())
     .then((response) => {
       response.success &&
         localStorage.setItem("avatarLink", response.avatarLink);
     })
+    //reload the page so user can see the avatar has changed
     .then(() => window.location.reload())
     .catch((err) => console.error(err));
-  //reload the page so user can see the avatar has changed
-  // window.location.reload();
 };
 
 //to make the Edit Profile button popup in same page
 document.getElementById("profileEdit").addEventListener("click", function () {
   document.querySelector(".wrapperContainer").style.display = "flex";
+  document.getElementById("username").value = userDetails.username;
   document.getElementById("user-bio").innerText = userDetails.bio
     ? userDetails.bio
     : "";
@@ -92,20 +89,10 @@ window.onclick = function (event) {
 };
 */
 
-document.querySelector(".closeWrapper").addEventListener("click", function () {
+const hideEditProfileForm = () => {
   document.querySelector(".wrapperContainer").style.display = "none";
-});
-//fetching data from backend of blogs
-let request = new XMLHttpRequest();
-request.open("GET", "http://localhost:3000/getblog");
-request.responseType = "text";
-
-request.onload = function () {
-  const blog = JSON.parse(request.response);
-  console.log(blog);
+  window.location.reload();
 };
-
-request.send();
 
 const logout = () => {
   fetch("/protected/logout", {
@@ -122,11 +109,42 @@ const logout = () => {
     .catch((error) => console.error(`ERROR: ${error}`));
 };
 
+const showResponse = (response) => {
+  const responseDiv = document.getElementById("response");
+  responseDiv.style.color = "#fff";
+  //use red background for response
+  responseDiv.style.backgroundColor = "red";
+  if (response.success) {
+    //if the operation was successful, use green background
+    responseDiv.style.backgroundColor = "green";
+
+    //if the bio and hobbies were updated, update them in local storage
+    if (response.extraMile) {
+      const { username, bio, hobbies } = response;
+      localStorage.setItem(
+        "userDetails",
+        JSON.stringify({ username, bio, hobbies })
+      );
+    }
+
+    //clear the password fields
+    document.getElementById("password").value = "";
+    document.getElementById("current-password").value = "";
+    document.getElementById("new-password").value = "";
+    document.getElementById("confirm-new-password").value = "";
+  }
+
+  //display the response
+  responseDiv.innerHTML = response.message;
+
+  //clear the response after 5 seconds
+  setTimeout(() => (responseDiv.innerHTML = ""), 5000);
+};
+
 const updateBioHobbies = (e) => {
   e.preventDefault();
   const bio = document.getElementById("user-bio").value;
   const hobbies = document.getElementById("user-hobbies").value;
-  const username = document.getElementById("namesetting").innerText;
 
   const fetchOptions = {
     method: "PUT",
@@ -135,15 +153,75 @@ const updateBioHobbies = (e) => {
     },
     body: JSON.stringify({ bio, hobbies }),
   };
-  fetch("/protected/update-bio-hobbies", fetchOptions)
+  fetch("/protected/update/bio-and-hobbies", fetchOptions)
     .then((resp) => resp.json())
+    .then((response) => showResponse(response))
+    .catch((err) => console.error(err));
+};
+
+const updateUsername = (e) => {
+  e.preventDefault();
+  const newUsername = document.getElementById("username").value;
+  const password = document.getElementById("password").value;
+
+  const fetchOptions = {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ newUsername, password }),
+  };
+
+  fetch("/protected/update/username", fetchOptions)
+    .then((res) => res.json())
     .then((response) => {
-      const { bio, hobbies } = response;
-      localStorage.setItem(
-        "userDetails",
-        JSON.stringify({ username, bio, hobbies })
-      );
-    })
-    .then(() => window.location.reload())
+      showResponse(response);
+    });
+};
+
+const updatePassword = (e) => {
+  e.preventDefault();
+  const password = document.getElementById("current-password").value;
+  const newPassword = document.getElementById("new-password").value;
+  const confirmPassword = document.getElementById("confirm-new-password").value;
+
+  const passwordRegex =
+    /(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{8,})/;
+
+  //if the user enters same password in the new password field
+  if (password === newPassword) {
+    return showResponse({
+      success: false,
+      message: `New password cannot be the same as old password`,
+    });
+  }
+
+  //if the new password is not strong enough
+  if (!passwordRegex.test(newPassword)) {
+    return showResponse({
+      success: false,
+      message: `The new password isn't strong enough.`,
+    });
+  }
+
+  //if the new password and confirm password do not match
+  if (newPassword !== confirmPassword) {
+    return showResponse({
+      success: false,
+      message: `The new passwords do not match.`,
+    });
+  }
+
+  //if everything is fine, send the information to server
+  const fetchOptions = {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ password, newPassword }),
+  };
+  fetch("/protected/update/password", fetchOptions)
+    .then((res) => res.json())
+    .then((response) => showResponse(response))
     .catch((err) => console.error(err));
 };

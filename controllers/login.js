@@ -50,8 +50,8 @@ module.exports = async (req, res) => {
           );
 
           //save the token and user id in cookie
-          res.cookie("token", token, { path: "/" });
-          res.cookie("id", user._id, { path: "/" });
+          res.cookie("token", token, { path: "/", sameSite: true });
+          res.cookie("id", user._id, { path: "/", sameSite: true });
           return res.json({
             success: true,
             userId: user._id,

@@ -6,22 +6,8 @@
 
 body {
   background-color: aliceblue;
-  font-family: "Poppins", sans-serif, serif;
-  width: 100%;
-}
-
-:root {
-  --primary-bg: #b62e42;
-}
-
-#header {
-  background-color: var(--primary-bg);
-}
-
-body {
-  background-color: aliceblue;
-  font-family: "Poppins", sans-serif, serif;
   position: relative;
+  font-family: "Montserrat", serif;
   width: 100%;
 }
 
@@ -31,41 +17,6 @@ body {
 
 #header {
   background-color: var(--primary-bg);
-  position: fixed;
-  width: 100%;
-  top: 0;
-  left: 0;
-}
-
-nav {
-  width: 100%;
-  margin: auto;
-  height: 10vh;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 20px;
-  font-size: 18px;
-  text-decoration: none;
-}
-
-nav a {
-  text-decoration: none;
-  color: white;
-}
-
-#logo {
-  font-family: "Poppins", sans-serif;
-  font-weight: 600;
-  font-size: 25px;
-}
-
-nav ul {
-  list-style: none;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  width: 100%;
 }
 
 #profileimg {
@@ -89,11 +40,14 @@ nav ul {
 #profilepicupdate {
   position: fixed;
   top: 40%;
-  right: 40%;
+  left: 40%;
   z-index: 1;
 }
 
 #passwordchangemsgbox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   display: none;
   height: 100vh;
   width: 100%;
@@ -113,9 +67,10 @@ nav ul {
 .close:focus,
 .closeWrapper:hover,
 .closeWrapper:focus {
-  color: #000;
+  color: #f00;
   text-decoration: none;
   cursor: pointer;
+  transform: scale(1.5);
 }
 
 #updprofile {
@@ -150,7 +105,7 @@ nav ul {
   transition: 600ms;
   width: 25%;
   padding: 0 30px;
-  background: #fff;
+  background: aliceblue;
   position: fixed;
   bottom: 0;
   left: 0;
@@ -158,13 +113,14 @@ nav ul {
   display: flex;
   flex-direction: column;
   z-index: -1;
+  border-right: 1px solid rgb(214, 211, 211);
 }
 
 #changeprofile {
   margin-top: 10px;
   cursor: pointer;
   padding: 5px 10px;
-  border-radius: 5px;
+  border-radius: 25px;
   background-color: var(--primary-bg);
 }
 
@@ -199,7 +155,7 @@ nav ul {
 }
 
 #profileEdit button {
-  font-family: "Poppins", sans-serif;
+  /* font-family: "Poppins", sans-serif; */
   font-size: 10px;
   padding: 3px;
   background: #b62e42;
@@ -213,35 +169,6 @@ nav ul {
 
 #edit {
   cursor: pointer;
-}
-
-#bloglist {
-  width: 75%;
-  float: right;
-  background-color: aliceblue;
-  margin-top: 99px;
-}
-
-#blogcss {
-  width: 60%;
-  margin: auto;
-  margin-bottom: 50px;
-}
-
-.likesharecmt {
-  display: flex;
-  margin-top: 10px;
-  opacity: 1;
-}
-
-.likesharecmt p {
-  margin: 0 10px 0 10px;
-}
-
-.blogs {
-  background: #fff;
-  padding: 50px 20px 50px 20px;
-  margin-top: 50px;
 }
 
 .post-image {
@@ -281,12 +208,12 @@ button {
   height: 700px;
   background-color: aliceblue;
   border-radius: 15px;
-  margin-top: 840px;
-  margin-left: 200px;
+  display: block;
+  margin: auto;
+  top: 65px;
   text-align: center;
   padding: 20px;
   position: fixed;
-  top: -770px;
 }
 
 input {
@@ -338,14 +265,14 @@ textarea:focus {
 }
 
 #name,
-#password {
+#password-change-div {
   margin-top: 10px;
   margin-left: -225px;
   margin-bottom: -15px;
   color: var(--primary-bg);
 }
 
-#password {
+#password-change-div {
   margin-top: 15px;
 }
 
@@ -357,7 +284,9 @@ textarea:focus {
   font-size: 28px;
   font-weight: bold;
   cursor: pointer;
-  color: #aaaaaa;
+  transition: 250ms;
+  background-color: transparent;
+  color: #b62e42;
 }
 
 button {
@@ -389,7 +318,6 @@ button {
 }
 
 /*comment css */
-
 .comment {
   margin-top: 20px;
 }
@@ -431,4 +359,8 @@ button {
   height: 30px;
   width: 30px;
   border-radius: 50%;
+}
+
+#response {
+  margin-bottom: 20px;
 }
