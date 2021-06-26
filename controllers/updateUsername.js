@@ -12,14 +12,16 @@ module.exports = (req, res) => {
         $set: { name: req.body.newUsername },
       });
       const user = await db.collection("users").findOne(query);
-      success.result.ok &&
+      if (success.result.ok) {
         res.json({
           success: true,
           message: `Username updated <i class="fas fa-check-square"></i>`,
+          extraMile: true,
           username: user.name,
           bio: user.bio,
           hobbies: user.hobbies,
         });
+      }
     }
   );
 };

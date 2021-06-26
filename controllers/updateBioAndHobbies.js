@@ -7,12 +7,22 @@ module.exports = (req, res) => {
   MongoClient.connect(
     process.env.DB_URL,
     { useNewUrlParser: true, useUnifiedTopology: true },
-    (err, client) => {
+    async (err, client) => {
       if (err) throw err;
       const db = client.db(process.env.DB_NAME);
 
-      db.collection("users").updateOne(query, update);
-      return res.json({ success: true, bio, hobbies });
+      const success = await db.collection("users").updateOne(query, update);
+      const user = await db.collection("users").findOne(query);
+      if (success.result.ok) {
+        return res.json({
+          success: true,
+          message: `Update Saved <i class="fas fa-check-square"></i>`,
+          extraMile: true,
+          username: user.name,
+          bio: user.bio,
+          hobbies: user.hobbies,
+        });
+      }
     }
   );
 };

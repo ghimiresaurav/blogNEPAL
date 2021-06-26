@@ -73,9 +73,10 @@ body {
 .close:focus,
 .closeWrapper:hover,
 .closeWrapper:focus {
-  color: #000;
+  color: #f00;
   text-decoration: none;
   cursor: pointer;
+  transform: scale(1.5);
 }
 
 #updprofile {
@@ -289,7 +290,9 @@ textarea:focus {
   font-size: 28px;
   font-weight: bold;
   cursor: pointer;
-  color: #aaaaaa;
+  transition: 250ms;
+  background-color: transparent;
+  color: #b62e42;
 }
 
 button {

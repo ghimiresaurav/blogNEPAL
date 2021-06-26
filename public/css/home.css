@@ -57,18 +57,6 @@ nav a {
   position: relative;
 }
 
-#main::before {
-  position: absolute;
-  top: 0px;
-  right: 0px;
-  bottom: 0px;
-  left: 0px;
-  content: "";
-  background-image: url("../assets/avatars/journal.jpg");
-  background-size: cover;
-  background-color: rgba(0, 0, 0, 0.25);
-}
-
 #left,
 #right {
   height: 100%;
@@ -96,7 +84,6 @@ nav a {
   width: 405px;
   transform: translate(-50px, -95px);
   opacity: 1;
-  
 }
 
 #pi {
@@ -109,7 +96,9 @@ nav a {
 }
 
 @keyframes myMove {
-  50% {font-weight: bold;}
+  50% {
+    font-weight: bold;
+  }
 }
 
 #get-started-btn {
@@ -143,7 +132,7 @@ form {
   height: 280px;
   transform: translateY(-50px);
   background-color: aliceblue;
-  opacity: 1 ;
+  opacity: 1;
 }
 
 #register-form {
