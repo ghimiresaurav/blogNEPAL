@@ -6,22 +6,20 @@
 }
 
 body {
-  font-family: "Poppins", sans-serif;
+  font-family: "Montserrat", sans-serif;
   background-color: aliceblue;
 }
-
 
 :root {
   --primary-bg: #b62e42;
 }
-
- .container {
+.container {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   width: 100%;
- }
+}
 
 #header {
   background-color: var(--primary-bg);
@@ -40,7 +38,6 @@ body {
   top: 0;
   left: 0;
 }
-
 
 #logo {
   font-family: "Poppins", sans-serif;
@@ -138,19 +135,18 @@ li:hover .onHover {
   border-right: 1px solid rgb(214, 211, 211);
 }
 
-#blogPost button{
-   font-family: "Poppins", sans-serif;
-   position: absolute;
-   top: 8.5vh;
-   left: 10vh;
-   font-size: 18px;
-   border-radius: 25px;
-   padding: 5px 25px;
-   background: none;
-   border: 2px solid aliceblue;
-   cursor: pointer;
+#blogPost button {
+  font-family: "Poppins", sans-serif;
+  position: absolute;
+  top: 8.5vh;
+  left: 10vh;
+  font-size: 18px;
+  border-radius: 25px;
+  padding: 5px 25px;
+  background: none;
+  border: 2px solid aliceblue;
+  cursor: pointer;
 }
-
 
 #createBlog:hover {
   background: #e7e7e7;
@@ -164,7 +160,7 @@ hr.new {
 }
 
 #secondSection {
-  display: flex;  
+  display: flex;
   flex-wrap: wrap;
   position: absolute;
   font-size: 18px;
@@ -172,13 +168,13 @@ hr.new {
   width: 95%;
 }
 
-#topSection{
-   display: flex;
-   margin-left: 4vh;
-   text-transform: uppercase;
+#topSection {
+  display: flex;
+  margin-left: 4vh;
+  text-transform: uppercase;
 }
 
-#bottomSection{
+#bottomSection {
   position: absolute;
   top: 8vh;
   display: flex;
@@ -188,8 +184,8 @@ hr.new {
   margin-left: -2px;
 }
 
-#bottomSection button{
-  font-family: "Poppins", sans-serif;   
+#bottomSection button {
+  font-family: "Poppins", sans-serif;
   font-size: 15px;
   padding: 8px 20px;
   border: 2px solid aliceblue;
@@ -199,8 +195,6 @@ hr.new {
   margin-bottom: 15px;
   margin-left: 4px;
 }
-
-
 
 /* blog section css*/
 
@@ -231,7 +225,7 @@ hr.new {
   margin-top: 10px;
 }
 
-#fill-red{
+#fill-red {
   color: #b62e42;
 }
 
@@ -288,7 +282,7 @@ label:hover {
 }
 
 #blog-text {
-  font-family: "Poppins", sans-serif;
+  font-family: "Montserrat", sans-serif;
   border-radius: 3px;
   width: 100%;
   height: 150px;
@@ -438,7 +432,7 @@ label:hover {
   border: 0;
   padding: 5px 10px;
   margin-right: 10px;
-  font-size: 16px ;
+  font-size: 16px;
 }
 
 .comment input {
