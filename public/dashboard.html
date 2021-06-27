@@ -1,161 +1,176 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width">
-	<link rel="preconnect" href="https://fonts.gstatic.com">
-	<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
-	<title> Dashboard </title>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat&family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/dashboard.css" type="text/css" />
+    <script
+      src="https://kit.fontawesome.com/3fdf0f105a.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/autosize.js/4.0.2/autosize.min.js"></script>
+  </head>
 
-	<link href="./css/dashboard.css" rel="stylesheet" type="text/css" />
-  <script src="https://kit.fontawesome.com/3fdf0f105a.js" crossorigin="anonymous"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/autosize.js/4.0.2/autosize.min.js"></script>
-  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-</head>
-
-
-<body>
-	<nav class="nav-bar">
-    <div id="logo"><a href="/protected/dashboard" style="color:white;">BlogNEPAL</a></div>
+  <body>
+    <div class="container">
+      <nav class="nav-bar">
+        <div id="logo">
+          <a href="/protected/dashboard" style="color: white">BlogNEPAL</a>
+        </div>
 
         <div class="search-bar">
-            <i class="fas fa-search searchIcon " style="font-size: 18px;"></i> 
-            <input type="text" placeholder="Search Blogs" class="main-search">      
+          <i class="fas fa-search searchIcon" style="font-size: 18px"></i>
+          <input type="text" placeholder="Search Blogs" class="main-search" />
         </div>
-        
-        <ul class="icons">               
-              <li> 
-                <a href="/protected/dashboard" class="active"><i class="fas fa-home active"></i> </a>
-              </li>  
-                
-              <li> 
-                <a href="#" style="position: relative"><i class="fas fa-compass"></i> </a>
-              </li>   
-                
-              <li> 
-                <a href="#"  style="position: relative"> <i class="fas fa-bell"></i> </a> 
-              </li>             
-                    
-              <li>
-                <a href="/protected/profile"  style="position: relative">  
-                  <img id="user-avatar" alt="profile">
-                </a> 
-              </li>                                                              
-        </ul>   
-    
-	</nav>
 
-  <div id="post-notification"></div>
+        <ul class="icons">
+          <li>
+            <a href="/protected/dashboard" class="active"
+              ><i class="fas fa-home active"></i>
+            </a>
+          </li>
 
-  <div id="body">
-    <div id="bloglist">
-      <div class="blogsp">
-        <form id="blog-post-form" onsubmit="postBlog(event)">
-          <textarea name="content" id="blog-text" placeholder="Write A Story"></textarea><br>
-          <input
-            type="file"
-            name="images"
-            id="file-input"
-            accept="image/*"
-            multiple
-            hidden
-          />
-          <label for="file-input">Add Images</label>
-          <button type="submit" id="post-btn">Post</button>
-        </form>
-      </div>
+          <li>
+            <a href="#" style="position: relative"
+              ><i class="fas fa-compass"></i>
+            </a>
+          </li>
 
-      <div id="blogcss">
-        <!-- <div class="blogs">
-          <p><strong>Saurav Ghimire</strong> posted on <strong>4 Jun 2021</strong> - 5:03:46 PM</p><br>
-          <h3>Blog Topic Here</h3><br>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit consequatur quae labore tempore corrupti quis. Culpa, enim! Optio nisi exercitationem, ad commodi distinctio itaque quam ipsam vel voluptatem repellat sunt?
-        Sapiente dignissimos illo aut pariatur exercitationem, magnam eveniet animi ex sunt harum, odio debitis possimus sed quisquam quos deserunt eum temporibus. Numquam consequuntur, quibusdam consectetur labore animi eligendi blanditiis reiciendis.
-        Minima adipisci omnis autem numquam reprehenderit sit iusto ab voluptatum a iste quas sunt, dignissimos ex! Explicabo tempora sunt aut repudiandae libero optio corrupti quas! At nihil architecto eaque facilis?
-        Soluta, consequuntur optio. Dolore, a. Unde deserunt atque veniam facilis, et, aliquam expedita recusandae magnam magni ab consequatur sint dolor voluptate in officiis beatae iusto rem aperiam hic cumque perspiciatis.
-        Quas, amet, doloribus nostrum ea voluptatum beatae facere autem minima quos totam recusandae tempora delectus quasi? Minima expedita odio quasi molestias ipsam nobis placeat illum atque molestiae, voluptatibus iste dolorum?
-        Tempore, impedit eaque. Sequi voluptas, reiciendis nihil, quasi accusamus possimus atque in necessitatibus doloremque exercitationem accusantium modi dolore soluta dolorum! Earum nihil commodi laborum libero inventore corrupti minima esse asperiores.
-        Sapiente eligendi maiores voluptatem laudantium ipsum necessitatibus perspiciatis ad vero iure illo odio dolor temporibus alias tempore reiciendis exercitationem suscipit error, maxime explicabo laborum quisquam expedita, sint vel. Autem, magnam?
-        Ullam cupiditate in quae temporibus ipsa laudantium inventore. Maxime consequatur, exercitationem aut atque tempora veritatis dolore commodi, expedita ipsam dignissimos quis eligendi hic dolor ab rerum iure. Aliquam, reprehenderit laboriosam?
-        Repudiandae corrupti, voluptates id suscipit amet voluptas nesciunt mollitia doloribus sint fugiat doloremque quae nisi expedita quod? In, deleniti error? Sint at doloremque quis perferendis accusamus sed nam sit commodi!
-        Ad odio ullam, sit asperiores quas at soluta et explicabo, eius optio nulla veritatis ipsum dolorem? Modi ullam odit laudantium quasi! Facere pariatur soluta reprehenderit vero aspernatur hic et quae!</p>
-          
-          <div class="post-image">
-            <img id="image" src="./assets/blog_images/post-60c4bd711b8ff74ff8ac4e5f/img-1623506289214.jpg">
+          <li>
+            <a href="#" style="position: relative">
+              <i class="fas fa-bell"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="/protected/profile" style="position: relative">
+              <img id="user-avatar" alt="profile" />
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <div id="post-notification"></div>
+
+      <div class="mainSection">
+        <div id="firstSection">
+          <div id="blogPost">
+            <button id="createBlog">Write a Story</button>
+            <hr class="new" />
           </div>
-          <div class="likesharecmt">
-            <i class="far fa-heart" style="font-size: 20px" aria-hidden="true"></i>
-            <p>100</p>
-            <i class="far fa-comment" style="font-size: 20px" aria-hidden="true"></i>
-            <p>100</p>
-            <i class="fas fa-share" style="font-size: 20px" aria-hidden="true"></i>
-          </div>
-        </div> 
-      <div class="comment">
-          <form>
-            <input type="text" placeholder="Post a comment...">
-            <button type="submit" id="send-btn">
-              <i class="fas fa-paper-plane"></i>
-            </button>
-          </form>
-          <div id="comment-list">
-            <div class="comments">
-              <div>
-                <img id="commentimage" src="" />
-              </div>
-              <div class="comment-text">
-                <p><strong>Rishikesh Khakurel</strong></p>
-                <p>Nice blog</p>
-              </div>
 
+          <div id="secondSection">
+            <div id="topSection">Recommended topics</div>
+
+            <div id="bottomSection">
+              <div id="tech"><button>Technology</button></div>
+
+              <div id="sports"><button>Sports</button></div>
+
+              <div id="entertainment"><button>Entertainment</button></div>
+
+              <div id="startups"><button>Startups</button></div>
+
+              <div id="money"><button>Money</button></div>
+
+              <div id="arts"><button>Arts</button></div>
+
+              <div id="money"><button>Beauty</button></div>
+
+              <div id="politics"><button>World Affairs</button></div>
             </div>
           </div>
-        </div>-->
-        
+        </div>
+
+        <div id="bloglist">
+          <div class="blogsp">
+            <form id="blog-post-form" onsubmit="postBlog(event)">
+              <textarea
+                name="content"
+                id="blog-text"
+                placeholder="Write A Story"
+              ></textarea
+              ><br />
+              <input
+                type="file"
+                name="images"
+                id="file-input"
+                accept="image/*"
+                multiple
+                hidden
+              />
+              <label for="file-input">Add Images</label>
+              <button type="submit" id="post-btn">Post</button>
+            </form>
+          </div>
+
+          <div id="blogcss"></div>
+        </div>
+
+        <div class="dropdown">
+          <div class="notify_item">
+            <div class="notify_img">
+              <img
+                src="https://bit.ly/3zpGHpP"
+                alt="profile_pic"
+                style="width: 50px"
+              />
+            </div>
+            <div class="notify_info">
+              <p>Saurav commented on<span>Blog Post</span></p>
+              <span class="notify_time">10 minutes ago</span>
+            </div>
+          </div>
+          <div class="notify_item">
+            <div class="notify_img">
+              <img
+                src="https://bit.ly/2SwSu54"
+                alt="profile_pic"
+                style="width: 50px"
+              />
+            </div>
+            <div class="notify_info">
+              <p>Kabin commented on your<span>BLog Post</span></p>
+              <span class="notify_time">55 minutes ago</span>
+            </div>
+          </div>
+          <div class="notify_item">
+            <div class="notify_img">
+              <img
+                src="https://bit.ly/2SwSu54"
+                alt="profile_pic"
+                style="width: 50px"
+              />
+            </div>
+            <div class="notify_info">
+              <p>Rishi liked your<span>Cover Picture</span></p>
+              <span class="notify_time">2 hours ago</span>
+            </div>
+          </div>
+          <div class="notify_item">
+            <div class="notify_img">
+              <img
+                src="https://bit.ly/35c3kA3"
+                alt="profile_pic"
+                style="width: 50px"
+              />
+            </div>
+            <div class="notify_info">
+              <p>Sagar commented on your<span>Profile Picture</span></p>
+              <span class="notify_time">6 hours ago</span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-  </div>
 
-  <div class="dropdown">
-    <div class="notify_item">
-        <div class="notify_img">
-            <img src="https://bit.ly/3zpGHpP" alt="profile_pic" style="width: 50px">
-        </div>
-        <div class="notify_info">
-            <p>Saurav commented on<span>Blog Post</span></p>
-            <span class="notify_time">10 minutes ago</span>
-        </div>
-    </div>
-    <div class="notify_item">
-        <div class="notify_img">
-            <img src="https://bit.ly/2SwSu54" alt="profile_pic" style="width: 50px">
-        </div>
-        <div class="notify_info">
-            <p>Kabin commented on your<span>BLog Post</span></p>
-            <span class="notify_time">55 minutes ago</span>
-        </div>
-    </div>
-    <div class="notify_item">
-        <div class="notify_img">
-            <img src="https://bit.ly/2SwSu54" alt="profile_pic" style="width: 50px">
-        </div>
-        <div class="notify_info">
-            <p>Rishi liked your<span>Cover Picture</span></p>
-            <span class="notify_time">2 hours ago</span>
-        </div>
-    </div>
-    <div class="notify_item">
-        <div class="notify_img">
-            <img src="https://bit.ly/35c3kA3" alt="profile_pic" style="width: 50px">
-        </div>
-        <div class="notify_info">
-            <p>Sagar commented on your<span>Profile Picture</span></p>
-            <span class="notify_time">6 hours ago</span>
-        </div>
-    </div>
- </div>  
-
-  <script src="./js/dashboard.js"></script>
-</body>
+    <script src="./js/navigation.js"></script>
+    <script src="./js/dashboard.js"></script>
+  </body>
 </html>

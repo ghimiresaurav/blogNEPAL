@@ -23,7 +23,7 @@ body {
   height: 10vh;
   background-color: #b62e42;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   padding: 40px;
   font-size: 18px;
@@ -33,6 +33,11 @@ body {
   font-family: "Poppins", sans-serif;
   font-weight: 600;
   font-size: 25px;
+}
+#logo a
+{
+    text-decoration: none;
+    color: white;
 }
 #About_Us{
   font-family: "Poppins", sans-serif;

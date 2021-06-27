@@ -14,18 +14,14 @@ body {
   --primary-bg: #b62e42;
 }
 
-#header {
-  background-color: var(--primary-bg);
-}
-
-.nav-bar {
-  width: 100%;
+nav {
+  width: inherit;
   height: 10vh;
-  background-color: #b62e42;
+  background-color: var(--primary-bg);
   display: flex;
-  justify-content: space-around;
   align-items: center;
-  padding: 40px;
+  justify-content: space-between;
+  padding: 20px;
   font-size: 18px;
 }
 
@@ -33,6 +29,11 @@ body {
   font-family: "Poppins", sans-serif;
   font-weight: 600;
   font-size: 25px;
+}
+#logo a
+{
+    text-decoration: none;
+    color: white;
 }
 #About_Us{
   font-family: "Poppins", sans-serif;
@@ -110,12 +111,17 @@ margin-left: 150px;
 border: 1px solid black;
 border-radius: 10px;
 padding: 5px;
+cursor: pointer;
 }
 input[type=submit] 
 {
   width: 200px;
   padding: 10px 20px;
   margin: 10px; 
+}
+input[type=submit]:hover
+{
+  background-color: #6f7481
 }
 #select-beast
 {
@@ -141,4 +147,37 @@ text-align: center;
 #contact p
 {
 font-size: 20px;
+}
+#status{
+  width: 90%;
+  max-width: 500px;
+  text-align: center;
+  padding: 10px;
+  margin: 0 auto;
+  border-radius: 8px;
+}
+#status.sucess{
+  background-color: rgba(17, 173, 17, 0.767);
+  color: white;
+  animation: status 3s ease forwards;
+
+}
+#status.error{
+  background-color: rgb(201, 31, 31);
+  color: white;
+  animation: status 5s ease  forwards;
+}
+@keyframes status{
+0%{
+  opacity: 1;
+  pointer-events: all;
+}
+90%{
+  opacity: 1;
+  pointer-events: all;
+}
+100%{
+  opacity: 0;
+  pointer-events: none;
+}
 }
