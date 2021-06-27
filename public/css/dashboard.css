@@ -115,12 +115,11 @@ li:hover .onHover {
   opacity: 1;
 }
 
-#mainSection {
-  position: relative;
+.mainSection {
+  width: 100%;
 }
 
 #firstSection {
-  position: absolute;
   top: 10vh;
   float: left;
   width: 25%;
@@ -211,7 +210,7 @@ hr.new {
 
 #blogcss,
 .blogsp {
-  width: 90%;
+  width: 60%;
   margin: auto;
   margin-bottom: 50px;
 }
@@ -293,7 +292,11 @@ label:hover {
 .blogs {
   background: #fff;
   padding: 50px 20px 50px 20px;
-  margin-top: 20vh;
+  margin-top: 8vh;
+}
+
+.blogs h4{
+  margin: 10px 0;
 }
 
 .likesharecmt img {
