@@ -3,6 +3,7 @@
 //   autosize(document.querySelectorAll('#blog-text'));
 // }, false); 
 
+
 // Image Preview
 
 var loadFile = function(event) {
@@ -18,23 +19,21 @@ function onEvent(event) {
     event.preventDefault();
     var tagText = document.getElementById('write-tag').value;
     if(tagText[0] != null){
-      
-    
-    var btn = document.createElement("BUTTON");
-    btn.className = "tags";
-    if(tagText[0]=="#"){
-      btn.innerHTML = tagText + "  ";}
-    else{
-    btn.innerHTML = "#" + tagText + "  ";}
-    document.getElementById('tag-area').appendChild(btn);
+      var btn = document.createElement("BUTTON");
+      btn.className = "tags";
+      if(tagText[0]=="#"){
+        btn.innerHTML = tagText + " ";}
+      else{
+        btn.innerHTML = "#" + tagText + " ";}
+     document.getElementById('tag-area').appendChild(btn);
 
-    var len = document.getElementsByClassName('tags');
-    // console.log(len.length);
-    var cross = document.createElement("BUTTON");
-    cross.className = "remove";
-    cross.innerHTML = "X";
-    document.getElementsByClassName('tags')[len.length-1].appendChild(cross);
-    console.log(len.length-1);
+      var len = document.getElementsByClassName('tags');
+      // console.log(len.length);
+      var cross = document.createElement("BUTTON");
+      cross.className = "remove";
+      cross.innerHTML = '&times;' ;
+      document.getElementsByClassName('tags')[len.length-1].appendChild(cross);
+      console.log(len.length-1);
 
     // for (var i = 0; i < (len.length-1); i++) {
     // document.getElementsByClassName('tags')[len.length-1].addEventListener('click', function() {
@@ -43,9 +42,9 @@ function onEvent(event) {
     // })}
 
 
-    document.getElementsByClassName('tags')[len.length-1].addEventListener('click', function(e) {
-      // e.currentTarget.parentNode.remove();
-      this.closest('.tags').remove() // in modern browsers in complex dom structure
+    document.getElementsByClassName('remove')[len.length-1].addEventListener('click', function(e) {
+      e.currentTarget.parentNode.remove();
+      // this.closest('.remove').remove() // in modern browsers in complex dom structure
       //this.parentNode.remove(); //this refers to the current target element 
       //e.target.parentNode.parentNode.removeChild(e.target.parentNode);
     }, false);
@@ -58,26 +57,30 @@ function onEvent(event) {
 document.getElementById("write-tag").addEventListener("keypress", onEvent);
 
 function clearTags() {
+
   var myobj = document.getElementsByClassName("tags");
-  var lastSelect = myobj[myobj.length-1];
-  lastSelect.remove();
+  for (var i = (myobj.length-1); i >= 0; i--) {
+    console.log(myobj[0])
+    myobj[i].remove();
+    // myobj = document.getElementsByClassName("tags");
+  }}
+//   // var myobj = document.getElementsByClassName("tags")[0];
+//   // var len = document.querySelectorAll('tags').length;
 
-  // var myobj = document.getElementsByClassName("tags")[0];
-  // var len = document.querySelectorAll('tags').length;
+//   // for (var i = 0; i < len; i++) {
+//   //   myobj[i].remove;
+//   // }
 
-  // for (var i = 0; i < len; i++) {
-  //   myobj[i].remove;
-  // }
+//   // var delTags = document.getElementsByClassName("tags")[0];
+//   // var len = delTags.length;
+//   // console.log(len);
+//   // for (var i = 0; i < len; i++) {
+//   //   if (delTags[i].className.toLowerCase() == "tags") {
+//   //   delTags[i].parentNode.removeChild(delTags[i]);
+// // }
+// // }
+  
 
-  // var delTags = document.getElementsByClassName("tags")[0];
-  // var len = delTags.length;
-  // console.log(len);
-  // for (var i = 0; i < len; i++) {
-  //   if (delTags[i].className.toLowerCase() == "tags") {
-  //   delTags[i].parentNode.removeChild(delTags[i]);
-// }
-// }
-}
 
 // var rmv = document.getElementsByClassName('remove')
 
@@ -107,3 +110,20 @@ function clearTags() {
 
 document.getElementById("clearTags").addEventListener("click", clearTags);
 
+
+// var btn = document.querySelector(".edit-btn-one");
+
+// btn.addEventListener("click", function() {
+//   var s = editorContent.innerHTML;
+//   content.style.display = "block";
+//   content.textContent = s;
+// });
+
+// var btn = document.getElementsByClassName('bold-btn')
+
+// btn.addEventListener("click", bold, false);
+
+// function bold() {
+//   console.log(window.getSelection);
+// }
+console.log(window.getSelection);
