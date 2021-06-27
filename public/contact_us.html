@@ -25,27 +25,27 @@
   <form name="contactForm" id="contactForm" method="POST" action="">
             <div class="control-group">
               <label>First Name: </label>
-              <input type="text" class="demo-default form-control" placeholder="First Name">
+              <input type="text" class="demo-default form-control" placeholder="First Name" required >
             </div>
             <div class="control-group">
               <label>Last Name: </label>
-              <input type="text" class="demo-default form-control" placeholder="Last Name">
+              <input type="text" class="demo-default form-control" placeholder="Last Name" required>
             </div>
             <div class="control-group">
               <label>Company: </label>
-              <input type="text" class="demo-default form-control" placeholder="Company">
+              <input type="text" class="demo-default form-control" placeholder="Company" required>
             </div>
             <div class="control-group">
               <label>Phone: </label>
-              <input type="text" class="demo-default form-control" placeholder="Phone #">
+              <input type="text" class="demo-default form-control" placeholder="Phone #" required>
             </div>
             <div class="control-group">
               <label>Email: </label>
-              <input type="text" class="demo-default form-control" placeholder="yourname@domain.com">
+              <input type="text" class="demo-default form-control" placeholder="yourname@domain.com" required>
             </div>
             <div class="control-group">
              <label>I'm Interested In:</label>
-              <select id="select-beast" class="demo-default" placeholder="Select a service...">
+              <select id="select-beast" class="demo-default" placeholder="Select a service..." required>
                 <option value="">Select a service...</option>
                 <option value="4">Piracy </option>
                 <option value="1">Site problems</option>
@@ -60,6 +60,9 @@
       <br>
       <input type="submit" value="Submit">
     </div>
+    <div id = "status" class = "error" >Thank You for the responce.We will get back to you soon</div>
+    <div id = "status" class = "sucess" >Thank You for the responce.We will get back to you soon</div>
+    
   </form>
   <section id="contact">
       <h2>KU Office</h2>
