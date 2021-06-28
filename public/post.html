@@ -1,56 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
-		<script src="https://kit.fontawesome.com/3fdf0f105a.js" crossorigin="anonymous"></script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/3fdf0f105a.js"
+      crossorigin="anonymous"
+    ></script>
 
     <title>Write Post</title>
-    <link rel="stylesheet" href="css/post.css">
-    
+    <link rel="stylesheet" href="css/post.css" />
+  </head>
 
+  <body>
+    <nav class="nav-bar">
+      <div id="logo">
+        <a href="/protected/dashboard" style="color: white">BlogNEPAL</a>
+      </div>
 
-</head>
+      <div class="search-bar">
+        <i class="fas fa-search searchIcon" style="font-size: 18px"></i>
+        <input type="text" placeholder="Search Blogs" class="main-search" />
+      </div>
 
-<body>
-	<nav class="nav-bar">
-    <div id="logo"><a href="/protected/dashboard" style="color:white;">BlogNEPAL</a></div>
+      <ul class="icons">
+        <li class="home">
+          <a href="/protected/dashboard"> <i class="fas fa-home"></i></a>
+        </li>
 
-        <div class="search-bar">
-            <i class="fas fa-search searchIcon " style="font-size: 18px;"></i> 
-            <input type="text" placeholder="Search Blogs" class="main-search">      
-        </div>
-        
-       
-    <ul class="icons">               
-      <li class="home"> 
-        <a href="/protected/dashboard">  <i class="fas fa-home"  ></i></a>
-      </li> 
-        
-      <li class="explore"> 
-        <a href="#" style="position: relative"><i class="fas fa-compass "></i> </a>
-      </li>   
-        
-      <li class="notifications">
-        <a href="#"  style="position: relative">  <i class="fas fa-bell"></i> </a> 
-      </li>             
-            
-      <li class="profile">
-        <a href="/protected/profile"  style="position: relative">  
-          <img id="user-avatar">
-      </a> 
-      </li>
-    </ul>
-  </nav>
+        <li class="explore">
+          <a href="#" style="position: relative"
+            ><i class="fas fa-compass"></i>
+          </a>
+        </li>
 
-    <!-- The posting doesnt work. Need help! --> 
+        <li class="notifications">
+          <a href="#" style="position: relative">
+            <i class="fas fa-bell"></i>
+          </a>
+        </li>
+
+        <li class="profile">
+          <a href="/protected/profile" style="position: relative">
+            <img id="user-avatar" />
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <div id="post-notification">Successful</div>
+    <!-- The posting doesnt work. Need help! -->
 
     <div class="blogsp">
       <form id="blog-post-form" onsubmit="postBlog(event)">
-        <div id="insert-profile">Insert&#10;Profile</div>
-        <textarea name="" id="blog-title" placeholder="Title"></textarea><br>
+        <!-- <div id="insert-profile">Insert&#10;Profile</div> -->
+        <textarea name="title" id="blog-title" placeholder="Title"></textarea>
+        <br />
         <div id="edit-bar">
           <div class="edit-btns edit-btn-one bold-btn">B</div>
           <div class="edit-btns">I</div>
@@ -64,11 +74,19 @@
           <div class="edit-btns edit-btn-gap"></div>
         </div>
 
-        <div contenteditable id="editableDiv">
-          This the just a experimental div. Use the edit buttons here.
-        </div>
+        <div
+          contenteditable
+          id="editableDiv"
+          id="blog-text"
+          placeholder="Write a Blog"
+        ></div>
 
-        <textarea name="content" id="blog-text" placeholder="Write a blog"></textarea><br>
+        <!-- <textarea
+          name="content"
+          id="blog-text"
+          placeholder="Write a blog"
+        ></textarea> -->
+        <br />
         <input
           type="file"
           name="images"
@@ -79,16 +97,17 @@
           onchange="loadFile(event);"
         />
         <label for="file-input">Add Images</label>
-        <button type="submit" id="post-btn">Post</button>
-        <img id="prev-img"/>
+        <img id="prev-img" />
         <div id="add-tag">
-          <span><font size="+1">Add Tags</font></span><br><br>
+          <span style="font-size: 17px">Add Tags</span>
+          <br /><br />
           <textarea name="" id="write-tag" rows="1"></textarea>
           <div id="tag-area"></div>
           <div id="clearTags">Clear All</div>
         </div>
+        <button type="submit" id="post-btn">Post</button>
       </form>
     </div>
     <script src="js/post.js"></script>
-</body>
+  </body>
 </html>

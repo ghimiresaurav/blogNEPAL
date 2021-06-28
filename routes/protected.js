@@ -44,4 +44,7 @@ router.get("/get-blogs", getBlogs);
 router.post("/post-blog", initiatePost, postBlog);
 router.post("/post-comment", postComment);
 
+router.get("/post", (req, res) => {
+  res.sendFile(staticDir + "/post.html");
+});
 module.exports = router;

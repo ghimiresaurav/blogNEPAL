@@ -57,12 +57,13 @@
           </li>
         </ul>
       </nav>
-      <div id="post-notification"></div>
 
       <div class="mainSection">
         <div id="firstSection">
           <div id="blogPost">
-            <button id="createBlog">Write a Story</button>
+            <button id="createBlog" onclick="navigateToPostPage()">
+              Post a Blog
+            </button>
             <hr class="new" />
           </div>
 
@@ -90,27 +91,6 @@
         </div>
 
         <div id="bloglist">
-          <div class="blogsp">
-            <form id="blog-post-form" onsubmit="postBlog(event)">
-              <textarea
-                name="content"
-                id="blog-text"
-                placeholder="Write A Story"
-              ></textarea
-              ><br />
-              <input
-                type="file"
-                name="images"
-                id="file-input"
-                accept="image/*"
-                multiple
-                hidden
-              />
-              <label for="file-input">Add Images</label>
-              <button type="submit" id="post-btn">Post</button>
-            </form>
-          </div>
-
           <div id="blogcss"></div>
         </div>
 
@@ -170,7 +150,7 @@
         </div>
       </div>
     </div>
-<!-- html end -->
+    <!-- html end -->
     <script src="./js/navigation.js"></script>
     <script src="./js/dashboard.js"></script>
   </body>

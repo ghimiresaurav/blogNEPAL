@@ -74,16 +74,16 @@ const wrapBlog = (blog) => {
   blogDiv.id = blog._id;
   blogDiv.classList.add("blogs");
 
-  const dateTime = blog.postedOn.split("-");
+  const dateTime = blog.date.split("-");
 
   blogDiv.innerHTML = `
+  <h3 class="blog-title">${blog.title}</h3><br />
   <div class="author-details">
     <div>
       <img class="user-images author-images" src=${blog.author.avatar} />
     </div>
   <p><strong>${blog.author.name}</strong> posted on <strong>${dateTime[0]}</strong>-${dateTime[1]}</p><br>
   </div>
-  <h4>Blog Topic Here</h4><br />
   <p>${blog.content}</p>
   ${imageDiv}
   ${lscTagDiv}
@@ -102,24 +102,6 @@ fetch("/protected/get-blogs")
   .catch((err) => console.error(err));
 
 document.getElementById("user-avatar").src = localStorage.getItem("avatarLink");
-
-const postBlog = (e) => {
-  e.preventDefault();
-  const postNotification = document.getElementById("post-notification");
-  postNotification.innerHTML = "";
-
-  const form = document.getElementById("blog-post-form");
-  const formData = new FormData(form);
-
-  const fetchOptions = {
-    method: "POST",
-    body: formData,
-  };
-  //send images and text content to backend
-  fetch("/protected/post-blog", fetchOptions);
-  postNotification.innerHTML = `<strong>Your blog has been posted successfully. <i class="far fa-thumbs-up"></i></strong>`;
-  setTimeout(() => (postNotification.innerHTML = ""), 3000);
-};
 
 document.addEventListener(
   "DOMContentLoaded",
@@ -207,6 +189,8 @@ findChild = (idOfElement, idOfChild) => {
   let element = document.getElementById(idOfElement);
   return element.querySelector(`[id=${idOfChild}]`);
 };
+
+const navigateToPostPage = () => window.location.assign("/protected/post");
 
 // document.addEventListener("click", (e) => {
 //   const dropdown = document.getElementsByClassName("dropdown")[0];
