@@ -139,9 +139,13 @@ const postBlog = (e) => {
   const tags = Array.from(document.getElementsByClassName("tags")).map(
     (tag) => tag.innerText.split(" ")[0]
   );
+
+  const content = document.getElementById("editableDiv").innerHTML;
+
   const form = document.getElementById("blog-post-form");
   const formData = new FormData(form);
   formData.append("tags", tags);
+  formData.append("content", content);
 
   const fetchOptions = {
     method: "POST",
