@@ -20,7 +20,7 @@ body {
 
 /*Navigation bar*/
 
-.nav-bar {
+/* .nav-bar {
   width: 100%;
   height: 10vh;
   background-color: var(--primary-bg);
@@ -86,7 +86,7 @@ nav i {
   font-size: 30px;
   color: whitesmoke;
   cursor: pointer;
-}
+} */
 
 .home {
   position: relative;
