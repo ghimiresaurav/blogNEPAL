@@ -16,25 +16,29 @@ function onEvent(event) {
     var x = event.key;
     event.preventDefault();
     var tagText = document.getElementById("write-tag").value;
+    var count = tagText.length <= 17;
+    console.log(count)
     if (tagText[0] != null) {
       var btn = document.createElement("BUTTON");
       btn.className = "tags";
-      if (tagText[0] == "#") {
-        btn.innerHTML = tagText + " ";
-      } else {
-        btn.innerHTML = "#" + tagText + " ";
-      }
-      document.getElementById("tag-area").appendChild(btn);
+      console.log(tagText.length);
+      if (count == true){
+        if (tagText[0] == "#") {
+          btn.innerHTML = tagText + " ";
+        } else {
+          btn.innerHTML = "#" + tagText + " ";
+        }
+        document.getElementById("tag-area").appendChild(btn);
 
-      var len = document.getElementsByClassName("tags");
-      // console.log(len.length);
-      var cross = document.createElement("BUTTON");
-      cross.className = "remove";
-      cross.innerHTML = "&times;";
-      document
-        .getElementsByClassName("tags")
-        [len.length - 1].appendChild(cross);
-      console.log(len.length - 1);
+        var len = document.getElementsByClassName("tags");
+        // console.log(len.length);
+        var cross = document.createElement("BUTTON");
+        cross.className = "remove";
+        cross.innerHTML = "&times;";
+        document
+          .getElementsByClassName("tags")
+          [len.length - 1].appendChild(cross);
+        console.log(len.length - 1);
 
       // for (var i = 0; i < (len.length-1); i++) {
       // document.getElementsByClassName('tags')[len.length-1].addEventListener('click', function() {
@@ -42,23 +46,47 @@ function onEvent(event) {
       //   element.parentNode.removeChild(element);
       // })}
 
-      document
-        .getElementsByClassName("remove")
-        [len.length - 1].addEventListener(
-          "click",
-          function (e) {
-            e.currentTarget.parentNode.remove();
-            // this.closest('.remove').remove() // in modern browsers in complex dom structure
-            //this.parentNode.remove(); //this refers to the current target element
-            //e.target.parentNode.parentNode.removeChild(e.target.parentNode);
-          },
-          false
-        );
+        document
+          .getElementsByClassName("remove")
+          [len.length - 1].addEventListener(
+              "click",
+              function (e) {
+              e.currentTarget.parentNode.remove();
+              // this.closest('.remove').remove() // in modern browsers in complex dom structure
+              // this.parentNode.remove(); //this refers to the current target element
+              //e.target.parentNode.parentNode.removeChild(e.target.parentNode);
+            },
+            false
+          );
 
-      document.getElementById("write-tag").value = "";
+        document.getElementById("write-tag").value = "";
+      }
+      else{
+        document.getElementById("write-tag").value = "";
+        showPopup();
+      }
+
     }
   }
 }
+
+function showPopup() {
+  var popup = document.getElementById("errorPopup");
+  var popA = document.getElementById("popupArrow");
+
+  popup.classList.add("xtra");
+  popA.classList.add("xtra");
+
+  popup.classList.remove("error");
+  popA.classList.remove("error");
+
+  void popup.offsetWidth; 
+  void popA.offsetWidth;
+  
+  popup.classList.add("error");
+  popA.classList.add("error");
+};
+
 
 document.getElementById("write-tag").addEventListener("keypress", onEvent);
 
