@@ -54,6 +54,7 @@ module.exports = async (req, res) => {
           res.cookie("id", user._id, { path: "/", sameSite: true });
           return res.json({
             success: true,
+            message: "Login Successful",
             userId: user._id,
             username: user.name,
             avatarLink: user.avatarLink,
