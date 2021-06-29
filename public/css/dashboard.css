@@ -197,10 +197,26 @@ hr.new {
 
 /* blog section css*/
 
+
+#blogcss,
+.blogsp {
+  width: 60%;
+  /* margin: auto; */
+  margin-bottom: 50px;
+}
+
 #blogcss {
+  margin-top: 10vh;
   width: 80%;
-  margin: auto;
-  top: 50px;
+  display: flex;
+  flex-direction: column;
+  margin-left: 50px;
+  /* margin: auto; */
+  /* top: 50px; */
+}
+
+.blogsp {
+  margin-top: 20vh;
 }
 
 #bloglist {
@@ -208,16 +224,6 @@ hr.new {
   float: right;
 }
 
-#blogcss,
-.blogsp {
-  width: 60%;
-  margin: auto;
-  margin-bottom: 50px;
-}
-
-.blogsp {
-  margin-top: 20vh;
-}
 
 .likesharecmt {
   display: flex;
@@ -293,6 +299,7 @@ label:hover {
   background: #fff;
   padding: 50px 20px 50px 20px;
   margin-top: 8vh;
+  width: 100%;
 }
 
 .blogs h4{
