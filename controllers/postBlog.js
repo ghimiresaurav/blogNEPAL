@@ -21,9 +21,9 @@ const initiatePost = (req, res, next) => {
           name: author.name,
           avatar: author.avatarLink,
         },
-        postedOn: date,
-        like:[],
-        comments:[],
+        date,
+        like: [],
+        comments: [],
       };
       const result = await db.collection("blogs").insertOne(blog);
       res.locals.blogID = result.insertedId;
@@ -56,10 +56,16 @@ const postBlog = (req, res) => {
   }).array("images");
 
   upload(req, res, (err) => {
+    console.log(req.body);
     if (err) console.error(err);
-    const content = req.body.content.replace(/\r\n/g, "<br />");
-    const { files } = req;
-    let links = ``;
+    const content = req.body.content.replace(/\r\n/g, "<br />"),
+      { files } = req,
+      title = req.body.title;
+
+    let links = ``,
+      tags = ``;
+
+    if (req.body.tags) tags = req.body.tags.split(",");
 
     if (files.length) {
       links = files.reduce(
@@ -70,7 +76,7 @@ const postBlog = (req, res) => {
     }
 
     const query = { _id: new ObjectID(res.locals.blogID) };
-    const update = { $set: { content, links } };
+    const update = { $set: { title, content, links, tags } };
 
     MongoClient.connect(
       process.env.DB_URL,

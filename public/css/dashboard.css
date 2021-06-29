@@ -127,7 +127,7 @@ li:hover .onHover {
   display: flex;
   flex-direction: column;
   padding: 0 30px;
-  background: aliceblue;
+  background-color: aliceblue;
   position: fixed;
   bottom: 0;
   left: 0;
@@ -143,12 +143,17 @@ li:hover .onHover {
   border-radius: 25px;
   padding: 5px 25px;
   background: none;
-  border: 2px solid aliceblue;
+  border: 2px solid;
   cursor: pointer;
+  transition: 300ms;
 }
 
-#createBlog:hover {
-  background: #e7e7e7;
+#createBlog:hover,
+#bottomSection button:hover {
+  background: var(--primary-bg);
+  color: #fff;
+  border: none;
+  border: 2px solid var(--primary-bg);
 }
 
 hr.new {
@@ -184,10 +189,10 @@ hr.new {
 }
 
 #bottomSection button {
-  font-family: "Poppins", sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 15px;
   padding: 8px 20px;
-  border: 2px solid aliceblue;
+  border: 2px solid transparent;
   cursor: pointer;
   background: #e7e7e7;
   border-radius: 25px;
@@ -302,7 +307,7 @@ label:hover {
   width: 100%;
 }
 
-.blogs h4{
+.blogs h4 {
   margin: 10px 0;
 }
 

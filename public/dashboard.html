@@ -19,6 +19,7 @@
   </head>
 
   <body>
+    <!-- html start -->
     <div class="container">
       <nav class="nav-bar">
         <div id="logo">
@@ -56,12 +57,13 @@
           </li>
         </ul>
       </nav>
-      <div id="post-notification"></div>
 
       <div class="mainSection">
         <div id="firstSection">
           <div id="blogPost">
-            <button id="createBlog">Write a Story</button>
+            <button id="createBlog" onclick="navigateToPostPage()">
+              Post a Blog
+            </button>
             <hr class="new" />
           </div>
 
@@ -115,6 +117,7 @@
               
             </div>
           </div>
+          <div id="blogcss"></div>
         </div>
 
         <div class="dropdown">
@@ -173,7 +176,7 @@
         </div>
       </div>
     </div>
-
+    <!-- html end -->
     <script src="./js/navigation.js"></script>
     <script src="./js/dashboard.js"></script>
   </body>
