@@ -203,7 +203,7 @@ function tags(value) {
     },
     body: JSON.stringify({ "name": value }),
   };
-  fetch("/search", fetchOptions)
+  fetch("/protected/search", fetchOptions)
     .then((response) => response.json())
     .then((data) => {
       data.forEach((datum) => {
@@ -231,7 +231,7 @@ form.addEventListener("submit", (e) => {
     },
     body: JSON.stringify({ "name": value }),
   };
-  fetch("/search", fetchOptions)
+  fetch("/protected/search", fetchOptions)
     .then((response) => response.json())
     .then((data) => {
       data.forEach((datum) => {
