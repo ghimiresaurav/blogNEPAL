@@ -17,7 +17,5 @@ module.exports = (req, res, next) => {
       }
     }
   }
-  return res
-    .status(403)
-    .json({ message: "You need to login to complete the action" });
+  return res.redirect(307, '/error')
 };

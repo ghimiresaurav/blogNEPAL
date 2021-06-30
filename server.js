@@ -34,11 +34,12 @@ app.get("/contact-us", (req, res) => {
   res.sendFile(staticDir + "/contact_us.html");
 });
 
+app.get("/error", (req, res) => {
+  res.sendFile(staticDir + "/error.html");
+});
+
 app.post("/register", registerController);
 app.post("/login", loginController);
-
-const getBlog=require("./controllers/Search")
-app.post("/search", getBlog);
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () =>
