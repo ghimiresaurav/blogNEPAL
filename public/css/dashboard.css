@@ -446,10 +446,11 @@ h3.blog-title {
   box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.125);
   margin: 15px auto 0;
   padding: 15px;
-  position: absolute;
+  position: fixed;
   display: none;
   margin: 1% 0% 0% 66%;
   top: 8vh;
+  z-index: 11;
 }
 
 .dropdown .notify_item {
