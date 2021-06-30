@@ -225,3 +225,23 @@ const updatePassword = (e) => {
     .then((response) => showResponse(response))
     .catch((err) => console.error(err));
 };
+
+
+const blog=()=>{
+  const id= localStorage.getItem("userId")
+  console.log(id)
+  const fetchOptions={
+    method:"POST",
+    headers:{
+      "Content-Type":"application/json",
+    },
+    body:JSON.stringify({id:id})
+  }
+  fetch("/protected/getblogbyid", fetchOptions)
+  .then((res)=>res.json())
+  .then((response)=>{
+    console.log(response)
+  })
+}
+
+blog()

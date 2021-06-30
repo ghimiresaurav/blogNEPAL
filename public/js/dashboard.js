@@ -173,11 +173,9 @@ const Like = (postId, LikeStatus) => {
 
 const Likestat = (like) => {
   const userId = localStorage.getItem("userId");
-  // Search for post with title == "Guava"
   var __FOUND = false;
   for (var i = 0; i < like.length; i++) {
     if (like[i].id == userId) {
-      // __FOUND is set to the index of the element
       __FOUND = true;
       break;
     }
@@ -189,6 +187,60 @@ findChild = (idOfElement, idOfChild) => {
   let element = document.getElementById(idOfElement);
   return element.querySelector(`[id=${idOfChild}]`);
 };
+
+//search by tag
+
+function tags(value) {
+  const blogDiv = document.getElementById("blogcss")
+  while (blogDiv.firstChild) {
+    blogDiv.removeChild(blogDiv.firstChild);
+  }
+  console.log(value)
+  const fetchOptions = {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ "name": value }),
+  };
+  fetch("/protected/search", fetchOptions)
+    .then((response) => response.json())
+    .then((data) => {
+      data.forEach((datum) => {
+        wrapBlog(datum)
+      });
+    })
+    .catch((err) => console.error(err));
+}
+
+const form = document.getElementById("search");
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const search_txt=document.getElementById("search-txt");
+  const value="#"+search_txt.value
+
+  const blogDiv = document.getElementById("blogcss")
+  while (blogDiv.firstChild) {
+    blogDiv.removeChild(blogDiv.firstChild);
+  }
+  console.log(value)
+  const fetchOptions = {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ "name": value }),
+  };
+  fetch("/protected/search", fetchOptions)
+    .then((response) => response.json())
+    .then((data) => {
+      data.forEach((datum) => {
+        wrapBlog(datum)
+      });
+    })
+    .catch((err) => console.error(err));
+
+})
 
 const navigateToPostPage = () => window.location.assign("/protected/post");
 
