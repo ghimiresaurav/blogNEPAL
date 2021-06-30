@@ -15,6 +15,7 @@
 
     <title>Write Post</title>
     <link rel="stylesheet" href="css/post.css" />
+    <link rel="stylesheet" href="./css/dashboard.css" type="text/css" />
   </head>
 
   <body>
@@ -29,29 +30,32 @@
       </div>
 
       <ul class="icons">
-        <li class="home">
-          <a href="/protected/dashboard"> <i class="fas fa-home"></i></a>
+        <li>
+          <a href="/protected/dashboard" class="active"
+            ><i class="fas fa-home active"></i>
+          </a>
         </li>
 
-        <li class="explore">
+        <li>
           <a href="#" style="position: relative"
             ><i class="fas fa-compass"></i>
           </a>
         </li>
 
-        <li class="notifications">
+        <li>
           <a href="#" style="position: relative">
             <i class="fas fa-bell"></i>
           </a>
         </li>
 
-        <li class="profile">
+        <li>
           <a href="/protected/profile" style="position: relative">
-            <img id="user-avatar" />
+            <img id="user-avatar" alt="profile" />
           </a>
         </li>
       </ul>
     </nav>
+
 
     <div id="post-notification">Successful</div>
     <!-- The posting doesnt work. Need help! -->
@@ -109,6 +113,7 @@
         <button type="submit" id="post-btn">Post</button>
       </form>
     </div>
+    <script src="./js/navigation.js"></script>
     <script src="js/post.js"></script>
   </body>
 </html>
