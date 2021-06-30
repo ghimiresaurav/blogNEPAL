@@ -28,69 +28,72 @@
           <a href="/protected/dashboard" style="color: white">BlogNEPAL</a>
         </div>
 
-        <div class="search-bar">
-          <i class="fas fa-search searchIcon" style="font-size: 18px"></i>
-          <input type="text" placeholder="Search Blogs" class="main-search" />
+
+      <div class="search-bar">
+        <form onsubmit="search()" id="search">
+          <button type="submit" style="border: 0;"><i class="fas fa-search searchIcon" id="search-btn" style="font-size: 18px"></i></button>
+          <input type="text" placeholder="Search Blogs" class="main-search" id="search-txt" />
+        </form>
+      </div>
+
+      <ul class="icons">
+        <li>
+          <a href="/protected/dashboard" class="active"><i class="fas fa-home active"></i>
+          </a>
+        </li>
+
+        <li>
+          <a href="#" style="position: relative"><i class="fas fa-compass"></i>
+          </a>
+        </li>
+
+        <li>
+          <a href="#" style="position: relative">
+            <i class="fas fa-bell"></i>
+          </a>
+        </li>
+
+        <li>
+          <a href="/protected/profile" style="position: relative">
+            <img id="user-avatar" alt="profile" />
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="mainSection">
+      <div id="firstSection">
+        <div id="blogPost">
+          <button id="createBlog" onclick="navigateToPostPage()">
+            Post a Blog
+          </button>
+          <hr class="new" />
         </div>
 
-        <ul class="icons">
-          <li>
-            <a href="/protected/dashboard" class="active"
-              ><i class="fas fa-home active"></i>
-            </a>
-          </li>
+        <div id="secondSection">
+          <div id="topSection">Recommended topics</div>
 
-          <li>
-            <a href="#" style="position: relative"
-              ><i class="fas fa-compass"></i>
-            </a>
-          </li>
+          <div id="bottomSection">
+            <div onclick='tags("#Technology")'><button>Technology</button></div>
 
-          <li>
-            <a href="#" style="position: relative">
-              <i class="fas fa-bell"></i>
-            </a>
-          </li>
+            <div onclick='tags("#Sports")'><button>Sports</button></div>
 
-          <li>
-            <a href="/protected/profile" style="position: relative">
-              <img id="user-avatar" alt="profile" />
-            </a>
-          </li>
-        </ul>
-      </nav>
+            <div onclick='tags("#Entertainment")'><button>Entertainment</button></div>
 
-      <div class="mainSection">
-        <div id="firstSection">
-          <div id="blogPost">
-            <button id="createBlog" onclick="navigateToPostPage()">
-              Post a Blog
-            </button>
-            <hr class="new" />
-          </div>
+            <div onclick='tags("#Startups")'><button>Startups</button></div>
 
-          <div id="secondSection">
-            <div id="topSection">Recommended topics</div>
+            <div onclick='tags("#Money")'><button>Money</button></div>
 
-            <div id="bottomSection">
-              <div id="tech"><button>Technology</button></div>
+            <div onclick='tags("#Arts")'><button>Arts</button></div>
 
-              <div id="sports"><button>Sports</button></div>
+            <div onclick='tags("#Beauty")'><button>Beauty</button></div>
 
-              <div id="entertainment"><button>Entertainment</button></div>
+            <div onclick='tags("#World Affairs")'><button>World Affairs</button></div>
 
-              <div id="startups"><button>Startups</button></div>
-
-              <div id="money"><button>Money</button></div>
-
-              <div id="arts"><button>Arts</button></div>
-
-              <div id="money"><button>Beauty</button></div>
-
-              <div id="politics"><button>World Affairs</button></div>
-            </div>
+            <div onclick='tags("#blog")'><button>Blog</button></div>
           </div>
         </div>
+      </div>
 
         <div id="bloglist">
             
@@ -209,64 +212,49 @@
           <div id="blogcss"></div>
         </div>
 
-        <div class="dropdown">
-          <div class="notify_item">
-            <div class="notify_img">
-              <img
-                src="https://bit.ly/3zpGHpP"
-                alt="profile_pic"
-                style="width: 50px"
-              />
-            </div>
-            <div class="notify_info">
-              <p>Saurav commented on<span>Blog Post</span></p>
-              <span class="notify_time">10 minutes ago</span>
-            </div>
+      <div class="dropdown">
+        <div class="notify_item">
+          <div class="notify_img">
+            <img src="https://bit.ly/3zpGHpP" alt="profile_pic" style="width: 50px" />
           </div>
-          <div class="notify_item">
-            <div class="notify_img">
-              <img
-                src="https://bit.ly/2SwSu54"
-                alt="profile_pic"
-                style="width: 50px"
-              />
-            </div>
-            <div class="notify_info">
-              <p>Kabin commented on your<span>BLog Post</span></p>
-              <span class="notify_time">55 minutes ago</span>
-            </div>
+          <div class="notify_info">
+            <p>Saurav commented on<span>Blog Post</span></p>
+            <span class="notify_time">10 minutes ago</span>
           </div>
-          <div class="notify_item">
-            <div class="notify_img">
-              <img
-                src="https://bit.ly/2SwSu54"
-                alt="profile_pic"
-                style="width: 50px"
-              />
-            </div>
-            <div class="notify_info">
-              <p>Rishi liked your<span>Cover Picture</span></p>
-              <span class="notify_time">2 hours ago</span>
-            </div>
+        </div>
+        <div class="notify_item">
+          <div class="notify_img">
+            <img src="https://bit.ly/2SwSu54" alt="profile_pic" style="width: 50px" />
           </div>
-          <div class="notify_item">
-            <div class="notify_img">
-              <img
-                src="https://bit.ly/35c3kA3"
-                alt="profile_pic"
-                style="width: 50px"
-              />
-            </div>
-            <div class="notify_info">
-              <p>Sagar commented on your<span>Profile Picture</span></p>
-              <span class="notify_time">6 hours ago</span>
-            </div>
+          <div class="notify_info">
+            <p>Kabin commented on your<span>BLog Post</span></p>
+            <span class="notify_time">55 minutes ago</span>
+          </div>
+        </div>
+        <div class="notify_item">
+          <div class="notify_img">
+            <img src="https://bit.ly/2SwSu54" alt="profile_pic" style="width: 50px" />
+          </div>
+          <div class="notify_info">
+            <p>Rishi liked your<span>Cover Picture</span></p>
+            <span class="notify_time">2 hours ago</span>
+          </div>
+        </div>
+        <div class="notify_item">
+          <div class="notify_img">
+            <img src="https://bit.ly/35c3kA3" alt="profile_pic" style="width: 50px" />
+          </div>
+          <div class="notify_info">
+            <p>Sagar commented on your<span>Profile Picture</span></p>
+            <span class="notify_time">6 hours ago</span>
           </div>
         </div>
       </div>
     </div>
-    <!-- html end -->
-    <script src="./js/navigation.js"></script>
-    <script src="./js/dashboard.js"></script>
-  </body>
+  </div>
+  <!-- html end -->
+  <script src="./js/navigation.js"></script>
+  <script src="./js/dashboard.js"></script>
+</body>
+
 </html>

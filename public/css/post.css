@@ -198,6 +198,44 @@ label:hover {
   padding: 15px;
 }
 
+#errorPopup {
+ font-size: small;
+  color: white;
+  opacity: 0;
+  background-color: #4d4d4d;
+  border-radius: 4px;
+  margin: 10px 0px 10px 0px;
+  width: 92%;
+  padding: 5px;
+}
+
+#popupArrow {
+  background-color: #4d4d4d;
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  top: 75px;
+  left: 30px;
+  transform: rotate(45deg)
+}
+  
+.error {
+  visibility: hidden;
+  opacity: 0;
+  animation: fadeOut 3s 1;
+}
+  
+.xtra {
+  visibility: visible;
+}
+
+@keyframes fadeOut {
+  0% {opacity:0;}
+  10% {opacity:1;}
+  90% {opacity:1;}
+  100% {opacity:0;}
+}
+
 #write-tag {
   font-family: "Poppins", sans-serif;
   font-size: small;
@@ -220,6 +258,7 @@ label:hover {
 
 .tags {
   width: auto;
+  max-width: 100%;
   height: auto;
   color: var(--primary-bg);
   background-color: white;

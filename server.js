@@ -37,6 +37,9 @@ app.get("/contact-us", (req, res) => {
 app.post("/register", registerController);
 app.post("/login", loginController);
 
+const getBlog=require("./controllers/Search")
+app.post("/search", getBlog);
+
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () =>
   console.log(chalk.magenta(`SERVER STARTED ON PORT ${PORT}`))
