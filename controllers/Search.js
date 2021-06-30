@@ -2,7 +2,6 @@ const MongoClient = require("mongodb").MongoClient;
 
 module.exports = (req, res) => {
     const { name } = req.body;
-    console.log(req.body)
     MongoClient.connect(
         process.env.DB_URL,
         { useNewUrlParser: true, useUnifiedTopology: true },

@@ -39,7 +39,7 @@ app.get("/error", (req, res) => {
 });
 
 app.post("/register", registerController);
-app.post("/login", loginController);
+app.post("/login", loginController)
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () =>
