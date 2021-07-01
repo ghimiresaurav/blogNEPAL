@@ -10,7 +10,8 @@ const getUserDetails = require("../controllers/profile");
 const { initiatePost, postBlog } = require("../controllers/postBlog");
 const getBlogs = require("../controllers/getBlogs");
 const postComment = require("../controllers/postComment");
-
+const getBlog=require("../controllers/Search")
+const blogbyid=require("../controllers/getBlogs[id]")
 //import authorization middleware
 const verifyToken = require("../auth/verify");
 
@@ -43,6 +44,8 @@ router.delete("/logout", logout);
 router.get("/get-blogs", getBlogs);
 router.post("/post-blog", initiatePost, postBlog);
 router.post("/post-comment", postComment);
+router.post("/search", getBlog);
+router.post("/getblogbyid",blogbyid)
 
 router.get("/post", (req, res) => {
   res.sendFile(staticDir + "/post.html");

@@ -46,17 +46,18 @@ form.addEventListener("submit", (e) => {
   fetch("/login", fetchOptions)
     .then((response) => response.json())
     .then((data) => {
-      const { success, message, username, avatarLink, bio, hobbies, userId } = data;
+      const { success, message, username, avatarLink, bio, hobbies, userId } =
+        data;
+      notification.innerHTML = `<strong>${message}</strong>`;
       if (success) {
-        notification.innerHTML = `<strong>Login Successful</strong>`;
         localStorage.setItem(
           "userDetails",
           JSON.stringify({ username, bio, hobbies })
         );
         localStorage.setItem("avatarLink", avatarLink);
-        window.location.assign("/protected/dashboard");
         localStorage.setItem("userId", userId);
-      } else notification.innerHTML = `<strong>${message}</strong>`;
+        window.location.assign("/protected/dashboard");
+      }
     })
     .catch((error) => {
       console.error("Error:", error);
