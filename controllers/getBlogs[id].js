@@ -9,7 +9,6 @@ module.exports = (req, res) => {
             const db= client.db(process.env.DB_NAME)
             const query = { 'author.id' : id } ;
             const blogs = await db.collection("blogs").find(query).toArray();
-            console.log(blogs)
             return res.json(blogs)
         }
     )
