@@ -3,44 +3,39 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
   <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+  <link href="https://fonts.googleapisss2?family=Poppins&display=swap"      
+        rel="stylesheet">
     <title> BlogNepal:Contact Us </title>
-    <link href="./css/contact_us.css" rel="stylesheet" type="text/css" />
+    <link href="/css/contact_us.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
   <nav class="nav-bar">
     <div id="logo"><a href="/" style="color:white;">BlogNEPAL</a></div>
   </nav>
-  <div id = "About_Us" >Contact Us </div>
-<div class="container paddingContact-container">
-      <h1 class="white">Let's Get Started!</h1>
+<div class="contact-form">
+  <h1>Contact Us </h1>
+
+    <form name="contactForm" id="contactForm" method="POST" action="">
+      <h2>Let's Get Started!</h2>
       <p>Contact us for any problem you faced.</p>
-</div>
-<!-- contact-form -->
-<div class="container form">
         <div class="form-group">
           <h2>Tell us About Yourself</h2>
-          <p style="color: #000">Contact us today to discuss how can help you!</p>
+          <p>How can we help you!</p>
         </div>
-  <form name="contactForm" id="contactForm" method="POST" action="">
             <div class="control-group">
-              <label>First Name: </label>
               <input type="text" class="demo-default form-control" placeholder="First Name" required >
             </div>
             <div class="control-group">
-              <label>Last Name: </label>
               <input type="text" class="demo-default form-control" placeholder="Last Name" required>
             </div>
             <div class="control-group">
-              <label>Company: </label>
               <input type="text" class="demo-default form-control" placeholder="Company" required>
             </div>
             <div class="control-group">
-              <label>Phone: </label>
               <input type="text" class="demo-default form-control" placeholder="Phone #" required>
             </div>
             <div class="control-group">
-              <label>Email: </label>
               <input type="text" class="demo-default form-control" placeholder="yourname@domain.com" required>
             </div>
             <div class="control-group">
@@ -52,28 +47,83 @@
                 <option value="3">E-Commerce features</option>
                 <option value="5">Blog view form</option>
               </select>
-            </div>
         <br>
     <div class="describe">
       <label for="subject">Describe your problem.</label></div>
-      <textarea id="subject" name="subject" placeholder="Write something.."></textarea>
+      <textarea id="subject" name="subject" placeholder="Write something.." rows="10" cols="70" required ></textarea>
       <br>
-      <input type="submit" value="Submit">
+      <button type="form-submit" id="form-btn">Submit</button>
+        </form> 
     </div>
     <div id = "status" class = "error" >Thank You for the responce.We will get back to you soon</div>
     <div id = "status" class = "sucess" >Thank You for the responce.We will get back to you soon</div>
-    
-  </form>
-  <section id="contact">
-      <h2>KU Office</h2>
-      <p style="color: #000000">Dhulikhel,Kavre<br>KU,Budol<br>
-        <a href="tel:not found ">Not found</a>
-      </p>
-      <h2>EMAIL ADDRESS</h2>
-      <a href="mailto:BlogNepalinfo@mail.com">BlogNepalinfo@mail.com</a>
-      <h2>SUPPORT</h2>
-      <a href="tel:Not Found">Not found</a><br />
-      <a href="mailto:supportBLogNepal@webcorpco.com">supportBLogNepal@webcorpco.com</a>
-    </section>
+  </div> 
+
+      <footer>
+      <div class="main-content">
+        <div class="left box">
+          <h2>About us</h2>
+          <div class="content">
+            <p>The best ideas can change who we are. BlogNepal is where those ideas take
+    shape, take off, and spark powerful conversations. We’re an open platform
+    where 170 million readers come to find insightful and dynamic thinking.
+    Here, expert and undiscovered voices alike dive into the heart of any
+    topic and bring new ideas to the surface. Our purpose is to spread these
+    ideas and deepen understanding of the world.</p>
+            <div class="social">
+              <a href="https://facebook.com/blogNepal"><span class="fab fa-facebook-f"></span></a>
+              <a href="#"><span class="fab fa-twitter"></span></a>
+              <a href="https://instagram.com/blogNepal.np"><span class="fab fa-instagram"></span></a>
+              <a href="https://youtube.com/blogNepal"><span class="fab fa-youtube"></span></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="center box">
+          <h2>Address</h2>
+          <div class="content">
+            <div class="place">
+              <span class="fas fa-map-marker-alt"></span>
+              <span class="text">Dhulikhel, Kavre</span>
+            </div>
+            <div class="phone">
+              <span class="fas fa-phone-alt"></span>
+              <span class="text">not found </span>
+            </div>
+            <div class="email">
+              <span class="fas fa-envelope"></span>
+              <span class="text">blognepal@gmail.com</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="right box">
+          <h2>Contact us</h2>
+          <div class="content">
+            <form action="#">
+              <div class="email">
+                <div class="text">Email *</div>
+                <input type="email" required>
+              </div>
+              <div class="msg">
+                <div class="text">Message *</div>
+                <textarea rows="2" cols="25" required></textarea>
+              </div>
+              <div class="btn">
+                <button type="submit">Send</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="bottom">
+        <center>
+          <span class="credit">BlogNepal<a href="https://www.blogNepal.com">BlogNepal</a> | </span>
+          <span class="far fa-copyright"></span><span> 2020 All rights reserved.</span>
+        </center>
+      </div>
+    </footer>
 </div>
 
+</body>
+</html>
