@@ -1,0 +1,151 @@
+* {
+    margin: 0%;
+    padding: 0%;
+    list-style: none;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: "Montserrat", sans-serif;
+    background-color: aliceblue;
+  }
+  
+  :root {
+    --primary-bg: #b62e42;
+  }
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  #header {
+    background-color: var(--primary-bg);
+  }
+  
+  .nav-bar {
+    width: 100vw;
+    height: 10vh;
+    background-color: #b62e42;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px;
+    font-size: 18px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 11;
+  }
+
+  nav a {
+    text-decoration: none;
+  }
+  
+  #logo {
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-size: 25px;
+  }
+  
+  .search-bar {
+    display: flex;
+    position: relative;
+    width: 34vw;
+    margin-left: 10px;
+  }
+  
+  .main-search {
+    height: 40px;
+    border-radius: 50px;
+    border: 0;
+    outline: none;
+    font-family: inherit;
+    background-color: rgb(245, 245, 245);
+    padding-left: 36px;
+  }
+  
+  .searchIcon {
+    position: absolute;
+    left: 10px;
+    top: 11px;
+    bottom: 8px;
+    align-items: center;
+    color: black;
+  }
+  
+  nav ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 50vw;
+  }
+
+  #user-avatar {
+    height: 8vh;
+    width: 8vh;
+    border-radius: 50%;
+    display: flex;
+  }
+
+  /* blog body */
+
+  .blog-wrapper {
+      margin-top: 10vh;
+      width: 80%;
+      display: flex;
+      justify-content: flex-end;
+  }
+
+  .blogs  {
+    background: #fff;
+    margin-top: 5vh;   
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .card-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  h3.blog-title {
+    font-family: fell, Georgia, Cambria, "Times New Roman", Times, serif;
+    font-size: 48px;
+    line-height : 60px;
+    font-style: normal;
+    word-break: break-word;
+    word-wrap: break-word;
+    font-weight: 400;
+    color: rgba(41, 41, 41, 1);
+    margin-top: 5vh;
+  }
+
+  .card-image img {
+    aspect-ratio: 4/2;
+    width: 900px;
+    margin-top: 50px;
+  }
+
+  .blog-body {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    padding: 0 25px;
+  }
+
+  .blog-body p{
+          margin-top: 5vh;
+          word-break: break-word;
+          font-size: 20px;
+          text-align: justify;
+          font-family: "Montserrat", sans-serif;;
+  }
+

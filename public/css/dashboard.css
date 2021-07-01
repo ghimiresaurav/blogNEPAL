@@ -248,14 +248,12 @@ hr.new {
 
 .blogs  {
   background: #fff;
-  /* padding: 50px 20px 50px 20px; */
   margin-top: 8vh;
   width: 45%;
   height: 450px;
   overflow: hidden;
   position: relative;
-  /*    z-index: -1;  */
-  border: 2px solid red;
+  border-radius: 5px;
 }
 
 .card-header {
@@ -299,7 +297,7 @@ h3.blog-title {
 }
 
  .blog-metas .meta {
-   font-size: 19px;
+   font-size: 16px;
    margin-bottom: 12px;
    margin-right: 20px;
   display: flex;
