@@ -9,13 +9,20 @@ module.exports = (req, res, next) => {
     };
 
     if (user.token) {
-      const decodedToken = jwt.verify(user.token, process.env.TOKEN_SECRET);
-      const trueId = user.id.split("%22")[1];
-      if (decodedToken.userId === trueId) {
-        res.locals.id = trueId;
-        return next();
-      }
+      jwt.verify(user.token, process.env.TOKEN_SECRET, (err, decodedToken) => {
+        if (err) {
+          res.clearCookie("token", { path: "/" });
+          res.clearCookie("id", { path: "/" });
+          return res.redirect(307, "/");
+        }
+        const trueId = user.id.split("%22")[1];
+        if (decodedToken.userId === trueId) {
+          res.locals.id = trueId;
+        }
+      });
+
+      return next();
     }
   }
-  return res.redirect(307, '/error')
+  return res.redirect(307, "/error");
 };

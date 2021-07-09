@@ -216,6 +216,7 @@ button {
   text-align: center;
   padding: 20px;
   position: fixed;
+  z-index: 150;
 }
 
 input {
