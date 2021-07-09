@@ -3,10 +3,20 @@
 // }, false);
 
 // Image Preview
-
+document.getElementById("user-avatar").src = localStorage.getItem("avatarLink");
+// const addTag = document.getElementById('add-tag')
+const y = document.getElementById("prev-img");
 var loadFile = function (event) {
   var image = document.getElementById("prev-img");
   image.src = URL.createObjectURL(event.target.files[0]);
+  const rightPane = document.getElementById("right-pane");
+  setTimeout(
+    () =>
+      (rightPane.style.height = `${
+        rightPane.offsetHeight + image.offsetHeight
+      }px`),
+    100
+  );
 };
 
 // Tags writing area
@@ -17,12 +27,12 @@ function onEvent(event) {
     event.preventDefault();
     var tagText = document.getElementById("write-tag").value;
     var count = tagText.length <= 17;
-    console.log(count)
+    console.log(count);
     if (tagText[0] != null) {
       var btn = document.createElement("BUTTON");
       btn.className = "tags";
       console.log(tagText.length);
-      if (count == true){
+      if (count == true) {
         if (tagText[0] == "#") {
           btn.innerHTML = tagText + " ";
         } else {
@@ -40,17 +50,17 @@ function onEvent(event) {
           [len.length - 1].appendChild(cross);
         console.log(len.length - 1);
 
-      // for (var i = 0; i < (len.length-1); i++) {
-      // document.getElementsByClassName('tags')[len.length-1].addEventListener('click', function() {
-      //   var element = document.getElementsByClassName('tags');
-      //   element.parentNode.removeChild(element);
-      // })}
+        // for (var i = 0; i < (len.length-1); i++) {
+        // document.getElementsByClassName('tags')[len.length-1].addEventListener('click', function() {
+        //   var element = document.getElementsByClassName('tags');
+        //   element.parentNode.removeChild(element);
+        // })}
 
         document
           .getElementsByClassName("remove")
           [len.length - 1].addEventListener(
-              "click",
-              function (e) {
+            "click",
+            function (e) {
               e.currentTarget.parentNode.remove();
               // this.closest('.remove').remove() // in modern browsers in complex dom structure
               // this.parentNode.remove(); //this refers to the current target element
@@ -60,12 +70,10 @@ function onEvent(event) {
           );
 
         document.getElementById("write-tag").value = "";
-      }
-      else{
+      } else {
         document.getElementById("write-tag").value = "";
         showPopup();
       }
-
     }
   }
 }
@@ -80,13 +88,12 @@ function showPopup() {
   popup.classList.remove("error");
   popA.classList.remove("error");
 
-  void popup.offsetWidth; 
+  void popup.offsetWidth;
   void popA.offsetWidth;
-  
+
   popup.classList.add("error");
   popA.classList.add("error");
-};
-
+}
 
 document.getElementById("write-tag").addEventListener("keypress", onEvent);
 
@@ -164,8 +171,8 @@ const postBlog = (e) => {
   const postNotification = document.getElementById("post-notification");
   postNotification.innerHTML = "";
 
-  const tags = Array.from(document.getElementsByClassName("tags")).map(
-    (tag) => tag.innerText.split(" ")[0]
+  const tags = Array.from(document.getElementsByClassName("tags")).map((tag) =>
+    tag.innerText.split(" ")[0].toLowerCase()
   );
 
   const content = document.getElementById("editableDiv").innerHTML;

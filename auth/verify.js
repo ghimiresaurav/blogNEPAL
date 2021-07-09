@@ -9,19 +9,21 @@ module.exports = (req, res, next) => {
     };
 
     if (user.token) {
-      const decodedToken = jwt.verify(user.token, process.env.TOKEN_SECRET, (err, decoded) => {
+      jwt.verify(user.token, process.env.TOKEN_SECRET, (err, decodedToken) => {
         if (err) {
-          return res.cookie("id", "", { path: "/", sameSite: true }).cookie("token", "", { path: "/", sameSite: true }).redirect(307, '/')
+          return res
+            .cookie("id", "", { path: "/", sameSite: true })
+            .cookie("token", "", { path: "/", sameSite: true })
+            .redirect(307, "/");
         }
         const trueId = user.id.split("%22")[1];
-        if (decoded.userId === trueId) {
+        if (decodedToken.userId === trueId) {
           res.locals.id = trueId;
         }
       });
 
       return next();
-
     }
   }
-  return res.redirect(307, '/error')
+  return res.redirect(307, "/error");
 };
