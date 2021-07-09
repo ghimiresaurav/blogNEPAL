@@ -1,4 +1,7 @@
+const blogsContainer = document.getElementById("blogcss");
 (() => {
+  document.getElementById("user-avatar").src =
+    localStorage.getItem("avatarLink");
   const currentLocation = location.href;
   const menuItem = document.querySelectorAll("a");
   const menuLength = menuItem.length;
@@ -9,7 +12,6 @@
   }
 })();
 
-const blogsContainer = document.getElementById("blogcss");
 const wrapBlog = (blog) => {
   const LikeNo = blog.like.length;
   const LikeStatus = Likestat(blog.like);
@@ -101,8 +103,6 @@ fetch("/protected/get-blogs")
   })
   .catch((err) => console.error(err));
 
-document.getElementById("user-avatar").src = localStorage.getItem("avatarLink");
-
 document.addEventListener(
   "DOMContentLoaded",
   function () {
@@ -119,7 +119,6 @@ icons.forEach((element) => {
     icons.forEach((icons) => icons.classList.remove("active"));
 
     this.classList.add("active");
-    console.log("hi");
   });
 });
 
@@ -191,23 +190,23 @@ findChild = (idOfElement, idOfChild) => {
 //search by tag
 
 function tags(value) {
-  const blogDiv = document.getElementById("blogcss")
+  const blogDiv = document.getElementById("blogcss");
   while (blogDiv.firstChild) {
     blogDiv.removeChild(blogDiv.firstChild);
   }
-  console.log(value)
+  console.log(value);
   const fetchOptions = {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ "name": value }),
+    body: JSON.stringify({ name: value }),
   };
   fetch("/protected/search", fetchOptions)
     .then((response) => response.json())
     .then((data) => {
       data.forEach((datum) => {
-        wrapBlog(datum)
+        wrapBlog(datum);
       });
     })
     .catch((err) => console.error(err));
@@ -216,31 +215,30 @@ function tags(value) {
 const form = document.getElementById("search");
 form.addEventListener("submit", (e) => {
   e.preventDefault();
-  const search_txt=document.getElementById("search-txt");
-  const value="#"+search_txt.value
+  const search_txt = document.getElementById("search-txt");
+  const value = "#" + search_txt.value;
 
-  const blogDiv = document.getElementById("blogcss")
+  const blogDiv = document.getElementById("blogcss");
   while (blogDiv.firstChild) {
     blogDiv.removeChild(blogDiv.firstChild);
   }
-  console.log(value)
+  console.log(value);
   const fetchOptions = {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ "name": value }),
+    body: JSON.stringify({ name: value }),
   };
   fetch("/protected/search", fetchOptions)
     .then((response) => response.json())
     .then((data) => {
       data.forEach((datum) => {
-        wrapBlog(datum)
+        wrapBlog(datum);
       });
     })
     .catch((err) => console.error(err));
-
-})
+});
 
 const navigateToPostPage = () => window.location.assign("/protected/post");
 
