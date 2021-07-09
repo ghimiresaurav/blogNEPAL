@@ -11,10 +11,9 @@ module.exports = (req, res, next) => {
     if (user.token) {
       jwt.verify(user.token, process.env.TOKEN_SECRET, (err, decodedToken) => {
         if (err) {
-          return res
-            .cookie("id", "", { path: "/", sameSite: true })
-            .cookie("token", "", { path: "/", sameSite: true })
-            .redirect(307, "/");
+          res.clearCookie("token", { path: "/" });
+          res.clearCookie("id", { path: "/" });
+          return res.redirect(307, "/");
         }
         const trueId = user.id.split("%22")[1];
         if (decodedToken.userId === trueId) {
