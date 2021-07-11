@@ -45,7 +45,7 @@ module.exports = async (req, res) => {
             { userId: user._id },
             process.env.TOKEN_SECRET,
             {
-              expiresIn: "1h",
+              expiresIn: "7d",
             }
           );
 

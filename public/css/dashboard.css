@@ -150,7 +150,7 @@ li:hover .onHover {
 }
 
 #createBlog:hover,
-#bottomSection button:hover {
+#tags-section button:hover {
   background: var(--primary-bg);
   color: #fff;
   border: none;
@@ -175,11 +175,14 @@ hr.new {
 
 #topSection {
   display: flex;
-  margin-left: 4vh;
+  /* margin-left: 4vh; */
   text-transform: uppercase;
+  max-width: 100%;
+  /* text-align: center; */
+  margin: auto;
 }
 
-#bottomSection {
+#tags-section {
   position: absolute;
   top: 8vh;
   display: flex;
@@ -189,7 +192,7 @@ hr.new {
   margin-left: -2px;
 }
 
-#bottomSection button {
+#tags-section button {
   font-family: "Montserrat", sans-serif;
   font-size: 15px;
   padding: 8px 20px;

@@ -1,4 +1,6 @@
 const blogsContainer = document.getElementById("blogcss");
+const TAGS = [];
+const tagsSection = document.getElementById("tags-section");
 (() => {
   document.getElementById("user-avatar").src =
     localStorage.getItem("avatarLink");
@@ -194,7 +196,6 @@ function tags(value) {
   while (blogDiv.firstChild) {
     blogDiv.removeChild(blogDiv.firstChild);
   }
-  console.log(value);
   const fetchOptions = {
     method: "POST",
     headers: {
@@ -206,7 +207,7 @@ function tags(value) {
     .then((response) => response.json())
     .then((data) => {
       data.forEach((datum) => {
-        wrapBlog(datum);
+        newpost(datum);
       });
     })
     .catch((err) => console.error(err));
@@ -234,7 +235,7 @@ form.addEventListener("submit", (e) => {
     .then((response) => response.json())
     .then((data) => {
       data.forEach((datum) => {
-        wrapBlog(datum);
+        newpost(datum);
       });
     })
     .catch((err) => console.error(err));
@@ -259,7 +260,7 @@ const navigateToPostPage = () => window.location.assign("/protected/post");
 // });
 
 const newpost = (blog) => {
-  console.log(blog);
+  // console.log(blog);
   const x = document.createElement("div");
   x.classList.add("blogs");
 
@@ -272,11 +273,23 @@ const newpost = (blog) => {
   images.shift();
   if (images.length) blogImageUrl = images[0];
 
-  if (blog.tags.length)
-    tagsDiv = blog.tags.reduce(
-      (acc, elem) => `${acc}<div class="blog-category">${elem}</div>`,
-      ""
-    );
+  if (blog.tags.length) {
+    tagsDiv = blog.tags.reduce((acc, elem) => {
+      if (TAGS.indexOf(elem) == -1) {
+        const newTag = document.createElement("div");
+        newTag.setAttribute("onclick", `tags("${elem}")`);
+        const tagText =
+          elem.includes("_") || elem.includes("-")
+            ? elem.substr(1)
+            : elem.substr(1, 1).toUpperCase() + elem.substr(2);
+        //REMOVE # AND CAPITALIZE THE FIRST LETTER IN TAGS
+        newTag.innerHTML = `<button>${tagText}</button>`;
+        tagsSection.appendChild(newTag);
+        TAGS.push(elem);
+      }
+      return `${acc}<div class="blog-category">${elem}</div>`;
+    }, "");
+  }
 
   x.innerHTML = `
   <div class="card-header">

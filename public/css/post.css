@@ -134,15 +134,10 @@ label:hover {
 
 #prev-img {
   background-color: var(--primary-bg);
-  /* position: absolute; */
-  /* top: 270px; */
-  /* right: 80px; */
   width: 300px;
   margin: 20px 0;
-  /* height: 300px; */
-  /* height: auto; */
   border-radius: 10px;
-  background-color: thistle;
+  background-color: #202124;
 }
 
 /*Test editing bar*/
@@ -287,11 +282,11 @@ label:hover {
 
 #clearTags {
   font-size: medium;
-  width: 120px;
+  /* width: 120px; */
   height: 30px;
   padding: 2px;
   text-align: center;
-  /* border: none; */
+  line-height: 25px;
   border: 1px solid var(--primary-bg);
   border-radius: 4px;
   color: white;
@@ -334,20 +329,17 @@ label:hover {
   text-align: center;
   top: 6vh;
   transition: 300ms;
-  z-index: -1;
+  z-index: 1;
 }
 
 #right-pane {
   position: absolute;
-  /* left: 55%; */
   top: 2vh;
   right: 100px;
   height: 50vh;
   width: 400px;
-  /* background-color: teal; */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  /* transform: translateY(-20px); */
 }

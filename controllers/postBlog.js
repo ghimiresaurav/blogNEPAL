@@ -56,7 +56,6 @@ const postBlog = (req, res) => {
   }).array("images");
 
   upload(req, res, (err) => {
-    console.log(req.body);
     if (err) console.error(err);
     const content = req.body.content.replace(/\r\n/g, "<br />"),
       { files } = req,
