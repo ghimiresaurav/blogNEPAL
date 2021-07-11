@@ -249,7 +249,7 @@ hr.new {
   height: 450px;
   overflow: hidden;
   position: relative;
-  border-radius: 5px;
+  border-radius: 10px;
 }
 
 .card-header {
@@ -357,8 +357,7 @@ h3.blog-title {
 
 .card-image {
   position: absolute;
-  background-repeat: no-repeat;
-  background-size: cover;
+  object-fit: cover;
   width: 100%;
   height: 100%;
   top: 0;

@@ -99,7 +99,7 @@ const wrapBlog = (blog) => {
 fetch("/protected/get-blogs")
   .then((response) => response.json())
   .then((data) => {
-    data.forEach((datum) => wrapBlog(datum));
+    data.forEach((datum) => newpost(datum));
   })
   .catch((err) => console.error(err));
 
@@ -257,3 +257,56 @@ const navigateToPostPage = () => window.location.assign("/protected/post");
 //       dropdown.classList.remove("active");
 //   }
 // });
+
+const newpost = (blog) => {
+  console.log(blog);
+  const x = document.createElement("div");
+  x.classList.add("blogs");
+
+  const dateTime = blog.date.split("-");
+
+  let blogImageUrl = "./assets/journal.jpg";
+  let tagsDiv = "";
+
+  const images = blog.links.split(", ");
+  images.shift();
+  if (images.length) blogImageUrl = images[0];
+
+  if (blog.tags.length)
+    tagsDiv = blog.tags.reduce(
+      (acc, elem) => `${acc}<div class="blog-category">${elem}</div>`,
+      ""
+    );
+
+  x.innerHTML = `
+  <div class="card-header">
+    <img class="card-image" src="${blogImageUrl}" alt="blog-image" />
+
+    <div class="blog-details">
+      <h3 class="blog-title">${blog.title}</h3>
+
+      <div class="blog-metas">
+        <div class="meta">
+          <i class="far fa-user" aria-hidden="true"></i> ${blog.author.name}
+        </div>
+        <div class="meta">
+          <i class="far fa-calendar" aria-hidden="true"></i> ${dateTime[0]}
+        </div>
+        <div class="meta">
+          <i class="far fa-clock" aria-hidden="true"></i> ${dateTime[1]}
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="card-body">  
+    ${tagsDiv}
+    <div class="blog-body">
+      <p>${blog.content}</p>
+    </div>
+    <a href="BlogPost.html" class="ReadButton">Read full Post</a>
+  </div>`;
+
+  blogsContainer.appendChild(x);
+};
