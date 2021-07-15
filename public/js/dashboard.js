@@ -318,7 +318,7 @@ const newpost = (blog) => {
     <div class="blog-body">
       <p>${blog.content}</p>
     </div>
-    <a href="BlogPost.html" class="ReadButton">Read full Post</a>
+    <a href="/protected/blog?id=${blog._id}" class="ReadButton">Read full Post</a>
   </div>`;
 
   blogsContainer.appendChild(x);
