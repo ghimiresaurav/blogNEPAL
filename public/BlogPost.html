@@ -11,8 +11,7 @@
       href="https://fonts.googleapis.com/css2?family=Montserrat&family=Poppins&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./css/BlogPost.css" type="text/css" />
-
+    <link rel="stylesheet" href="./css/BlogPost.css" type="text/css" />    
     <script
       src="https://kit.fontawesome.com/3fdf0f105a.js"
       crossorigin="anonymous"
@@ -46,13 +45,41 @@
         </nav>
 
 
-        <div class="blog-wrapper">
+        <div id="blogcss">
             <div class="blogs">
                 <div class="card-header"> 
                     <div class="blog-details">
                         <h3 class="blog-title">
                          Importance of voluntary education
                         </h3>
+                     </div>
+
+                     <div class="blogAuthor">
+                        <div class="author">
+                          <div id="auth-avatar"> 
+                            <img src="https://bit.ly/3eiBXt9" alt="profile" />                        
+                           </div>   
+                           
+                           <div id="auth-details"> 
+                            <div id="auth-name">John Wick</div>
+                            <div class="calendar">07/21/2020</div>
+                           </div>
+                        </div>
+                      
+                       <div class="shareMedia">
+                          <div class="social">
+                            <a href="https://facebook.com/blogNepal">
+                                <span class="fab fa-facebook-f"></span></a>
+                            <a href="#">
+                                <span class="fab fa-twitter"></span></a>
+                            <a href="https://instagram.com/blogNepal.np">
+                                <span class="fab fa-instagram"></span></a>
+                            <a href="https://youtube.com/blogNepal">
+                              <span class="fab fa-youtube"></span></a>
+                          </div>
+                       </div>
+                      
+                       
                      </div>
     
                     <div class="card-image">
@@ -79,6 +106,36 @@
                         </p>                        
      
                   </div>
+
+                  <div class="likesharecmt">
+                    <i class="far fa-heart" style="font-size: 20px"></i>
+                    <p>0</p>
+          
+                    <i class="far fa-comment" style="font-size: 20px"></i>
+                    <p>0</p>
+          
+                  
+                  </div>
+                  <div class="comment">
+                    <form>
+                      <input type="text" placeholder="Post a comment...">
+                      <button type="submit" class="send-btn">
+                        <i class="fas fa-paper-plane"></i>
+                      </button>
+                    </form>
+                    <div id="comment-list">
+                      <div class="comments">
+                        <div>
+                          <img id="commentimage" src="" alt="pic"/>
+                        </div>
+                        <div class="comment-text">
+                          <p><strong>sagar raj</strong></p>
+                          <p>Nice blog</p>
+                        </div>
+          
+                      </div>
+                    </div>
+                  </div>
     
             </div>    
         </div>
@@ -87,6 +144,7 @@
 
     <script src="./js/navigation.js"></script>
     <script src="./js/dashboard.js"></script>
+    <script src="./js/profile.js"></script>
   </body>
 
 </html>

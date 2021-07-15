@@ -346,17 +346,18 @@ h3.blog-title {
 
 .blog-body {
   margin: 20px 0;
+  white-space: normal; 
+  height: 80px;
+  width: 25vw;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-.body-body p {
-  font-size: 14px;
+.body-body {
+  font-size: 15px;
   font-weight: 300;
 }
 
-.blogs p {
-  height: 80px;
-  overflow: hidden;
-}
 
 .card-image {
   position: absolute;

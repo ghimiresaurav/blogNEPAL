@@ -335,7 +335,7 @@ label:hover {
 #right-pane {
   position: absolute;
   top: 2vh;
-  right: 100px;
+  right:5px;
   height: 50vh;
   width: 400px;
   display: flex;
