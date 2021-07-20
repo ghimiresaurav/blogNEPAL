@@ -217,7 +217,7 @@ const form = document.getElementById("search");
 form.addEventListener("submit", (e) => {
   e.preventDefault();
   const search_txt = document.getElementById("search-txt");
-  const value = "#" + search_txt.value;
+  const value = search_txt.value;
 
   const blogDiv = document.getElementById("blogcss");
   while (blogDiv.firstChild) {
@@ -231,7 +231,7 @@ form.addEventListener("submit", (e) => {
     },
     body: JSON.stringify({ name: value }),
   };
-  fetch("/protected/search", fetchOptions)
+  fetch("/protected/searchblog", fetchOptions)
     .then((response) => response.json())
     .then((data) => {
       data.forEach((datum) => {
@@ -260,7 +260,7 @@ const navigateToPostPage = () => window.location.assign("/protected/post");
 // });
 
 const newpost = (blog) => {
-  // console.log(blog);
+  console.log(blog);
   const x = document.createElement("div");
   x.classList.add("blogs");
 
