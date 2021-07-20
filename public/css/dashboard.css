@@ -5,6 +5,10 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: "Montserrat", sans-serif;
   background-color: aliceblue;
@@ -170,7 +174,7 @@ hr.new {
   position: absolute;
   font-size: 18px;
   top: 25vh;
-  width: 95%;
+  width: 85%;
 }
 
 #topSection {
@@ -584,4 +588,27 @@ h3.blog-title {
 .author-images {
   border-radius: 50%;
   margin-right: 10px;
+}
+
+/* Go to top button */
+#myBtn {
+  display: none;
+  width: 50px;
+  height: 50px;
+  position: fixed;
+  bottom: 20px;
+  right: 15px;
+  z-index: 99;
+  font-size: 18px;
+  border: none;
+  outline: none;
+  background-color: var(--primary-bg);
+  color: white;
+  cursor: pointer;
+  padding: 15px;
+  border-radius: 50%;
+}
+
+#myBtn:hover {
+  background-color: #cc2333;
 }
