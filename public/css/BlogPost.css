@@ -94,7 +94,7 @@ nav ul {
 
 /* blog body */
 
-#blogcss {
+#blog-wrapper {
     margin-top: 10vh;
     width: 70%;
     display: flex;
@@ -309,4 +309,92 @@ border-radius: 50%;
 .author-images {
   border-radius: 50%;
   margin-right: 10px;
+}
+
+
+/* left section */
+
+#firstSection {
+  top: 10vh;
+  float: left;
+  width: 25%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 0 30px;
+  background-color: aliceblue;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  border-right: 1px solid rgb(214, 211, 211);
+}
+
+#blogPost button {
+  font-family: "Poppins", sans-serif;
+  position: absolute;
+  top: 8.5vh;
+  left: 10vh;
+  font-size: 18px;
+  border-radius: 25px;
+  padding: 5px 25px;
+  background: none;
+  border: 2px solid;
+  cursor: pointer;
+  transition: 300ms;
+}
+
+#createBlog:hover,
+#tags-section button:hover {
+  background: var(--primary-bg);
+  color: #fff;
+  border: none;
+  border: 2px solid var(--primary-bg);
+}
+
+hr.new {
+  position: absolute;
+  top: 18vh;
+  border-top: 1px solid #e7e7e7;
+  width: 80%;
+}
+
+#secondSection {
+  display: flex;
+  flex-wrap: wrap;
+  position: absolute;
+  font-size: 18px;
+  top: 20vh;
+  width: 85%;
+}
+
+#topSection {
+  display: flex;
+  /* margin-left: 4vh; */
+  text-transform: uppercase;
+  max-width: 100%;
+  /* text-align: center; */
+  margin: auto;
+}
+
+#tags-section {
+  position: absolute;
+  top: 8vh;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  overflow: hidden;
+  margin-left: -2px;
+}
+
+#tags-section button {
+  font-family: "Montserrat", sans-serif;
+  font-size: 15px;
+  padding: 8px 20px;
+  border: 2px solid transparent;
+  cursor: pointer;
+  background: #e7e7e7;
+  border-radius: 25px;
+  margin-bottom: 15px;
+  margin-left: 4px;
+  overflow: hidden;
 }
