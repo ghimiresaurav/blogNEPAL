@@ -1,4 +1,9 @@
+const blogsContainer = document.getElementById("blogcss");
+const TAGS = [];
+const tagsSection = document.getElementById("tags-section");
 (() => {
+  document.getElementById("user-avatar").src =
+    localStorage.getItem("avatarLink");
   const currentLocation = location.href;
   const menuItem = document.querySelectorAll("a");
   const menuLength = menuItem.length;
@@ -9,7 +14,6 @@
   }
 })();
 
-const blogsContainer = document.getElementById("blogcss");
 const wrapBlog = (blog) => {
   const LikeNo = blog.like.length;
   const LikeStatus = Likestat(blog.like);
@@ -97,11 +101,9 @@ const wrapBlog = (blog) => {
 fetch("/protected/get-blogs")
   .then((response) => response.json())
   .then((data) => {
-    data.forEach((datum) => wrapBlog(datum));
+    data.forEach((datum) => newpost(datum));
   })
   .catch((err) => console.error(err));
-
-document.getElementById("user-avatar").src = localStorage.getItem("avatarLink");
 
 document.addEventListener(
   "DOMContentLoaded",
@@ -119,7 +121,6 @@ icons.forEach((element) => {
     icons.forEach((icons) => icons.classList.remove("active"));
 
     this.classList.add("active");
-    console.log("hi");
   });
 });
 
@@ -191,23 +192,22 @@ findChild = (idOfElement, idOfChild) => {
 //search by tag
 
 function tags(value) {
-  const blogDiv = document.getElementById("blogcss")
+  const blogDiv = document.getElementById("blogcss");
   while (blogDiv.firstChild) {
     blogDiv.removeChild(blogDiv.firstChild);
   }
-  console.log(value)
   const fetchOptions = {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ "name": value }),
+    body: JSON.stringify({ name: value }),
   };
   fetch("/protected/search", fetchOptions)
     .then((response) => response.json())
     .then((data) => {
       data.forEach((datum) => {
-        wrapBlog(datum)
+        newpost(datum);
       });
     })
     .catch((err) => console.error(err));
@@ -216,31 +216,30 @@ function tags(value) {
 const form = document.getElementById("search");
 form.addEventListener("submit", (e) => {
   e.preventDefault();
-  const search_txt=document.getElementById("search-txt");
-  const value="#"+search_txt.value
+  const search_txt = document.getElementById("search-txt");
+  const value = "#" + search_txt.value;
 
-  const blogDiv = document.getElementById("blogcss")
+  const blogDiv = document.getElementById("blogcss");
   while (blogDiv.firstChild) {
     blogDiv.removeChild(blogDiv.firstChild);
   }
-  console.log(value)
+  console.log(value);
   const fetchOptions = {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ "name": value }),
+    body: JSON.stringify({ name: value }),
   };
   fetch("/protected/search", fetchOptions)
     .then((response) => response.json())
     .then((data) => {
       data.forEach((datum) => {
-        wrapBlog(datum)
+        newpost(datum);
       });
     })
     .catch((err) => console.error(err));
-
-})
+});
 
 const navigateToPostPage = () => window.location.assign("/protected/post");
 
@@ -259,3 +258,68 @@ const navigateToPostPage = () => window.location.assign("/protected/post");
 //       dropdown.classList.remove("active");
 //   }
 // });
+
+const newpost = (blog) => {
+  // console.log(blog);
+  const x = document.createElement("div");
+  x.classList.add("blogs");
+
+  const dateTime = blog.date.split("-");
+
+  let blogImageUrl = "./assets/journal.jpg";
+  let tagsDiv = "";
+
+  const images = blog.links.split(", ");
+  images.shift();
+  if (images.length) blogImageUrl = images[0];
+
+  if (blog.tags.length) {
+    tagsDiv = blog.tags.reduce((acc, elem) => {
+      if (TAGS.indexOf(elem) == -1) {
+        const newTag = document.createElement("div");
+        newTag.setAttribute("onclick", `tags("${elem}")`);
+        const tagText =
+          elem.includes("_") || elem.includes("-")
+            ? elem.substr(1)
+            : elem.substr(1, 1).toUpperCase() + elem.substr(2);
+        //REMOVE # AND CAPITALIZE THE FIRST LETTER IN TAGS
+        newTag.innerHTML = `<button>${tagText}</button>`;
+        tagsSection.appendChild(newTag);
+        TAGS.push(elem);
+      }
+      return `${acc}<div class="blog-category">${elem}</div>`;
+    }, "");
+  }
+
+  x.innerHTML = `
+  <div class="card-header">
+    <img class="card-image" src="${blogImageUrl}" alt="blog-image" />
+
+    <div class="blog-details">
+      <h3 class="blog-title">${blog.title}</h3>
+
+      <div class="blog-metas">
+        <div class="meta">
+          <i class="far fa-user" aria-hidden="true"></i> ${blog.author.name}
+        </div>
+        <div class="meta">
+          <i class="far fa-calendar" aria-hidden="true"></i> ${dateTime[0]}
+        </div>
+        <div class="meta">
+          <i class="far fa-clock" aria-hidden="true"></i> ${dateTime[1]}
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="card-body">  
+    ${tagsDiv}
+    <div class="blog-body">
+      <p>${blog.content}</p>
+    </div>
+    <a href="/protected/blog?id=${blog._id}" class="ReadButton">Read full Post</a>
+  </div>`;
+
+  blogsContainer.appendChild(x);
+};

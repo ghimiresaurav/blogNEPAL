@@ -36,6 +36,7 @@ router.get("/dashboard", (req, res) => {
 
 //like section
 const like = require("../controllers/likeBlog");
+const { route } = require("./update");
 router.post("/like", like);
 
 router.get("/user-details", getUserDetails);
@@ -49,5 +50,9 @@ router.post("/getblogbyid",blogbyid)
 
 router.get("/post", (req, res) => {
   res.sendFile(staticDir + "/post.html");
+});
+
+router.get("/blog", (req,res) => {
+  res.sendFile (staticDir + "/BlogPost.html");
 });
 module.exports = router;

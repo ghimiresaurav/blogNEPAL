@@ -13,9 +13,10 @@
       crossorigin="anonymous"
     ></script>
 
+    <link rel="shortcut icon" href="./assets/favicon.png" type="image/x-icon" />
     <title>Write Post</title>
-    <link rel="stylesheet" href="css/post.css" />
     <link rel="stylesheet" href="./css/dashboard.css" type="text/css" />
+    <link rel="stylesheet" href="css/post.css" />
   </head>
 
   <body>
@@ -31,20 +32,20 @@
 
       <ul class="icons">
         <li>
-          <a href="/protected/profile" style="position: relative; right: -200px;">
+          <a
+            href="/protected/profile"
+            style="position: relative; right: -200px"
+          >
             <img id="user-avatar" alt="profile" />
           </a>
         </li>
       </ul>
     </nav>
 
-
-    <div id="post-notification">Successful</div>
-    <!-- The posting doesnt work. Need help! -->
+    <div id="post-notification"></div>
 
     <div class="blogsp">
       <form id="blog-post-form" onsubmit="postBlog(event)">
-        <!-- <div id="insert-profile">Insert&#10;Profile</div> -->
         <textarea name="title" id="blog-title" placeholder="Title"></textarea>
         <br />
         <div id="edit-bar">
@@ -82,21 +83,25 @@
           hidden
           onchange="loadFile(event);"
         />
-        <label for="file-input">Add Images</label>
-        <img id="prev-img" />
-        <div id="add-tag">
-          <span style="font-size: 17px">Add Tags</span>
-          <div id="errorPopup" class="error">! Maximum length limit of a tag is 17</div>
-          <div id="popupArrow" class="error"></div>
-          <textarea name="" id="write-tag" rows="1"></textarea>
-          <div id="tag-area"></div>
-          <div id="clearTags">Clear All</div>
+        <div id="right-pane">
+          <div id="add-tag">
+            <span style="font-size: 17px">Add Tags</span>
+            <div id="errorPopup" class="error">
+              ! Maximum length limit of a tag is 17
+            </div>
+            <div id="popupArrow" class="error"></div>
+            <textarea name="" id="write-tag" rows="1"></textarea>
+            <div id="tag-area"></div>
+            <div id="clearTags">Clear All</div>
+          </div>
+          <label for="file-input">Add Images</label>
+          <img id="prev-img" />
+          <button type="submit" id="post-btn">Post</button>
         </div>
-        <button type="submit" id="post-btn">Post</button>
       </form>
     </div>
-    <script src="./js/dashboard.js"></script>
-    <script src="./js/navigation.js"></script>
+    <!-- <script src="./js/dashboard.js"></script> -->
+    <!-- <script src="./js/navigation.js"></script> -->
     <script src="js/post.js"></script>
   </body>
 </html>
