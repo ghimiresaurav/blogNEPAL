@@ -1,11 +1,12 @@
+// import { newpost } from "./dashboard.js";
 const userDetails = JSON.parse(localStorage.getItem("userDetails"));
 (() => {
   //display all the important information
   document.getElementById("profile-picture").src =
     localStorage.getItem("avatarLink");
-  document.getElementById("commentimage").src =
-    localStorage.getItem("avatarLink");
-  document.getElementById("image").src = localStorage.getItem("avatarLink");
+  // document.getElementById("commentimage").src =
+  //   localStorage.getItem("avatarLink");
+  // document.getElementById("image").src = localStorage.getItem("avatarLink");
   document.getElementById(
     "namesetting"
   ).innerHTML = `<strong>${userDetails.username}</strong>`;
@@ -226,22 +227,86 @@ const updatePassword = (e) => {
     .catch((err) => console.error(err));
 };
 
-
-const blog=()=>{
-  const id= localStorage.getItem("userId")
-  console.log(id)
-  const fetchOptions={
-    method:"POST",
-    headers:{
-      "Content-Type":"application/json",
+const blog = () => {
+  const id = localStorage.getItem("userId");
+  // console.log(id);
+  const fetchOptions = {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
     },
-    body:JSON.stringify({id:id})
-  }
+    body: JSON.stringify({ id: id }),
+  };
   fetch("/protected/getblogbyid", fetchOptions)
-  .then((res)=>res.json())
-  .then((response)=>{
-    console.log(response)
-  })
-}
+    .then((res) => res.json())
+    .then((response) => {
+      // response.forEach((resp) => newpost(resp));
+      console.log(response);
+    });
+};
 
-blog()
+blog();
+
+// const newpost = (blog) => {
+//   // console.log(blog);
+//   const x = document.createElement("div");
+//   x.classList.add("blogs");
+
+//   const dateTime = blog.date.split("-");
+
+//   let blogImageUrl = "./assets/journal.jpg";
+//   let tagsDiv = "";
+
+//   const images = blog.links.split(", ");
+//   images.shift();
+//   if (images.length) blogImageUrl = images[0];
+
+//   if (blog.tags.length) {
+//     tagsDiv = blog.tags.reduce((acc, elem) => {
+//       if (TAGS.indexOf(elem) == -1) {
+//         const newTag = document.createElement("div");
+//         newTag.setAttribute("onclick", `tags("${elem}")`);
+//         const tagText =
+//           elem.includes("_") || elem.includes("-")
+//             ? elem.substr(1)
+//             : elem.substr(1, 1).toUpperCase() + elem.substr(2);
+//         //REMOVE # AND CAPITALIZE THE FIRST LETTER IN TAGS
+//         newTag.innerHTML = `<button>${tagText}</button>`;
+//         tagsSection.appendChild(newTag);
+//         TAGS.push(elem);
+//       }
+//       return `${acc}<div class="blog-category">${elem}</div>`;
+//     }, "");
+//   }
+
+//   x.innerHTML = `
+//   <div class="card-header">
+//     <img class="card-image" src="${blogImageUrl}" alt="blog-image" />
+
+//     <div class="blog-details">
+//       <h3 class="blog-title">${blog.title}</h3>
+
+//       <div class="blog-metas">
+//         <div class="meta">
+//           <i class="far fa-user" aria-hidden="true"></i> ${blog.author.name}
+//         </div>
+//         <div class="meta">
+//           <i class="far fa-calendar" aria-hidden="true"></i> ${dateTime[0]}
+//         </div>
+//         <div class="meta">
+//           <i class="far fa-clock" aria-hidden="true"></i> ${dateTime[1]}
+//         </div>
+//       </div>
+
+//     </div>
+//   </div>
+
+//   <div class="card-body">
+//     <div class="blog-body">
+//       <p>${blog.content}</p>
+//     </div>
+//     <a href="/protected/blog?id=${blog._id}" class="ReadButton">Read full Post</a>
+//   </div>`;
+
+//   blogsContainer.appendChild(x);
+// };

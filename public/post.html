@@ -8,15 +8,20 @@
       href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
       rel="stylesheet"
     />
+    <link rel="shortcut icon" href="./assets/favicon.png" type="image/x-icon" />
+    <title>Write Post</title>
+
+    <link rel="stylesheet" href="./css/dashboard.css" type="text/css" />
+    <link rel="stylesheet" href="css/post.css" />
+
     <script
       src="https://kit.fontawesome.com/3fdf0f105a.js"
       crossorigin="anonymous"
     ></script>
-
-    <link rel="shortcut icon" href="./assets/favicon.png" type="image/x-icon" />
-    <title>Write Post</title>
-    <link rel="stylesheet" href="./css/dashboard.css" type="text/css" />
-    <link rel="stylesheet" href="css/post.css" />
+    <script
+      src="https://cdn.tiny.cloud/1/ydpoobjojy1hdf8ic2kzv2mqj9kwmdbzjprnefly20m08g7y/tinymce/5/tinymce.min.js"
+      referrerpolicy="origin"
+    ></script>
   </head>
 
   <body>
@@ -48,31 +53,11 @@
       <form id="blog-post-form" onsubmit="postBlog(event)">
         <textarea name="title" id="blog-title" placeholder="Title"></textarea>
         <br />
-        <div id="edit-bar">
-          <div class="edit-btns edit-btn-one bold-btn">B</div>
-          <div class="edit-btns">I</div>
-          <div class="edit-btns">U</div>
-          <div class="edit-btns"></div>
-          <div class="edit-btns"></div>
-          <div class="edit-btns"></div>
-          <div class="edit-btns"></div>
-          <div class="edit-btns"></div>
-          <div class="edit-btns"></div>
-          <div class="edit-btns edit-btn-gap"></div>
+
+        <div id="textarea-container">
+          <textarea id="blog-txt"></textarea>
         </div>
 
-        <div
-          contenteditable
-          id="editableDiv"
-          id="blog-text"
-          placeholder="Write a Blog"
-        ></div>
-
-        <!-- <textarea
-          name="content"
-          id="blog-text"
-          placeholder="Write a blog"
-        ></textarea> -->
         <br />
         <input
           type="file"

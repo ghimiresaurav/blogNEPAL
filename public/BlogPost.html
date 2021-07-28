@@ -49,20 +49,18 @@
             <div class="blogs">
                 <div class="card-header"> 
                     <div class="blog-details">
-                        <h3 class="blog-title">
-                         Importance of voluntary education
-                        </h3>
+                        <h3 id="blog-title"></h3>
                      </div>
 
                      <div class="blogAuthor">
                         <div class="author">
                           <div id="auth-avatar"> 
-                            <img src="https://bit.ly/3eiBXt9" alt="profile" />                        
+                            <img alt="author-profile" />                        
                            </div>   
                            
                            <div id="auth-details"> 
-                            <div id="auth-name">John Wick</div>
-                            <div class="calendar">07/21/2020</div>
+                            <div id="auth-name"></div>
+                            <div id="calendar"></div>
                            </div>
                         </div>
                       
@@ -82,37 +80,18 @@
                        
                      </div>
     
-                    <div class="card-image">
-                        <img src="./assets/journal.jpg" alt="blog-image"> 
-                    </div>                
+                    <div id="card-image"></div>                
        
                 </div>
                 
-                 <div class="blog-body">
-                       <p>Vocational Education has become very popular today. This form of education helps the students to get many qualifications for a particular profession.</p>
-
-                        <p>The students are taught how to use their skills for practical application and only theory is not important to gain knowledge and progress in life.The structure of a response from a REST API endpoint is the same for every request, and often you will receive more data than you actually need. If you make a request for a book to a REST API but are only interested in the title and ISBN, the server will respond with pageCount, publicationDate and all of the other information it has been programmed to return about the book anyway. This can be very inefficient, resulting in queries that take longer than they need to and inflating the amount of data being returned.</p>
-                        
-                        <p>By studying this, the students learn about various applications which helps them to go further in a profession or involve themselves in any art or activity on their own.</p>
-                        
-                        <p>They are not dependent on anyone. This happens if they get the right type of vocational education or training.</p>            
-                        
-                        <p>Vocational education focuses on both abstract knowledge and professional skills for many jobs. As the field of vocational education is very broad, the students get many options to choose.        </p>
-                        
-                        <p>No matter which of the option or field they choose, there are proper training and education for all of the fields. There are many colleges that offer different courses on vocational education.
-                        </p>                        
-                        
-                        <p>The teachers or professors who teach or give vocational education use many modern tools and lesson plans to teach the students.
-                        </p>                        
-     
-                  </div>
+                 <div id="blog-body"></div>
 
                   <div class="likesharecmt">
                     <i class="far fa-heart" style="font-size: 20px"></i>
-                    <p>0</p>
+                    <p id="like-count"></p>
           
                     <i class="far fa-comment" style="font-size: 20px"></i>
-                    <p>0</p>
+                    <p id="comment-count"></p>
           
                   
                   </div>
@@ -141,10 +120,10 @@
         </div>
         
 
-
-    <script src="./js/navigation.js"></script>
-    <script src="./js/dashboard.js"></script>
-    <script src="./js/profile.js"></script>
+    <script src="./js/blog.js"></script>
+    <!-- <script src="./js/navigation.js"></script> -->
+    <!-- <script src="./js/dashboard.js"></script> -->
+    <!-- <script src="./js/profile.js"></script> -->
   </body>
 
 </html>

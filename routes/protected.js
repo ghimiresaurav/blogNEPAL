@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+const { MongoClient, ObjectID } = require("mongodb");
 
 //import routes
 const update = require("./update");
@@ -10,8 +11,8 @@ const getUserDetails = require("../controllers/profile");
 const { initiatePost, postBlog } = require("../controllers/postBlog");
 const getBlogs = require("../controllers/getBlogs");
 const postComment = require("../controllers/postComment");
-const getBlog=require("../controllers/Search")
-const blogbyid=require("../controllers/getBlogs[id]")
+const getBlog = require("../controllers/Search");
+const blogbyid = require("../controllers/getBlogs[id]");
 //import authorization middleware
 const verifyToken = require("../auth/verify");
 
@@ -37,6 +38,7 @@ router.get("/dashboard", (req, res) => {
 //like section
 const like = require("../controllers/likeBlog");
 const { route } = require("./update");
+// const { MongoClient, ObjectID } = require("mongodb");
 router.post("/like", like);
 
 router.get("/user-details", getUserDetails);
@@ -46,13 +48,30 @@ router.get("/get-blogs", getBlogs);
 router.post("/post-blog", initiatePost, postBlog);
 router.post("/post-comment", postComment);
 router.post("/search", getBlog);
-router.post("/getblogbyid",blogbyid)
+router.post("/getblogbyid", blogbyid);
 
 router.get("/post", (req, res) => {
   res.sendFile(staticDir + "/post.html");
 });
 
-router.get("/blog", (req,res) => {
-  res.sendFile (staticDir + "/BlogPost.html");
+router.get("/blog", (req, res) => {
+  res.sendFile(staticDir + "/BlogPost.html");
+});
+
+router.get("/blog/:id", (req, res) => {
+  const id = req.params.id;
+  MongoClient.connect(
+    process.env.DB_URL,
+    { useNewUrlParser: true, useUnifiedTopology: true },
+    async (err, client) => {
+      if (err) throw err;
+      const db = client.db(process.env.DB_NAME);
+      const blog = await db
+        .collection("blogs")
+        .findOne({ _id: new ObjectID(id) });
+      res.json(blog);
+    }
+  );
+  console.log(id);
 });
 module.exports = router;
