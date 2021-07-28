@@ -13,6 +13,7 @@ const getBlogs = require("../controllers/getBlogs");
 const postComment = require("../controllers/postComment");
 const getBlog = require("../controllers/Search");
 const blogbyid = require("../controllers/getBlogs[id]");
+const SearchBlog = require("../controllers/SearchBlog");
 //import authorization middleware
 const verifyToken = require("../auth/verify");
 
@@ -49,6 +50,7 @@ router.post("/post-blog", initiatePost, postBlog);
 router.post("/post-comment", postComment);
 router.post("/search", getBlog);
 router.post("/getblogbyid", blogbyid);
+router.post("/searchblog", SearchBlog);
 
 router.get("/post", (req, res) => {
   res.sendFile(staticDir + "/post.html");

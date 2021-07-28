@@ -39,28 +39,32 @@
 
       <ul class="icons">
         <li>
-          <a href="/protected/dashboard" class="active"><i class="fas fa-home active"></i>
+          <a href="/protected/dashboard" class="active" title="Home"><i class="fas fa-home active"></i>
           </a>
         </li>
 
         <li>
-          <a href="#" style="position: relative"><i class="fas fa-compass"></i>
+          <a href="#" title="Explore" style="position: relative"><i class="fas fa-compass"></i>
           </a>
         </li>
 
         <li>
-          <a href="#" style="position: relative">
+          <a href="#" title="Notifications" style="position: relative">
             <i class="fas fa-bell"></i>
           </a>
         </li>
 
         <li>
-          <a href="/protected/profile" style="position: relative">
+          <a href="/protected/profile" title="Profile" style="position: relative">
             <img id="user-avatar" alt="profile" />
           </a>
         </li>
       </ul>
     </nav>
+
+    <button onClick= "topFunction()" id="myBtn"      title="Go to top">
+       <i class="fas fa-angle-double-up"></i>
+    </button>
 
     <div class="mainSection">
       <div id="firstSection">
