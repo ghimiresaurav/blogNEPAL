@@ -1,4 +1,3 @@
-const blogsContainer = document.getElementById("blogcss");
 const TAGS = [];
 const tagsSection = document.getElementById("tags-section");
 (() => {
@@ -243,24 +242,8 @@ form.addEventListener("submit", (e) => {
 
 const navigateToPostPage = () => window.location.assign("/protected/post");
 
-// document.addEventListener("click", (e) => {
-//   const dropdown = document.getElementsByClassName("dropdown")[0];
-//   if (dropdown.classList.contains("active")) {
-//     console.log("here");
-//     const x = e.offsetX;
-//     const y = e.offsetY;
-//     if (
-//       x < dropdown.offsetLeft ||
-//       y < dropdown.offsetTop ||
-//       x > dropdown.offsetLeft + dropdown.offsetWidth ||
-//       y > dropdown.offsetTop + dropdown.offsetHeight
-//     )
-//       dropdown.classList.remove("active");
-//   }
-// });
-
-// export
 const newpost = (blog) => {
+  const blogsContainer = document.getElementById("blogcss");
   console.log(blog);
   const x = document.createElement("div");
   x.classList.add("blogs");
