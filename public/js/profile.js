@@ -55,7 +55,7 @@ const submitAvatar = (e) => {
     method: "PUT",
     body: formData,
   };
-  //send the new avtar to backend
+  //send the new avatar to backend
   fetch("/protected/update/avatar", fetchOptions)
     .then((resp) => resp.json())
     .then((response) => {
