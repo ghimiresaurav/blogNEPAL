@@ -1,4 +1,3 @@
-
 const dropdown = document.getElementsByClassName("dropdown")[0];
 document.getElementsByClassName("fa-bell")[0].addEventListener("click", () => {
   if (dropdown.style.display == "block") dropdown.style.display = "none";
