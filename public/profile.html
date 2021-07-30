@@ -10,9 +10,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Poppins&display=swap" rel="stylesheet">  
 <link rel="shortcut icon" href="./assets/favicon.png" type="image/x-icon">
 <title>Profile</title>
-  <link href="dashboard.html" />
-  <link rel="stylesheet" href="./css/profile.css" />
+  <!-- <link href="dashboard.html" /> -->
   <link rel="stylesheet" href="./css/dashboard.css" type="text/css" />
+  <link rel="stylesheet" href="./css/profile.css" />
 
   <script src="https://kit.fontawesome.com/3fdf0f105a.js" crossorigin="anonymous"></script>
 </head>
@@ -131,49 +131,20 @@
 
   </div>
 
-  <div class="dropdown">
-    <div class="notify_item">
-        <div class="notify_img">
-            <img src="https://bit.ly/3zpGHpP" alt="profile_pic" style="width: 50px">
-        </div>
-        <div class="notify_info">
-            <p>Saurav commented on<span>Blog Post</span></p>
-            <span class="notify_time">10 minutes ago</span>
-        </div>
-    </div>
-    <div class="notify_item">
-        <div class="notify_img">
-            <img src="https://bit.ly/2SwSu54" alt="profile_pic" style="width: 50px">
-        </div>
-        <div class="notify_info">
-            <p>Kabin commented on your<span>BLog Post</span></p>
-            <span class="notify_time">55 minutes ago</span>
-        </div>
-    </div>
-    <div class="notify_item">
-        <div class="notify_img">
-            <img src="https://bit.ly/2SwSu54" alt="profile_pic" style="width: 50px">
-        </div>
-        <div class="notify_info">
-            <p>Rishi liked your<span>Cover Picture</span></p>
-            <span class="notify_time">2 hours ago</span>
-        </div>
-    </div>
-    <div class="notify_item">
-        <div class="notify_img">
-            <img src="https://bit.ly/35c3kA3" alt="profile_pic" style="width: 50px">
-        </div>
-        <div class="notify_info">
-            <p>Sagar commented on your<span>Profile Picture</span></p>
-            <span class="notify_time">6 hours ago</span>
-        </div>
-    </div>
- </div>  
-
   <div id="bloglist">
     <div id="blogcss">
       <div class="blogs">
         <div class="card-header"> 
+            <div class="options">
+              <button type="button" onclick="toggleOptionList()"><i class="fas fa-ellipsis-h"></i></button>
+              <div class="options-list">
+                <span class="option-item" style="color: gray">Edit <i class="fas fa-pencil-alt"></i></span>
+                <span class="option-item" onclick="deleteBlog()">Delete <i class="fas fa-trash-alt"></i></span>
+              </div>
+              <!-- <script>
+                const deleteBlog = () => console.log('what is happening?');
+              </script> -->
+            </div>
             <img class="card-image"
             src="./assets/journal.jpg" alt="blog-image"> 
 
@@ -228,108 +199,13 @@
            </div>    
 
      </div>
-
-        <div class="blogs">
-              <div class="card-header"> 
-                  <img class="card-image"
-                  src="./assets/journal.jpg" alt="blog-image"> 
-
-                  <div class="blog-details">
-                     <h3 class="blog-title">
-                     Solar Flares and impacts on Earth
-                     </h3>
-
-                     <div class="blog-metas">
-                      <div class="meta">
-                        <i class="far fa-user"></i> Sagar Raj </i>
-                      </div>
        
-                         <div class="meta">
-                           <i class="far fa-calendar">  2021/06/28 </i>
-                         </div>
-     
-         
-                         <div class="meta">
-                           <i class="far fa-clock"></i>
-                             5:56 A.M. </i>
-                         </div>
-                     </div>
-                 
-                   </div>
-
-                 </div>
-
-                 <div class="card-body">
-
-                   <div class="blog-category">
-                     Technology
-                   </div>
-
-                   <div class="blog-body">
-                     <p>
-                     Most of the short wave rays coming directly from the sun, they trap most of the long wave permeate most of the short wave rays coming directly from the sun, they trap most of the long wave permeate most of the short wave rays coming directly from the sun, they trap most of the long wave permeate most of the short wave rays coming directly from the sun, they trap most of the long wave permeate most of the short wave rays coming directly from the sun, they trap most of the long wave
-                     
-                     </p> 
-                   </div>
-
-                   <a href="BlogPost.html" class="ReadButton" >Read full Post</a>
-                 </div>    
-
-           </div>
-
-           <div class="blogs">
-            <div class="card-header"> 
-                <img class="card-image"
-                src="./assets/journal.jpg" alt="blog-image"> 
-
-                <div class="blog-details">
-                   <h3 class="blog-title">
-                    Dark side of Cybersecurity
-                   </h3>
-
-                   <div class="blog-metas">
-                    <div class="meta">
-                      <i class="far fa-user"></i> Sagar Raj </i>
-                    </div>
-     
-                       <div class="meta">
-                         <i class="far fa-calendar"> 2021/06/28 </i>
-                       </div>
-   
-       
-                       <div class="meta">
-                         <i class="far fa-clock"></i>
-                           5:56 A.M. </i>
-                       </div>
-                   </div>
-               
-                 </div>
-
-               </div>
-
-               <div class="card-body">
-
-                 <div class="blog-category">
-                   Technology
-                 </div>
-
-                 <div class="blog-body">
-                   <p>
-                   Most of the short wave rays coming directly from the sun, they trap most of the long wave permeate most of the short wave rays coming directly from the sun, they trap most of the long wave permeate most of the short wave rays coming directly from the sun, they trap most of the long wave permeate most of the short wave rays coming directly from the sun, they trap most of the long wave permeate most of the short wave rays coming directly from the sun, they trap most of the long wave
-                   
-                   </p> 
-                 </div>
-
-                 <a href="BlogPost.html" class="ReadButton" >Read full Post</a>
-               </div>    
-
-         </div>
     </div>
   </div>
   </div>
   
   <!-- <script src="./js/navigation.js"></script> -->
-  <script src="./js/profile.js" type="module"></script>
+  <script src="./js/profile.js"></script>
 </body>
 
 </html>
