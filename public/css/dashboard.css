@@ -241,10 +241,6 @@ hr.new {
   margin-top: 10px;
 }
 
-#fill-red {
-  color: #b62e42;
-}
-
 .likesharecmt p {
   margin: 0 10px 0 10px;
 }
@@ -350,7 +346,7 @@ h3.blog-title {
 
 .blog-body {
   margin: 20px 0;
-  white-space: normal; 
+  white-space: normal;
   height: 80px;
   width: 25vw;
   overflow: hidden;
@@ -361,7 +357,6 @@ h3.blog-title {
   font-size: 15px;
   font-weight: 300;
 }
-
 
 .card-image {
   position: absolute;

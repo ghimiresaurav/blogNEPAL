@@ -107,33 +107,23 @@
                 
                  <div id="blog-body"></div>
 
-                  <div class="likesharecmt">
-                    <i class="far fa-heart" style="font-size: 20px"></i>
+                  <div id="likesharecmt">
+                    <!-- <i class="far fa-heart" style="font-size: 20px"></i>
                     <p id="like-count"></p>
           
                     <i class="far fa-comment" style="font-size: 20px"></i>
-                    <p id="comment-count"></p>
+                    <p id="comment-count"></p> -->
           
                   
                   </div>
                   <div class="comment">
-                    <form>
+                    <form onsubmit="postComment(event, this.firstElementChild.value)">
                       <input type="text" placeholder="Post a comment...">
                       <button type="submit" class="send-btn">
                         <i class="fas fa-paper-plane"></i>
                       </button>
                     </form>
                     <div id="comment-list">
-                      <div class="comments">
-                        <div>
-                          <img id="commentimage" src="" alt="pic"/>
-                        </div>
-                        <div class="comment-text">
-                          <p><strong>sagar raj</strong></p>
-                          <p>Nice blog</p>
-                        </div>
-          
-                      </div>
                     </div>
                   </div>
     
