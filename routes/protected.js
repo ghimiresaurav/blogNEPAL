@@ -1,21 +1,23 @@
 const express = require("express");
 const router = express.Router();
-const { MongoClient, ObjectID } = require("mongodb");
 
 //import routes
 const update = require("./update");
 
-//import controllers
-const logout = require("../controllers/logout");
-const getUserDetails = require("../controllers/profile");
-const { initiatePost, postBlog } = require("../controllers/postBlog");
-const getBlogs = require("../controllers/getBlogs");
-const postComment = require("../controllers/postComment");
-const getBlog = require("../controllers/Search");
-const blogbyid = require("../controllers/getBlogs[id]");
-const SearchBlog = require("../controllers/SearchBlog");
 //import authorization middleware
 const verifyToken = require("../auth/verify");
+
+//import controllers
+const logout = require("../controllers/logout");
+const { initiatePost, postBlog } = require("../controllers/postBlog");
+const postComment = require("../controllers/postComment");
+const { searchByTag, searchByTitle } = require("../controllers/searchBlogs");
+const deleteBlog = require("../controllers/deleteBlog");
+const {
+  getAllBlogs,
+  getOwnBlogs,
+  getSpecificBlog,
+} = require("../controllers/getBlogs");
 
 //setup and use static directory
 const staticDir = __dirname.replace("routes", "public");
@@ -25,6 +27,8 @@ router.use(express.urlencoded({ extended: true }));
 
 //use authorization middleware
 router.use(verifyToken);
+
+//use update route for update requests
 router.use("/update", update);
 
 //handle requests
@@ -36,22 +40,6 @@ router.get("/dashboard", (req, res) => {
   res.sendFile(staticDir + "/dashboard.html");
 });
 
-//like section
-const like = require("../controllers/likeBlog");
-const { route } = require("./update");
-// const { MongoClient, ObjectID } = require("mongodb");
-router.post("/like", like);
-
-router.get("/user-details", getUserDetails);
-router.delete("/logout", logout);
-
-router.get("/get-blogs", getBlogs);
-router.post("/post-blog", initiatePost, postBlog);
-router.post("/post-comment", postComment);
-router.post("/search", getBlog);
-router.post("/getblogbyid", blogbyid);
-router.post("/searchblog", SearchBlog);
-
 router.get("/post", (req, res) => {
   res.sendFile(staticDir + "/post.html");
 });
@@ -60,20 +48,17 @@ router.get("/blog", (req, res) => {
   res.sendFile(staticDir + "/BlogPost.html");
 });
 
-router.get("/blog/:id", (req, res) => {
-  const id = req.params.id;
-  MongoClient.connect(
-    process.env.DB_URL,
-    { useNewUrlParser: true, useUnifiedTopology: true },
-    async (err, client) => {
-      if (err) throw err;
-      const db = client.db(process.env.DB_NAME);
-      const blog = await db
-        .collection("blogs")
-        .findOne({ _id: new ObjectID(id) });
-      res.json(blog);
-    }
-  );
-  console.log(id);
-});
+const like = require("../controllers/likeBlog");
+
+router.get("/get-blogs", getAllBlogs);
+router.get("/blog/:id", getSpecificBlog);
+router.post("/getblogbyid", getOwnBlogs);
+router.post("/searchblog", searchByTitle);
+router.post("/search", searchByTag);
+router.post("/like", like);
+router.post("/post-comment", postComment);
+router.post("/post-blog", initiatePost, postBlog);
+router.delete("/deleteBlog", deleteBlog);
+router.delete("/logout", logout);
+
 module.exports = router;

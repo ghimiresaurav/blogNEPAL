@@ -202,7 +202,7 @@ nav ul {
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  padding: 0 25px;
+  padding: 20px 25px;
 }
 
 #blog-body p {

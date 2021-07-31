@@ -86,12 +86,10 @@ tinymce.init({
 
 // Image Preview
 document.getElementById("user-avatar").src = localStorage.getItem("avatarLink");
-// const addTag = document.getElementById('add-tag')
 const image = document.getElementById("prev-img");
 const rightPane = document.getElementById("right-pane");
 const RIGHT_PANE_HEIGHT = rightPane.offsetHeight;
 var loadFile = function (event) {
-  // var image = document.getElementById("prev-img");
   image.src = URL.createObjectURL(event.target.files[0]);
   setTimeout(
     () =>
@@ -169,7 +167,6 @@ function clearTags() {
   var myobj = document.getElementsByClassName("tags");
   for (var i = myobj.length - 1; i >= 0; i--) {
     myobj[i].remove();
-    // myobj = document.getElementsByClassName("tags");
   }
 }
 
@@ -178,7 +175,6 @@ document.getElementById("clearTags").addEventListener("click", clearTags);
 const postNotification = document.getElementById("post-notification");
 const clearForm = () => {
   document.getElementById("blog-title").value = "";
-  // document.getElementById("editableDiv").innerHTML = "";
   image.src = "";
   rightPane.style.height = "50vh";
   clearTags();
@@ -198,8 +194,6 @@ const postBlog = (e) => {
   );
 
   const content = tinymce.get("blog-txt").getContent();
-  // document.getElementById("tinymce").innerHTML;
-  // console.log(content);
 
   const form = document.getElementById("blog-post-form");
   const formData = new FormData(form);
@@ -215,8 +209,6 @@ const postBlog = (e) => {
   fetch("/protected/post-blog", fetchOptions);
   postNotification.innerHTML = `<strong>Your blog has been posted successfully. <i class="far fa-thumbs-up"></i></strong>`;
   postNotification.style.top = `15vh`;
-  // console.log(document.getElementById("tinymce").innerHTML);
   formData.delete("images");
-  // console.log(formData.get("images"));
   clearForm();
 };

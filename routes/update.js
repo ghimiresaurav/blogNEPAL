@@ -11,6 +11,7 @@ const updateUsername = require("../controllers/updateUsername");
 const updateBioAndHobbies = require("../controllers/updateBioAndHobbies");
 const updatePassword = require("../controllers/updatePassword");
 
+//use auth middleware to verify logged in status
 router.use(verifyLoggedIn);
 
 router.put("/avatar", updateAvatar);

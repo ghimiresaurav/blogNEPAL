@@ -1,11 +1,8 @@
 const blogId = location.href.split("=")[1];
 
-const wrapBlog = (blog) => {
-  // const blogTitle = document.getElementById("blog-title");
-  // blogTitle.innerText = blog.title;
-  // const authorAvatar = document.getElementById("auth-avatar");
-  // authorAvatar.firstElementChild.src = blog.author.avatar;
+document.getElementById("user-avatar").src = localStorage.getItem("avatarLink");
 
+const wrapBlog = (blog) => {
   const images = blog.links.split(", ");
   images.shift();
   if (images.length) {
@@ -15,7 +12,6 @@ const wrapBlog = (blog) => {
     img.setAttribute("src", images[0]);
     imageContainer.appendChild(img);
   }
-  // document.getElementById("blog-image").src = images[0];
 
   document.getElementById("blog-title").innerText = blog.title;
   document.getElementById("auth-avatar").firstElementChild.src =
@@ -139,3 +135,20 @@ fetch(`/protected/blog/${blogId}`)
   .then((response) => {
     wrapBlog(response);
   });
+
+const deleteThisBlog = () => deleteBlog(blogId);
+
+const deleteBlog = (blogId) => {
+  fetch("/protected/deleteBlog", {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ blogId }),
+  })
+    .then((resp) => resp.json())
+    .then((response) => {
+      console.log(response.message);
+    })
+    .catch((err) => console.error(err));
+};

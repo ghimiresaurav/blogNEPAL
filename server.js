@@ -39,9 +39,9 @@ app.get("/error", (req, res) => {
 });
 
 app.post("/register", registerController);
-app.post("/login", loginController)
+app.post("/login", loginController);
 
-const PORT = 3000;
+const PORT = 3000 || process.env.PORT;
 app.listen(PORT, () =>
   console.log(chalk.magenta(`SERVER STARTED ON PORT ${PORT}`))
 );
