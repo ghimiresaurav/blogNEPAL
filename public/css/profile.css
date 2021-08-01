@@ -417,3 +417,91 @@ button {
   border-bottom: 1px solid;
   pointer-events: none;
 }
+
+
+  
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  padding: 10px 10px;
+  transform: translate(-50%, -50%) scale(0);
+  transition: 200ms ease-in-out;
+  /* border: 1px solid black; */
+  border-radius: 5px;
+  z-index: 160;
+  background-color: white;
+  width: 500px;
+  max-width: 80%;
+}
+
+.modal-header {
+  font-family: "Poppins", sans-serif;
+}
+
+.modal-header-head {
+  font-family: "Poppins", sans-serif;
+  font-size: 23px;
+  font-weight: bold;
+  padding: 10px 3px 10px 0px;
+}
+
+.modal.active {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.sure-buttons {
+  margin: 10px 1px 0px .5px;
+  float: right;
+  font-family: "Poppins", sans-serif;
+  font-size: 15px;
+  width: 60px;
+  height: 28px;
+  text-align: center;
+  border: 1px solid #b62e42;
+  padding: 2px;
+  border-radius: 4px;
+  color: white;
+  background-color: #b62e42;
+  transition-duration: 0.4s;
+}
+
+.sure-buttons:hover {
+  border: 1px solid #b62e42;
+  color: #b62e42;
+  background-color: white;
+  cursor: pointer;
+}
+
+.sure-buttons:focus {
+  outline: none;
+}
+
+#Yes {
+  color: black;
+  background-color: white;
+  border: 1px solid white;
+}
+
+#Yes:hover {
+  border: 1px solid #b62e42;
+  /* background-color: #b62e42; */
+  color: #b62e42;
+}
+
+#overlay {
+  position: fixed;
+  opacity: 0;
+  transition: 200ms ease-in-out;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, .5);
+  pointer-events: none;
+}
+
+#overlay.active {
+  opacity: 1;
+  pointer-events: all;
+}

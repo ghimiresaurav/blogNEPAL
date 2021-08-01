@@ -124,7 +124,19 @@
         </form>
 
         <div id="deleteAccount">
-          <button class="submit">Delete Account</button>
+          <button class="submit" data-modal-target="#modal">Delete Account</button>
+          <div class="modal" id="modal">
+            <div class="modal-header">
+              <div class="modal-header-head">Confirm</div>
+                Are you sure you want to delete this account? This change is irreversible!
+                <div class="Final" id="Final">
+                  <button id="Yes" class="sure-buttons">Yes</button>
+                  <button data-close-button class="close-button sure-buttons" id="No">No</button>
+                </div>
+            </div>
+          </div>
+
+          <div id="overlay"></div>
         </div>
       </div>
     </div>
