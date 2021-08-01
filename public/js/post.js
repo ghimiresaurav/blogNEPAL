@@ -209,6 +209,6 @@ const postBlog = (e) => {
   fetch("/protected/post-blog", fetchOptions);
   postNotification.innerHTML = `<strong>Your blog has been posted successfully. <i class="far fa-thumbs-up"></i></strong>`;
   postNotification.style.top = `15vh`;
-  formData.delete("images");
-  clearForm();
+  // formData.delete("images");
+  // clearForm();
 };

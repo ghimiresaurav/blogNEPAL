@@ -405,8 +405,8 @@ button {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  /* visibility: none;
-  opacity: 0; */
+  visibility: none;
+  opacity: 0;
 }
 
 .option-item {
@@ -415,4 +415,5 @@ button {
   padding: 5px;
   cursor: pointer;
   border-bottom: 1px solid;
+  pointer-events: none;
 }

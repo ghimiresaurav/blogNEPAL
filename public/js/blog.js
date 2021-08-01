@@ -60,7 +60,8 @@ const comment = (comment) => {
                           <img id="commentimage" src=${comment.user.avatar} alt="pic"/>
                         </div>
                         <div class="comment-text">
-                          <p><strong>${comment.user.name} </strong></p>
+                          <p><strong>${comment.user.name} </strong>
+                          <span class="comment-time">${comment.date}</span></p>
                           <p>${comment.body} </p>
                         </div>
           
@@ -118,7 +119,6 @@ const Like = (LikeStatus) => {
 
 //post comment in backend
 const postComment = (e, comment) => {
-  console.log(comment);
   e.preventDefault();
   const fetchOptions = {
     method: "POST",
@@ -135,20 +135,3 @@ fetch(`/protected/blog/${blogId}`)
   .then((response) => {
     wrapBlog(response);
   });
-
-const deleteThisBlog = () => deleteBlog(blogId);
-
-const deleteBlog = (blogId) => {
-  fetch("/protected/deleteBlog", {
-    method: "DELETE",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ blogId }),
-  })
-    .then((resp) => resp.json())
-    .then((response) => {
-      console.log(response.message);
-    })
-    .catch((err) => console.error(err));
-};
