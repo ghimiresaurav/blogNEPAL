@@ -3,7 +3,6 @@ const fs = require("fs");
 const path = require("path");
 
 module.exports = (req, res) => {
-  console.log("delete request");
   const { blogId } = req.body;
   const userId = res.locals.id;
   const query = { _id: new ObjectID(blogId) };
@@ -25,7 +24,6 @@ module.exports = (req, res) => {
           if (err) throw err;
         });
       } else {
-        console.log("cannot delete");
         return res.json({
           message:
             "Unable to delete. You do not have permission to delete this blog",
