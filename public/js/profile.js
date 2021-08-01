@@ -229,7 +229,6 @@ const updatePassword = (e) => {
 
 const newpost = (blog) => {
   const blogsContainer = document.getElementById("blogcss");
-  // console.log(blog._id);
   const x = document.createElement("div");
   x.classList.add("blogs");
   x.id = blog._id;
@@ -312,8 +311,6 @@ const blog = () => {
   fetch("/protected/getblogbyid", fetchOptions)
     .then((res) => res.json())
     .then((response) => {
-      // response.forEach((resp) => newpost(resp));
-      // console.log(response);
       response.forEach((resp) => newpost(resp));
     });
 };
@@ -325,7 +322,6 @@ const toggleOptionList = (e) => {
     ? e.target.parentNode
     : e.target;
   elem = elem.nextElementSibling;
-  console.log(elem);
   if (!elem.style.opacity || elem.style.opacity == "0") {
     elem.style.opacity = 1;
     elem.style.visibility = "visible";
@@ -351,47 +347,51 @@ const deleteBlog = (blogId) => {
     .then((response) => {
       if (response.success) {
         document.getElementById(blogId).remove();
-      }
-      console.log(response.message);
+        console.log(response.message);
+      } else console.error(response.message);
     })
     .catch((err) => console.error(err));
 };
 
 // Js to comfirm delete
 
-const openModalButtons = document.querySelectorAll('[data-modal-target]')
-const closeModalButtons = document.querySelectorAll('[data-close-button]')
-const overlay = document.getElementById('overlay')
+const openModalButtons = document.querySelectorAll("[data-modal-target]");
+const closeModalButtons = document.querySelectorAll("[data-close-button]");
+const overlay = document.getElementById("overlay");
 
-openModalButtons.forEach(button => {
-  button.addEventListener('click', () => {
-    const modal = document.querySelector(button.dataset.modalTarget)
-    openModal(modal)
-  })
-})
+openModalButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    const modal = document.querySelector(button.dataset.modalTarget);
+    openModal(modal);
+  });
+});
 
-overlay.addEventListener('click', () => {
-  const modals = document.querySelectorAll('.modal.active')
-  modals.forEach(modal => {
-    closeModal(modal)
-  })
-})
+overlay.addEventListener("click", () => {
+  const modals = document.querySelectorAll(".modal.active");
+  modals.forEach((modal) => {
+    closeModal(modal);
+  });
+});
 
-closeModalButtons.forEach(button => {
-  button.addEventListener('click', () => {
-    const modal = button.closest('.modal')
-    closeModal(modal)
-  })
-})
+closeModalButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    const modal = button.closest(".modal");
+    closeModal(modal);
+  });
+});
 
 function openModal(modal) {
-  if (modal == null) return
-  modal.classList.add('active')
-  overlay.classList.add('active')
+  if (modal == null) return;
+  modal.classList.add("active");
+  overlay.classList.add("active");
 }
 
 function closeModal(modal) {
-  if (modal == null) return
-  modal.classList.remove('active')
-  overlay.classList.remove('active')
+  if (modal == null) return;
+  modal.classList.remove("active");
+  overlay.classList.remove("active");
 }
+
+const deleteAccoount = () => {
+  console.log("delete acc");
+};
