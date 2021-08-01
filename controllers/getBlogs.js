@@ -46,6 +46,7 @@ const getSpecificBlog = (req, res) => {
     }
   );
 };
+
 module.exports = {
   getAllBlogs,
   getOwnBlogs,

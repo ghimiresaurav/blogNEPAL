@@ -296,6 +296,9 @@ nav ul {
 
 .comment-time {
   font-size: 13px;
+  color: gray;
+  position: absolute;
+  right: 50px;
 }
 
 .user-images,

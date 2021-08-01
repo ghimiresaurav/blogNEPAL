@@ -124,7 +124,19 @@
         </form>
 
         <div id="deleteAccount">
-          <button class="submit">Delete Account</button>
+          <button class="submit" data-modal-target="#modal">Delete Account</button>
+          <div class="modal" id="modal">
+            <div class="modal-header">
+              <div class="modal-header-head">Confirm</div>
+                Are you sure you want to delete this account? This change is irreversible!
+                <div class="Final" id="Final">
+                  <button id="Yes" class="sure-buttons">Yes</button>
+                  <button data-close-button class="close-button sure-buttons" id="No">No</button>
+                </div>
+            </div>
+          </div>
+
+          <div id="overlay"></div>
         </div>
       </div>
     </div>
@@ -133,72 +145,7 @@
 
   <div id="bloglist">
     <div id="blogcss">
-      <div class="blogs">
-        <div class="card-header"> 
-            <div class="options">
-              <button type="button" onclick="toggleOptionList()"><i class="fas fa-ellipsis-h"></i></button>
-              <div class="options-list">
-                <!-- <span class="option-item" style="color: gray">Edit <i class="fas fa-pencil-alt"></i></span> -->
-                <span class="option-item" onclick="deleteBlog()"><i class="fas fa-trash-alt"></i> &ensp; Delete </span>
-              </div>
-              <!-- <script>
-                const deleteBlog = () => console.log('what is happening?');
-              </script> -->
-            </div>
-            <img class="card-image"
-            src="./assets/journal.jpg" alt="blog-image"> 
-
-            <div class="blog-details">
-               <h3 class="blog-title">
-                Importance of voluntary education
-               </h3>
-
-               <div class="blog-metas">
-                   <div class="meta">
-                     <i class="far fa-user"></i> Sagar Raj 
-                   </div>
- 
-                   <div class="meta">
-                     <i class="far fa-calendar"></i> 2021/06/28
-                   </div>
-
-   
-                   <div class="meta">
-                     <i class="far fa-clock"></i>
-                       5:56 A.M. </i>
-                   </div>
-               </div>
-           
-             </div>
-
-           </div>
-
-           <div class="card-body">
-
-             <div class="blog-category">
-               Technology
-             </div>
-
-             <div class="blog-body">
-                 Vocational Education has become very popular today. This form of education helps the students to get many qualifications for a particular profession.
-                 The students are taught how to use their skills for practical application and only theory is not important to gain knowledge and progress in life.
-                 
-                 By studying this, the students learn about various applications which helps them to go further in a profession or involve themselves in any art or activity on their own.
-                 
-                 They are not dependent on anyone. This happens if they get the right type of vocational education or training.
-                 
-                 Vocational education focuses on both abstract knowledge and professional skills for many jobs. As the field of vocational education is very broad, the students get many options to choose.
-                 
-                 No matter which of the option or field they choose, there are proper training and education for all of the fields. There are many colleges that offer different courses on vocational education.
-                 
-                 The teachers or professors who teach or give vocational education use many modern tools and lesson plans to teach the students.
-               
-             </div>
-
-             <a href="BlogPost.html" class="ReadButton" >Read full Post</a>
-           </div>    
-
-     </div>
+      
        
     </div>
   </div>

@@ -44,16 +44,6 @@ form.addEventListener("submit", (e) => {
     return;
   }
 
-  if (password !== repassword) {
-    //the password entered does not match with the password entered in the re-enter field
-    fields[1].style.border = `1px solid red`;
-    fields[1].style.borderRadius = `5px`;
-    fields[2].style.border = `1px solid red`;
-    fields[2].style.borderRadius = `5px`;
-    notification.innerText = `The passwords do not match.`;
-    return;
-  }
-
   //check if the password entered is strong enough
   if (passwordRegex.test(password)) {
     //the password is strong
@@ -72,6 +62,16 @@ form.addEventListener("submit", (e) => {
     return;
   }
 
+  if (password !== repassword) {
+    //the password entered does not match with the password entered in the re-enter field
+    fields[1].style.border = `1px solid red`;
+    fields[1].style.borderRadius = `5px`;
+    fields[2].style.border = `1px solid red`;
+    fields[2].style.borderRadius = `5px`;
+    notification.innerText = `The passwords do not match.`;
+    return;
+  }
+
   //send the inputs to server
   const fetchOptions = {
     method: "POST",
@@ -83,6 +83,7 @@ form.addEventListener("submit", (e) => {
   fetch("/register", fetchOptions)
     .then((response) => response.json())
     .then((data) => {
+      notification.style.backgroundColor = data.success ? "green" : "red";
       notification.innerHTML = `<strong>${data.message}</strong>`;
       if (data.success) {
         //clear the input fields

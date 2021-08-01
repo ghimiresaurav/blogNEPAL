@@ -229,9 +229,10 @@ const updatePassword = (e) => {
 
 const newpost = (blog) => {
   const blogsContainer = document.getElementById("blogcss");
-  // console.log(blog);
+  // console.log(blog._id);
   const x = document.createElement("div");
   x.classList.add("blogs");
+  x.id = blog._id;
 
   const dateTime = blog.date.split("-");
 
@@ -262,6 +263,13 @@ const newpost = (blog) => {
 
   x.innerHTML = `
   <div class="card-header">
+    <div class="options">
+      <button type="button" onclick="toggleOptionList(event)"><i class="fas fa-ellipsis-h"></i></button>
+      <div class="options-list">
+        <!-- <span class="option-item" style="color: gray">Edit <i class="fas fa-pencil-alt"></i></span> -->
+        <span class="option-item" onclick="deleteBlog('${blog._id}')"><i class="fas fa-trash-alt"></i> &ensp; Delete </span>
+      </div>
+    </div>
     <img class="card-image" src="${blogImageUrl}" alt="blog-image" />
 
     <div class="blog-details">
@@ -294,7 +302,6 @@ const newpost = (blog) => {
 
 const blog = () => {
   const id = localStorage.getItem("userId");
-  // console.log(id);
   const fetchOptions = {
     method: "POST",
     headers: {
@@ -306,18 +313,85 @@ const blog = () => {
     .then((res) => res.json())
     .then((response) => {
       // response.forEach((resp) => newpost(resp));
-      console.log(response);
+      // console.log(response);
       response.forEach((resp) => newpost(resp));
     });
 };
 
 blog();
 
-const toggleOptionList = () => {
-  console.log("workgin");
+const toggleOptionList = (e) => {
+  let elem = e.target.classList.contains("fas")
+    ? e.target.parentNode
+    : e.target;
+  elem = elem.nextElementSibling;
+  console.log(elem);
+  if (!elem.style.opacity || elem.style.opacity == "0") {
+    elem.style.opacity = 1;
+    elem.style.visibility = "visible";
+    elem.previousElementSibling.innerHTML = `<i class="fas fa-times"></i>`;
+    elem.lastElementChild.style.pointerEvents = "unset";
+  } else {
+    elem.style.opacity = 0;
+    elem.style.visibility = "hidden";
+    elem.previousElementSibling.innerHTML = `<i class="fas fa-ellipsis-h">`;
+    elem.lastElementChild.style.pointerEvents = "none";
+  }
 };
 
-const deleteBlog = () => {
-  console.log("hmm");
-  console.log("uhhhuh");
+const deleteBlog = (blogId) => {
+  fetch("/protected/deleteBlog", {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ blogId }),
+  })
+    .then((resp) => resp.json())
+    .then((response) => {
+      if (response.success) {
+        document.getElementById(blogId).remove();
+      }
+      console.log(response.message);
+    })
+    .catch((err) => console.error(err));
 };
+
+// Js to comfirm delete
+
+const openModalButtons = document.querySelectorAll('[data-modal-target]')
+const closeModalButtons = document.querySelectorAll('[data-close-button]')
+const overlay = document.getElementById('overlay')
+
+openModalButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    const modal = document.querySelector(button.dataset.modalTarget)
+    openModal(modal)
+  })
+})
+
+overlay.addEventListener('click', () => {
+  const modals = document.querySelectorAll('.modal.active')
+  modals.forEach(modal => {
+    closeModal(modal)
+  })
+})
+
+closeModalButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    const modal = button.closest('.modal')
+    closeModal(modal)
+  })
+})
+
+function openModal(modal) {
+  if (modal == null) return
+  modal.classList.add('active')
+  overlay.classList.add('active')
+}
+
+function closeModal(modal) {
+  if (modal == null) return
+  modal.classList.remove('active')
+  overlay.classList.remove('active')
+}
