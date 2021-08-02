@@ -22,7 +22,7 @@ module.exports = (req, res) => {
 
       if (blogsByThisUser.length) {
         blogsByThisUser.forEach(async (blog) => {
-          const result = await db
+          await db
             .collection("blogs")
             .deleteOne({ _id: new ObjectID(blog._id) });
 
