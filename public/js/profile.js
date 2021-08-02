@@ -4,9 +4,6 @@ const userDetails = JSON.parse(localStorage.getItem("userDetails"));
   //display all the important information
   document.getElementById("profile-picture").src =
     localStorage.getItem("avatarLink");
-  // document.getElementById("commentimage").src =
-  //   localStorage.getItem("avatarLink");
-  // document.getElementById("image").src = localStorage.getItem("avatarLink");
   document.getElementById(
     "namesetting"
   ).innerHTML = `<strong>${userDetails.username}</strong>`;
@@ -16,6 +13,9 @@ const userDetails = JSON.parse(localStorage.getItem("userDetails"));
     document.getElementById(
       "hobbies"
     ).innerHTML = `<strong>Hobbies: </strong>${userDetails.hobbies}`;
+  document
+    .getElementById("username-for-password-change")
+    .setAttribute("value", userDetails.email);
 })();
 
 const profile = document.getElementById("profile");
@@ -104,6 +104,7 @@ const logout = () => {
       if (response.success) {
         localStorage.removeItem("userDetails");
         localStorage.removeItem("avatarLink");
+        localStorage.removeItem("userId");
         window.location.assign("/");
       }
     })
@@ -336,7 +337,7 @@ const toggleOptionList = (e) => {
 };
 
 const deleteBlog = (blogId) => {
-  fetch("/protected/deleteBlog", {
+  fetch("/protected/delete/blog", {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
@@ -393,5 +394,17 @@ function closeModal(modal) {
 }
 
 const deleteAccoount = () => {
-  console.log("delete acc");
+  fetch("/protected/delete/account", {
+    method: "DELETE",
+  })
+    .then((resp) => resp.json())
+    .then((response) => {
+      if (response.success) {
+        localStorage.removeItem("userDetails");
+        localStorage.removeItem("avatarLink");
+        localStorage.removeItem("userId");
+        window.location.assign("/");
+      }
+    })
+    .catch((err) => console.error(err));
 };

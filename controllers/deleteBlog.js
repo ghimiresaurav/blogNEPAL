@@ -1,6 +1,5 @@
 const { MongoClient, ObjectID } = require("mongodb");
 const fs = require("fs");
-const path = require("path");
 const { constants } = require("buffer");
 
 module.exports = (req, res) => {
@@ -40,10 +39,11 @@ module.exports = (req, res) => {
         )}/assets/blog_images/post-${blogId}`;
         //check and delete if the blog had images
         fs.access(dir, constants.F_OK, (err) => {
-          if (!err)
+          if (!err) {
             fs.rmdir(dir, { recursive: true }, (err) => {
               if (err) throw err;
             });
+          }
         });
       }
     }
