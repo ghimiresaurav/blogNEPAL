@@ -68,7 +68,7 @@
 
         <div id="blog-wrapper">
             <div class="blogs">
-                <div class="card-header"> 
+                <div id="card-header"> 
                     <div class="blog-details">
                         <h3 id="blog-title"></h3>
                      </div>
@@ -102,65 +102,19 @@
                      </div>
     
                     <div id="card-image">
+                      <!-- card-image = container -->
                       <div class="blogImages">
-                        <div class="numbertext">1 / 6</div>
-                        <img src="https://bit.ly/3ifdvLy" style="width:100%">
-                      </div>
-                     
-                      <div class="blogImages">
-                        <div class="numbertext">2 / 6</div>
-                        <img src="https://bit.ly/3rOy2JX" class="imgstyle">
-                      </div>
-
-                      <div class="blogImages">
-                        <div class="numbertext">3 / 6</div>
-                        <img src="https://bit.ly/3C2v9ds" class="imgstyle">
-                      </div>
-                        
-                      <div class="blogImages">
-                        <div class="numbertext">4 / 6</div>
-                        <img src="https://bit.ly/3rOs6Rb" class="imgstyle">
-                      </div>
-
-                      <div class="blogImages">
-                        <div class="numbertext">5 / 6</div>
-                        <img src="https://bit.ly/3jamYDb" class="imgstyle">
-                      </div>
-                        
-                      <div class="blogImages">
-                        <div class="numbertext">6 / 6</div>
-                        <img src="https://bit.ly/3xcboMZ" class="imgStyle" >
-                      </div>
+                        <!-- blogImages = slide -->
+                        <div id="numbertext"></div>
+                        <img id="blog-image" style="width:100%">
+                      </div>                    
+                      
 
                       <a class="prev" onclick="plusSlides(-1)">❮</a>
                       <a class="next" onclick="plusSlides(1)">❯</a>
                     </div>           
                     
-                    <div class="caption-container">
-                      <p id="caption"></p>
-                    </div>
-                  
-                    <div class="row">
-                      <div class="column">
-                        <img class="demo cursor" src="https://bit.ly/3ifdvLy" style="width:100%" onclick="currentSlide(1)" alt="Rocky Lake">
-                      </div>
-                      <div class="column">
-                        <img class="demo cursor" src="https://bit.ly/3rOy2JX" style="width:100%" onclick="currentSlide(2)" alt="Majestic Sunset">
-                      </div>
-                      <div class="column">
-                        <img class="demo cursor" src="https://bit.ly/3C2v9ds" style="width:100%" onclick="currentSlide(3)" alt="Duck doo doo">
-                      </div>
-                      <div class="column">
-                        <img class="demo cursor" src="https://bit.ly/3rOs6Rb" style="width:100%" onclick="currentSlide(4)" alt="Valley of Peace">
-                      </div>
-                      <div class="column">
-                        <img class="demo cursor" src="https://bit.ly/3jamYDb" style="width:100%" onclick="currentSlide(5)" alt="Beautiful Paris">
-                      </div>    
-                      <div class="column">
-                        <img class="demo cursor" src="https://bit.ly/3xcboMZ" style="width:100%" onclick="currentSlide(6)" alt="Life in Desert">
-                      </div>
-                    </div>
-       
+                    <div id="row"></div>       
                 </div>
                 
                  <div id="blog-body">
@@ -193,18 +147,10 @@
                     </form>
                     <div id="comment-list">
                     </div>
-                  </div>
-    
+                  </div>    
             </div>    
-        </div>
-        
+        </div>      
 
     <script src="./js/blog.js"></script>
-    <!-- <script src="./js/navigation.js"></script> -->
-    <!-- <script src="./js/dashboard.js"></script> -->
-    <!-- <script src="./js/profile.js"></script> -->
   </body>
-
 </html>
-
-
