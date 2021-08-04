@@ -68,7 +68,7 @@
 
         <div id="blog-wrapper">
             <div class="blogs">
-                <div class="card-header"> 
+                <div id="card-header"> 
                     <div class="blog-details">
                         <h3 id="blog-title"></h3>
                      </div>
@@ -101,52 +101,56 @@
                        
                      </div>
     
-                    <div id="card-image"></div>                
-       
+                    <div id="card-image">
+                      <!-- card-image = container -->
+                      <div class="blogImages">
+                        <!-- blogImages = slide -->
+                        <div id="numbertext"></div>
+                        <img id="blog-image" style="width:100%">
+                      </div>                    
+                      
+
+                      <a class="prev" onclick="plusSlides(-1)">❮</a>
+                      <a class="next" onclick="plusSlides(1)">❯</a>
+                    </div>           
+                    
+                    <div id="row"></div>       
                 </div>
                 
-                 <div id="blog-body"></div>
+                 <div id="blog-body">
+                  Vocational Education has become very popular today. This form of education helps the students to get many qualifications for a particular profession.
+                  The students are taught how to use their skills for practical application and only theory is not important to gain knowledge and progress in life.<br>
 
-                  <div class="likesharecmt">
-                    <i class="far fa-heart" style="font-size: 20px"></i>
+                  By studying this, the students learn about various applications which helps them to go further in a profession or involve themselves in any art or activity on their own. <br>
+
+                  They are not dependent on anyone. This happens if they get the right type of vocational education or training.       <br>          
+                  Vocational education focuses on both abstract knowledge and professional skills for many jobs. As the field of vocational education is very broad, the students get many options to choose.                    <br>        
+                  No matter which of the option or field they choose, there are proper training and education for all of the fields. There are many colleges that offer different courses on vocational education.                            
+                  The teachers or professors who teach or give vocational education use many modern tools and lesson plans to teach the students.             
+                 </div>
+
+                  <div id="likesharecmt">
+                    <!-- <i class="far fa-heart" style="font-size: 20px"></i>
                     <p id="like-count"></p>
           
                     <i class="far fa-comment" style="font-size: 20px"></i>
-                    <p id="comment-count"></p>
+                    <p id="comment-count"></p> -->
           
                   
                   </div>
                   <div class="comment">
-                    <form>
+                    <form onsubmit="postComment(event, this.firstElementChild.value)">
                       <input type="text" placeholder="Post a comment...">
                       <button type="submit" class="send-btn">
                         <i class="fas fa-paper-plane"></i>
                       </button>
                     </form>
                     <div id="comment-list">
-                      <div class="comments">
-                        <div>
-                          <img id="commentimage" src="" alt="pic"/>
-                        </div>
-                        <div class="comment-text">
-                          <p><strong>sagar raj</strong></p>
-                          <p>Nice blog</p>
-                        </div>
-          
-                      </div>
                     </div>
-                  </div>
-    
+                  </div>    
             </div>    
-        </div>
-        
+        </div>      
 
     <script src="./js/blog.js"></script>
-    <!-- <script src="./js/navigation.js"></script> -->
-    <!-- <script src="./js/dashboard.js"></script> -->
-    <!-- <script src="./js/profile.js"></script> -->
   </body>
-
 </html>
-
-

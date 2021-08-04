@@ -111,7 +111,7 @@ nav ul {
   position: relative;
 }
 
-.card-header {
+#card-header {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -132,9 +132,89 @@ nav ul {
 }
 
 #card-image img {
-  aspect-ratio: 4/2;
-  width: 900px;
+  position: relative;
+  width: 965px;
   margin-top: 50px;
+  /* aspect-ratio: 4/2; */
+}
+
+.imgStyle {
+  width: 100%;
+  height: 100%;
+}
+/* Add a pointer when hovering over the thumbnail images */
+.cursor {
+  cursor: pointer;
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 40%;
+  width: auto;
+  padding: 16px;
+  margin-top: -50px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+#numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  margin-top: 50px;
+  z-index: 10;
+}
+
+/* Container for image text */
+.caption-container {
+  text-align: center;
+  background-color: #222;
+  padding: 2px 16px;
+  color: white;
+  width: 100%;
+}
+
+#row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: scroll hidden;
+}
+
+.column {
+  min-width: 20%;
+  max-width: 20%;
+  cursor: pointer;
+}
+
+/* Add a transparency effect for thumnbail images */
+.demo {
+  opacity: 0.6;
+}
+
+.active,
+.demo:hover {
+  opacity: 1;
 }
 
 .blogAuthor {
@@ -203,6 +283,8 @@ nav ul {
   flex-direction: column;
   overflow: hidden;
   padding: 20px 25px;
+  font-size: 21px;
+  line-height: 32px;
 }
 
 #blog-body p {
@@ -215,18 +297,26 @@ nav ul {
 
 /* like-share-cmt section */
 
-.likesharecmt {
+#likesharecmt {
+  padding: 0 10px;
   display: flex;
-  background-color: aliceblue;
   /* flex-direction: column; */
 }
 
-.likesharecmt i {
+#likesharecmt i {
   margin: 20px 10px;
 }
 
-.likesharecmt p {
+#likesharecmt p {
   margin: 20px 3px;
+}
+
+#fill-red {
+  color: #b62e42;
+}
+
+.comment {
+  padding: 0 20px;
 }
 
 .comments {
@@ -288,6 +378,9 @@ nav ul {
 
 .comment-time {
   font-size: 13px;
+  color: gray;
+  position: absolute;
+  right: 50px;
 }
 
 .user-images,

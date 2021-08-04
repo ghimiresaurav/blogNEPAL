@@ -2,7 +2,8 @@ const express = require("express");
 const router = express.Router();
 
 //import routes
-const update = require("./update");
+const updateRoute = require("./update");
+const deleteRoute = require("./delete");
 
 //import authorization middleware
 const verifyToken = require("../auth/verify");
@@ -12,7 +13,6 @@ const logout = require("../controllers/logout");
 const { initiatePost, postBlog } = require("../controllers/postBlog");
 const postComment = require("../controllers/postComment");
 const { searchByTag, searchByTitle } = require("../controllers/searchBlogs");
-const deleteBlog = require("../controllers/deleteBlog");
 const {
   getAllBlogs,
   getOwnBlogs,
@@ -29,7 +29,9 @@ router.use(express.urlencoded({ extended: true }));
 router.use(verifyToken);
 
 //use update route for update requests
-router.use("/update", update);
+router.use("/update", updateRoute);
+//use delete route for delete requests
+router.use("/delete", deleteRoute);
 
 //handle requests
 router.get("/profile", (req, res) => {
@@ -58,7 +60,6 @@ router.post("/search", searchByTag);
 router.post("/like", like);
 router.post("/post-comment", postComment);
 router.post("/post-blog", initiatePost, postBlog);
-router.delete("/deleteBlog", deleteBlog);
 router.delete("/logout", logout);
 
 module.exports = router;

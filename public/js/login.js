@@ -46,13 +46,21 @@ form.addEventListener("submit", (e) => {
   fetch("/login", fetchOptions)
     .then((response) => response.json())
     .then((data) => {
-      const { success, message, username, avatarLink, bio, hobbies, userId } =
-        data;
+      const {
+        success,
+        message,
+        username,
+        avatarLink,
+        bio,
+        hobbies,
+        userId,
+        email,
+      } = data;
       notification.innerHTML = `<strong>${message}</strong>`;
       if (success) {
         localStorage.setItem(
           "userDetails",
-          JSON.stringify({ username, bio, hobbies })
+          JSON.stringify({ username, bio, hobbies, email })
         );
         localStorage.setItem("avatarLink", avatarLink);
         localStorage.setItem("userId", userId);

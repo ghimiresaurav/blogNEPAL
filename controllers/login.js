@@ -56,6 +56,7 @@ module.exports = async (req, res) => {
             success: true,
             message: "Login Successful",
             userId: user._id,
+            email: user.email,
             username: user.name,
             avatarLink: user.avatarLink,
             bio: user.bio,

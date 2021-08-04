@@ -244,7 +244,6 @@ const navigateToPostPage = () => window.location.assign("/protected/post");
 
 const newpost = (blog) => {
   const blogsContainer = document.getElementById("blogcss");
-  console.log(blog);
   const x = document.createElement("div");
   x.classList.add("blogs");
 

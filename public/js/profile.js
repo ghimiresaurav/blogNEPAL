@@ -4,9 +4,6 @@ const userDetails = JSON.parse(localStorage.getItem("userDetails"));
   //display all the important information
   document.getElementById("profile-picture").src =
     localStorage.getItem("avatarLink");
-  // document.getElementById("commentimage").src =
-  //   localStorage.getItem("avatarLink");
-  // document.getElementById("image").src = localStorage.getItem("avatarLink");
   document.getElementById(
     "namesetting"
   ).innerHTML = `<strong>${userDetails.username}</strong>`;
@@ -16,6 +13,9 @@ const userDetails = JSON.parse(localStorage.getItem("userDetails"));
     document.getElementById(
       "hobbies"
     ).innerHTML = `<strong>Hobbies: </strong>${userDetails.hobbies}`;
+  document
+    .getElementById("username-for-password-change")
+    .setAttribute("value", userDetails.email);
 })();
 
 const profile = document.getElementById("profile");
@@ -104,6 +104,7 @@ const logout = () => {
       if (response.success) {
         localStorage.removeItem("userDetails");
         localStorage.removeItem("avatarLink");
+        localStorage.removeItem("userId");
         window.location.assign("/");
       }
     })
@@ -229,9 +230,9 @@ const updatePassword = (e) => {
 
 const newpost = (blog) => {
   const blogsContainer = document.getElementById("blogcss");
-  // console.log(blog);
   const x = document.createElement("div");
   x.classList.add("blogs");
+  x.id = blog._id;
 
   const dateTime = blog.date.split("-");
 
@@ -242,26 +243,16 @@ const newpost = (blog) => {
   images.shift();
   if (images.length) blogImageUrl = images[0];
 
-  // if (blog.tags.length) {
-  //   tagsDiv = blog.tags.reduce((acc, elem) => {
-  //     if (TAGS.indexOf(elem) == -1) {
-  //       const newTag = document.createElement("div");
-  //       newTag.setAttribute("onclick", `tags("${elem}")`);
-  //       const tagText =
-  //         elem.includes("_") || elem.includes("-")
-  //           ? elem.substr(1)
-  //           : elem.substr(1, 1).toUpperCase() + elem.substr(2);
-  //       //REMOVE # AND CAPITALIZE THE FIRST LETTER IN TAGS
-  //       newTag.innerHTML = `<button>${tagText}</button>`;
-  //       tagsSection.appendChild(newTag);
-  //       TAGS.push(elem);
-  //     }
-  //     return `${acc}<div class="blog-category">${elem}</div>`;
-  //   }, "");
-  // }
-
   x.innerHTML = `
   <div class="card-header">
+    <div class="options">
+      <button type="button" onclick="toggleOptionList(event)"><i class="fas fa-ellipsis-h"></i></button>
+      <div class="options-list">
+        <!-- <span class="option-item" style="color: gray">Edit <i class="fas fa-pencil-alt"></i></span> -->
+        <span class="option-item" onclick="deleteBlog('${blog._id}')"><i class="fas fa-trash-alt"></i> &ensp; Delete </span>
+        <!--data-modal2-target="#modal2" -->
+      </div>
+    </div>
     <img class="card-image" src="${blogImageUrl}" alt="blog-image" />
 
     <div class="blog-details">
@@ -294,7 +285,6 @@ const newpost = (blog) => {
 
 const blog = () => {
   const id = localStorage.getItem("userId");
-  // console.log(id);
   const fetchOptions = {
     method: "POST",
     headers: {
@@ -305,19 +295,99 @@ const blog = () => {
   fetch("/protected/getblogbyid", fetchOptions)
     .then((res) => res.json())
     .then((response) => {
-      // response.forEach((resp) => newpost(resp));
-      console.log(response);
       response.forEach((resp) => newpost(resp));
     });
 };
 
 blog();
 
-const toggleOptionList = () => {
-  console.log("workgin");
+const toggleOptionList = (e) => {
+  let elem = e.target.classList.contains("fas")
+    ? e.target.parentNode
+    : e.target;
+  elem = elem.nextElementSibling;
+  if (!elem.style.opacity || elem.style.opacity == "0") {
+    elem.style.opacity = 1;
+    elem.style.visibility = "visible";
+    elem.previousElementSibling.innerHTML = `<i class="fas fa-times"></i>`;
+    elem.lastElementChild.style.pointerEvents = "unset";
+  } else {
+    elem.style.opacity = 0;
+    elem.style.visibility = "hidden";
+    elem.previousElementSibling.innerHTML = `<i class="fas fa-ellipsis-h">`;
+    elem.lastElementChild.style.pointerEvents = "none";
+  }
 };
 
-const deleteBlog = () => {
-  console.log("hmm");
-  console.log("uhhhuh");
+const deleteBlog = (blogId) => {
+  fetch("/protected/delete/blog", {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ blogId }),
+  })
+    .then((resp) => resp.json())
+    .then((response) => {
+      if (response.success) {
+        document.getElementById(blogId).remove();
+        console.log(response.message);
+      } else console.error(response.message);
+    })
+    .catch((err) => console.error(err));
+};
+
+// Js to comfirm delete
+
+const openModalButtons = document.querySelectorAll("[data-modal-target]");
+const closeModalButtons = document.querySelectorAll("[data-close-button]");
+const overlay = document.getElementById("overlay");
+
+openModalButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    const modal = document.querySelector(button.dataset.modalTarget);
+    openModal(modal);
+  });
+});
+
+overlay.addEventListener("click", () => {
+  const modals = document.querySelectorAll(".modal.active");
+  modals.forEach((modal) => {
+    closeModal(modal);
+  });
+});
+
+closeModalButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    const modal = button.closest(".modal");
+    closeModal(modal);
+  });
+});
+
+function openModal(modal) {
+  if (modal == null) return;
+  modal.classList.add("active");
+  overlay.classList.add("active");
+}
+
+function closeModal(modal) {
+  if (modal == null) return;
+  modal.classList.remove("active");
+  overlay.classList.remove("active");
+}
+
+const deleteAccoount = () => {
+  fetch("/protected/delete/account", {
+    method: "DELETE",
+  })
+    .then((resp) => resp.json())
+    .then((response) => {
+      if (response.success) {
+        localStorage.removeItem("userDetails");
+        localStorage.removeItem("avatarLink");
+        localStorage.removeItem("userId");
+        window.location.assign("/");
+      }
+    })
+    .catch((err) => console.error(err));
 };
