@@ -433,11 +433,12 @@ nav ul {
 }
 
 #createBlog:hover,
-#tags-section button:hover {
+#tags-section button:hover, #tagBottom button:hover {
   background: var(--primary-bg);
   color: #fff;
   border: none;
   border: 2px solid var(--primary-bg);
+  transition: 0.5s ease-in-out;
 }
 
 hr.new {
