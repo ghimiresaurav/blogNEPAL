@@ -38,8 +38,8 @@ const wrapBlog = (blog) => {
   const LikeNo = blog.like.length;
   const CommentNo = blog.comments.length;
   const LikeStatus = Likestat(blog.like);
-  let clas = "";
-  let id = "";
+  let clas = "",
+    id = "";
 
   if (LikeStatus) {
     clas = "fas fa-heart";
@@ -49,8 +49,7 @@ const wrapBlog = (blog) => {
     id = "fill-none";
   }
 
-  const likesharecount = document.getElementById("likesharecmt");
-  likesharecount.innerHTML = `
+  document.getElementById("likesharecmt").innerHTML = `
     <i onclick="Like(${LikeStatus})" class="${clas}" id=${id} style="font-size: 20px"></i>
     <p id="LikeNo">${LikeNo}</p>
     <i class="far fa-comment" style="font-size: 20px"></i>
@@ -61,6 +60,22 @@ const wrapBlog = (blog) => {
   blog.comments.forEach((data) => {
     comment(data);
   });
+
+  const tagsSection = document.getElementById("tagBottom");
+  if (blog.tags.length) {
+    tagsDiv = blog.tags.reduce((acc, elem) => {
+      const newTag = document.createElement("div");
+      newTag.setAttribute("onclick", `searchBlogsByTags("${elem}")`);
+      const tagText =
+        elem.includes("_") || elem.includes("-")
+          ? elem.substr(1)
+          : elem.substr(1, 1).toUpperCase() + elem.substr(2);
+      //REMOVE # AND CAPITALIZE THE FIRST LETTER IN TAGS
+      newTag.innerHTML = `<button>${tagText}</button>`;
+      tagsSection.appendChild(newTag);
+      return `${acc}<div class="blog-category">${elem}</div>`;
+    }, "");
+  }
   showSlides(slideIndex);
 };
 
@@ -224,3 +239,7 @@ function plusSlides(n) {
     }
   }
 }
+
+const searchBlogsByTags = (tag) => {
+  console.log(`search by: ${tag}`);
+};
