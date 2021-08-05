@@ -114,7 +114,6 @@ const Likestat = (like) => {
 
 //run when like button is pressed and like parameter is send to backend
 const Like = (LikeStatus) => {
-  console.log(LikeStatus);
   const userId = localStorage.getItem("userId");
 
   if (LikeStatus) {
@@ -240,6 +239,5 @@ function plusSlides(n) {
   }
 }
 
-const searchBlogsByTags = (tag) => {
-  console.log(`search by: ${tag}`);
-};
+const searchBlogsByTags = (tag) =>
+  window.location.assign(`/protected/dashboard?searchByTag=${tag}`);
