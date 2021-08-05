@@ -2,120 +2,158 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Profile</title>
-    <link rel="stylesheet" href="./css/profile.css" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Poppins:wght@600&display=swap"
-        rel="stylesheet" />
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Poppins&display=swap" rel="stylesheet">  
+<link rel="shortcut icon" href="./assets/favicon.png" type="image/x-icon">
+<title>Profile</title>
+  <!-- <link href="dashboard.html" /> -->
+  <link rel="stylesheet" href="./css/dashboard.css" type="text/css" />
+  <link rel="stylesheet" href="./css/profile.css" />
+
+  <script src="https://kit.fontawesome.com/3fdf0f105a.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
-    <div id="header">
-        <nav>
-            <div id="logo"><a href="./">BlogNEPAL</a></div>
-            <div id="links">
-                <ul>
-                    <li><a href="/">Log Out</a></li>
+  <div id="passwordchangemsgbox">
+    <div id="profilepicupdate">
+      <div id="upload">
+        <div id="updprofile">
+          <h3>Update Profile Picture</h3>
+          <span class="close">&times;</span>
+        </div>
+        <div id="insertimage">
+          <form id="update-avatar-form" onsubmit="submitAvatar(event)">
+            <input type="file" id="avatar-input" name="avatar" accept="image/*" /><br />
+            <button type="submit">Upload</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
 
-                </ul>
-            </div>
+
+      <div id="header">
+        <nav class="nav-bar">
+          <div id="logo"><a href="/protected/dashboard" style="color:white;">BlogNEPAL</a></div>
+      
+              <div class="search-bar">
+                  <i class="fas fa-search searchIcon " style="font-size: 18px;"></i> 
+                  <input type="text" placeholder="Search Blogs" class="main-search">      
+              </div>
+              
+              <ul class="icons">               
+                    <li> 
+                      <a href="/protected/dashboard"><i class="fas fa-home"></i> </a>
+                    </li>  
+                      
+                    <li> 
+                      <a href="#" style="position: relative"><i class="fas fa-compass"></i> </a>
+                    </li>   
+                      
+                    <li> 
+                      <a href="#"  style="position: relative"> <i class="fas fa-bell"></i> </a> 
+                    </li>             
+                   
+                    <li>
+                      <button id="log-out-btn" onclick="logout()">Log Out</button>
+                    </li>                
+              </ul>   
+          
         </nav>
-    </div>
-    <div id="body">
-        <div id="profile">
-            <div id="profileimg"><img src="/public/assets/profile.jpg" alt="profile picture" /></div>
-            <div id="profileright">
-                <div id="namesetting">
-                    <h2>Rishikesh khakurel</h2>
-                    <img id="setting" src="/public/assets/settings.png" alt="setting">
-                </div>
-                <br />
-                <p>I am Bsc student in KU. Who loves computer. </p><br />
-                <p><b>Hobbies:-</b> Programming, Music</p>
-            </div>
-        </div>
+      </div>
+    
 
-        <div id="bloglist">
-            <div id="blogcss">
-                <div class="blogs">
-                    <h4>Cyber Security Dark Side</h4><br />
-                    <p>Computer security, cybersecurity or information technology security is the protection of computer
-                        systems and networks from information disclosure, theft of or damage to their hardware,
-                        software,
-                        or electronic data, as well as from the disruption or misdirection of the services they provide.
-                        Computer security, cybersecurity or information technology security is the protection of
-                        computer
-                        systems and networks from information disclosure, theft of or damage to their hardware,
-                        software,
-                        or electronic data, as well as from the disruption or misdirection of the services they provide.
-                    </p>
-                    <div class="reltopic">
-                        <button>Computer</button>
-                        <button>Cybersecurity</button>
-                    </div>
-                    <div class="likesharecmt">
-                        <img src="/public/assets/love_react.png" />
-                        <p>100</p>
-                        <img src="/public/assets/comments.png" />
-                        <p>100</p>
-                        <img src="/public/assets/share_icon.png" />
-                    </div>
-                </div>
-                <div class="blogs">
-                    <h4>Cyber Security Dark Side</h4><br />
-                    <p>Computer security, cybersecurity or information technology security is the protection of computer
-                        systems and networks from information disclosure, theft of or damage to their hardware,
-                        software,
-                        or electronic data, as well as from the disruption or misdirection of the services they provide.
-                        Computer security, cybersecurity or information technology security is the protection of
-                        computer
-                        systems and networks from information disclosure, theft of or damage to their hardware,
-                        software,
-                        or electronic data, as well as from the disruption or misdirection of the services they provide.
-                    </p>
-                    <div class="reltopic">
-                        <button>Computer</button>
-                        <button>Cybersecurity</button>
-                    </div>
-                    <div class="likesharecmt">
-                        <img src="/public/assets/love_react.png" />
-                        <p>100</p>
-                        <img src="/public/assets/comments.png" />
-                        <p>100</p>
-                        <img src="/public/assets/share_icon.png" />
-                    </div>
-                </div>
-                <div class="blogs">
-                    <h4>Cyber Security Dark Side</h4><br />
-                    <p>Computer security, cybersecurity or information technology security is the protection of computer
-                        systems and networks from information disclosure, theft of or damage to their hardware,
-                        software,
-                        or electronic data, as well as from the disruption or misdirection of the services they provide.
-                        Computer security, cybersecurity or information technology security is the protection of
-                        computer
-                        systems and networks from information disclosure, theft of or damage to their hardware,
-                        software,
-                        or electronic data, as well as from the disruption or misdirection of the services they provide.
-                    </p>
-                    <div class="reltopic">
-                        <button>Computer</button>
-                        <button>Cybersecurity</button>
-                    </div>
-                    <div class="likesharecmt">
-                        <img src="/public/assets/love_react.png" />
-                        <p>100</p>
-                        <img src="/public/assets/comments.png" />
-                        <p>100</p>
-                        <img src="/public/assets/share_icon.png" />
-                    </div>
-                </div>
-            </div>
+
+  <div id="body">
+    <div id="profile">
+      <div id="profileimg">
+        <img id="profile-picture" src="" alt="profile picture" />
+      </div>
+      <button id="changeprofile">Update Profile Picture</button>
+      <div id="profileright">
+        <div id="namesetting">
+          <br />
         </div>
+        <br />
+        <p id="bio"></p>
+        <br />
+        <p id="hobbies"></p>
+      </div>
+
+      <div id="profileEdit">
+        <button id="edit">Edit Profile</button>
+      </div>
     </div>
 
+    <div class="wrapperContainer">
+      <div id="wrapper">
+        <p id="response"></p>
+        <button class="closeWrapper" onclick="hideEditProfileForm()">&times;</button>
+
+
+        <form id="bio-hobbies-form" onsubmit="updateBioHobbies(event)">
+          <div id="addBio">
+            <textarea name="user-bio" id="user-bio" placeholder="Add a Bio" aria-label="Add a Bio" maxlength="120"
+              wrap="hard"></textarea><br />
+          </div>
+
+          <div id="addHobbies">
+            <textarea name="user-hobies" id="user-hobbies" placeholder="Add Hobbies" aria-label="Add a Bio"
+              maxlength="80" wrap="hard"></textarea><br />
+          </div>
+          <button type="submit">Submit</button>
+        </form>
+
+        <form onsubmit="updateUsername(event)">
+          <div id="name">Change Username</div> <br />
+          <input type="text" id="username" autocomplete="username" placeholder="New Username" required/><br />
+          <input type="password" id="password" autocomplete="current-password" placeholder="Enter your password" required/><br />
+          <button type="submit">Update Username</button>
+        </form> 
+
+        <form onsubmit="updatePassword(event)">
+          <div id="password-change-div">Change Password</div><br />
+          <input type="hidden" name="username" id="username-for-password-change">
+          <input type="password" required autocomplete="current-password" id="current-password" placeholder="Current Password" /><br />
+          <input type="password" required autocomplete="new-password" id="new-password" placeholder="New Password" /><br />
+          <input type="password" required autocomplete="new-password" id="confirm-new-password" placeholder="Confirm Password" /><br />
+          <button class="submit" type="submit">Change Password</button>
+        </form>
+
+        <div id="deleteAccount">
+          <button class="submit" data-modal-target="#modal">Delete Account</button>
+          <div class="modal" id="modal">
+            <div class="modal-header">
+              <div class="modal-header-head">Confirm</div>
+                Are you sure you want to delete this account? This change is irreversible and will delete everything you have posted, including your blogs and avatars!
+                <div class="Final" id="Final">
+                  <button id="Yes" class="sure-buttons" onclick="deleteAccoount()">Yes</button>
+                  <button data-close-button class="close-button sure-buttons" id="No">No</button>
+                </div>
+            </div>
+          </div>
+
+          <div id="overlay"></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div id="bloglist">
+    <div id="blogcss">
+      
+       
+    </div>
+  </div>
+  </div>
+  
+  <!-- <script src="./js/navigation.js"></script> -->
+  <script src="./js/profile.js"></script>
 </body>
 
 </html>

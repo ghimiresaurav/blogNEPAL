@@ -1,0 +1,58 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    background-color: #f0f8ff;
+    font-family: "Montserrat", serif;
+    width: 100vw;
+    height: 100vh;
+  }
+  
+  :root {
+    --primary-bg: #b62e42;
+  }
+  
+  nav {
+    width: inherit;
+    height: 10vh;
+    background-color: var(--primary-bg);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    font-size: 18px;
+  }
+  
+  #logo {
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-size: 25px;
+  }
+  
+  #links {
+    width: 20%;
+  }
+  
+  nav ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+  }
+  
+  nav a {
+    text-decoration: none;
+    color: white;
+  }
+
+  #main{
+      height: 80vh; 
+      display: flex;
+      align-items: center;
+      justify-content: center;    
+  }
+  

@@ -5,7 +5,7 @@
 }
 
 body {
-  background-color: aliceblue;
+  background-color: #f0f8ff;
   font-family: "Montserrat", serif;
   width: 100vw;
 }
@@ -54,6 +54,7 @@ nav a {
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
 }
 
 #left,
@@ -65,9 +66,24 @@ nav a {
   justify-content: center;
 }
 
+#icons {
+  float: left;
+  width: 70%;
+  overflow: hidden;
+  margin-top: 10px;
+  height: 30px;
+  font-size: 15px;
+  border-bottom: 1px solid black;
+}
+
+#icons i {
+  font-size: 15px;
+}
+
 #get-started {
   width: 405px;
   transform: translate(-50px, -95px);
+  opacity: 1;
 }
 
 #pi {
@@ -76,12 +92,23 @@ nav a {
 
 #pii {
   font-size: 18px;
+  animation: myMove 5s infinite;
+}
+
+@keyframes myMove {
+  50% {
+    font-weight: bold;
+  }
 }
 
 #get-started-btn {
   background-color: var(--primary-bg);
   font-size: 20px;
   padding: 10px 15px;
+}
+
+#get-started-btn:hover {
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.412);
 }
 
 button > a {
@@ -104,6 +131,8 @@ form {
 #login-form {
   height: 280px;
   transform: translateY(-50px);
+  background-color: aliceblue;
+  opacity: 1;
 }
 
 #register-form {
@@ -115,6 +144,11 @@ input,
   width: 80%;
   height: 30px;
   font-size: 15px;
+  margin-bottom: 11px;
+}
+
+#main-btn:hover {
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.412);
 }
 
 input {
@@ -122,8 +156,8 @@ input {
   background-color: transparent;
   outline: none;
   border: none;
-  border-bottom: 1px solid black;
   transition: 350ms;
+  border-bottom: 1px solid #000;
 }
 
 input:focus {
@@ -148,4 +182,5 @@ button {
   text-align: center;
   position: absolute;
   top: 13vh;
+  color: #fff;
 }

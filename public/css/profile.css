@@ -1,125 +1,507 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    background-color: aliceblue;
-    font-family: "Montserrat", serif;
-    width: 100%;
+  background-color: aliceblue;
+  position: relative;
+  font-family: "Montserrat", serif;
+  width: 100%;
 }
 
- :root {
-    --primary-bg: #b62e42;
+:root {
+  --primary-bg: #b62e42;
 }
 
-#header{
-    background-color: var(--primary-bg);  
+#header {
+  background-color: var(--primary-bg);
 }
 
-nav {
-    width: 95%;
-    margin: auto;
-    height: 10vh;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 20px;
-    font-size: 18px;
+#profileimg {
+  margin-top: 12vh;
 }
 
-nav a {
-    text-decoration: none;
-    color: white;
+#profileimg img {
+  width: 36vh;
+  height: 36vh;
+  border-radius: 50%;
+  display: flex;
+  margin-top: 20px;
+  margin-left: 14px;
 }
 
-#logo {
-    font-family: "Poppins", sans-serif;
-    font-weight: 600;
-    font-size: 25px;
+#namesetting {
+  display: flex;
+  margin-top: 20px;
 }
 
-nav ul {
-    list-style: none;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    width: 100%;
+#profilepicupdate {
+  position: fixed;
+  top: 40%;
+  left: 40%;
+  z-index: 1;
 }
 
-#body{
-    display: flex;
+#passwordchangemsgbox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: none;
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 11;
 }
 
-#blogcss{
-    width: 80%;
-    margin: auto;
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  margin-top: -10px;
 }
 
-#profileimg img{
-    border-radius: 50%;
-    height: 150px;
+.close:hover,
+.close:focus,
+.closeWrapper:hover,
+.closeWrapper:focus {
+  color: #f00;
+  text-decoration: none;
+  cursor: pointer;
+  transform: scale(1.5);
 }
 
-#profile{ 
-    width: 25%;
-    padding: 50px;
-    background: #fff;
+#updprofile {
+  border-bottom: 1px solid #dadada;
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
 }
 
-#profileright{
-    margin-top: 50px;
+#insertimage {
+  padding: 20px 40px;
 }
 
-#namesetting{
-    display: flex;
+#insertimage input {
+  padding: 10px 20px;
+  border-radius: 10px;
 }
 
-#setting{
-    height: 30px;
-    margin-left: 10px;
+#insertimage button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  border-radius: 10px;
+  background-color: #b62e42;
+  border: 0;
 }
 
-#bloglist{
-    width: 75%;
+#upload {
+  background-color: #fff;
 }
 
-#blogcss{
-    width: 80%;
-    margin: auto;
-    margin-bottom: 50px;
+#profile {
+  transition: 600ms;
+  width: 25%;
+  padding: 0 30px;
+  background: aliceblue;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  z-index: -1;
+  border-right: 1px solid rgb(214, 211, 211);
 }
 
-.likesharecmt{
-    display: flex;
-    margin-top: 10px;
+#changeprofile {
+  margin-top: 10px;
+  cursor: pointer;
+  padding: 5px 10px;
+  border-radius: 25px;
+  background-color: var(--primary-bg);
 }
 
-.likesharecmt p{
-    margin: 0 10px 0 10px;
+#profiletop {
+  margin-top: 10vh;
 }
 
-.blogs{
-    background: #fff;
-    padding: 50px 20px 50px 20px;
-    margin-top: 50px;
+.sticky {
+  margin-top: -7vh;
 }
 
-.likesharecmt img{
-    height: 25px;
+#profileright {
+  margin-top: 0px;
 }
 
-.reltopic{
-    margin: 15px 0 15px 0;
+#namesetting {
+  display: flex;
+  justify-content: space-around;
+  font-size: 25px;
 }
 
-.reltopic button{
-    padding: 5px;
-    background: #b62e42;
-    border-color: #b62e42;
-    color: white;
-    font-size: 16px;
-    margin-right: 10px;
-    border-radius: 10px;
+#setting {
+  height: 30px;
+  margin-left: 20px;
+}
+
+#profileEdit {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#profileEdit button {
+  /* font-family: "Poppins", sans-serif; */
+  font-size: 10px;
+  padding: 3px;
+  background: #b62e42;
+  border-color: #b62e42;
+  color: white;
+  font-size: 16px;
+  margin-right: 10px;
+  border-radius: 25px;
+  width: 80%;
+}
+
+#edit {
+  cursor: pointer;
+}
+
+.post-image {
+  width: 80%;
+  margin: auto;
+}
+
+.post-image img {
+  width: 100%;
+  margin-top: 20px;
+}
+
+button {
+  padding: 5px 10px;
+  background: #b62e42;
+  border: 0;
+  color: white;
+  font-size: 16px;
+  margin-right: 10px;
+  border-radius: 10px;
+  font-family: "Poppins", sans-serif;
+}
+
+.wrapperContainer {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: none;
+  z-index: 11;
+}
+
+#wrapper {
+  width: 700px;
+  height: 700px;
+  background-color: aliceblue;
+  border-radius: 15px;
+  display: block;
+  margin: auto;
+  top: 65px;
+  text-align: center;
+  padding: 20px;
+  position: fixed;
+  z-index: 150;
+}
+
+input {
+  padding: 10px;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  transition: 350ms;
+  width: 60%;
+  height: 35px;
+  border-bottom: 1px solid black;
+  overflow: hidden;
+  font-size: 15px;
+  font-family: inherit;
+}
+
+input:focus {
+  border-bottom: 1px solid var(--primary-bg);
+}
+
+textarea {
+  font-size: 15px;
+  letter-spacing: 0.5px;
+}
+textarea {
+  font-family: inherit;
+  font-size: 15px;
+  padding: 8px 8px;
+  line-height: 1.25;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  box-shadow: 1px 1px 1px #999;
+  width: 60%;
+  height: 80px;
+  background-color: transparent;
+  text-align: start;
+  outline: none;
+  resize: none;
+}
+
+#addHobbies textarea {
+  height: auto;
+  margin-top: 10px;
+}
+
+textarea:focus {
+  border: 1px solid rgb(197, 94, 115);
+  box-shadow: 0 5px 10px rgba(228, 42, 42, 0.5);
+}
+
+#name,
+#password-change-div {
+  margin-top: 10px;
+  margin-left: -225px;
+  margin-bottom: -15px;
+  color: var(--primary-bg);
+}
+
+#password-change-div {
+  margin-top: 15px;
+}
+
+.closeWrapper {
+  position: absolute;
+  top: 0;
+  right: 14px;
+  margin-top: -8px;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 250ms;
+  background-color: transparent;
+  color: #b62e42;
+}
+
+button {
+  cursor: pointer;
+  background-color: var(--primary-bg);
+  color: white;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+}
+
+.submit {
+  width: 60%;
+  height: 30px;
+  font-size: 15px;
+  margin-top: 15px;
+}
+
+.submit:hover {
+  box-shadow: 0 5px 10px rgba(228, 42, 42, 0.8);
+}
+
+#deleteAccount {
+  margin-top: 30px;
+}
+
+#log-out-btn {
+  border: 1px solid aliceblue;
+}
+
+/*comment css */
+.comment {
+  margin-top: 20px;
+}
+
+.comment form {
+  background: #f0f2f5;
+  border-radius: 20px;
+  display: flex;
+}
+
+.comment form button {
+  background: none;
+  color: #b62e42;
+}
+
+.comment input {
+  border: 0;
+  width: 100%;
+}
+
+#comment-list {
+  margin-top: 20px;
+}
+
+.comments {
+  display: flex;
+  width: 100%;
+}
+
+.comment-text {
+  margin-left: 15px;
+  background: #f0f2f5;
+  width: 100%;
+  border-radius: 20px;
+  padding: 5px 10px;
+}
+
+#comment-list img {
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+}
+
+#response {
+  margin-bottom: 20px;
+}
+
+.options {
+  position: absolute;
+  top: 15px;
+  right: 25px;
+  height: 40px;
+  width: 40px;
+  background-color: #fff;
+  border-radius: 50%;
+  z-index: 7;
+  /* transition: 300ms; */
+}
+
+.options button {
+  transition: 300ms;
+  color: #000;
+  height: inherit;
+  width: inherit;
+  background-color: inherit;
+  border-radius: inherit;
+}
+
+.options :hover {
+  background-color: var(--primary-bg);
+  color: #fff;
+}
+
+.options-list {
+  background-color: #fff;
+  color: #000;
+  width: 100px;
+  position: absolute;
+  top: 45px;
+  right: -15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  visibility: none;
+  opacity: 0;
+}
+
+.option-item {
+  width: inherit;
+  height: 35px;
+  padding: 5px;
+  cursor: pointer;
+  border-bottom: 1px solid;
+  pointer-events: none;
+}
+
+
+  
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  padding: 10px 10px;
+  transform: translate(-50%, -50%) scale(0);
+  transition: 200ms ease-in-out;
+  /* border: 1px solid black; */
+  border-radius: 5px;
+  z-index: 160;
+  background-color: white;
+  width: 500px;
+  max-width: 80%;
+}
+
+.modal-header {
+  font-family: "Poppins", sans-serif;
+}
+
+.modal-header-head {
+  font-family: "Poppins", sans-serif;
+  font-size: 23px;
+  font-weight: bold;
+  padding: 10px 3px 10px 0px;
+}
+
+.modal.active {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.sure-buttons {
+  margin: 10px 1px 0px .5px;
+  float: right;
+  font-family: "Poppins", sans-serif;
+  font-size: 15px;
+  width: 60px;
+  height: 28px;
+  text-align: center;
+  border: 1px solid #b62e42;
+  padding: 2px;
+  border-radius: 4px;
+  color: white;
+  background-color: #b62e42;
+  transition-duration: 0.4s;
+}
+
+.sure-buttons:hover {
+  border: 1px solid #b62e42;
+  color: #b62e42;
+  background-color: white;
+  cursor: pointer;
+}
+
+.sure-buttons:focus {
+  outline: none;
+}
+
+#Yes {
+  color: black;
+  background-color: white;
+  border: 1px solid white;
+}
+
+#Yes:hover {
+  border: 1px solid #b62e42;
+  /* background-color: #b62e42; */
+  color: #b62e42;
+}
+
+#overlay {
+  position: fixed;
+  opacity: 0;
+  transition: 200ms ease-in-out;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, .5);
+  pointer-events: none;
+}
+
+#overlay.active {
+  opacity: 1;
+  pointer-events: all;
 }

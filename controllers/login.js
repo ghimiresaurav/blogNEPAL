@@ -16,16 +16,21 @@ module.exports = async (req, res) => {
       if (err) throw err;
       const db = client.db(process.env.DB_NAME);
       const query = { email };
+
+      //get users with the email the user entered
       const user = await db.collection("users").findOne(query);
 
+      //if the email doesn't exist
       if (!user) {
         return res.status(401).json({
           success: false,
           message: "User not found",
         });
       } else {
+        //the user exists
         const correctPassword = await bcrypt.compare(password, user.password);
         client.close();
+        //if the password is incorrect
         if (!correctPassword) {
           {
             return res.status(401).json({
@@ -34,16 +39,28 @@ module.exports = async (req, res) => {
             });
           }
         } else {
+          // if the password is correct
+          //sign a token
           const token = jwt.sign(
             { userId: user._id },
             process.env.TOKEN_SECRET,
             {
-              expiresIn: "24h",
+              expiresIn: "7d",
             }
           );
+
+          //save the token and user id in cookie
+          res.cookie("token", token, { path: "/", sameSite: true });
+          res.cookie("id", user._id, { path: "/", sameSite: true });
           return res.json({
             success: true,
-            token,
+            message: "Login Successful",
+            userId: user._id,
+            email: user.email,
+            username: user.name,
+            avatarLink: user.avatarLink,
+            bio: user.bio,
+            hobbies: user.hobbies,
           });
         }
       }

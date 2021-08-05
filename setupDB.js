@@ -1,26 +1,29 @@
 const MongoClient = require("mongodb").MongoClient;
-
-const url = "mongodb://localhost/27017";
-const dbName = "blognepal";
+require("dotenv").config();
 
 //define collections required to run the website
-const collections = ["users"];
+const collections = ["users", "blogs"];
+
 const options = {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 };
 
 //create database
-MongoClient.connect(`${url}${dbName}`, options, (err, db) => {
-  if (err) throw err;
-  console.log("Database Created!");
-  db.close();
-});
+MongoClient.connect(
+  `${process.env.DB_URL}${process.env.DB_NAME}`,
+  options,
+  (err, db) => {
+    if (err) throw err;
+    console.log("Database Created!");
+    db.close();
+  }
+);
 
 //create collections
-MongoClient.connect(url, options, (err, client) => {
+MongoClient.connect(process.env.DB_URL, options, (err, client) => {
   if (err) throw err;
-  const db = client.db(dbName);
+  const db = client.db(process.env.DB_NAME);
   collections.forEach((collection) => {
     db.createCollection(collection, (err, msg) => {
       if (err) throw err;

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="shortcut icon" href="./assets/favicon.png" type="image/x-icon" />
+    <title>Write Post</title>
+
+    <link rel="stylesheet" href="./css/dashboard.css" type="text/css" />
+    <link rel="stylesheet" href="css/post.css" />
+
+    <script
+      src="https://kit.fontawesome.com/3fdf0f105a.js"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.tiny.cloud/1/ydpoobjojy1hdf8ic2kzv2mqj9kwmdbzjprnefly20m08g7y/tinymce/5/tinymce.min.js"
+      referrerpolicy="origin"
+    ></script>
+  </head>
+
+  <body>
+    <nav class="nav-bar">
+      <div id="logo">
+        <a href="/protected/dashboard" style="color: white">BlogNEPAL</a>
+      </div>
+
+      <div class="search-bar">
+        <i class="fas fa-search searchIcon" style="font-size: 18px"></i>
+        <input type="text" placeholder="Search Blogs" class="main-search" />
+      </div>
+
+      <ul class="icons">
+        <li>
+          <a
+            href="/protected/profile"
+            style="position: relative; right: -200px"
+          >
+            <img id="user-avatar" alt="profile" />
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <div id="post-notification"></div>
+
+    <div class="blogsp">
+      <form id="blog-post-form" onsubmit="postBlog(event)">
+        <textarea name="title" id="blog-title" placeholder="Title"></textarea>
+        <br />
+
+        <div id="textarea-container">
+          <textarea id="blog-txt"></textarea>
+        </div>
+
+        <br />
+        <input
+          type="file"
+          name="images"
+          id="file-input"
+          accept="image/*"
+          multiple
+          hidden
+          onchange="loadFile(event);"
+        />
+        <div id="right-pane">
+          <div id="add-tag">
+            <span style="font-size: 17px">Add Tags</span>
+            <div id="errorPopup" class="error">
+              ! Maximum length limit of a tag is 17
+            </div>
+            <div id="popupArrow" class="error"></div>
+            <textarea name="" id="write-tag" rows="1"></textarea>
+            <div id="tag-area"></div>
+            <div id="clearTags">Clear All</div>
+          </div>
+          <label for="file-input">Add Images</label>
+          <img id="prev-img" />
+          <button type="submit" id="post-btn">Post</button>
+        </div>
+      </form>
+    </div>
+    <!-- <script src="./js/dashboard.js"></script> -->
+    <!-- <script src="./js/navigation.js"></script> -->
+    <script src="js/post.js"></script>
+  </body>
+</html>
