@@ -59,7 +59,7 @@ const postBlog = (req, res) => {
     if (err) console.error(err);
     const content = req.body.content.replace(/\r\n/g, "<br />"),
       { files } = req,
-      title = req.body.title;
+      { title, category } = req.body;
 
     let links = ``,
       tags = ``;
@@ -75,7 +75,7 @@ const postBlog = (req, res) => {
     }
 
     const query = { _id: new ObjectID(res.locals.blogID) };
-    const update = { $set: { title, content, links, tags } };
+    const update = { $set: { title, content, links, tags, category } };
 
     MongoClient.connect(
       process.env.DB_URL,

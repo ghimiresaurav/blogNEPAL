@@ -51,7 +51,12 @@
 
     <div class="blogsp">
       <form id="blog-post-form" onsubmit="postBlog(event)">
-        <textarea name="title" id="blog-title" placeholder="Title"></textarea>
+        <textarea
+          name="title"
+          id="blog-title"
+          placeholder="Title"
+          required
+        ></textarea>
         <br />
 
         <div id="textarea-container">
@@ -69,6 +74,29 @@
           onchange="loadFile(event);"
         />
         <div id="right-pane">
+          <div id="category-section">
+            <label for="category">
+              <select name="category" id="category" required>
+                <option value="">--Choose a category--</option>
+                <option value="technology">Technology</option>
+                <option value="money">Money</option>
+                <option value="cryptocurrency">Crypto Currency</option>
+                <option value="education">Education</option>
+                <option value="world">World</option>
+                <option value="environment">Environment</option>
+                <option value="politics">Politics</option>
+                <option value="beauty">Beauty</option>
+                <option value="arts">Arts</option>
+                <option value="health">Health</option>
+                <option value="sports">Sports</option>
+                <option value="entertainment">Entertainment</option>
+                <option value="movie">Movie</option>
+                <option value="music">Music</option>
+                <option value="startups">Startups</option>
+                <option value="business">Business</option>
+              </select>
+            </label>
+          </div>
           <div id="add-tag">
             <span style="font-size: 17px">Add Tags</span>
             <div id="errorPopup" class="error">
@@ -79,7 +107,7 @@
             <div id="tag-area"></div>
             <div id="clearTags">Clear All</div>
           </div>
-          <label for="file-input">Add Images</label>
+          <label for="file-input" id="file-input">Add Images</label>
           <img id="prev-img" />
           <button type="submit" id="post-btn">Post</button>
         </div>
