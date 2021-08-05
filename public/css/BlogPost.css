@@ -433,11 +433,12 @@ nav ul {
 }
 
 #createBlog:hover,
-#tags-section button:hover {
+#tags-section button:hover, #tagBottom button:hover {
   background: var(--primary-bg);
   color: #fff;
   border: none;
   border: 2px solid var(--primary-bg);
+  transition: 0.5s ease-in-out;
 }
 
 hr.new {
@@ -475,7 +476,14 @@ hr.new {
   margin-left: -2px;
 }
 
-#tags-section button {
+#tagBottom {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 50px 10px 20px;
+  overflow: hidden;
+}
+
+ #tags-section button {
   font-family: "Montserrat", sans-serif;
   font-size: 15px;
   padding: 8px 20px;
@@ -485,5 +493,17 @@ hr.new {
   border-radius: 25px;
   margin-bottom: 15px;
   margin-left: 4px;
+  overflow: hidden;
+}
+
+#tagBottom button {
+  font-family: "Montserrat", sans-serif;
+  font-size: 15px;
+  padding: 6px 15px;
+  border: 2px solid transparent;
+  cursor: pointer;
+  background: rgb(204, 216, 221);
+  border-radius: 15px;
+  margin: 0 8px 15px 0;
   overflow: hidden;
 }
