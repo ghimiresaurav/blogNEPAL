@@ -5,6 +5,7 @@ require("dotenv").config();
 
 const registerController = require("./controllers/register");
 const loginController = require("./controllers/login");
+const contactUsController = require("./controllers/contactUs");
 
 //use routing for requests for protected routes
 const protectedRoute = require("./routes/protected");
@@ -40,6 +41,7 @@ app.get("/error", (req, res) => {
 
 app.post("/register", registerController);
 app.post("/login", loginController);
+app.post("/contact", contactUsController);
 
 const PORT = 3000 || process.env.PORT;
 app.listen(PORT, () =>

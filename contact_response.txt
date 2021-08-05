@@ -1,0 +1,31 @@
+
+   --RESPONSE START--
+
+    Date: 5 Aug 2021 - 10:40 PM
+    Issue About: ecommerce-feature,
+    Description: Next upgrage should bring e-commerce features.,
+
+    Name: Saurav Ghimire
+    Phone: 9861958825,
+    Email: ghimiresaurav09@gmail.com,
+    Company: RANGA Inc,
+
+    --RESPONSE END--
+
+
+    
+   --RESPONSE START--
+
+    Date: 5 Aug 2021 - 10:42 PM
+    Issue About: site_issue
+    Description: I couldn't choose a password that I could remember easily. :/
+
+    Name: Saurav Ghimire
+    Phone: 9861958825
+    Email: ghimiresaurav09@gmail.comm
+    Company: RANGA Inc
+
+    --RESPONSE END--
+
+
+    
