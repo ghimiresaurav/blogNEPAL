@@ -26,10 +26,11 @@ nav {
 }
 
 #logo {
-  font-family: "Poppins", sans-serif;
-  font-weight: 600;
-  font-size: 25px;
+  font-family: "Kaushan Script", sans-serif;
+  font-weight: 700;
+  font-size: 30px;
 }
+
 #logo a {
   text-decoration: none;
   color: white;
@@ -127,6 +128,7 @@ footer {
 }
 .main-content {
   display: flex;
+  /* justify-content: space-around; */
 }
 .main-content .box {
   flex-basis: 50%;

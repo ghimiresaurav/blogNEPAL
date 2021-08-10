@@ -29,3 +29,18 @@
 
 
     
+   --RESPONSE START--
+
+    Date: 10 Aug 2021 - 2:29 PM
+    Issue About: blog-view-improvement
+    Description: there are quite a few things that could make this whole website better.
+
+    Name: Saurav Ghimire
+    Phone: 9861958825
+    Email: ghimiresaurav09@gmail.com
+    Company: RANGA Inc
+
+    --RESPONSE END--
+
+
+    
