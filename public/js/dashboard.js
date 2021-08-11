@@ -11,96 +11,17 @@ const tagsSection = document.getElementById("tags-section");
       menuItem[i].classList.add("active");
     }
   }
+  const tagToSearch = window.location.href.split("searchByTag")[1];
+  if (tagToSearch) {
+    const tag = tagToSearch.split("=")[1];
+    if (tag) setTimeout(() => searchByTags(tag), 500);
+  }
 })();
-
-// const wrapBlog = (blog) => {
-//   const LikeNo = blog.like.length;
-//   const LikeStatus = Likestat(blog.like);
-//   const CommentNo = blog.comments.length;
-//   let clas = "";
-//   let id = "";
-//   if (LikeStatus) {
-//     clas = "fas fa-heart";
-//     id = "fill-red";
-//   } else {
-//     clas = "far fa-heart";
-//     id = "fill-none";
-//   }
-
-//   const lscTagDiv = `<div class="likesharecmt">
-//   <i onclick="Like(this.parentNode.parentNode.id,${LikeStatus})" class="${clas}" id=${id} style="font-size: 20px"></i>
-//   <p id="LikeNo">${LikeNo}</p>
-//   <i class="far fa-comment" style="font-size: 20px"></i>
-//   <p>${CommentNo}</p>
-//   <i class="fas fa-share" style="font-size: 20px"></i>
-//   </div>`;
-//   let imageDiv = "";
-//   let commentsDiv = "";
-//   const imagesUrls = blog.links.split(", ");
-//   imagesUrls.shift();
-
-//   const commentForm = `
-//   <form onsubmit="postComment(event, this.parentNode.parentNode.id, this.firstElementChild.value)">
-//     <input type="text" placeholder="Post a comment...">
-//     <button type="submit" class="send-btn">
-//       <i class="fas fa-paper-plane"></i>
-//     </button>
-//   </form>`;
-
-//   if (imagesUrls.length)
-//     imageDiv = `
-//   <div class="post-image">
-//     <img id="image" src="${imagesUrls[0]}">
-//   </div>`;
-
-//   if (blog.comments) {
-//     const x = blog.comments.reduce(
-//       (c, comment) => `${c}
-//       <div class="comments">
-//         <div>
-//           <img class="user-images" src=${comment.user.avatar} />
-//         </div>
-//         <div class="comment-text">
-//           <p class="comment-name-time">
-//             <strong>${comment.user.name}</strong>
-//             <span class="comment-time">${comment.date}</span>
-//           </p>
-//           <p>${comment.body}</p>
-//         </div>
-//       </div>`,
-//       `<div id="comments-list">`
-//     );
-//     commentsDiv = `${x}</div>`;
-//   }
-
-//   const blogDiv = document.createElement("div");
-//   blogDiv.id = blog._id;
-//   blogDiv.classList.add("blogs");
-
-//   const dateTime = blog.date.split("-");
-
-//   blogDiv.innerHTML = `
-//   <h3 class="blog-title">${blog.title}</h3><br />
-//   <div class="author-details">
-//     <div>
-//       <img class="user-images author-images" src=${blog.author.avatar} />
-//     </div>
-//   <p><strong>${blog.author.name}</strong> posted on <strong>${dateTime[0]}</strong>-${dateTime[1]}</p><br>
-//   </div>
-//   <p>${blog.content}</p>
-//   ${imageDiv}
-//   ${lscTagDiv}
-//   <div class="comment">
-//   ${commentForm}
-//   ${commentsDiv}
-//   </div>`;
-//   blogsContainer.appendChild(blogDiv);
-// };
 
 fetch("/protected/get-blogs")
   .then((response) => response.json())
   .then((data) => {
-    data.forEach((datum) => newpost(datum));
+    data.forEach((datum) => wrapBlog(datum));
   })
   .catch((err) => console.error(err));
 
@@ -190,7 +111,7 @@ findChild = (idOfElement, idOfChild) => {
 
 //search by tag
 
-function tags(value) {
+function searchByTags(value) {
   const blogDiv = document.getElementById("blogcss");
   while (blogDiv.firstChild) {
     blogDiv.removeChild(blogDiv.firstChild);
@@ -206,7 +127,7 @@ function tags(value) {
     .then((response) => response.json())
     .then((data) => {
       data.forEach((datum) => {
-        newpost(datum);
+        wrapBlog(datum);
       });
     })
     .catch((err) => console.error(err));
@@ -222,7 +143,6 @@ form.addEventListener("submit", (e) => {
   while (blogDiv.firstChild) {
     blogDiv.removeChild(blogDiv.firstChild);
   }
-  console.log(value);
   const fetchOptions = {
     method: "POST",
     headers: {
@@ -234,7 +154,7 @@ form.addEventListener("submit", (e) => {
     .then((response) => response.json())
     .then((data) => {
       data.forEach((datum) => {
-        newpost(datum);
+        wrapBlog(datum);
       });
     })
     .catch((err) => console.error(err));
@@ -242,7 +162,7 @@ form.addEventListener("submit", (e) => {
 
 const navigateToPostPage = () => window.location.assign("/protected/post");
 
-const newpost = (blog) => {
+const wrapBlog = (blog) => {
   const blogsContainer = document.getElementById("blogcss");
   const x = document.createElement("div");
   x.classList.add("blogs");
@@ -253,7 +173,7 @@ const newpost = (blog) => {
   const images = blog.links.split(", ");
   images.shift();
   if (images.length) blogImageUrl = images[0];
-
+  
   x.innerHTML = `
   <div class="card-header">
     <img class="card-image" src="${blogImageUrl}" alt="blog-image" />
@@ -285,5 +205,3 @@ const newpost = (blog) => {
 
   blogsContainer.appendChild(x);
 };
-
-// export { newpost };

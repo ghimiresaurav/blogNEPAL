@@ -3,7 +3,11 @@
   padding: 0;
   box-sizing: border-box;
 }
-
+#logo {
+  font-family: "Kaushan Script", sans-serif;
+  font-size: 30px;
+  font-weight: 700;
+}
 body {
   background-color: aliceblue;
   position: relative;
@@ -418,8 +422,6 @@ button {
   pointer-events: none;
 }
 
-
-  
 .modal {
   position: fixed;
   top: 50%;
@@ -451,7 +453,7 @@ button {
 }
 
 .sure-buttons {
-  margin: 10px 1px 0px .5px;
+  margin: 10px 1px 0px 0.5px;
   float: right;
   font-family: "Poppins", sans-serif;
   font-size: 15px;
@@ -497,7 +499,7 @@ button {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, .5);
+  background-color: rgba(0, 0, 0, 0.5);
   pointer-events: none;
 }
 

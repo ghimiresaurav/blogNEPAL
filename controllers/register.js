@@ -1,5 +1,6 @@
 const MongoClient = require("mongodb").MongoClient;
 const bcrypt = require("bcrypt");
+const date = require("../utils/getTime");
 require("dotenv").config();
 
 module.exports = (req, res) => {
@@ -29,6 +30,7 @@ module.exports = (req, res) => {
             email,
             password: await bcrypt.hash(password, 10),
             avatarLink: "./assets/avatars/default-avatar.png",
+            joinedOn: date,
           },
           (err, result) => {
             if (err) throw err;

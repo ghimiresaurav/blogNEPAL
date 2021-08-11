@@ -45,9 +45,9 @@ nav a {
 }
 
 #logo {
-  font-family: "Poppins", sans-serif;
-  font-weight: 600;
-  font-size: 25px;
+  font-family: "Kaushan Script", sans-serif;
+  font-weight: 700;
+  font-size: 30px;
 }
 
 .search-bar {
@@ -433,7 +433,8 @@ nav ul {
 }
 
 #createBlog:hover,
-#tags-section button:hover, #tagBottom button:hover {
+#tags-section button:hover,
+#tagBottom button:hover {
   background: var(--primary-bg);
   color: #fff;
   border: none;
@@ -483,7 +484,7 @@ hr.new {
   overflow: hidden;
 }
 
- #tags-section button {
+#tags-section button {
   font-family: "Montserrat", sans-serif;
   font-size: 15px;
   padding: 8px 20px;

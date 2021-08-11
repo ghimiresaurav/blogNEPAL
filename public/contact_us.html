@@ -1,14 +1,21 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width">
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
-  <link href="https://fonts.googleapisss2?family=Poppins&display=swap"      
-        rel="stylesheet">
-        <link rel="shortcut icon" href="./assets/favicon.png" type="image/x-icon">
-    <title>Contact Us</title>
-    <link href="/css/contact_us.css" rel="stylesheet" type="text/css" />
+  <meta name="viewport" content="width=device-width">  
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Montserrat&family=Poppins&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="shortcut icon" href="./assets/favicon.png" type="image/x-icon">
+  <title>Contact Us</title>
+  <link href="/css/contact_us.css" rel="stylesheet" type="text/css" />
+  
+  <script
+  src="https://kit.fontawesome.com/3fdf0f105a.js"
+  crossorigin="anonymous"
+></script>
 </head>
 <body>
   <nav class="nav-bar">
@@ -17,7 +24,7 @@
 <div class="contact-form">
   <h1>Contact Us </h1>
 
-    <form name="contactForm" id="contactForm" method="POST" action="">
+    <form name="contactForm" id="contactForm" onsubmit="recordResponse(event)">
       <h2>Let's Get Started!</h2>
       <p>Contact us for any problem you faced.</p>
         <div class="form-group">
@@ -25,39 +32,35 @@
           <p>How can we help you!</p>
         </div>
             <div class="control-group">
-              <input type="text" class="demo-default form-control" placeholder="First Name" required >
+              <input type="text" class="demo-default form-control" id="name-input" placeholder="Name" required >
             </div>
             <div class="control-group">
-              <input type="text" class="demo-default form-control" placeholder="Last Name" required>
+              <input type="text" class="demo-default form-control" id="company-input" placeholder="Company" required>
             </div>
             <div class="control-group">
-              <input type="text" class="demo-default form-control" placeholder="Company" required>
+              <input type="number" class="demo-default form-control" id="phone-input" placeholder="Phone #" required>
             </div>
             <div class="control-group">
-              <input type="text" class="demo-default form-control" placeholder="Phone #" required>
-            </div>
-            <div class="control-group">
-              <input type="text" class="demo-default form-control" placeholder="yourname@domain.com" required>
+              <input type="email" class="demo-default form-control" id="email-input" placeholder="yourname@domain.com" required>
             </div>
             <div class="control-group">
              <label>I'm Interested In:</label>
-              <select id="select-beast" class="demo-default" placeholder="Select a service..." required>
+              <select id="select-field" class="demo-default" placeholder="Select a service.." required>
                 <option value="">Select a service...</option>
-                <option value="4">Piracy </option>
-                <option value="1">Site problems</option>
-                <option value="3">E-Commerce features</option>
-                <option value="5">Blog view form</option>
+                <option value="piracy">Piracy </option>
+                <option value="site_issue">Site problems</option>
+                <option value="ecommerce-feature">E-Commerce features</option>
+                <option value="blog-view-improvement">Blog view Imporvement</option>
               </select>
         <br>
     <div class="describe">
-      <label for="subject">Describe your problem.</label></div>
-      <textarea id="subject" name="subject" placeholder="Write something.." rows="10" cols="70" required ></textarea>
+      <label for="subject">Describe the issue.</label></div>
+      <textarea id="issue-description" name="subject" placeholder="Write something.." rows="10" cols="70" required ></textarea>
       <br>
-      <button type="form-submit" id="form-btn">Submit</button>
+      <button type="submit" id="form-submit-btn">Submit</button>
         </form> 
     </div>
-    <div id = "status" class = "error" >Thank You for the responce.We will get back to you soon</div>
-    <div id = "status" class = "sucess" >Thank You for the responce.We will get back to you soon</div>
+    <center><div id ="status"></div> </center>
   </div> 
 
       <footer>
@@ -66,11 +69,11 @@
           <h2>About us</h2>
           <div class="content">
             <p>The best ideas can change who we are. BlogNepal is where those ideas take
-    shape, take off, and spark powerful conversations. We’re an open platform
-    where 170 million readers come to find insightful and dynamic thinking.
-    Here, expert and undiscovered voices alike dive into the heart of any
-    topic and bring new ideas to the surface. Our purpose is to spread these
-    ideas and deepen understanding of the world.</p>
+              shape, take off, and spark powerful conversations. We’re an open platform
+              where 170 million readers come to find insightful and dynamic thinking.
+              Here, expert and undiscovered voices alike dive into the heart of any
+              topic and bring new ideas to the surface. Our purpose is to spread these
+              ideas and deepen understanding of the world.</p>
             <div class="social">
               <a href="https://facebook.com/blogNepal"><span class="fab fa-facebook-f"></span></a>
               <a href="#"><span class="fab fa-twitter"></span></a>
@@ -89,7 +92,7 @@
             </div>
             <div class="phone">
               <span class="fas fa-phone-alt"></span>
-              <span class="text">not found </span>
+              <span class="text">XXX-XXX-XXX </span>
             </div>
             <div class="email">
               <span class="fas fa-envelope"></span>
@@ -98,7 +101,7 @@
           </div>
         </div>
 
-        <div class="right box">
+        <!-- <div class="right box">
           <h2>Contact us</h2>
           <div class="content">
             <form action="#">
@@ -115,7 +118,7 @@
               </div>
             </form>
           </div>
-        </div>
+        </div> -->
       </div>
       <div class="bottom">
         <center>
@@ -125,6 +128,6 @@
       </div>
     </footer>
 </div>
-
+<script src="./js/contactUs.js"></script>
 </body>
 </html>

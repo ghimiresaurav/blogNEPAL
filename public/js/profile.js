@@ -1,4 +1,3 @@
-// import { newpost } from "./dashboard.js";
 const userDetails = JSON.parse(localStorage.getItem("userDetails"));
 (() => {
   //display all the important information
@@ -228,7 +227,7 @@ const updatePassword = (e) => {
     .catch((err) => console.error(err));
 };
 
-const newpost = (blog) => {
+const wrapBlog = (blog) => {
   const blogsContainer = document.getElementById("blogcss");
   const x = document.createElement("div");
   x.classList.add("blogs");
@@ -295,7 +294,7 @@ const blog = () => {
   fetch("/protected/getblogbyid", fetchOptions)
     .then((res) => res.json())
     .then((response) => {
-      response.forEach((resp) => newpost(resp));
+      response.forEach((resp) => wrapBlog(resp));
     });
 };
 

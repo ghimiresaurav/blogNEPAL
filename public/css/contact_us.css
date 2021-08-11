@@ -26,34 +26,31 @@ nav {
 }
 
 #logo {
-  font-family: "Poppins", sans-serif;
-  font-weight: 600;
-  font-size: 25px;
+  font-family: "Kaushan Script", sans-serif;
+  font-weight: 700;
+  font-size: 30px;
 }
-#logo a
-{
-    text-decoration: none;
-    color: white;
+
+#logo a {
+  text-decoration: none;
+  color: white;
 }
-#About_Us{
+#About_Us {
   font-family: "Poppins", sans-serif;
   font-weight: 600;
   font-size: 50px;
   text-align: center;
-  }
-.contact-form
-{
+}
+.contact-form {
   text-align: center;
   justify-content: center;
   align-items: center;
   display: block;
 }
-.contact-form h1
-{
+.contact-form h1 {
   color: rgb(201, 31, 31);
 }
-#contactForm 
-{
+#contactForm {
   width: 50%;
   padding: 15px 0;
   border: 1px solid rgb(160, 159, 159);
@@ -64,12 +61,10 @@ nav {
   flex-direction: column;
   box-shadow: 5px 5px 15px rgb(49, 47, 47);
 }
-#contactForm p
-{
+#contactForm p {
   font-size: 20px;
 }
-.control-group input 
-{
+.control-group input {
   padding: 10px;
   background-color: transparent;
   outline: none;
@@ -77,15 +72,13 @@ nav {
   transition: 350ms;
   border-bottom: 1px solid #000;
 }
-input
-{
+input {
   width: 80%;
   height: 30px;
   font-size: 15px;
   margin-bottom: 11px;
 }
-#select-beast
-{
+#select-field {
   padding: 10px;
   outline: none;
   border: 1px dotted transparent;
@@ -94,160 +87,107 @@ input
   border-bottom: 1px solid #000;
   background-color: #0000ff0a;
 }
-#subject
-{
+#issue-description {
   border-radius: 20px;
   padding: 10px;
 }
-#form-btn
-{
+#form-btn {
   padding: 6px 35px;
   font-size: 20px;
   font-weight: 400;
-  border-radius:  15px;
+  border-radius: 15px;
   border: 2px solid transparent;
   margin-top: 20px;
   background-color: rgb(201, 31, 31);
   color: white;
 }
-#form-btn:hover
-{
+#form-btn:hover {
   border: 2px solid black;
   background-color: white;
   transition-duration: 0.3s;
   color: rgb(201, 31, 31);
 }
-.describe
-{
+.describe {
   padding: 20px 0px;
 }
 
-
-
-#status{
-  width: 90%;
-  max-width: 500px;
+#status {
+  max-width: 600px;
   text-align: center;
   padding: 10px;
   margin: 0 auto;
   border-radius: 8px;
+  color: #fff;
+  margin: 15px;
 }
-#status.sucess{
-  background-color: rgba(17, 173, 17, 0.767);
-  color: white;
-  animation: status 3s ease forwards;
-
-}
-#status.error{
-  background-color: rgb(201, 31, 31);
-  color: white;
-  animation: status 5s ease  forwards;
-}
-@keyframes status{
-0%{
-  opacity: 1;
-  pointer-events: all;
-}
-90%{
-  opacity: 1;
-  pointer-events: all;
-}
-100%{
-  opacity: 0;
-  pointer-events: none;
-}
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /*Footer CSS*/
-footer
-{
+footer {
   bottom: 0px;
   width: 100%;
   background: #111;
 }
-.main-content
-{
+.main-content {
   display: flex;
+  /* justify-content: space-around; */
 }
-.main-content .box{
+.main-content .box {
   flex-basis: 50%;
   padding: 10px 20px;
 }
-.box h2{
+.box h2 {
   font-size: 1.125rem;
   font-weight: 600;
   text-transform: uppercase;
-  color:  white;
+  color: white;
 }
-.box .content{
+.box .content {
   margin: 20px 0 0 0;
   position: relative;
 }
-.box .content:before{
+.box .content:before {
   position: absolute;
-  content: '';
+  content: "";
   top: -10px;
   height: 2px;
   width: 100%;
   background: #1a1a1a;
 }
-.box .content:after{
+.box .content:after {
   position: absolute;
-  content: '';
+  content: "";
   height: 2px;
   width: 15%;
   background: #f12020;
   top: -10px;
 }
-.left .content p{
+.left .content p {
   text-align: justify;
-  color:  white;
+  color: white;
 }
-.left .content .social{
+.left .content .social {
   margin: 20px 0 0 0;
 }
-.left .content .social a{
+.left .content .social a {
   padding: 0 2px;
 }
-.left .content .social a span{
+.left .content .social a span {
   height: 40px;
   width: 40px;
   background: #1a1a1a;
-  color: #fff ;
+  color: #fff;
   line-height: 40px;
   text-align: center;
   font-size: 18px;
   border-radius: 5px;
   transition: 0.3s;
 }
-.left .content .social a span:hover{
+.left .content .social a span:hover {
   background: #f12020;
 }
-.center .content .fas{
+.center .content .fas {
   font-size: 1.4375rem;
   background: #1a1a1a;
-  color : #fff ;
+  color: #fff;
   height: 45px;
   width: 45px;
   line-height: 45px;
@@ -256,26 +196,27 @@ footer
   transition: 0.3s;
   cursor: pointer;
 }
-.center .content .fas:hover{
+.center .content .fas:hover {
   background: #f12020;
 }
-.center .content .text{
+.center .content .text {
   font-size: 1.0625rem;
   font-weight: 500;
   padding-left: 10px;
 }
-.center .content .phone{
+.center .content .phone {
   margin: 15px 0;
 }
-.right form .text{
+.right form .text {
   font-size: 1.0625rem;
   margin-bottom: 2px;
   color: #656565;
 }
-.right form .msg{
+.right form .msg {
   margin-top: 10px;
 }
-.right form input, .right form textarea{
+.right form input,
+.right form textarea {
   width: 100%;
   font-size: 1.0625rem;
   background: #151515;
@@ -283,18 +224,17 @@ footer
   border: 1px solid #222222;
 }
 .right form input:focus,
-.right form textarea:focus{
+.right form textarea:focus {
   outline-color: #3498db;
 }
-.right form input
-{
+.right form input {
   height: 35px;
   margin: 0px;
 }
-.right form .btn{
+.right form .btn {
   margin-top: 10px;
 }
-.right form .btn button{
+.right form .btn button {
   height: 40px;
   width: 100%;
   border: none;
@@ -303,41 +243,53 @@ footer
   font-size: 1.0625rem;
   font-weight: 500;
   cursor: pointer;
-  transition: .3s;
+  transition: 0.3s;
 }
-.right form .btn button:hover{
+.right form .btn button:hover {
   background: #fff;
 }
-.bottom center{
+.bottom center {
   padding: 5px;
   font-size: 0.9375rem;
   background: #151515;
 }
-.bottom center span{
+.bottom center span {
   color: #656565;
 }
-.bottom center a{
+.bottom center a {
   color: #f12020;
   text-decoration: none;
 }
-.bottom center a:hover{
+.bottom center a:hover {
   text-decoration: underline;
 }
 @media screen and (max-width: 900px) {
-  footer{
+  footer {
     position: relative;
     bottom: 0px;
   }
-  .main-content{
+  .main-content {
     flex-wrap: wrap;
     flex-direction: column;
   }
-  .main-content .box{
+  .main-content .box {
     margin: 5px 0;
   }
 }
 
-.content .text
-{
+.content .text {
   color: white;
+}
+
+#form-submit-btn {
+  width: 100px;
+  height: 30px;
+  padding: 5px;
+  background: var(--primary-bg);
+  color: #fff;
+  border-radius: 4px;
+  margin-top: 10px;
+  border: none;
+  outline: none;
+  cursor: pointer;
 }
