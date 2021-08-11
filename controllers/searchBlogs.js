@@ -8,7 +8,7 @@ const searchByTag = (req, res) => {
     async (err, client) => {
       if (err) throw err;
       const db = client.db(process.env.DB_NAME);
-      const query = { tags: name };
+      const query = { category: name };
       //search tag
       const posts = await db.collection("blogs").find(query).toArray();
       return res.json(posts);
