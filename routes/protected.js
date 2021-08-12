@@ -12,7 +12,11 @@ const verifyToken = require("../auth/verify");
 const logout = require("../controllers/logout");
 const { initiatePost, postBlog } = require("../controllers/postBlog");
 const postComment = require("../controllers/postComment");
-const { searchByTag, searchByTitle } = require("../controllers/searchBlogs");
+const {
+  searchByTag,
+  searchByTitle,
+  searchByCategory,
+} = require("../controllers/searchBlogs");
 const {
   getAllBlogs,
   getOwnBlogs,
@@ -57,6 +61,7 @@ router.get("/blog/:id", getSpecificBlog);
 router.post("/getblogbyid", getOwnBlogs);
 router.post("/searchblog", searchByTitle);
 router.post("/search", searchByTag);
+router.post("/searchbycategory", searchByCategory);
 router.post("/like", like);
 router.post("/post-comment", postComment);
 router.post("/post-blog", initiatePost, postBlog);

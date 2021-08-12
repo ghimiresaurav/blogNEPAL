@@ -1,5 +1,3 @@
-const TAGS = [];
-const tagsSection = document.getElementById("tags-section");
 (() => {
   document.getElementById("user-avatar").src =
     localStorage.getItem("avatarLink");
@@ -14,7 +12,7 @@ const tagsSection = document.getElementById("tags-section");
   const tagToSearch = window.location.href.split("searchByTag")[1];
   if (tagToSearch) {
     const tag = tagToSearch.split("=")[1];
-    if (tag) setTimeout(() => searchByTags(tag), 500);
+    if (tag) setTimeout(() => searchByTags(tag), 100);
   }
 })();
 
@@ -133,6 +131,28 @@ function searchByTags(value) {
     .catch((err) => console.error(err));
 }
 
+function searchByCategory(value) {
+  const blogDiv = document.getElementById("blogcss");
+  while (blogDiv.firstChild) {
+    blogDiv.removeChild(blogDiv.firstChild);
+  }
+  const fetchOptions = {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ name: value }),
+  };
+  fetch("/protected/searchbycategory", fetchOptions)
+    .then((response) => response.json())
+    .then((data) => {
+      data.forEach((datum) => {
+        wrapBlog(datum);
+      });
+    })
+    .catch((err) => console.error(err));
+}
+
 const form = document.getElementById("search");
 form.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -173,24 +193,6 @@ const wrapBlog = (blog) => {
   const images = blog.links.split(", ");
   images.shift();
   if (images.length) blogImageUrl = images[0];
-
-  if (blog.tags.length) {
-    tagsDiv = blog.tags.reduce((acc, elem) => {
-      if (TAGS.indexOf(elem) == -1) {
-        const newTag = document.createElement("div");
-        newTag.setAttribute("onclick", `searchByTags("${elem}")`);
-        const tagText =
-          elem.includes("_") || elem.includes("-")
-            ? elem.substr(1)
-            : elem.substr(1, 1).toUpperCase() + elem.substr(2);
-        //REMOVE # AND CAPITALIZE THE FIRST LETTER IN TAGS
-        newTag.innerHTML = `<button>${tagText}</button>`;
-        tagsSection.appendChild(newTag);
-        TAGS.push(elem);
-      }
-      return `${acc}<div class="blog-category">${elem}</div>`;
-    }, "");
-  }
 
   x.innerHTML = `
   <div class="card-header">
