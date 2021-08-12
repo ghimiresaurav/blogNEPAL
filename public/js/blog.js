@@ -66,12 +66,7 @@ const wrapBlog = (blog) => {
     tagsDiv = blog.tags.reduce((acc, elem) => {
       const newTag = document.createElement("div");
       newTag.setAttribute("onclick", `searchBlogsByTags("${elem}")`);
-      const tagText =
-        elem.includes("_") || elem.includes("-")
-          ? elem.substr(1)
-          : elem.substr(1, 1).toUpperCase() + elem.substr(2);
-      //REMOVE # AND CAPITALIZE THE FIRST LETTER IN TAGS
-      newTag.innerHTML = `<button>${tagText}</button>`;
+      newTag.innerHTML = `<button>${elem}</button>`;
       tagsSection.appendChild(newTag);
       return `${acc}<div class="blog-category">${elem}</div>`;
     }, "");

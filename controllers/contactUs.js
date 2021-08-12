@@ -5,8 +5,7 @@ module.exports = (req, res) => {
   const { name, phone, email, company, issueAbout, issueDesctiption } =
     req.body;
 
-  const content = `
-   --RESPONSE START--
+  const content = `--RESPONSE START--
 
     Date: ${date}
     Issue About: ${issueAbout}
@@ -22,7 +21,7 @@ module.exports = (req, res) => {
 
     `;
 
-  fs.appendFile("contact_response.txt", content, (err) => {
+  fs.appendFile("./public/assets/contact_response.txt", content, (err) => {
     if (err)
       return res.json({
         success: false,
