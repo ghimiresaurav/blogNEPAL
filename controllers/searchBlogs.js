@@ -16,6 +16,22 @@ const searchByTag = (req, res) => {
   );
 };
 
+const searchByCategory = (req, res) => {
+  const { name } = req.body;
+  MongoClient.connect(
+    process.env.DB_URL,
+    { useNewUrlParser: true, useUnifiedTopology: true },
+    async (err, client) => {
+      if (err) throw err;
+      const db = client.db(process.env.DB_NAME);
+      const query = { category: name };
+      //search tag
+      const posts = await db.collection("blogs").find(query).toArray();
+      return res.json(posts);
+    }
+  );
+};
+
 const searchByTitle = (req, res) => {
   const { name } = req.body;
   MongoClient.connect(
@@ -38,4 +54,5 @@ const searchByTitle = (req, res) => {
 module.exports = {
   searchByTag,
   searchByTitle,
+  searchByCategory,
 };

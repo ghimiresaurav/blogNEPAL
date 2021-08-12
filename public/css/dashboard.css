@@ -171,6 +171,7 @@ hr.new {
 
 #secondSection {
   display: flex;
+  flex-direction: column;
   flex-wrap: wrap;
   position: absolute;
   font-size: 18px;
@@ -186,18 +187,18 @@ hr.new {
   /* text-align: center; */
   margin: auto;
 }
-
-#tags-section {
-  position: absolute;
-  top: 8vh;
+#tags-section,
+#category-section {
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
   overflow: hidden;
   margin-left: -2px;
+  margin-top: 20px;
 }
 
-#tags-section button {
+#tags-section button,
+#category-section button {
   font-family: "Montserrat", sans-serif;
   font-size: 15px;
   padding: 8px 20px;
@@ -208,7 +209,6 @@ hr.new {
   margin-bottom: 15px;
   margin-left: 4px;
 }
-
 /* blog section css*/
 
 #blogcss {
