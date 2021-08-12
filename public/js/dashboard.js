@@ -195,7 +195,25 @@ const wrapBlog = (blog) => {
   const images = blog.links.split(", ");
   images.shift();
   if (images.length) blogImageUrl = images[0];
-  
+
+  if (blog.tags.length) {
+    tagsDiv = blog.tags.reduce((acc, elem) => {
+      if (TAGS.indexOf(elem) == -1) {
+        const newTag = document.createElement("div");
+        newTag.setAttribute("onclick", `searchByTags("${elem}")`);
+        const tagText =
+          elem.includes("_") || elem.includes("-")
+            ? elem.substr(1)
+            : elem.substr(1, 1).toUpperCase() + elem.substr(2);
+        //REMOVE # AND CAPITALIZE THE FIRST LETTER IN TAGS
+        newTag.innerHTML = `<button>${tagText}</button>`;
+        tagsSection.appendChild(newTag);
+        TAGS.push(elem);
+      }
+      return `${acc}<div class="blog-category">${elem}</div>`;
+    }, "");
+  }
+
   x.innerHTML = `
   <div class="card-header">
     <img class="card-image" src="${blogImageUrl}" alt="blog-image" />
