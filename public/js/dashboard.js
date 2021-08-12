@@ -133,6 +133,28 @@ function searchByTags(value) {
     .catch((err) => console.error(err));
 }
 
+function searchByCategory(value) {
+  const blogDiv = document.getElementById("blogcss");
+  while (blogDiv.firstChild) {
+    blogDiv.removeChild(blogDiv.firstChild);
+  }
+  const fetchOptions = {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ name: value }),
+  };
+  fetch("/protected/searchbycategory", fetchOptions)
+    .then((response) => response.json())
+    .then((data) => {
+      data.forEach((datum) => {
+        wrapBlog(datum);
+      });
+    })
+    .catch((err) => console.error(err));
+}
+
 const form = document.getElementById("search");
 form.addEventListener("submit", (e) => {
   e.preventDefault();
