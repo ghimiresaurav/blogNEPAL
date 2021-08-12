@@ -155,7 +155,7 @@ li:hover .onHover {
 }
 
 #createBlog:hover,
-#tags-section button:hover {
+#category-section button:hover {
   background: var(--primary-bg);
   color: #fff;
   border: none;
@@ -186,28 +186,53 @@ hr.new {
   max-width: 100%;
   /* text-align: center; */
   margin: auto;
+  font-size: 24px;
 }
 #tags-section,
 #category-section {
   display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
   overflow: hidden;
+  flex-direction: column;
   margin-left: -2px;
   margin-top: 20px;
+  height: 570px;
+  overflow-y: scroll;
+  width: 110%;
+}
+
+#category-section::-webkit-scrollbar {
+  width: 12px; /* width of the entire scrollbar */
+}
+
+#category-section::-webkit-scrollbar-track {
+  background: #c5d5e2; /* color of the tracking area */
+  border-radius: 20px;
+}
+
+#category-section::-webkit-scrollbar-thumb {
+  background-color: var(--primary-bg); /* color of the scroll thumb */
+  border-radius: 20px; /* roundness of the scroll thumb */
+  border: 2px solid #c5d5e2; /* creates padding around scroll thumb */
+}
+
+.category {
+  margin-right: 20px;
 }
 
 #tags-section button,
 #category-section button {
   font-family: "Montserrat", sans-serif;
-  font-size: 15px;
+  font-size: 18px;
   padding: 8px 20px;
   border: 2px solid transparent;
   cursor: pointer;
   background: #e7e7e7;
-  border-radius: 25px;
+  border-radius: 10px;
+  width: 100%;
   margin-bottom: 15px;
   margin-left: 4px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
 }
 /* blog section css*/
 

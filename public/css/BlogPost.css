@@ -454,8 +454,8 @@ hr.new {
   flex-wrap: wrap;
   position: absolute;
   font-size: 18px;
-  top: 20vh;
-  width: 85%;
+  top: 5vh;
+  width: 93%;
 }
 
 #topSection {
@@ -465,6 +465,7 @@ hr.new {
   max-width: 100%;
   /* text-align: center; */
   margin: auto;
+  font-size: 24px;
 }
 
 #tags-section {
@@ -507,4 +508,56 @@ hr.new {
   border-radius: 15px;
   margin: 0 8px 15px 0;
   overflow: hidden;
+}
+
+#category-section {
+  display: flex;
+  overflow: hidden;
+  flex-direction: column;
+  margin-left: -2px;
+  margin-top: 20px;
+  height: 750px;
+  overflow-y: scroll;
+  width: 100%;
+}
+
+#category-section::-webkit-scrollbar {
+  width: 12px; /* width of the entire scrollbar */
+}
+
+#category-section::-webkit-scrollbar-track {
+  background: #c5d5e2; /* color of the tracking area */
+  border-radius: 20px;
+}
+
+#category-section::-webkit-scrollbar-thumb {
+  background-color: var(--primary-bg); /* color of the scroll thumb */
+  border-radius: 20px; /* roundness of the scroll thumb */
+  border: 2px solid #c5d5e2; /* creates padding around scroll thumb */
+}
+
+#category-section button {
+  font-family: "Montserrat", sans-serif;
+  font-size: 18px;
+  padding: 8px 20px;
+  border: 2px solid transparent;
+  cursor: pointer;
+  background: #e7e7e7;
+  border-radius: 10px;
+  width: 100%;
+  margin-bottom: 15px;
+  margin-left: 4px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.category {
+  margin-right: 20px;
+}
+
+#category-section button:hover {
+  background: var(--primary-bg);
+  color: #fff;
+  border: none;
+  border: 2px solid var(--primary-bg);
 }
