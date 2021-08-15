@@ -42,20 +42,23 @@ const wrapBlog = (blog) => {
     id = "";
 
   if (LikeStatus) {
-    clas = "fas fa-heart";
+    clas = "fas";
     id = "fill-red";
   } else {
-    clas = "far fa-heart";
+    clas = "far";
     id = "fill-none";
   }
 
-  document.getElementById("likesharecmt").innerHTML = `
-    <i onclick="Like(${LikeStatus})" class="${clas}" id=${id} style="font-size: 20px"></i>
-    <p id="LikeNo">${LikeNo}</p>
-    <i class="far fa-comment" style="font-size: 20px"></i>
-    <p>${CommentNo}</p>
-    <i class="fas fa-share" style="font-size: 20px"></i>
-    `;
+  const likesharecmtDiv = document.getElementById("likesharecmt");
+  const likeButton = document.createElement("i");
+  likeButton.setAttribute("onclick", `Like(${LikeStatus})`);
+  likeButton.classList.add(`fa-heart`);
+  likeButton.classList.add(clas);
+  likeButton.id = id;
+  likeButton.style.fontSize = "20px";
+  likesharecmtDiv.insertBefore(likeButton, likesharecmtDiv.childNodes[0]);
+  document.getElementById("LikeNo").innerText = LikeNo;
+  document.getElementById("number-of-comments").innerText = CommentNo;
 
   blog.comments.forEach((data) => {
     comment(data);
@@ -79,8 +82,8 @@ const wrapBlog = (blog) => {
 const comment = (comment) => {
   const cmt_list = document.getElementById("comment-list");
   const cmt = document.createElement("div");
+  cmt.classList.add("comments");
   cmt.innerHTML = `
-    <div class="comments">
       <div>
         <img id="commentimage" src=${comment.user.avatar} alt="pic"/>
       </div>
@@ -88,8 +91,7 @@ const comment = (comment) => {
         <p><strong>${comment.user.name} </strong>
         <span class="comment-time">${comment.date}</span></p>
         <p>${comment.body} </p>
-      </div>
-    </div>`;
+      </div>`;
   cmt_list.append(cmt);
 };
 
@@ -138,17 +140,36 @@ const Like = (LikeStatus) => {
   const res = fetch("/protected/like", fetchOptions);
 };
 
-//post comment in backend
-const postComment = (e, comment) => {
+//send the comment text and blog_id to the server
+const postComment = (e, commentText) => {
   e.preventDefault();
   const fetchOptions = {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ postId: blogId, comment: comment }),
+    body: JSON.stringify({ postId: blogId, comment: commentText }),
   };
-  fetch("/protected/post-comment", fetchOptions);
+  fetch("/protected/post-comment", fetchOptions)
+    .then((resp) => resp.json())
+    .then((response) => {
+      if (response.success) {
+        e.target.firstElementChild.value = "";
+        comment({
+          user: {
+            avatar: localStorage.getItem("avatarLink"),
+            name: JSON.parse(localStorage.getItem("userDetails")).username,
+          },
+          body: commentText,
+          date: "just now",
+        });
+        //this is not working, dk why
+        const commentList = document.getElementById("comment-list");
+        commentList.scrollTop = commentList.scrollHeight;
+        const numberOfComments = document.getElementById("number-of-comments");
+        numberOfComments.innerText = parseInt(numberOfComments.innerText) + 1;
+      } else console.log("falied to comment");
+    });
 };
 
 fetch(`/protected/blog/${blogId}`)

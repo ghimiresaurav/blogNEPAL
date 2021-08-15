@@ -22,10 +22,12 @@ module.exports = (req, res) => {
         },
         date,
       };
-      await db.collection("blogs").updateOne(query, {
+      const message = await db.collection("blogs").updateOne(query, {
         $push: { comments: newComment },
       });
       client.close();
+      if (message.result.ok) return res.json({ success: true });
+      return res.json({ success: false });
     }
   );
 };
