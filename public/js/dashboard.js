@@ -1,3 +1,12 @@
+const main = () => {
+  fetch("/protected/get-blogs")
+    .then((response) => response.json())
+    .then((data) => {
+      data.forEach((datum) => wrapBlog(datum));
+    })
+    .catch((err) => console.error(err));
+};
+
 (() => {
   document.getElementById("user-avatar").src =
     localStorage.getItem("avatarLink");
@@ -9,19 +18,15 @@
       menuItem[i].classList.add("active");
     }
   }
-  const tagToSearch = window.location.href.split("searchByTag")[1];
-  if (tagToSearch) {
-    const tag = tagToSearch.split("=")[1];
-    if (tag) setTimeout(() => searchByTags(tag), 500);
-  }
-})();
+  const toSearch = window.location.href.split("searchBy")[1];
+  if (toSearch) {
+    const searchType = toSearch.split("=")[0];
+    const searchText = toSearch.split("=")[1];
 
-fetch("/protected/get-blogs")
-  .then((response) => response.json())
-  .then((data) => {
-    data.forEach((datum) => wrapBlog(datum));
-  })
-  .catch((err) => console.error(err));
+    if (searchType === "Tag") searchByTags(searchText);
+    else if (searchType == "Cat") searchByCategory(searchText);
+  } else main();
+})();
 
 document.addEventListener(
   "DOMContentLoaded",
