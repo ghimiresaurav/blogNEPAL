@@ -238,4 +238,4 @@ const searchBlogsByTags = (tag) =>
   window.location.assign(`/protected/dashboard?searchByTag=${tag}`);
 
 const searchByCategory = (tag) =>
-  window.location.assign(`/protected/dashboard?searchByCategory=${tag}`);
+  window.location.assign(`/protected/dashboard?searchByCat=${tag}`);

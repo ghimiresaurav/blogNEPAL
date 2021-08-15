@@ -195,9 +195,9 @@ hr.new {
   flex-direction: column;
   margin-left: -2px;
   margin-top: 20px;
-  height: 570px;
+  height: 400px;
   overflow-y: scroll;
-  width: 110%;
+  width: 105%;
 }
 
 #category-section::-webkit-scrollbar {

@@ -177,6 +177,7 @@ const clearForm = () => {
   document.getElementById("blog-title").value = "";
   image.src = "";
   rightPane.style.height = "50vh";
+  document.getElementById("category").value = "";
   clearTags();
   tinymce.get("blog-txt").setContent("");
   setTimeout(() => {

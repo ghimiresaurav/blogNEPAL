@@ -12,7 +12,7 @@
   const tagToSearch = window.location.href.split("searchByTag")[1];
   if (tagToSearch) {
     const tag = tagToSearch.split("=")[1];
-    if (tag) setTimeout(() => searchByTags(tag), 100);
+    if (tag) setTimeout(() => searchByTags(tag), 500);
   }
 })();
 
