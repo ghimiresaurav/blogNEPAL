@@ -40,4 +40,18 @@
     --RESPONSE END--
 
 
+    --RESPONSE START--
+
+    Date: 18 Aug 2021 - 10:58 PM
+    Issue About: register
+    Description: I was having trouble registering, since the website didn't allow me to choose a password that I could remember easily.
+
+    Name: John Doe
+    Phone: 9812345678
+    Email: johndoe@gmail.com
+    Company: Google
+
+    --RESPONSE END--
+
+
     
